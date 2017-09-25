@@ -35,14 +35,14 @@ class mainViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func connectBLE(_ sender: Any) {
+    @IBAction func connectBLE(_ sender: UIButton) {
         if (connected) {
         } else {
             performSegue(withIdentifier: "toBle", sender: AnyObject.self)
         }
     }
     
-    @IBAction func startButton(_ sender: Any) {
+    @IBAction func startButton(_ sender: UIButton) {
         performSegue(withIdentifier: "toExercise", sender: AnyObject.self)
         if (workoutActive == false) {
         workoutActive = true
@@ -50,6 +50,9 @@ class mainViewController: UIViewController {
         startTime = NSCalendar.current as NSCalendar
     }
     
+    @IBAction func exercistList(_ sender: UIButton) {
+        performSegue(withIdentifier: "toExerciseList", sender: AnyObject.self)
+    }
     
     
 }
