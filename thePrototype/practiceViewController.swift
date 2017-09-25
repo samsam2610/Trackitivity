@@ -12,15 +12,6 @@ import CoreData
 
 
 
-var workoutActive = false
-var First: Int = 0, Second: Int = 0, dBefore: Int = 0, dAfter: Int = 0, Max: Int = 0, Min: Int = 0, currentMax: Int = 0, currentMin: Int = 0, sessionMax: Int = 0, sessionMin: Int = 0
-var currentCount: Double = 0
-var targetCount: Double = 20
-var totalTime: TimeInterval = 0
-var targetTime: Double = 60
-var avgROM: Int = 0
-var startTime: NSCalendar?
-var endTime: NSCalendar?
 
 
 
@@ -124,10 +115,10 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, UIT
         // Declare Alert
         self.stopWorkout()
         workoutActive = false
-        let dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to Logout?", preferredStyle: .alert)
+        let dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to finish the session?", preferredStyle: .alert)
         
         // Create OK button with action handler
-        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+        let yes = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
             self.finishedWorkout = true
             endTime = NSCalendar.current as NSCalendar
             self.wrappingUpData()
@@ -135,14 +126,14 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, UIT
         })
         
         // Create Cancel button with action handlder
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) -> Void in
+        let nah = UIAlertAction(title: "Nah", style: .cancel, handler: { (action) -> Void in
             workoutActive = true
             self.startWorkout()
         })
         
         //Add OK and Cancel button to dialog message
-        dialogMessage.addAction(ok)
-        dialogMessage.addAction(cancel)
+        dialogMessage.addAction(yes)
+        dialogMessage.addAction(nah)
         
         // Present dialog message to user
         self.present(dialogMessage, animated: true, completion: nil)
@@ -184,7 +175,11 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, UIT
     func analyzeData (clearedStringData: String) {
         let dataCache = self.checkString(String: clearedStringData)
         Second = dataCache.valueY
+        let thighAngle = dataCache.valueX
         guard dataCache.Time > 0 else {
+            return
+        }
+        guard  thighAngle > thighMinAngle! && thighAngle < thighMaxAngle! else {
             return
         }
         let diff = Second - First
@@ -347,34 +342,7 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, UIT
         }
     }
     
-    func PostData(_ data: String) {
-        
-        let parameters = ["title": data as String,"order":3, "complete":false] as [String : Any]
-        
-        guard let url = URL(string: "https://fast-falls-98558.herokuapp.com/tasks") else { return }
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
-        request.httpBody = httpBody
-        
-        let session = URLSession.shared
-        session.dataTask(with: request) { (data, response, error) in
-            if let response = response {
-                print(response)
-            }
-            
-            if let data = data {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
-                } catch {
-                    print(error)
-                }
-            }
-            
-            }.resume()
-    }
+
     
     func save(rawData: [Float?], mean: Double?) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {

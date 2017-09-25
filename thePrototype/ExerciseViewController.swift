@@ -11,12 +11,31 @@ import UIKit
 class ExerciseViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var exerciseList: UITableView!
-    @IBAction func back(_ sender: Any) {
+    @IBAction func back(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "backToMainFromExercise", sender: AnyObject.self)
     }
-    let exercise = ["Partial Squad", "Straight Leg Raises"]
-    var descrip = ["Hold onto a sturdy chair or counter with your feet 6-12 inches from the chair or counter. While keeping your back straight, slowly bend your knees. DO NOT go any lower than 90 degrees. Hold for 5-10 seconds. Slowly come back up. Relax.","Support yourself, if necessary, and slowly lift your involved leg forward keeping your knee straight. Return to the starting position"]
-     //var descrip = ["Yo","Yo"]
+    
+    @IBAction func done(_ sender: UIBarButtonItem) {
+        
+        let dialogMessage = UIAlertController(title: "Confirm", message: "You selected \(selectedExercise). Do you want to continue?", preferredStyle: .alert)
+        
+        // Create OK button with action handler
+        let confirm = UIAlertAction(title: "Confirm", style: .default, handler: { (action) -> Void in
+            self.performSegue(withIdentifier: "backToMainFromExercise", sender: self)
+        })
+        
+        // Create Cancel button with action handlder
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) -> Void in
+        })
+        
+        //Add OK and Cancel button to dialog message
+        dialogMessage.addAction(confirm)
+        dialogMessage.addAction(cancel)
+        
+        // Present dialog message to user
+        self.present(dialogMessage, animated: true, completion: nil)
+    }
+    //var descrip = ["Yo","Yo"]
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
@@ -33,6 +52,11 @@ class ExerciseViewController: UIViewController, UITableViewDataSource, UITableVi
         
         return (cell)
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedExercise = exercise[indexPath.row]
+    }
+    
 
     
     override func viewDidLoad() {

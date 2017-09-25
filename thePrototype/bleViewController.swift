@@ -11,14 +11,6 @@ import UIKit
 import CoreBluetooth
 import CoreData
 
-var txCharacteristic : CBCharacteristic?
-var rxCharacteristic : CBCharacteristic?
-var blePeripheral : CBPeripheral?
-var characteristicASCIIValue = NSString()
-var people: [NSManagedObject] = []
-var rawData: [String] = []
-var stringData = String()
-var clearedStringData = String()
 
 class bleViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDelegate, UITableViewDelegate, UITableViewDataSource {
 
