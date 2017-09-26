@@ -17,8 +17,6 @@ class ExerciseTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        demoInfo.lineBreakMode = .byWordWrapping // notice the 'b' instead of 'B'
-        demoInfo.numberOfLines = 8
         demoInfo.font = demoInfo.font.withSize(15)
     }
 

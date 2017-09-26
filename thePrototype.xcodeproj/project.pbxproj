@@ -13,6 +13,7 @@
 		2201CCB41F742C0400736AD5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2201CCB31F742C0400736AD5 /* Extensions.swift */; };
 		2202A45E1F79B5410034330F /* variableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2202A45D1F79B5410034330F /* variableList.swift */; };
 		2208E5331F74B98B00C74074 /* practiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2208E5321F74B98B00C74074 /* practiceViewController.swift */; };
+		2218BC781F7ABE7D009C7434 /* doctorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2218BC771F7ABE7D009C7434 /* doctorViewController.swift */; };
 		22654B4D1F7398AF00FB32FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22654B4C1F7398AF00FB32FA /* AppDelegate.swift */; };
 		22654B4F1F7398AF00FB32FA /* logInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22654B4E1F7398AF00FB32FA /* logInViewController.swift */; };
 		22654B521F7398AF00FB32FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22654B501F7398AF00FB32FA /* Main.storyboard */; };
@@ -80,6 +81,7 @@
 		2201CCB51F7435DF00736AD5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../../../../.Trash/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2202A45D1F79B5410034330F /* variableList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = variableList.swift; sourceTree = "<group>"; };
 		2208E5321F74B98B00C74074 /* practiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiceViewController.swift; sourceTree = "<group>"; };
+		2218BC771F7ABE7D009C7434 /* doctorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = doctorViewController.swift; sourceTree = "<group>"; };
 		224FB7EC1F75C4F00026A71B /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		224FB7ED1F75C4F00026A71B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		224FB7EE1F75C4F00026A71B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -294,13 +296,13 @@
 		22654B4B1F7398AF00FB32FA /* thePrototype */ = {
 			isa = PBXGroup;
 			children = (
-				22AE3B201F78891400C27D0F /* ExerciseImage */,
 				224FB7EB1F75C4F00026A71B /* Spring-master */,
 				22654B4C1F7398AF00FB32FA /* AppDelegate.swift */,
 				22654B4E1F7398AF00FB32FA /* logInViewController.swift */,
 				22654B501F7398AF00FB32FA /* Main.storyboard */,
 				2208E5321F74B98B00C74074 /* practiceViewController.swift */,
 				22E38EFF1F73B8B30031B7A9 /* mainViewController.swift */,
+				2218BC771F7ABE7D009C7434 /* doctorViewController.swift */,
 				2201CCAD1F74178100736AD5 /* bleViewController.swift */,
 				22AE3B1E1F7884FE00C27D0F /* ExerciseViewController.swift */,
 				2202A45D1F79B5410034330F /* variableList.swift */,
@@ -341,13 +343,6 @@
 				22A506611F7569FE0051A199 /* CoreBluetooth.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		22AE3B201F78891400C27D0F /* ExerciseImage */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ExerciseImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -521,6 +516,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2201CCB21F742BDE00736AD5 /* UUIDKey.swift in Sources */,
+				2218BC781F7ABE7D009C7434 /* doctorViewController.swift in Sources */,
 				22654B4F1F7398AF00FB32FA /* logInViewController.swift in Sources */,
 				22AE3B1D1F7884D500C27D0F /* ExerciseTableViewCell.swift in Sources */,
 				2201CCAE1F74178100736AD5 /* bleViewController.swift in Sources */,

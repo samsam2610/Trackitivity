@@ -64,9 +64,8 @@ class mainViewController: UIViewController {
         performSegue(withIdentifier: "toExerciseList", sender: AnyObject.self)
     }
     
-    @IBAction func Post(_ sender: UIButton) {
-        Login()
-        PostData()
+    @IBAction func doctorSetting(_ sender: UIButton) {
+        performSegue(withIdentifier: "toDoctor", sender: AnyObject.self)
     }
     
     func PostData() {
