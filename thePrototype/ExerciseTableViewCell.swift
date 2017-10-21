@@ -10,12 +10,14 @@ import UIKit
 
 class ExerciseTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var demoName: UILabel!
     @IBOutlet weak var demoImage: UIImageView!
-    @IBOutlet weak var demoInfo: UITextView!
+    @IBOutlet weak var demoInfo: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        demoInfo.font = demoInfo.font.withSize(15)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

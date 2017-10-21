@@ -9,31 +9,25 @@
 import UIKit
 import CoreBluetooth
 import CoreData
+import ResearchKit
 
 
-
-var workoutActive = false
-var First: Int = 0, Second: Int = 0, dBefore: Int = 0, dAfter: Int = 0, Max: Int = 0, Min: Int = 0, currentMax: Int = 0, currentMin: Int = 0, sessionMax: Int = 0, sessionMin: Int = 0
-var currentCount: Double = 0
-var targetCount: Double = 20
-var totalTime: TimeInterval = 0
-var targetTime: Double = 60
-var avgROM: Int = 0
-var startTime: NSCalendar?
-var endTime: NSCalendar?
-
-
-
-class practiceViewController: UIViewController, CBPeripheralManagerDelegate, UITextViewDelegate, UITextFieldDelegate {
+class practiceViewController: UIViewController, CBPeripheralManagerDelegate, ORKTaskViewControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
     
     //UI
-    @IBOutlet weak var baseTextView: UITextView!
-    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var toggleButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var dataLabel: UILabel!
     @IBOutlet weak var smallRing: KDCircularProgress!
     @IBOutlet weak var bigRing: KDCircularProgress!
+    
+    @IBOutlet weak var exerciseName: UILabel!
+    @IBOutlet weak var exerciseWarning: UILabel!
+    
+    
+    
+    
     //Data
     var peripheralManager: CBPeripheralManager?
     var peripheral: CBPeripheral!
@@ -46,6 +40,7 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, UIT
     var trueData: [Int]?
     var rep = String(currentCount)
     var finishedWorkout = false
+    var surveyFinish = false
     
     
     
@@ -55,28 +50,23 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"Back", style:.plain, target:nil, action:nil)
-        self.baseTextView.delegate = self
-        //Base text view setup
-        self.baseTextView.layer.borderWidth = 1.0
-        self.baseTextView.layer.borderColor = UIColor.black.cgColor
-        self.baseTextView.layer.cornerRadius = 1.0
-        self.baseTextView.text = ""
         bigRing.angle = 0
         smallRing.angle = 0
+        currentCount = 0
+        self.exerciseWarning.lineBreakMode = .byWordWrapping // notice the 'b' instead of 'B'
+        self.exerciseWarning.numberOfLines = 3
+        self.exerciseName.text = selectedExercise
         self.startWorkout()
         //Create and start the peripheral manager
         peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
         //-Notification for updating the text view with incoming text
         updateIncomingData()
-        self.baseTextView.scrollRangeToVisible(NSMakeRange(0, 1))
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.baseTextView.text = ""
-        self.baseTextView.scrollRangeToVisible(NSMakeRange(0, 1))
-        
-        
+        if (surveyFinish){
+            performSegue(withIdentifier: "backToMain", sender:(Any).self)
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -84,13 +74,15 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, UIT
         self.peripheralManager = nil
         super.viewDidDisappear(animated)
         NotificationCenter.default.removeObserver(self)
-        
+
     }
     
     // Buttons' function
     @IBAction func backToMain(_ sender: Any) {
         if (finishedWorkout) {
-            
+            performSegue(withIdentifier: "backToMain", sender: (Any).self)
+
+        } else {
             let alertController = UIAlertController(title: "Warning",
                                                     message: "Please finish the exercise!",
                                                     preferredStyle: UIAlertControllerStyle.alert)
@@ -99,9 +91,6 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, UIT
             
             self.present(alertController, animated: true, completion: nil)
             
-        } else {
-            
-            performSegue(withIdentifier: "backToMain", sender: (Any).self)
             
         }
     }
@@ -124,31 +113,61 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, UIT
         // Declare Alert
         self.stopWorkout()
         workoutActive = false
-        let dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to Logout?", preferredStyle: .alert)
+        
+        //Add 2nd dialog message to go to survey
+        let surveyMessage = UIAlertController(title: "Survey", message: "Do you wanna answer a short survey for the exercise?", preferredStyle: .alert)
+        
+        //Create Yes to survey questions
+        let yesIdo = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
+            let taskViewController = ORKTaskViewController(task: SurveyTask, taskRun: nil)
+            taskViewController.delegate = self
+            self.present(taskViewController, animated: true, completion: nil)
+            print("View Cleared")
+
+        })
+        
+        //Create No to survey questions
+        let noIdont = UIAlertAction(title: "Nope", style: .default, handler: { (action) -> Void in
+            self.performSegue(withIdentifier: "backToMain", sender: (Any).self)
+        })
+        
+        //Add buttons to survey dialog message
+        surveyMessage.addAction(yesIdo)
+        surveyMessage.addAction(noIdont)
+        
+        //Add 1st dialog message 
+        let dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to finish the session?", preferredStyle: .alert)
         
         // Create OK button with action handler
-        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+        let yes = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
             self.finishedWorkout = true
             endTime = NSCalendar.current as NSCalendar
             self.wrappingUpData()
             rawData.removeAll()
+            self.present(surveyMessage, animated: true, completion: nil)
         })
         
         // Create Cancel button with action handlder
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) -> Void in
+        let nah = UIAlertAction(title: "Nah", style: .cancel, handler: { (action) -> Void in
             workoutActive = true
             self.startWorkout()
         })
         
         //Add OK and Cancel button to dialog message
-        dialogMessage.addAction(ok)
-        dialogMessage.addAction(cancel)
+        dialogMessage.addAction(yes)
+        dialogMessage.addAction(nah)
+        
         
         // Present dialog message to user
         self.present(dialogMessage, animated: true, completion: nil)
     }
     
-    
+    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
+        //Handle results with taskViewController.result
+        surveyFinish = true
+        taskViewController.dismiss(animated: true, completion: nil)
+    }
+
     
     // Data functions
     
@@ -164,19 +183,7 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, UIT
     func updateIncomingData () {
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "Notify"), object: nil , queue: nil){
             notification in
-            //            let appendString = "\n"
-            //            let myFont = UIFont(name: "Helvetica Neue", size: 15.0)
-            //            let myAttributes2 = [NSAttributedStringKey.font: myFont!, NSAttributedStringKey.foregroundColor: UIColor.red]
-            //            let attribString = NSAttributedString(string: "[Incoming]: " + (characteristicASCIIValue as String) + appendString, attributes: myAttributes2)
-            //            let newAsciiText = NSMutableAttributedString(attributedString: self.consoleAsciiText!)
-            //            self.baseTextView.attributedText = NSAttributedString(string: characteristicASCIIValue as String , attributes: myAttributes2)
-            //
-            //            newAsciiText.append(attribString)
-            //
-            //            self.consoleAsciiText = newAsciiText
-            //            self.baseTextView.attributedText = self.consoleAsciiText
-            //            let stringLength:Int = self.baseTextView.text.characters.count
-            //            self.baseTextView.scrollRangeToVisible(NSMakeRange(stringLength-1, 0))
+            
             self.updateData()
         }
     }
@@ -184,7 +191,11 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, UIT
     func analyzeData (clearedStringData: String) {
         let dataCache = self.checkString(String: clearedStringData)
         Second = dataCache.valueY
+        thighAngle = dataCache.valueX
         guard dataCache.Time > 0 else {
+            return
+        }
+        guard  thighAngle > thighMinAngle! && thighAngle < thighMaxAngle! && thighAngle != 361 else {
             return
         }
         let diff = Second - First
@@ -211,12 +222,13 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, UIT
             dBefore = dAfter
         }
         
-        let ROM: Int = abs(Max - Min)
+        guard abs(Max) > 0 && abs(Min) > 0 else { return }
+        let ROM: Double = abs(Max - Min)
         print("cMax \(Max), cMin \(Min), cDiff \(ROM), cVal \(Second), cCount \(currentCount)")
-        if ROM > 50 && ROM < 180 {
+        if ROM > targetROM && ROM < 180 {
             currentCount += 1
-            print("cMax \(Max), cMin \(Min), cDiff \(ROM), cVal \(Second), cCount \(currentCount)")
-            avgROM = (avgROM + ROM)/Int(currentCount)
+            print("YOOO - cMax \(Max), cMin \(Min), cDiff \(ROM), cVal \(Second), cCount \(currentCount)")
+            avgROM = (avgROM + ROM)/(currentCount)
             if Max > sessionMax { sessionMax = Max}
             if Min < sessionMin { sessionMin = Min}
             Max = 0
@@ -225,12 +237,12 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, UIT
         
     }
     
-    func checkString (String: String) -> (Time: Int, valueX: Int, valueY: Int, valueZ: Int){
-        var Time: Int
-        var valueX: Int
-        var valueY: Int
-        var valueZ: Int
-        let StringRecorded = String.components(separatedBy: ",").flatMap { Int($0.trimmingCharacters(in: .whitespaces)) }
+    func checkString (String: String) -> (Time: Double, valueX: Double, valueY: Double, valueZ: Double){
+        var Time: Double
+        var valueX: Double
+        var valueY: Double
+        var valueZ: Double
+        let StringRecorded = String.components(separatedBy: ",").flatMap { Double($0.trimmingCharacters(in: .whitespaces)) }
         guard StringRecorded.count == 4, StringRecorded[1] < 360, StringRecorded[2] < 360, StringRecorded[3] < 360 else {
             Time = 0
             valueX = 361
@@ -283,8 +295,25 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, UIT
     }
     
     func updateData() {
+        var str: String?
         let rep = String(currentCount)
         self.dataLabel.text = rep
+        guard thighAngle != 361 else {
+            return
+        }
+        if thighAngle > thighMaxAngle! {
+            str = "Your thigh angle is \(thighAngle). \nPlease sit down"
+            self.exerciseWarning.textColor = UIColor.init(red: 231/255, green: 76/255, blue: 60/255, alpha: 1)
+        } else if thighAngle < thighMinAngle! {
+            str = "Your thigh angle is \(thighAngle). \nPlease stand up"
+            self.exerciseWarning.textColor = UIColor.init(red: 231/255, green: 76/255, blue: 60/255, alpha: 1)
+        } else {
+            str = "Keep going! You can do it!"
+            self.exerciseWarning.textColor = UIColor.init(red: 26/255, green: 188/255, blue: 156/255, alpha: 1)
+        }
+        
+        self.exerciseWarning.text = str
+        
         let elapsedTime = Double(totalTime)
         if currentCount <= targetCount {
             let newAngleValue = 360 * (currentCount / targetCount)
@@ -297,8 +326,7 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, UIT
         
     }
     
-    
-    
+
     
     // Write functions
     func writeValue(data: String){
@@ -347,34 +375,7 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, UIT
         }
     }
     
-    func PostData(_ data: String) {
-        
-        let parameters = ["title": data as String,"order":3, "complete":false] as [String : Any]
-        
-        guard let url = URL(string: "https://fast-falls-98558.herokuapp.com/tasks") else { return }
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
-        request.httpBody = httpBody
-        
-        let session = URLSession.shared
-        session.dataTask(with: request) { (data, response, error) in
-            if let response = response {
-                print(response)
-            }
-            
-            if let data = data {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
-                } catch {
-                    print(error)
-                }
-            }
-            
-            }.resume()
-    }
+    
     
     func save(rawData: [Float?], mean: Double?) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
