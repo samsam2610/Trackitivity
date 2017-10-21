@@ -9,9 +9,10 @@
 import UIKit
 import CoreBluetooth
 import CoreData
+import ResearchKit
 
 
-class practiceViewController: UIViewController, CBPeripheralManagerDelegate, UITextViewDelegate, UITextFieldDelegate {
+class practiceViewController: UIViewController, CBPeripheralManagerDelegate, ORKTaskViewControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
     
     //UI
     
@@ -39,6 +40,7 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, UIT
     var trueData: [Int]?
     var rep = String(currentCount)
     var finishedWorkout = false
+    var surveyFinish = false
     
     
     
@@ -62,9 +64,9 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, UIT
     }
     
     override func viewDidAppear(_ animated: Bool) {
-
-        
-        
+        if (surveyFinish){
+            performSegue(withIdentifier: "backToMain", sender:(Any).self)
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -72,7 +74,7 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, UIT
         self.peripheralManager = nil
         super.viewDidDisappear(animated)
         NotificationCenter.default.removeObserver(self)
-        
+
     }
     
     // Buttons' function
@@ -111,6 +113,29 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, UIT
         // Declare Alert
         self.stopWorkout()
         workoutActive = false
+        
+        //Add 2nd dialog message to go to survey
+        let surveyMessage = UIAlertController(title: "Survey", message: "Do you wanna answer a short survey for the exercise?", preferredStyle: .alert)
+        
+        //Create Yes to survey questions
+        let yesIdo = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
+            let taskViewController = ORKTaskViewController(task: SurveyTask, taskRun: nil)
+            taskViewController.delegate = self
+            self.present(taskViewController, animated: true, completion: nil)
+            print("View Cleared")
+
+        })
+        
+        //Create No to survey questions
+        let noIdont = UIAlertAction(title: "Nope", style: .default, handler: { (action) -> Void in
+            self.performSegue(withIdentifier: "backToMain", sender: (Any).self)
+        })
+        
+        //Add buttons to survey dialog message
+        surveyMessage.addAction(yesIdo)
+        surveyMessage.addAction(noIdont)
+        
+        //Add 1st dialog message 
         let dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to finish the session?", preferredStyle: .alert)
         
         // Create OK button with action handler
@@ -119,7 +144,7 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, UIT
             endTime = NSCalendar.current as NSCalendar
             self.wrappingUpData()
             rawData.removeAll()
-            self.performSegue(withIdentifier: "backToMain", sender: (Any).self)
+            self.present(surveyMessage, animated: true, completion: nil)
         })
         
         // Create Cancel button with action handlder
@@ -132,11 +157,17 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, UIT
         dialogMessage.addAction(yes)
         dialogMessage.addAction(nah)
         
+        
         // Present dialog message to user
         self.present(dialogMessage, animated: true, completion: nil)
     }
     
-    
+    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
+        //Handle results with taskViewController.result
+        surveyFinish = true
+        taskViewController.dismiss(animated: true, completion: nil)
+    }
+
     
     // Data functions
     

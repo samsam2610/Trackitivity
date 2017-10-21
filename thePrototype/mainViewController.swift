@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ResearchKit
 
 class mainViewController: UIViewController {
 
