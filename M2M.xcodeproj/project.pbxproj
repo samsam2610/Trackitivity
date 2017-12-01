@@ -30,8 +30,6 @@
 		22654B4F1F7398AF00FB32FA /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22654B4E1F7398AF00FB32FA /* loginViewController.swift */; };
 		22654B521F7398AF00FB32FA /* loginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22654B501F7398AF00FB32FA /* loginViewController.storyboard */; };
 		22654B571F7398AF00FB32FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22654B561F7398AF00FB32FA /* Assets.xcassets */; };
-		22654B651F7398AF00FB32FA /* thePrototypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22654B641F7398AF00FB32FA /* thePrototypeTests.swift */; };
-		22654B701F7398AF00FB32FA /* thePrototypeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22654B6F1F7398AF00FB32FA /* thePrototypeUITests.swift */; };
 		227D05581FC4E0FD00D5BFB0 /* Dog Walk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 227D05561FC4E0FD00D5BFB0 /* Dog Walk.xcdatamodeld */; };
 		229909281F75DD4D0041B9FB /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229909271F75DD4D0041B9FB /* KDCircularProgress.swift */; };
 		22A29BBB1FB87AD10010B0AE /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A29BBA1FB87AD10010B0AE /* File.swift */; };
@@ -110,11 +108,7 @@
 		22654B561F7398AF00FB32FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22654B5B1F7398AF00FB32FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22654B601F7398AF00FB32FA /* M2MTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = M2MTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		22654B641F7398AF00FB32FA /* thePrototypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thePrototypeTests.swift; sourceTree = "<group>"; };
-		22654B661F7398AF00FB32FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22654B6B1F7398AF00FB32FA /* M2MUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = M2MUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		22654B6F1F7398AF00FB32FA /* thePrototypeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thePrototypeUITests.swift; sourceTree = "<group>"; };
-		22654B711F7398B000FB32FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		227D05571FC4E0FD00D5BFB0 /* Dog Walk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Dog Walk.xcdatamodel"; sourceTree = "<group>"; };
 		229909271F75DD4D0041B9FB /* KDCircularProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 		22A29BBA1FB87AD10010B0AE /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
@@ -181,8 +175,6 @@
 			children = (
 				22E0FDB41FCA2B920070BB55 /* Default-568h@2x.png */,
 				22654B4B1F7398AF00FB32FA /* M2M */,
-				22654B631F7398AF00FB32FA /* thePrototypeTests */,
-				22654B6E1F7398AF00FB32FA /* thePrototypeUITests */,
 				22654B4A1F7398AF00FB32FA /* Products */,
 				22A506601F7569FE0051A199 /* Frameworks */,
 				6C4BB6853F94A3F17A186B17 /* Pods */,
@@ -236,24 +228,6 @@
 				22DEEA6C1FC6EB0600117FE4 /* CoreDataStack.swift */,
 			);
 			path = M2M;
-			sourceTree = "<group>";
-		};
-		22654B631F7398AF00FB32FA /* thePrototypeTests */ = {
-			isa = PBXGroup;
-			children = (
-				22654B641F7398AF00FB32FA /* thePrototypeTests.swift */,
-				22654B661F7398AF00FB32FA /* Info.plist */,
-			);
-			path = thePrototypeTests;
-			sourceTree = "<group>";
-		};
-		22654B6E1F7398AF00FB32FA /* thePrototypeUITests */ = {
-			isa = PBXGroup;
-			children = (
-				22654B6F1F7398AF00FB32FA /* thePrototypeUITests.swift */,
-				22654B711F7398B000FB32FA /* Info.plist */,
-			);
-			path = thePrototypeUITests;
 			sourceTree = "<group>";
 		};
 		22A506601F7569FE0051A199 /* Frameworks */ = {
@@ -616,7 +590,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22654B651F7398AF00FB32FA /* thePrototypeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,7 +597,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22654B701F7398AF00FB32FA /* thePrototypeUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
