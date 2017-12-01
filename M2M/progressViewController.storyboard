@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13770" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wy6-Ut-XwA">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13770"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
+        </array>
+        <array key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-Light</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Progress View Controller-->
+        <scene sceneID="iYK-ef-iph">
+            <objects>
+                <viewController storyboardIdentifier="progressViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Wy6-Ut-XwA" customClass="progressViewController" customModule="M2M" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sEj-sK-pcA"/>
+                        <viewControllerLayoutGuide type="bottom" id="8PC-Iz-Wrh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7ah-DB-ZU8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sampleDog" translatesAutoresizingMaskIntoConstraints="NO" id="DBp-Nm-xne">
+                                <rect key="frame" x="0.0" y="62" width="375" height="171"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="171" id="JTE-JC-nJk"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4Ur-L3-MXo">
+                                <rect key="frame" x="0.0" y="255" width="375" height="412"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Wy6-Ut-XwA" id="9nK-Yi-pW5"/>
+                                    <outlet property="delegate" destination="Wy6-Ut-XwA" id="8qY-8o-xO3"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Progress" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkX-qq-ELf">
+                                <rect key="frame" x="0.0" y="17" width="375" height="37"/>
+                                <color key="backgroundColor" red="0.100070335" green="0.73665314910000002" blue="0.61070448160000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kY-Lj-8EZ">
+                                <rect key="frame" x="327" y="20" width="48" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="MEy-rE-oMC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="add:" destination="Wy6-Ut-XwA" eventType="touchUpInside" id="6Am-ZO-m9e"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOg-S2-Cu3">
+                                <rect key="frame" x="0.0" y="20" width="53" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="53" id="laY-w6-Mba"/>
+                                    <constraint firstAttribute="height" constant="30" id="n34-5j-PYS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="back:" destination="Wy6-Ut-XwA" eventType="touchUpInside" id="6Nf-NN-K67"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="8PC-Iz-Wrh" firstAttribute="top" secondItem="4Ur-L3-MXo" secondAttribute="bottom" id="3FC-g5-gst"/>
+                            <constraint firstItem="nOg-S2-Cu3" firstAttribute="leading" secondItem="DBp-Nm-xne" secondAttribute="leading" id="3tC-48-G1l"/>
+                            <constraint firstItem="DBp-Nm-xne" firstAttribute="top" secondItem="sEj-sK-pcA" secondAttribute="bottom" constant="42" id="Dos-4M-0eL"/>
+                            <constraint firstItem="4Ur-L3-MXo" firstAttribute="leading" secondItem="7ah-DB-ZU8" secondAttribute="leading" id="KLg-wt-yRl"/>
+                            <constraint firstItem="xkX-qq-ELf" firstAttribute="leading" secondItem="nOg-S2-Cu3" secondAttribute="leading" id="Koi-Py-rrf"/>
+                            <constraint firstItem="nOg-S2-Cu3" firstAttribute="top" secondItem="5kY-Lj-8EZ" secondAttribute="top" id="LjJ-23-GzN"/>
+                            <constraint firstItem="nOg-S2-Cu3" firstAttribute="top" secondItem="7ah-DB-ZU8" secondAttribute="topMargin" id="VrO-E3-FIl"/>
+                            <constraint firstItem="xkX-qq-ELf" firstAttribute="centerY" secondItem="5kY-Lj-8EZ" secondAttribute="centerY" id="Zvt-qc-TZw"/>
+                            <constraint firstItem="nOg-S2-Cu3" firstAttribute="baseline" secondItem="5kY-Lj-8EZ" secondAttribute="firstBaseline" id="c3X-Om-zNE"/>
+                            <constraint firstItem="4Ur-L3-MXo" firstAttribute="top" secondItem="DBp-Nm-xne" secondAttribute="bottom" constant="22" id="cCU-bu-qau"/>
+                            <constraint firstItem="DBp-Nm-xne" firstAttribute="leading" secondItem="7ah-DB-ZU8" secondAttribute="leading" id="dOd-qR-u3k"/>
+                            <constraint firstItem="4Ur-L3-MXo" firstAttribute="width" secondItem="7ah-DB-ZU8" secondAttribute="width" id="h0c-pU-UHZ"/>
+                            <constraint firstItem="5kY-Lj-8EZ" firstAttribute="trailing" secondItem="DBp-Nm-xne" secondAttribute="trailing" id="kLm-12-DKp"/>
+                            <constraint firstAttribute="trailing" secondItem="DBp-Nm-xne" secondAttribute="trailing" id="ocT-ul-D8r"/>
+                            <constraint firstItem="5kY-Lj-8EZ" firstAttribute="baseline" secondItem="nOg-S2-Cu3" secondAttribute="firstBaseline" id="pUd-3a-DPr"/>
+                            <constraint firstItem="xkX-qq-ELf" firstAttribute="top" secondItem="7ah-DB-ZU8" secondAttribute="top" constant="17" id="ro0-4C-WmM"/>
+                            <constraint firstItem="xkX-qq-ELf" firstAttribute="trailing" secondItem="5kY-Lj-8EZ" secondAttribute="trailing" id="zOJ-fy-VaN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fx2-je-2PY"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="4Ur-L3-MXo" id="eVh-DS-geN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nEu-Jm-1RE" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1175.2" y="425.93703148425789"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="sampleDog" width="400" height="267"/>
+    </resources>
+</document>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13770" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="llC-HC-gAE">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13770"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Exercise View Controller-->
+        <scene sceneID="zMT-Ep-VNe">
+            <objects>
+                <viewController id="llC-HC-gAE" customClass="exerciseViewController" customModule="thePrototype" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jhH-ob-yrF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XTD-bX-eDo">
+                                <rect key="frame" x="0.0" y="21" width="375" height="44"/>
+                                <items>
+                                    <navigationItem id="u5F-Oo-NmW">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="89f-Ye-4XV">
+                                            <connections>
+                                                <action selector="back:" destination="llC-HC-gAE" id="YHS-3K-eHb"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Done" id="b4B-wf-k9b">
+                                            <connections>
+                                                <action selector="done:" destination="llC-HC-gAE" id="vet-ph-0kz"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ACf-pZ-h4n">
+                                <rect key="frame" x="0.0" y="65" width="375" height="602"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" reuseIdentifier="exerciseList" rowHeight="165" id="1tC-44-i02" customClass="ExerciseTableViewCell" customModule="thePrototype" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="165"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1tC-44-i02" id="CbR-k6-tm7">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="164.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="128" translatesAutoresizingMaskIntoConstraints="NO" id="Bbr-Z3-X0i">
+                                                    <rect key="frame" x="122" y="0.0" width="238" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="EqW-oG-BfA"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5by-M1-Nhx">
+                                                    <rect key="frame" x="122" y="24" width="238" height="133"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Sitting Supported Knee Bends" translatesAutoresizingMaskIntoConstraints="NO" id="6Kn-fF-agu">
+                                                    <rect key="frame" x="15" y="8" width="102" height="143"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="143" id="5cg-RN-nvC"/>
+                                                        <constraint firstAttribute="width" constant="102" id="sLr-VH-uWt"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Bbr-Z3-X0i" firstAttribute="trailing" secondItem="CbR-k6-tm7" secondAttribute="trailingMargin" id="3KT-vQ-38Q"/>
+                                                <constraint firstItem="5by-M1-Nhx" firstAttribute="top" secondItem="Bbr-Z3-X0i" secondAttribute="bottom" constant="3" id="6Cw-Fa-syq"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="6Kn-fF-agu" secondAttribute="bottom" constant="5.5" id="CfY-6q-O5E"/>
+                                                <constraint firstItem="Bbr-Z3-X0i" firstAttribute="trailing" secondItem="5by-M1-Nhx" secondAttribute="trailing" id="DZK-BE-XvX"/>
+                                                <constraint firstItem="Bbr-Z3-X0i" firstAttribute="leading" secondItem="5by-M1-Nhx" secondAttribute="leading" id="Exh-Wl-5cT"/>
+                                                <constraint firstItem="Bbr-Z3-X0i" firstAttribute="leading" secondItem="6Kn-fF-agu" secondAttribute="trailing" constant="5" id="FYL-Nv-mfi"/>
+                                                <constraint firstItem="6Kn-fF-agu" firstAttribute="leading" secondItem="CbR-k6-tm7" secondAttribute="leadingMargin" id="Iha-Cq-OPD"/>
+                                                <constraint firstItem="6Kn-fF-agu" firstAttribute="bottom" secondItem="5by-M1-Nhx" secondAttribute="bottom" constant="-6" id="ed7-vk-KUm"/>
+                                                <constraint firstItem="6Kn-fF-agu" firstAttribute="top" secondItem="CbR-k6-tm7" secondAttribute="top" constant="8" id="sTb-6N-tjV"/>
+                                                <constraint firstItem="6Kn-fF-agu" firstAttribute="top" secondItem="Bbr-Z3-X0i" secondAttribute="top" constant="8" id="zvi-EW-m02"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="demoImage" destination="6Kn-fF-agu" id="MuH-Ng-S5K"/>
+                                            <outlet property="demoInfo" destination="5by-M1-Nhx" id="qk1-gj-mv6"/>
+                                            <outlet property="demoName" destination="Bbr-Z3-X0i" id="qD8-IU-0lF"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="llC-HC-gAE" id="sek-f2-VBx"/>
+                                    <outlet property="delegate" destination="llC-HC-gAE" id="ka2-xg-GFa"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ACf-pZ-h4n" firstAttribute="bottom" secondItem="8hG-Wj-uv5" secondAttribute="bottom" id="Cl9-pW-FP7"/>
+                            <constraint firstItem="XTD-bX-eDo" firstAttribute="top" secondItem="8hG-Wj-uv5" secondAttribute="top" constant="1" id="FS3-zw-cJm"/>
+                            <constraint firstAttribute="trailing" secondItem="XTD-bX-eDo" secondAttribute="trailing" id="Rok-aQ-Hfq"/>
+                            <constraint firstItem="XTD-bX-eDo" firstAttribute="leading" secondItem="ACf-pZ-h4n" secondAttribute="leading" id="UzD-mX-bwf"/>
+                            <constraint firstItem="ACf-pZ-h4n" firstAttribute="top" secondItem="XTD-bX-eDo" secondAttribute="bottom" id="fM5-xX-rbk"/>
+                            <constraint firstItem="XTD-bX-eDo" firstAttribute="leading" secondItem="jhH-ob-yrF" secondAttribute="leading" id="g39-l6-38H"/>
+                            <constraint firstItem="XTD-bX-eDo" firstAttribute="trailing" secondItem="ACf-pZ-h4n" secondAttribute="trailing" id="sZU-nW-nbk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8hG-Wj-uv5"/>
+                    </view>
+                    <connections>
+                        <outlet property="exerciseList" destination="ACf-pZ-h4n" id="FUC-rX-Oku"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jt1-2d-HhC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3361" y="1607"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Sitting Supported Knee Bends" width="325" height="267"/>
+    </resources>
+</document>
