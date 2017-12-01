@@ -1,0 +1,6 @@
+framework module Pods_M2MUITests {
+  umbrella header "Pods-M2MUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
