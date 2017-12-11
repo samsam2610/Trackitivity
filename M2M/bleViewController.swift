@@ -63,11 +63,6 @@ class bleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphera
         centralManager?.stopScan()
     }
     
-    static func storyboardInstance() -> bleViewController? {
-        let storyboard: UIStoryboard = UIStoryboard(name: String(describing: bleViewController.self), bundle: nil)
-        return storyboard.instantiateInitialViewController() as? bleViewController
-    }
-
     
     //Table View Functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -184,12 +179,11 @@ class bleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphera
         connected = true
         
         //Once connected, move to new view controller to manager incoming and outgoing data
-        let practiceVC = practiceViewController.storyboardInstance()
 
-        practiceVC?.peripheral = peripheral
-        let mainVC = mainViewController.storyboardInstance()
 
-        self.present(mainVC!, animated: true, completion: nil)
+        practiceVC.peripheral = peripheral
+
+        self.dismiss(animated: true, completion: nil)
         
     }
     

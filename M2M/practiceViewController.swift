@@ -97,8 +97,7 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, ORK
     override func viewDidAppear(_ animated: Bool) {
         
         if (surveyFinish){
-            let mainVC = mainViewController.storyboardInstance()
-            self.present(mainVC!, animated: true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
@@ -110,100 +109,6 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, ORK
 
     }
     
-    static func storyboardInstance() -> practiceViewController? {
-        let storyboard: UIStoryboard = UIStoryboard(name: String(describing: practiceViewController.self), bundle: nil)
-        return storyboard.instantiateInitialViewController() as? practiceViewController
-    }
-    
-    // Buttons' function
-    @IBAction func backToMain(_ sender: Any) {
-        if (finishedWorkout) {
-            let mainVC = mainViewController.storyboardInstance()
-            self.present(mainVC!, animated: true, completion: nil)
-
-        } else {
-            let alertController = UIAlertController(title: "Warning",
-                                                    message: "Please finish the exercise!",
-                                                    preferredStyle: UIAlertControllerStyle.alert)
-            
-            alertController.addAction(UIAlertAction(title: "Fine! Ok then!", style: UIAlertActionStyle.default,handler: nil))
-            
-            self.present(alertController, animated: true, completion: nil)
-            
-            
-        }
-    }
-    
-    
-    @IBAction func startButton(_ sender: UIButton) {
-        if (workoutActive) {
-            
-            self.stopWorkout()
-            
-        } else {
-            
-            self.startWorkout()
-            
-        }
-        workoutActive = !workoutActive
-        
-    }
-
-    @IBAction func finishWorkout(_ sender: UIButton) {
-        // Declare Alert
-        self.stopWorkout()
-        workoutActive = false
-        
-        //Add 2nd dialog message to go to survey
-        let surveyMessage = UIAlertController(title: "Survey", message: "Do you wanna answer a short survey for the exercise?", preferredStyle: .alert)
-        
-        //Create Yes to survey questions
-        let yesIdo = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
-            let taskViewController = ORKTaskViewController(task: SurveyTask, taskRun: nil)
-            taskViewController.delegate = self
-            self.present(taskViewController, animated: true, completion: nil)
-            print("View Cleared")
-
-        })
-        
-        //Create No to survey questions
-        let noIdont = UIAlertAction(title: "Nope", style: .default, handler: { (action) -> Void in
-            let mainVC = mainViewController.storyboardInstance()
-            self.present(mainVC!, animated: true, completion: nil)
-        })
-        
-        //Add buttons to survey dialog message
-        surveyMessage.addAction(yesIdo)
-        surveyMessage.addAction(noIdont)
-        
-        //Add 1st dialog message 
-        let dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to finish the session?", preferredStyle: .alert)
-        
-        // Create OK button with action handler
-        let yes = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
-            self.finishedWorkout = true
-            self.endDate = Date()
-            self.wrappingUpData()
-            rawData.removeAll()
-            self.saveScore(repetition: currentCount, avgAngle: avgROM, exerciseID: "ABC", startDate: self.startDate, endDate: self.endDate, currentDog: self.currentDog!)
-            self.present(surveyMessage, animated: true, completion: nil)
-            print(self.fetch())
-        })
-        
-        // Create Cancel button with action handlder
-        let nah = UIAlertAction(title: "Nah", style: .cancel, handler: { (action) -> Void in
-            workoutActive = true
-            self.startWorkout()
-        })
-        
-        //Add OK and Cancel button to dialog message
-        dialogMessage.addAction(yes)
-        dialogMessage.addAction(nah)
-        
-        
-        // Present dialog message to user
-        self.present(dialogMessage, animated: true, completion: nil)
-    }
     
     func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
         //Handle results with taskViewController.result
@@ -429,45 +334,13 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, ORK
             return
         }
     }
-    
-    
-    
-//    func save(rawData: [Float?], mean: Double?) {
-//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-//            return
-//        }
-//        
-//        let managedContext = appDelegate.persistentContainer.viewContext
-//        
-//        let entity = NSEntityDescription.entity(forEntityName: "Person", in: managedContext)
-//        
-//        let person = NSManagedObject(entity: entity!, insertInto: managedContext)
-//        person.setValue(mean!, forKeyPath: "mean")
-//        person.setValue(rawData, forKeyPath: "rawData")
-//        do {
-//            try managedContext.save()
-//            people.append(person)
-//        } catch let error as NSError {
-//            print("Could not save. \(error), \(error.userInfo)")
-//        }
-//    }
+
     
     func saveScore(repetition: Double, avgAngle: Double, exerciseID: String, startDate: Date, endDate: Date, currentDog: Dog) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
         let managedContext = appDelegate.persistentContainer.viewContext
-        
-//        let newRecord = NSEntityDescription.insertNewObject(forEntityName: "Walk", into: managedContext)
-//        newRecord.setValue(repetition, forKey: "repetition")
-//
-//        newRecord.setValue(avgAngle, forKey: "avgAngle")
-//
-//        newRecord.setValue(exerciseID, forKey: "exerciseID")
-//
-//        newRecord.setValue(startDate, forKey: "startDate")
-//
-//        newRecord.setValue(endDate, forKey: "endDate")
         
         let newRecord = Walk(context: managedContext)
         newRecord.repetition = Int16(repetition)
@@ -537,6 +410,97 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, ORK
             }
         }
         return cleanedData
+    }
+}
+
+// Buttons' function
+extension practiceViewController {
+    
+    @IBAction func backToMain(_ sender: Any) {
+        if (finishedWorkout) {
+            self.dismiss(animated: true, completion: nil)
+            
+        } else {
+            let alertController = UIAlertController(title: "Warning",
+                                                    message: "Please finish the exercise!",
+                                                    preferredStyle: UIAlertControllerStyle.alert)
+            
+            alertController.addAction(UIAlertAction(title: "Fine! Ok then!", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+            
+            
+        }
+    }
+    
+    
+    @IBAction func startButton(_ sender: UIButton) {
+        if (workoutActive) {
+            
+            self.stopWorkout()
+            
+        } else {
+            
+            self.startWorkout()
+            
+        }
+        workoutActive = !workoutActive
+        
+    }
+    
+    @IBAction func finishWorkout(_ sender: UIButton) {
+        // Declare Alert
+        self.stopWorkout()
+        workoutActive = false
+        
+        //Add 2nd dialog message to go to survey
+        let surveyMessage = UIAlertController(title: "Survey", message: "Do you wanna answer a short survey for the exercise?", preferredStyle: .alert)
+        
+        //Create Yes to survey questions
+        let yesIdo = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
+            let taskViewController = ORKTaskViewController(task: SurveyTask, taskRun: nil)
+            taskViewController.delegate = self
+            self.present(taskViewController, animated: true, completion: nil)
+            print("View Cleared")
+            
+        })
+        
+        //Create No to survey questions
+        let noIdont = UIAlertAction(title: "Nope", style: .default, handler: { (action) -> Void in
+            self.dismiss(animated: true, completion: nil)
+        })
+        
+        //Add buttons to survey dialog message
+        surveyMessage.addAction(yesIdo)
+        surveyMessage.addAction(noIdont)
+        
+        //Add 1st dialog message
+        let dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to finish the session?", preferredStyle: .alert)
+        
+        // Create OK button with action handler
+        let yes = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
+            self.finishedWorkout = true
+            self.endDate = Date()
+            self.wrappingUpData()
+            rawData.removeAll()
+            self.saveScore(repetition: currentCount, avgAngle: avgROM, exerciseID: "ABC", startDate: self.startDate, endDate: self.endDate, currentDog: self.currentDog!)
+            self.present(surveyMessage, animated: true, completion: nil)
+            print(self.fetch())
+        })
+        
+        // Create Cancel button with action handlder
+        let nah = UIAlertAction(title: "Nah", style: .cancel, handler: { (action) -> Void in
+            workoutActive = true
+            self.startWorkout()
+        })
+        
+        //Add OK and Cancel button to dialog message
+        dialogMessage.addAction(yes)
+        dialogMessage.addAction(nah)
+        
+        
+        // Present dialog message to user
+        self.present(dialogMessage, animated: true, completion: nil)
     }
 }
 

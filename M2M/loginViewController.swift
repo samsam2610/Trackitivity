@@ -23,8 +23,7 @@ class loginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     
     @IBAction func loginButton(_ sender: Any) {
-        let mainVC = mainViewController.storyboardInstance()
-        self.present(mainVC!, animated: true, completion: nil)
+        self.present(mainVC, animated: true, completion: nil)
     }
 }
 

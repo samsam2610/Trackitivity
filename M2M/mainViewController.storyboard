@@ -19,7 +19,7 @@
         <!--Main View Controller-->
         <scene sceneID="ERI-xF-4CC">
             <objects>
-                <viewController storyboardIdentifier="mainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pve-D7-E8q" customClass="mainViewController" customModule="M2M" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pve-D7-E8q" customClass="mainViewController" customModule="M2M" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OlD-vG-lKB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

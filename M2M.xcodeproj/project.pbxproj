@@ -30,6 +30,7 @@
 		22654B4F1F7398AF00FB32FA /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22654B4E1F7398AF00FB32FA /* loginViewController.swift */; };
 		22654B521F7398AF00FB32FA /* loginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22654B501F7398AF00FB32FA /* loginViewController.storyboard */; };
 		22654B571F7398AF00FB32FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22654B561F7398AF00FB32FA /* Assets.xcassets */; };
+		226FA4D41FDE0C2D0048B42C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226FA4D31FDE0C2D0048B42C /* API.swift */; };
 		227D05581FC4E0FD00D5BFB0 /* Dog Walk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 227D05561FC4E0FD00D5BFB0 /* Dog Walk.xcdatamodeld */; };
 		229909281F75DD4D0041B9FB /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229909271F75DD4D0041B9FB /* KDCircularProgress.swift */; };
 		22A29BBB1FB87AD10010B0AE /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A29BBA1FB87AD10010B0AE /* File.swift */; };
@@ -109,6 +110,7 @@
 		22654B5B1F7398AF00FB32FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22654B601F7398AF00FB32FA /* M2MTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = M2MTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22654B6B1F7398AF00FB32FA /* M2MUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = M2MUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		226FA4D31FDE0C2D0048B42C /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		227D05571FC4E0FD00D5BFB0 /* Dog Walk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Dog Walk.xcdatamodel"; sourceTree = "<group>"; };
 		229909271F75DD4D0041B9FB /* KDCircularProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 		22A29BBA1FB87AD10010B0AE /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				224F4D701FBCED4D005AF2A3 /* bleViewController.storyboard */,
 				224F4D721FBCED8D005AF2A3 /* exerciseViewController.storyboard */,
 				2202A45D1F79B5410034330F /* variableList.swift */,
+				226FA4D31FDE0C2D0048B42C /* API.swift */,
 				22654B561F7398AF00FB32FA /* Assets.xcassets */,
 				22654B5B1F7398AF00FB32FA /* Info.plist */,
 				2201CCAF1F741AC400736AD5 /* PeripheralTableViewCell.swift */,
@@ -566,6 +569,7 @@
 				22654B4F1F7398AF00FB32FA /* loginViewController.swift in Sources */,
 				22AE3B1D1F7884D500C27D0F /* ExerciseTableViewCell.swift in Sources */,
 				2201CCAE1F74178100736AD5 /* bleViewController.swift in Sources */,
+				226FA4D41FDE0C2D0048B42C /* API.swift in Sources */,
 				22191FC21FC6DCB900BB5B4B /* Dog+CoreDataProperties.swift in Sources */,
 				2201CCB41F742C0400736AD5 /* Extensions.swift in Sources */,
 				22654B4D1F7398AF00FB32FA /* AppDelegate.swift in Sources */,

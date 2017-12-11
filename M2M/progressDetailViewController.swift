@@ -15,10 +15,6 @@ class progressDetailViewController: UIViewController {
     @IBOutlet weak var durationVar: UILabel!
     @IBOutlet weak var progressPer: UILabel!
     
-    static func storyboardInstance() -> progressDetailViewController? {
-        let storyboard: UIStoryboard = UIStoryboard(name: String(describing: progressDetailViewController.self), bundle: nil)
-        return storyboard.instantiateInitialViewController() as? progressDetailViewController
-    }
 
     var practiceResult: Walk!
     
@@ -31,6 +27,8 @@ class progressDetailViewController: UIViewController {
         let unitFlags = Set<Calendar.Component>([ .second])
         let dateComponents = calendar.dateComponents(unitFlags, from: startDate!, to: endDate!)
         let seconds = dateComponents.second
+        print("Start date is \(String(describing: startDate)), end date is \(String(describing: endDate))")
+            
         self.durationVar.text = String(describing: seconds)
         
 
@@ -42,5 +40,11 @@ class progressDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+}
 
+extension progressDetailViewController {
+    @IBAction func back(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

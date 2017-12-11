@@ -12,12 +12,6 @@ import CoreData
 class progressViewController: UIViewController {
 
     
-    static func storyboardInstance() -> progressViewController? {
-        let storyboard: UIStoryboard = UIStoryboard(name: String(describing: progressViewController.self), bundle: nil)
-        return storyboard.instantiateInitialViewController() as? progressViewController
-    }
-
-    let progressDetailVC = progressDetailViewController.storyboardInstance()
 
     
     // MARK: - Properties
@@ -116,8 +110,9 @@ extension progressViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let practiceResult = currentDog?.walks?[indexPath.row] as? Walk
-        progressDetailVC?.practiceResult = practiceResult!
-        self.present(progressDetailVC!, animated: true, completion: nil)
+        let progressDetailVC = progressDetailViewController.instantiate(fromAppStoryboard: .progressDetailViewController)
+        progressDetailVC.practiceResult = practiceResult!
+        self.present(progressDetailVC, animated: true, completion: nil)
         
     }
 }
@@ -125,8 +120,7 @@ extension progressViewController {
     
     
     @IBAction func back(_ sender: UIButton) {
-        let mainVC = mainViewController.storyboardInstance()
-        self.present(mainVC!, animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 
 }

@@ -37,16 +37,11 @@ class mainViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    static func storyboardInstance() -> mainViewController? {
-        let storyboard: UIStoryboard = UIStoryboard(name: String(describing: mainViewController.self), bundle: nil)
-        return storyboard.instantiateInitialViewController() as? mainViewController
-    }
     
     @IBAction func connectBLE(_ sender: UIButton) {
         if (connected) {
         } else {
-            let bleVC = bleViewController.storyboardInstance()
-            self.present(bleVC!, animated: true, completion: nil)
+            self.present(bleVC, animated: true, completion: nil)
         }
     }
     
@@ -66,24 +61,23 @@ class mainViewController: UIViewController {
             workoutActive = true
         }
         startTime = NSCalendar.current as NSCalendar
-        
-        let practiceVC = practiceViewController.storyboardInstance()
-        self.present(practiceVC!, animated: true, completion: nil)
+        let practiceVC = practiceViewController.instantiate(fromAppStoryboard: .practiceViewController)
+        self.present(practiceVC, animated: true, completion: nil)
     }
     
     @IBAction func exercistList(_ sender: UIButton) {
-        let exerciseVC = exerciseViewController.storyboardInstance()
-        self.present(exerciseVC!, animated: true, completion: nil)
+        let exerciseVC = exerciseViewController.instantiate(fromAppStoryboard: .exerciseViewController)
+        self.present(exerciseVC, animated: true, completion: nil)
     }
     
     @IBAction func doctorSetting(_ sender: UIButton) {
-        let doctorVC = doctorViewController.storyboardInstance()
-        self.present(doctorVC!, animated: true, completion: nil)
+        let doctorVC = doctorViewController.instantiate(fromAppStoryboard: .doctorViewController)
+        self.present(doctorVC, animated: true, completion: nil)
     }
     
     @IBAction func progressView(_ sender: Any) {
-        let progressVC = progressViewController.storyboardInstance()
-        self.present(progressVC!, animated: true, completion: nil)
+        let progressVC = progressViewController.instantiate(fromAppStoryboard: .progressViewController)
+        self.present(progressVC, animated: true, completion: nil)
     }
     
     
