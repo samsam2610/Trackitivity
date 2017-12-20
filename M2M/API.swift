@@ -12,8 +12,8 @@ import Foundation
 class RestApiManager {
     
     var stringURL: String?
-    
-    func getPatients() {
+    var tempData = [Patient]()
+    func getPatients(completion:  @escaping ([Patient]) -> ()){
         
         let url = URL(string: stringURL!)
         let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
@@ -25,11 +25,12 @@ class RestApiManager {
                 if let urlContent = data {
                     
                     do {
-                        let jsonResult = try JSONSerialization.jsonObject(with: urlContent, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                        
-                        print(jsonResult)
+                        let patientData = try JSONDecoder().decode([Patient].self, from: urlContent)
+                        completion(patientData)
+    
                     } catch {
                         print("Json Processing Failed")
+                        print(error)
                     }
                 }
             }
