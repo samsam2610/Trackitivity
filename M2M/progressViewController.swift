@@ -22,8 +22,8 @@ class progressViewController: UIViewController {
         return formatter
     }()
     
-    var window: UIWindow?
     var managedContext: NSManagedObjectContext!
+    var window: UIWindow?
     var currentDog: Dog?
 
     @IBOutlet var tableView: UITableView!
@@ -32,12 +32,11 @@ class progressViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        
+
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
         managedContext = appDelegate.managedContext
-        
         
         let dogName = "Fido"
         let dogFetch: NSFetchRequest<Dog> = Dog.fetchRequest()
