@@ -43,6 +43,18 @@ let descrip = ["While sitting at your bedside or in a chair with your thigh supp
 
 var selectedExercise = exercise[0]
 
+
+
+struct Patient: Codable {
+    
+    let name: String
+    let stage: Bool
+    let id: Int
+    
+}
+
+
+
 let practiceVC = practiceViewController.instantiate(fromAppStoryboard: .practiceViewController)
 let mainVC = mainViewController.instantiate(fromAppStoryboard: .mainViewController)
 let bleVC = bleViewController.instantiate(fromAppStoryboard: .bleViewController)
@@ -50,6 +62,8 @@ let progressVC = progressViewController.instantiate(fromAppStoryboard: .progress
 let progressDetailVC = progressDetailViewController.instantiate(fromAppStoryboard: .progressDetailViewController)
 let exerciseVC = exerciseViewController.instantiate(fromAppStoryboard: .exerciseViewController)
 let doctorVC = doctorViewController.instantiate(fromAppStoryboard: .doctorViewController)
+let doctorProgressVC = doctorProgressViewController.instantiate(fromAppStoryboard: .doctorProgressViewController)
+
 
 
 

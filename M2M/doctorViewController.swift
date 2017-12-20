@@ -10,40 +10,53 @@ import UIKit
 import CoreData
 
 class doctorViewController: UIViewController {
-
+    
     lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .short
         formatter.timeStyle = .medium
         return formatter
     }()
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     var window: UIWindow?
     var managedContext: NSManagedObjectContext!
     var currentDog: Dog?
     var patients: [Dog?] = []
+    var jsonData: Data?
+    var decodedPerson: Patient?
+    var tempName = [Patient]()
     
-
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell_Patient")
-        let getData = RestApiManager()
-        getData.stringURL = "https://my.api.mockaroo.com/patients_list.json?key=4d9f5440"
-        getData.getPatients()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
         managedContext = appDelegate.managedContext
         
+        let getData = RestApiManager()
+        getData.stringURL = "https://my.api.mockaroo.com/static_patient_list.json?key=4d9f5440"
+        getData.getPatients { tempData in
+            
+            print(tempData)
+            self.tempName = tempData
+            for i in 0..<self.tempName.count {
+                if self.tempName[i].stage == true {
+                    self.saveNewPatient(name: self.tempName[i].name, id: self.tempName[i].id)
+                    print("Added new patient")
+                }
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
         
         let dogFetch: NSFetchRequest<Dog> = Dog.fetchRequest()
         do {
@@ -54,6 +67,12 @@ class doctorViewController: UIViewController {
         }
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+    }
 }
 
 extension doctorViewController: UITableViewDataSource, UITableViewDelegate {
@@ -63,18 +82,19 @@ extension doctorViewController: UITableViewDataSource, UITableViewDelegate {
         guard count > 1 else {
             return 1
         }
+        print("cell count is \(count)")
         return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let patient = patients[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell_Patient",
                                                  for: indexPath)
         cell.textLabel?.text = patient?.value(forKeyPath: "name") as? String
         return cell
     }
-
+    
     
 }
 
@@ -91,11 +111,11 @@ extension doctorViewController {
         let saveAction = UIAlertAction(title: "Save", style: .default, handler: {
             alert -> Void in
             
-            let TextField = alertController.textFields!.first as! UITextField
+            let TextField = alertController.textFields?.first as! UITextField
             
             print("firstName \(String(describing: TextField.text))")
             let dogName = TextField.text
-            self.saveNewPatient(name: dogName!)
+            self.saveNewPatient(name: dogName!, id: 1 as Int)
             self.tableView.reloadData()
         })
         
@@ -114,16 +134,17 @@ extension doctorViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    func saveNewPatient(name: String) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        let managedContext = appDelegate.persistentContainer.viewContext
+    func saveNewPatient(name: String, id: Int) {
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+//            return
+//        }
+//        let managedContext = appDelegate.persistentContainer.viewContext
         
         let entity = NSEntityDescription.entity(forEntityName: "Dog", in: managedContext)
         let newUser = NSManagedObject(entity: entity!, insertInto: managedContext)
         
         newUser.setValue(name, forKey: "name")
+        newUser.setValue(id, forKey: "id")
         
         do {
             try managedContext.save()
@@ -145,15 +166,15 @@ extension doctorViewController {
  @IBOutlet weak var targetRepe: UISlider!
  @IBOutlet weak var targetTim: UISlider!
  @IBOutlet weak var targetRa: UISlider!
-
+ 
  
  override func viewDidLoad() {
-         self.targetRep.text = "Target Repetitions is \(targetCount) counts"
-         self.targetRag.text = "Target Range of Motion is \(targetROM) degrees"
-         self.targetDur.text = "Target duration is \(targetTime) seconds"
-         self.targetRepe.setValue(Float(targetCount), animated: false)
-         self.targetRa.setValue(Float(targetROM), animated: false)
-         self.targetTim.setValue(Float(targetTime), animated: false)
+ self.targetRep.text = "Target Repetitions is \(targetCount) counts"
+ self.targetRag.text = "Target Range of Motion is \(targetROM) degrees"
+ self.targetDur.text = "Target duration is \(targetTime) seconds"
+ self.targetRepe.setValue(Float(targetCount), animated: false)
+ self.targetRa.setValue(Float(targetROM), animated: false)
+ self.targetTim.setValue(Float(targetTime), animated: false)
  super.viewDidLoad()
  
  // Do any additional setup after loading the view.
@@ -206,5 +227,5 @@ extension doctorViewController {
  targetTime = Double(sender.value).rounded(toPlaces: 0)
  self.targetDur.text = "Target duration is \(targetTime) seconds"
  }
-*/
+ */
 
