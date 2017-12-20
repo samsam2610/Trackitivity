@@ -1,8 +1,8 @@
 //
 //  Dog+CoreDataProperties.swift
-//  thePrototype
+//  M2M
 //
-//  Created by Tran Sam on 11/23/17.
+//  Created by Tran Sam on 12/19/17.
 //  Copyright © 2017 Tran Sam. All rights reserved.
 //
 //
@@ -17,8 +17,8 @@ extension Dog {
         return NSFetchRequest<Dog>(entityName: "Dog")
     }
 
+    @NSManaged public var id: Int64
     @NSManaged public var name: String?
-    @NSManaged public var id: UUID?
     @NSManaged public var walks: NSOrderedSet?
 
 }
