@@ -87,7 +87,6 @@ extension doctorViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let patient = patients[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell_Patient",
                                                  for: indexPath)
@@ -95,6 +94,17 @@ extension doctorViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let currentPatient = patients[indexPath.row]
+        let name = currentPatient?.value(forKey: "name") as? String
+        let id = currentPatient?.value(forKey: "id") as? Int
+        print("name is \(String(describing: name)), and id is \(String(describing: id))")
+        let doctorProgressVC = doctorProgressViewController.instantiate(fromAppStoryboard: .doctorProgressViewController)
+        doctorProgressVC.patientName = name
+        doctorProgressVC.patientID = id
+        self.present(doctorProgressVC, animated: true, completion: nil)
+    }
+
     
 }
 

@@ -37,13 +37,6 @@
                                     <constraint firstAttribute="height" constant="171" id="Eng-qR-N7p"/>
                                 </constraints>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mkl-6J-bQ8">
-                                <rect key="frame" x="0.0" y="255" width="375" height="412"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="GsD-gG-GJS" id="QmI-OJ-x1i"/>
-                                    <outlet property="delegate" destination="GsD-gG-GJS" id="ueY-hN-70c"/>
-                                </connections>
-                            </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Progress" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APy-MV-YTM">
                                 <rect key="frame" x="0.0" y="17" width="375" height="37"/>
                                 <color key="backgroundColor" red="0.100070335" green="0.73665314910000002" blue="0.61070448160000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -72,30 +65,38 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SfN-4i-YXQ">
+                                <rect key="frame" x="0.0" y="274" width="375" height="393"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="GsD-gG-GJS" id="tbK-4o-IBJ"/>
+                                    <outlet property="delegate" destination="GsD-gG-GJS" id="SrO-Q5-IaX"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="APy-MV-YTM" firstAttribute="top" secondItem="4r6-ok-gTp" secondAttribute="top" constant="17" id="1pa-vy-6u2"/>
                             <constraint firstItem="bNV-EU-E1F" firstAttribute="baseline" secondItem="NKR-Ch-kgY" secondAttribute="firstBaseline" id="3nw-ww-y6P"/>
                             <constraint firstItem="NKR-Ch-kgY" firstAttribute="top" secondItem="4r6-ok-gTp" secondAttribute="topMargin" id="71s-6Y-QCC"/>
+                            <constraint firstItem="SfN-4i-YXQ" firstAttribute="bottom" secondItem="p8f-Xs-M1Y" secondAttribute="top" id="Fnl-kE-Ckm"/>
                             <constraint firstItem="NKR-Ch-kgY" firstAttribute="leading" secondItem="kbG-PR-Kaa" secondAttribute="leading" id="Iy9-AL-x2z"/>
-                            <constraint firstItem="mkl-6J-bQ8" firstAttribute="top" secondItem="kbG-PR-Kaa" secondAttribute="bottom" constant="22" id="PGv-9l-Hh4"/>
-                            <constraint firstItem="mkl-6J-bQ8" firstAttribute="width" secondItem="4r6-ok-gTp" secondAttribute="width" id="PcG-0b-69W"/>
                             <constraint firstItem="bNV-EU-E1F" firstAttribute="trailing" secondItem="kbG-PR-Kaa" secondAttribute="trailing" id="PzT-9v-Bl8"/>
+                            <constraint firstItem="SfN-4i-YXQ" firstAttribute="trailing" secondItem="kbG-PR-Kaa" secondAttribute="trailing" id="UY9-Ie-kuh"/>
                             <constraint firstItem="NKR-Ch-kgY" firstAttribute="top" secondItem="bNV-EU-E1F" secondAttribute="top" id="Z88-mM-hVH"/>
                             <constraint firstItem="kbG-PR-Kaa" firstAttribute="leading" secondItem="4r6-ok-gTp" secondAttribute="leading" id="cxB-yi-avo"/>
                             <constraint firstItem="APy-MV-YTM" firstAttribute="centerY" secondItem="bNV-EU-E1F" secondAttribute="centerY" id="jht-aD-y71"/>
-                            <constraint firstItem="mkl-6J-bQ8" firstAttribute="leading" secondItem="4r6-ok-gTp" secondAttribute="leading" id="jrI-ff-yFJ"/>
                             <constraint firstItem="kbG-PR-Kaa" firstAttribute="top" secondItem="OPr-iz-pFz" secondAttribute="bottom" constant="42" id="k9y-ld-Bi5"/>
                             <constraint firstItem="NKR-Ch-kgY" firstAttribute="baseline" secondItem="bNV-EU-E1F" secondAttribute="firstBaseline" id="kep-Gm-VpG"/>
+                            <constraint firstItem="SfN-4i-YXQ" firstAttribute="top" secondItem="kbG-PR-Kaa" secondAttribute="bottom" constant="41" id="lrd-lp-Kh4"/>
                             <constraint firstItem="APy-MV-YTM" firstAttribute="leading" secondItem="NKR-Ch-kgY" secondAttribute="leading" id="odM-Rw-guj"/>
                             <constraint firstItem="APy-MV-YTM" firstAttribute="trailing" secondItem="bNV-EU-E1F" secondAttribute="trailing" id="pAH-j2-TcO"/>
                             <constraint firstAttribute="trailing" secondItem="kbG-PR-Kaa" secondAttribute="trailing" id="tzy-Ey-u9q"/>
-                            <constraint firstItem="p8f-Xs-M1Y" firstAttribute="top" secondItem="mkl-6J-bQ8" secondAttribute="bottom" id="ugH-HU-veg"/>
+                            <constraint firstItem="SfN-4i-YXQ" firstAttribute="leading" secondItem="kbG-PR-Kaa" secondAttribute="leading" id="wKu-FK-DKB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gWn-at-ps1"/>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="mkl-6J-bQ8" id="Xcs-g6-VgC"/>
+                        <outlet property="tableView" destination="SfN-4i-YXQ" id="j9F-Sw-Srp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nca-b4-Wp2" sceneMemberID="firstResponder"/>

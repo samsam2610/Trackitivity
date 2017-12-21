@@ -14,7 +14,7 @@
 		2202A45E1F79B5410034330F /* variableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2202A45D1F79B5410034330F /* variableList.swift */; };
 		2208E5331F74B98B00C74074 /* practiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2208E5321F74B98B00C74074 /* practiceViewController.swift */; };
 		2218BC781F7ABE7D009C7434 /* doctorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2218BC771F7ABE7D009C7434 /* doctorViewController.swift */; };
-		2220F6D71FEA13230048EA27 /* doctorProgressVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2220F6D61FEA13230048EA27 /* doctorProgressVC.storyboard */; };
+		2220F6D71FEA13230048EA27 /* doctorProgressViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2220F6D61FEA13230048EA27 /* doctorProgressViewController.storyboard */; };
 		2220F6D91FEA138C0048EA27 /* doctorProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220F6D81FEA138C0048EA27 /* doctorProgressViewController.swift */; };
 		222F86F51FC23F5600137AF9 /* progressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222F86F41FC23F5600137AF9 /* progressViewController.swift */; };
 		222F86F71FC23F8200137AF9 /* progressViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 222F86F61FC23F8200137AF9 /* progressViewController.storyboard */; };
@@ -92,7 +92,7 @@
 		2202A45D1F79B5410034330F /* variableList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = variableList.swift; sourceTree = "<group>"; };
 		2208E5321F74B98B00C74074 /* practiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiceViewController.swift; sourceTree = "<group>"; };
 		2218BC771F7ABE7D009C7434 /* doctorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = doctorViewController.swift; sourceTree = "<group>"; };
-		2220F6D61FEA13230048EA27 /* doctorProgressVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = doctorProgressVC.storyboard; sourceTree = "<group>"; };
+		2220F6D61FEA13230048EA27 /* doctorProgressViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = doctorProgressViewController.storyboard; sourceTree = "<group>"; };
 		2220F6D81FEA138C0048EA27 /* doctorProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = doctorProgressViewController.swift; sourceTree = "<group>"; };
 		222F86F41FC23F5600137AF9 /* progressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = progressViewController.swift; sourceTree = "<group>"; };
 		222F86F61FC23F8200137AF9 /* progressViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = progressViewController.storyboard; sourceTree = "<group>"; };
@@ -209,9 +209,9 @@
 				2201CCAD1F74178100736AD5 /* bleViewController.swift */,
 				22AE3B1E1F7884FE00C27D0F /* exerciseViewController.swift */,
 				222F86F41FC23F5600137AF9 /* progressViewController.swift */,
-				2220F6D61FEA13230048EA27 /* doctorProgressVC.storyboard */,
-				2220F6D81FEA138C0048EA27 /* doctorProgressViewController.swift */,
 				22DC55EC1FD07E6D00F881C4 /* progressDetailViewController.swift */,
+				2220F6D81FEA138C0048EA27 /* doctorProgressViewController.swift */,
+				2220F6D61FEA13230048EA27 /* doctorProgressViewController.storyboard */,
 				222F86F61FC23F8200137AF9 /* progressViewController.storyboard */,
 				22DC55EA1FD07DFA00F881C4 /* progressDetailViewController.storyboard */,
 				22654B501F7398AF00FB32FA /* loginViewController.storyboard */,
@@ -386,7 +386,7 @@
 				22E0FDB91FCA2B920070BB55 /* Default-568h@2x.png in Resources */,
 				222F86F71FC23F8200137AF9 /* progressViewController.storyboard in Resources */,
 				224F4D6D1FBCE610005AF2A3 /* practiceViewController.storyboard in Resources */,
-				2220F6D71FEA13230048EA27 /* doctorProgressVC.storyboard in Resources */,
+				2220F6D71FEA13230048EA27 /* doctorProgressViewController.storyboard in Resources */,
 				22654B571F7398AF00FB32FA /* Assets.xcassets in Resources */,
 				224F4D761FBCF9DF005AF2A3 /* mainViewController.storyboard in Resources */,
 				22654B521F7398AF00FB32FA /* loginViewController.storyboard in Resources */,

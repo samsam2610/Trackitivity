@@ -12,7 +12,7 @@ import Foundation
 class RestApiManager {
     
     var stringURL: String?
-    var tempData = [Patient]()
+    
     func getPatients(completion:  @escaping ([Patient]) -> ()){
         
         let url = URL(string: stringURL!)
@@ -38,5 +38,28 @@ class RestApiManager {
         task.resume()
     }
     
-    
+    func getPatientData(completion:  @escaping ([PatientData]) -> ()){
+        
+        let url = URL(string: stringURL!)
+        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
+            
+            if error != nil {
+                print(error!)
+            } else {
+                
+                if let urlContent = data {
+                    
+                    do {
+                        let patientData = try JSONDecoder().decode([PatientData].self, from: urlContent)
+                        completion(patientData)
+                        
+                    } catch {
+                        print("Json Processing Failed")
+                        print(error)
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
 }

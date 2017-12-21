@@ -53,6 +53,31 @@ struct Patient: Codable {
     
 }
 
+struct PatientData: Codable {
+    let name: String
+    let title: String
+    let timeStart: String
+    let timeEnd: String
+    let duration: Int
+    let repetitions: Int
+    let averageAngle: Float
+    let minAngle: Float
+    let maxAngle: Float
+    
+    private enum CodingKeys: String, CodingKey {
+        case name
+        case title
+        case timeStart = "time_start"
+        case timeEnd = "time_end"
+        case duration
+        case repetitions
+        case averageAngle = "average_angle"
+        case minAngle = "min_angle"
+        case maxAngle = "max_angle"
+    
+    }
+}
+
 
 
 let practiceVC = practiceViewController.instantiate(fromAppStoryboard: .practiceViewController)
