@@ -46,6 +46,7 @@ extension exerciseViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedExercise = exercise[indexPath.row]
+        selectedExerciseID = exerciseID[indexPath.row]
     }
     
 

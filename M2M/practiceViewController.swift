@@ -146,15 +146,15 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, ORK
     func updateIncomingData () {
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "Notify"), object: nil , queue: nil){
             notification in
-            
             self.updateData()
         }
     }
     
     func analyzeData (clearedStringData: String) {
         let dataCache = self.checkString(String: clearedStringData)
-        Second = dataCache.valueY
-        thighAngle = dataCache.valueX
+        Second = dataCache.angleKnee
+        thighAngle = round(acos(abs(dataCache.angleThigh)/10)*57.2958)
+        print("Thigh angle is \(thighAngle)")
         guard dataCache.Time > 0 else {
             return
         }
@@ -200,24 +200,28 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, ORK
         
     }
     
-    func checkString (String: String) -> (Time: Double, valueX: Double, valueY: Double, valueZ: Double){
+    func checkString (String: String) -> (Time: Double, angleKnee: Double, angleThigh: Double){
         var Time: Double
-        var valueX: Double
-        var valueY: Double
-        var valueZ: Double
+        var angleKnee: Double
+        var angleThigh: Double
+//        var systemCheckFirst: Int
+//        var systemCheckSecond: Int
         let StringRecorded = String.components(separatedBy: ",").flatMap { Double($0.trimmingCharacters(in: .whitespaces)) }
-        guard StringRecorded.count == 4, StringRecorded[1] < 360, StringRecorded[2] < 360, StringRecorded[3] < 360 else {
+        guard StringRecorded.count == 3
+        else {
             Time = 0
-            valueX = 361
-            valueY = 361
-            valueZ = 361
-            return (Time, valueX, valueY, valueZ)
+            angleKnee = 361
+            angleThigh = 11
+//            systemCheckFirst = 0
+//            systemCheckSecond = 0
+            return (Time, angleKnee, angleThigh)
         }
         Time = StringRecorded[0]
-        valueX = StringRecorded[1]
-        valueY = StringRecorded[2]
-        valueZ = StringRecorded[3]
-        return (Time, valueX, valueY, valueZ)
+        angleKnee = StringRecorded[1]
+        angleThigh = StringRecorded[2]
+//        systemCheckFirst = Int(StringRecorded[3])
+//        systemCheckSecond = Int(StringRecorded[4])
+        return (Time, angleKnee, angleThigh)
     }
     
     
@@ -271,7 +275,6 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, ORK
             str = "Keep going! You can do it!"
             self.exerciseWarning.textColor = UIColor.init(red: 26/255, green: 188/255, blue: 156/255, alpha: 1)
         }
-        
         self.exerciseWarning.text = str
         
         let elapsedTime = Double(totalTime)
@@ -483,7 +486,7 @@ extension practiceViewController {
             self.endDate = Date()
             self.wrappingUpData()
             rawData.removeAll()
-            self.saveScore(repetition: currentCount, avgAngle: avgROM, exerciseID: "ABC", startDate: self.startDate, endDate: self.endDate, currentDog: self.currentDog!)
+            self.saveScore(repetition: currentCount, avgAngle: avgROM, exerciseID: selectedExerciseID, startDate: self.startDate, endDate: self.endDate, currentDog: self.currentDog!)
             self.present(surveyMessage, animated: true, completion: nil)
             print(self.fetch())
         })

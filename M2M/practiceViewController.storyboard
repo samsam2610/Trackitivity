@@ -6,6 +6,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -89,116 +90,116 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kSy-Fw-fFZ" customClass="KDCircularProgress" customModule="M2M" customModuleProvider="target">
-                                <rect key="frame" x="64" y="209" width="247" height="248"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6by-wI-OZr" customClass="KDCircularProgress" customModule="M2M" customModuleProvider="target">
-                                        <rect key="frame" x="-36" y="-35" width="318" height="318"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="angle">
-                                                <real key="value" value="360"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
-                                                <real key="value" value="-90"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="IBColor3">
-                                                <color key="value" red="0.100070335" green="0.73665314910000002" blue="0.61070448160000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="trackThickness">
-                                                <real key="value" value="-1"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="glowAmount">
-                                                <real key="value" value="-1"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="progressThickness">
-                                                <real key="value" value="0.75"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="IBColor1">
-                                                <color key="value" red="0.100070335" green="0.73665314910000002" blue="0.61070448160000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="gradientRotateSpeed">
-                                                <real key="value" value="-2"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="IBColor2">
-                                                <color key="value" red="0.100070335" green="0.73665314910000002" blue="0.61070448160000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="6by-wI-OZr" firstAttribute="top" secondItem="kSy-Fw-fFZ" secondAttribute="top" constant="-35" id="bKC-ul-ewK"/>
-                                    <constraint firstItem="6by-wI-OZr" firstAttribute="centerY" secondItem="kSy-Fw-fFZ" secondAttribute="centerY" id="n2M-Kf-2ZT"/>
-                                    <constraint firstItem="6by-wI-OZr" firstAttribute="leading" secondItem="kSy-Fw-fFZ" secondAttribute="leading" constant="-36" id="xwZ-sf-Tpa"/>
-                                    <constraint firstItem="6by-wI-OZr" firstAttribute="centerX" secondItem="kSy-Fw-fFZ" secondAttribute="centerX" id="yda-Sx-z5q"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clockwise" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="IBColor1">
-                                        <color key="value" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="progressThickness">
-                                        <real key="value" value="0.80000000000000004"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="angle">
-                                        <real key="value" value="360"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
-                                        <real key="value" value="-90"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="trackThickness">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="IBColor2">
-                                        <color key="value" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="glowAmount">
-                                        <real key="value" value="-1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="gradientRotateSpeed">
-                                        <real key="value" value="-2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="trackColor">
-                                        <color key="value" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 secs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16i-lB-Axb">
                                 <rect key="frame" x="269" y="583" width="51" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLf-bm-kRG">
-                                <rect key="frame" x="29" y="66" width="319" height="41"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLf-bm-kRG">
+                                <rect key="frame" x="29" y="66" width="319" height="0.0"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mhl-D9-ePG">
-                                <rect key="frame" x="40" y="115" width="295" height="52"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mhl-D9-ePG">
+                                <rect key="frame" x="40" y="74" width="295" height="0.0"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6by-wI-OZr" customClass="KDCircularProgress" customModule="M2M" customModuleProvider="target">
+                                <rect key="frame" x="24" y="175" width="335" height="316"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kSy-Fw-fFZ" customClass="KDCircularProgress" customModule="M2M" customModuleProvider="target">
+                                        <rect key="frame" x="44" y="24" width="247" height="268"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="clockwise" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="IBColor1">
+                                                <color key="value" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="progressThickness">
+                                                <real key="value" value="0.80000000000000004"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="angle">
+                                                <real key="value" value="360"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
+                                                <real key="value" value="-90"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="trackThickness">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="IBColor2">
+                                                <color key="value" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="glowAmount">
+                                                <real key="value" value="-1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="gradientRotateSpeed">
+                                                <real key="value" value="-2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="trackColor">
+                                                <color key="value" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="kSy-Fw-fFZ" firstAttribute="top" secondItem="6by-wI-OZr" secondAttribute="top" constant="24" id="7s5-dn-EqU"/>
+                                    <constraint firstItem="kSy-Fw-fFZ" firstAttribute="centerX" secondItem="6by-wI-OZr" secondAttribute="centerX" id="A38-SZ-qlM"/>
+                                    <constraint firstItem="kSy-Fw-fFZ" firstAttribute="leading" secondItem="6by-wI-OZr" secondAttribute="leading" constant="44" id="XSH-mV-Bbu"/>
+                                    <constraint firstItem="kSy-Fw-fFZ" firstAttribute="centerY" secondItem="6by-wI-OZr" secondAttribute="centerY" id="clc-C4-KUi"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="angle">
+                                        <real key="value" value="360"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
+                                        <real key="value" value="-90"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="IBColor3">
+                                        <color key="value" red="0.100070335" green="0.73665314910000002" blue="0.61070448160000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="trackThickness">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="glowAmount">
+                                        <real key="value" value="-1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="progressThickness">
+                                        <real key="value" value="0.75"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="IBColor1">
+                                        <color key="value" red="0.100070335" green="0.73665314910000002" blue="0.61070448160000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="gradientRotateSpeed">
+                                        <real key="value" value="-2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="IBColor2">
+                                        <color key="value" red="0.100070335" green="0.73665314910000002" blue="0.61070448160000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="iZ9-ob-2Ot" firstAttribute="top" secondItem="kSy-Fw-fFZ" secondAttribute="bottom" constant="97" id="6qe-rT-jRl"/>
+                            <constraint firstItem="lLf-bm-kRG" firstAttribute="leading" secondItem="jcG-Af-UeJ" secondAttribute="leadingMargin" constant="13" id="3Ab-CR-hcx"/>
                             <constraint firstItem="lLf-bm-kRG" firstAttribute="top" secondItem="oWe-rp-D92" secondAttribute="bottom" constant="8" id="7Ej-Q1-4q7"/>
-                            <constraint firstItem="lLf-bm-kRG" firstAttribute="leading" secondItem="kSy-Fw-fFZ" secondAttribute="leading" constant="-35" id="9O7-TJ-WxR"/>
-                            <constraint firstItem="kSy-Fw-fFZ" firstAttribute="leading" secondItem="GhZ-WH-9FT" secondAttribute="leading" constant="64" id="Am1-3o-o0e"/>
                             <constraint firstItem="0js-NH-yKE" firstAttribute="trailing" secondItem="oWe-rp-D92" secondAttribute="trailing" id="CxG-QI-KlA"/>
                             <constraint firstItem="ADW-oI-x0x" firstAttribute="leading" secondItem="iZ9-ob-2Ot" secondAttribute="trailing" constant="161" id="FNE-a7-53w"/>
                             <constraint firstItem="iZ9-ob-2Ot" firstAttribute="baseline" secondItem="ADW-oI-x0x" secondAttribute="baseline" id="G5S-Gu-dNP"/>
                             <constraint firstItem="0yU-YS-Nd3" firstAttribute="leading" secondItem="XB6-hV-WQd" secondAttribute="leading" id="HLq-NG-Os7"/>
+                            <constraint firstItem="6by-wI-OZr" firstAttribute="leading" secondItem="GhZ-WH-9FT" secondAttribute="leading" constant="21" id="IB6-bR-ebj"/>
                             <constraint firstItem="0yU-YS-Nd3" firstAttribute="top" secondItem="oWe-rp-D92" secondAttribute="top" id="Koq-Ss-paF"/>
                             <constraint firstItem="ASC-Z7-4jv" firstAttribute="baseline" secondItem="16i-lB-Axb" secondAttribute="baseline" id="Tp0-q8-bL7"/>
                             <constraint firstItem="oWe-rp-D92" firstAttribute="leading" secondItem="0yU-YS-Nd3" secondAttribute="leading" id="UMR-VM-44X"/>
-                            <constraint firstItem="lLf-bm-kRG" firstAttribute="trailing" secondItem="kSy-Fw-fFZ" secondAttribute="trailing" constant="37" id="Ut7-l0-3Wc"/>
-                            <constraint firstItem="oWe-rp-D92" firstAttribute="centerX" secondItem="kSy-Fw-fFZ" secondAttribute="centerX" id="VLv-pa-B6w"/>
+                            <constraint firstItem="lLf-bm-kRG" firstAttribute="centerX" secondItem="6by-wI-OZr" secondAttribute="centerX" id="V0Q-1K-sax"/>
+                            <constraint firstItem="GhZ-WH-9FT" firstAttribute="trailing" secondItem="6by-wI-OZr" secondAttribute="trailing" constant="19" id="WHx-GY-bne"/>
                             <constraint firstItem="XB6-hV-WQd" firstAttribute="top" secondItem="ASC-Z7-4jv" secondAttribute="bottom" constant="19" id="WO3-pr-t5e"/>
+                            <constraint firstItem="6by-wI-OZr" firstAttribute="top" secondItem="jcG-Af-UeJ" secondAttribute="top" constant="210" id="Xc2-lO-5dC"/>
                             <constraint firstItem="GhZ-WH-9FT" firstAttribute="trailing" secondItem="Mhl-D9-ePG" secondAttribute="trailing" constant="40" id="ZIq-cv-NKW"/>
                             <constraint firstItem="ASC-Z7-4jv" firstAttribute="top" secondItem="iZ9-ob-2Ot" secondAttribute="bottom" constant="8" symbolic="YES" id="ZP7-nQ-Ba3"/>
                             <constraint firstItem="iZ9-ob-2Ot" firstAttribute="centerX" secondItem="ASC-Z7-4jv" secondAttribute="centerX" id="bN2-Au-o7V"/>
@@ -208,13 +209,11 @@
                             <constraint firstItem="oWe-rp-D92" firstAttribute="top" secondItem="GhZ-WH-9FT" secondAttribute="top" id="eEE-bY-VOZ"/>
                             <constraint firstItem="GhZ-WH-9FT" firstAttribute="trailing" secondItem="ADW-oI-x0x" secondAttribute="trailing" constant="48" id="fKD-HD-42H"/>
                             <constraint firstItem="0yU-YS-Nd3" firstAttribute="top" secondItem="0js-NH-yKE" secondAttribute="top" id="hMg-te-XwR"/>
-                            <constraint firstItem="kSy-Fw-fFZ" firstAttribute="top" secondItem="Mhl-D9-ePG" secondAttribute="bottom" constant="42" id="hWK-Vm-uhE"/>
                             <constraint firstItem="0yU-YS-Nd3" firstAttribute="baseline" secondItem="0js-NH-yKE" secondAttribute="firstBaseline" id="kyn-tu-TVc"/>
                             <constraint firstItem="XB6-hV-WQd" firstAttribute="bottom" secondItem="GhZ-WH-9FT" secondAttribute="bottom" id="mWe-ca-YUp"/>
-                            <constraint firstItem="kSy-Fw-fFZ" firstAttribute="centerY" secondItem="jcG-Af-UeJ" secondAttribute="centerY" id="msT-Lc-G3O"/>
                             <constraint firstItem="Mhl-D9-ePG" firstAttribute="leading" secondItem="GhZ-WH-9FT" secondAttribute="leading" constant="40" id="oy3-UC-N0u"/>
+                            <constraint firstAttribute="bottom" secondItem="6by-wI-OZr" secondAttribute="bottom" constant="268" id="pyf-qs-yZC"/>
                             <constraint firstItem="oWe-rp-D92" firstAttribute="leading" secondItem="jcG-Af-UeJ" secondAttribute="leading" id="qOs-wW-UdJ"/>
-                            <constraint firstItem="kSy-Fw-fFZ" firstAttribute="top" secondItem="lLf-bm-kRG" secondAttribute="bottom" constant="102" id="t87-L0-UTh"/>
                             <constraint firstAttribute="trailing" secondItem="oWe-rp-D92" secondAttribute="trailing" id="vYa-pt-Erp"/>
                             <constraint firstItem="ADW-oI-x0x" firstAttribute="centerX" secondItem="16i-lB-Axb" secondAttribute="centerX" id="zsE-C2-pD8"/>
                         </constraints>
@@ -232,7 +231,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eCK-VC-QZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3361" y="-20"/>
+            <point key="canvasLocation" x="3360.8000000000002" y="-21.139430284857571"/>
         </scene>
     </scenes>
 </document>

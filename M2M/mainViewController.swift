@@ -48,14 +48,14 @@ class mainViewController: UIViewController {
     @IBAction func startButton(_ sender: UIButton) {
         switch selectedExercise {
         case "Sitting Supported Knee Bends":
-            thighMaxAngle = 20
-            thighMinAngle = -20
+            thighMaxAngle = 26*2
+            thighMinAngle = 0
         case "Standing Knee Bends":
-            thighMinAngle = 45
-            thighMaxAngle = 170
+            thighMinAngle = 26*2+1
+            thighMaxAngle = 90
         default:
-            thighMaxAngle = 20
-            thighMinAngle = -20
+            thighMaxAngle = 26*2
+            thighMinAngle = 0
         }
         if (workoutActive == false) {
             workoutActive = true
@@ -76,82 +76,89 @@ class mainViewController: UIViewController {
     }
     
     @IBAction func progressView(_ sender: Any) {
-        let progressVC = progressViewController.instantiate(fromAppStoryboard: .progressViewController)
-        self.present(progressVC, animated: true, completion: nil)
+        //let progressVC = progressViewController.instantiate(fromAppStoryboard: .progressViewController)
+        // self.present(progressVC, animated: true, completion: nil)
+        let progressGeneralVC =
+        progressGeneralViewController.instantiate(fromAppStoryboard: .progressGeneralViewController)
+        self.present(progressGeneralVC, animated: true, completion: nil)
     }
     
-    
-    func PostData() {
-        
-        let parameters = [
-            "title": "Partial Squad",
-            "description": "",
-            "time_start": 1506356064,
-            "time_end": 1506359664,
-            "duration": 1000,
-            "repetitions": 50,
-            "average_angle": 60,
-            "min_angle": 80,
-            "max_angle": 180
-            ] as [String : Any]
-        
-        guard let url = URL(string: "https://apiserver269.herokuapp.com/activities") else { return }
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
-        request.httpBody = httpBody
-        
-        let session = URLSession.shared
-        session.dataTask(with: request) { (data, response, error) in
-            if let response = response {
-                print(response)
-            }
-            
-            if let data = data {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
-                } catch {
-                    print(error)
-                }
-            }
-            
-            }.resume()
+
+    @IBAction func chatView(_ sender: Any) {
     }
+
     
-    
-    func Login() {
-        
-        let parameters = [
-            "email": "lqthinh93@gmail.com",
-            "password": "12345678"
-            ] as [String : Any]
-        
-        guard let url = URL(string: "https://apiserver269.herokuapp.com/auth/local") else { return }
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
-        request.httpBody = httpBody
-        
-        let session = URLSession.shared
-        session.dataTask(with: request) { (data, response, error) in
-            if let response = response {
-                print(response)
-            }
-            
-            if let data = data {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
-                } catch {
-                    print(error)
-                }
-            }
-            
-            }.resume()
-    }
+//    func PostData() {
+//
+//        let parameters = [
+//            "title": "Partial Squad",
+//            "description": "",
+//            "time_start": 1506356064,
+//            "time_end": 1506359664,
+//            "duration": 1000,
+//            "repetitions": 50,
+//            "average_angle": 60,
+//            "min_angle": 80,
+//            "max_angle": 180
+//            ] as [String : Any]
+//
+//        guard let url = URL(string: "https://apiserver269.herokuapp.com/activities") else { return }
+//        var request = URLRequest(url: url)
+//        request.httpMethod = "POST"
+//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
+//        request.httpBody = httpBody
+//
+//        let session = URLSession.shared
+//        session.dataTask(with: request) { (data, response, error) in
+//            if let response = response {
+//                print(response)
+//            }
+//
+//            if let data = data {
+//                do {
+//                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+//                    print(json)
+//                } catch {
+//                    print(error)
+//                }
+//            }
+//
+//            }.resume()
+//    }
+//
+//
+//    func Login() {
+//
+//        let parameters = [
+//            "email": "lqthinh93@gmail.com",
+//            "password": "12345678"
+//            ] as [String : Any]
+//
+//        guard let url = URL(string: "https://apiserver269.herokuapp.com/auth/local") else { return }
+//        var request = URLRequest(url: url)
+//        request.httpMethod = "POST"
+//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
+//        request.httpBody = httpBody
+//
+//        let session = URLSession.shared
+//        session.dataTask(with: request) { (data, response, error) in
+//            if let response = response {
+//                print(response)
+//            }
+//
+//            if let data = data {
+//                do {
+//                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+//                    print(json)
+//                } catch {
+//                    print(error)
+//                }
+//            }
+//
+//            }.resume()
+//    }
     
     
 }

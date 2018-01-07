@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jt3-J1-Ulv">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -23,24 +23,44 @@
             <objects>
                 <viewController restorationIdentifier="doctorViewController" storyboardIdentifier="doctorViewController" id="jt3-J1-Ulv" customClass="doctorViewController" customModule="M2M" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZCM-QO-Kxr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sampleDog2" translatesAutoresizingMaskIntoConstraints="NO" id="c05-wS-mJ8">
-                                <rect key="frame" x="0.0" y="57" width="375" height="183"/>
+                                <rect key="frame" x="0.0" y="80" width="375" height="183"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="183" id="X8r-ho-OKK"/>
                                 </constraints>
                             </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zQe-cV-cjW">
+                                <rect key="frame" x="0.0" y="271" width="375" height="507"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="jt3-J1-Ulv" id="FYY-kB-Vrz"/>
+                                    <outlet property="delegate" destination="jt3-J1-Ulv" id="zyw-Bn-Zl1"/>
+                                </connections>
+                            </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patients list" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHQ-bp-1MO">
-                                <rect key="frame" x="0.0" y="20" width="375" height="37"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="37"/>
                                 <color key="backgroundColor" red="0.100070335" green="0.73665314910000002" blue="0.61070448160000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nb-2z-MYE">
+                                <rect key="frame" x="327" y="47" width="48" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="KhO-Ka-P5t"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addPatient:" destination="jt3-J1-Ulv" eventType="touchUpInside" id="VH2-co-5Ye"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKW-bX-Nud">
-                                <rect key="frame" x="0.0" y="23" width="53" height="30"/>
+                                <rect key="frame" x="0.0" y="47" width="53" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="YM5-wA-rFB"/>
                                     <constraint firstAttribute="width" constant="53" id="z9i-kw-Uu4"/>
@@ -53,32 +73,12 @@
                                     <action selector="backToMain:" destination="jt3-J1-Ulv" eventType="touchUpInside" id="pf0-NH-6TW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nb-2z-MYE">
-                                <rect key="frame" x="327" y="23" width="48" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="KhO-Ka-P5t"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
-                                <state key="normal" title="Add">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="addPatient:" destination="jt3-J1-Ulv" eventType="touchUpInside" id="VH2-co-5Ye"/>
-                                </connections>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zQe-cV-cjW">
-                                <rect key="frame" x="0.0" y="248" width="375" height="419"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="jt3-J1-Ulv" id="FYY-kB-Vrz"/>
-                                    <outlet property="delegate" destination="jt3-J1-Ulv" id="zyw-Bn-Zl1"/>
-                                </connections>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="9nb-2z-MYE" firstAttribute="trailing" secondItem="OHQ-bp-1MO" secondAttribute="trailing" id="0qF-G7-2fQ"/>
                             <constraint firstItem="9nb-2z-MYE" firstAttribute="firstBaseline" secondItem="MKW-bX-Nud" secondAttribute="baseline" id="3hI-7d-7D7"/>
-                            <constraint firstItem="OHQ-bp-1MO" firstAttribute="centerY" secondItem="MKW-bX-Nud" secondAttribute="centerY" id="8gf-TX-Azr"/>
+                            <constraint firstItem="OHQ-bp-1MO" firstAttribute="centerY" secondItem="MKW-bX-Nud" secondAttribute="centerY" constant="0.5" id="8gf-TX-Azr"/>
                             <constraint firstItem="9nb-2z-MYE" firstAttribute="top" secondItem="MKW-bX-Nud" secondAttribute="top" id="DWA-8v-f61"/>
                             <constraint firstItem="OHQ-bp-1MO" firstAttribute="leading" secondItem="MKW-bX-Nud" secondAttribute="leading" id="FAI-mT-UVW"/>
                             <constraint firstItem="OHQ-bp-1MO" firstAttribute="top" secondItem="ymC-8M-bMs" secondAttribute="top" id="KOW-fe-Nhf"/>
@@ -92,7 +92,7 @@
                             <constraint firstItem="OHQ-bp-1MO" firstAttribute="trailing" secondItem="c05-wS-mJ8" secondAttribute="trailing" id="Yn5-0n-5eP"/>
                             <constraint firstItem="OHQ-bp-1MO" firstAttribute="leading" secondItem="ZCM-QO-Kxr" secondAttribute="leading" id="kdp-5i-a6s"/>
                             <constraint firstAttribute="trailing" secondItem="OHQ-bp-1MO" secondAttribute="trailing" id="qDb-Yf-zS6"/>
-                            <constraint firstItem="c05-wS-mJ8" firstAttribute="top" secondItem="OHQ-bp-1MO" secondAttribute="bottom" id="ve4-lM-Bwc"/>
+                            <constraint firstItem="c05-wS-mJ8" firstAttribute="top" secondItem="OHQ-bp-1MO" secondAttribute="bottom" constant="-1" id="ve4-lM-Bwc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ymC-8M-bMs"/>
                     </view>

@@ -25,10 +25,10 @@ var connected: Bool = false
 var workoutActive = false
 var First: Double = 0, Second: Double = 0, dBefore: Double = 0, dAfter: Double = 0, Max: Double = 0, Min: Double = 0, currentMax: Double = 0, currentMin: Double = 0, sessionMax: Double = 0, sessionMin: Double = 0
 var currentCount: Double = 0 // Number of actual repetition
-var targetCount: Double = 20 // Expected number of repetition
+var targetCount: Double = 50 // Expected number of repetition
 var totalTime: TimeInterval = 0 
 var targetTime: Double = 120
-var targetROM: Double = 40
+var targetROM: Double = 50
 var avgROM: Double = 0 // Average Range of Motion
 var startTime: NSCalendar?
 var endTime: NSCalendar?
@@ -37,11 +37,14 @@ var thighMaxAngle: Double?
 var thighMinAngle: Double?
 var thighAngle: Double = 361
 
-let exercise = ["Sitting Supported Knee Bends", "Standing Knee Bends"]
+let exercise = ["Sitting Supported Knee Bends","Standing Knee Bends"]
+let exerciseID = ["SSKB","SKB"]
 let descrip = ["While sitting at your bedside or in a chair with your thigh supported, place your foot behind the heel of your operated knee for support. Slowly bend your knee as far as you can. Hold your knee in this position for 5 to 10 seconds.","Standing erect with the aid of a walker or crutches, lift your thigh and bend your knee as much as you can. Hold for 5 to 10 seconds. Then straighten your knee, touching the floor with your heel first."]
 
 
+
 var selectedExercise = exercise[0]
+var selectedExerciseID = exerciseID[0]
 
 
 
@@ -53,32 +56,6 @@ struct Patient: Codable {
     
 }
 
-struct PatientData: Codable {
-    let name: String
-    let title: String
-    let timeStart: String
-    let timeEnd: String
-    let duration: Int
-    let repetitions: Int
-    let averageAngle: Float
-    let minAngle: Float
-    let maxAngle: Float
-    
-    private enum CodingKeys: String, CodingKey {
-        case name
-        case title
-        case timeStart = "time_start"
-        case timeEnd = "time_end"
-        case duration
-        case repetitions
-        case averageAngle = "average_angle"
-        case minAngle = "min_angle"
-        case maxAngle = "max_angle"
-    
-    }
-}
-
-
 
 let practiceVC = practiceViewController.instantiate(fromAppStoryboard: .practiceViewController)
 let mainVC = mainViewController.instantiate(fromAppStoryboard: .mainViewController)
@@ -88,6 +65,7 @@ let progressDetailVC = progressDetailViewController.instantiate(fromAppStoryboar
 let exerciseVC = exerciseViewController.instantiate(fromAppStoryboard: .exerciseViewController)
 let doctorVC = doctorViewController.instantiate(fromAppStoryboard: .doctorViewController)
 let doctorProgressVC = doctorProgressViewController.instantiate(fromAppStoryboard: .doctorProgressViewController)
+let progressGeneralVC = progressGeneralViewController.instantiate(fromAppStoryboard: .progressGeneralViewController)
 
 
 

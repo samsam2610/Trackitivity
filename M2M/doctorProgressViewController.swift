@@ -71,14 +71,47 @@ extension doctorProgressViewController: UITableViewDataSource, UITableViewDelega
         print(patient)
 
         let time = Date(timeIntervalSince1970: Double(patient.timeStart)!)
-        cell.textLabel?.text = String(describing: time)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        let start = dateFormatter.string(from: time)
+        cell.textLabel?.text = start
         return cell
     }
 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let patient = patientData[indexPath.row]
+        let startDate = Date(timeIntervalSince1970: Double(patient.timeStart)!)
+        let endDate = Date(timeIntervalSince1970: Double(patient.timeEnd)!)
+        let interval = intervalCalculate(startDate: startDate as NSDate, endDate: endDate as NSDate)
+        let progressDetailVC = progressDetailViewController.instantiate(fromAppStoryboard: .progressDetailViewController)
+        progressDetailVC.exerciseID = patient.exerciseName
+        progressDetailVC.duration = interval
+        progressDetailVC.avgAngle = Float(patient.averageAngle)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        let duration = dateFormatter.string(from: startDate)
+        print(duration)
+        progressDetailVC.start = duration
+        progressDetailVC.repetitions = Int16(patient.repetitions)
+        self.present(progressDetailVC, animated: true, completion: nil)
     }
     
     
+}
+
+extension doctorProgressViewController {
+    @IBAction func back(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+
+    func intervalCalculate(startDate: NSDate, endDate: NSDate) -> String {
+        
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .full
+        formatter.allowedUnits = [.hour, .minute, .second]
+        formatter.maximumUnitCount = 1
+        let interval = formatter.string(from: startDate as Date!, to: endDate as Date!)
+        return interval!
+    }
 }

@@ -74,7 +74,7 @@ enum AppStoryboard : String {
      let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
      let loginScene = storyboard.instatiateViewController(withIdentifier: "LoginVC") as LoginVC!
  */
-    case practiceViewController, mainViewController, doctorViewController, bleViewController, exerciseViewController, progressViewController, progressDetailViewController, doctorProgressViewController, doctorProgressDetailViewController
+    case practiceViewController, mainViewController, doctorViewController, bleViewController, exerciseViewController, progressViewController, progressDetailViewController, doctorProgressViewController, doctorProgressDetailViewController, progressGeneralViewController
     
     var instance : UIStoryboard {
         

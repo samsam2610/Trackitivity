@@ -35,7 +35,8 @@
 		229909281F75DD4D0041B9FB /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229909271F75DD4D0041B9FB /* KDCircularProgress.swift */; };
 		22A29BBB1FB87AD10010B0AE /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A29BBA1FB87AD10010B0AE /* File.swift */; };
 		22A506621F7569FE0051A199 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A506611F7569FE0051A199 /* CoreBluetooth.framework */; };
-		22AE3B1D1F7884D500C27D0F /* ExerciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE3B1C1F7884D500C27D0F /* ExerciseTableViewCell.swift */; };
+		22A912B91FF639830073DA87 /* patientData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A912B81FF639830073DA87 /* patientData.swift */; };
+		22AE3B1D1F7884D500C27D0F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE3B1C1F7884D500C27D0F /* TableViewCell.swift */; };
 		22AE3B1F1F7884FE00C27D0F /* exerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE3B1E1F7884FE00C27D0F /* exerciseViewController.swift */; };
 		22DB88121F9771C800897D2B /* ConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB88111F9771C800897D2B /* ConsentDocument.swift */; };
 		22DB881A1F97724E00897D2B /* ConsentTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB88191F97724E00897D2B /* ConsentTask.swift */; };
@@ -119,7 +120,8 @@
 		229909271F75DD4D0041B9FB /* KDCircularProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 		22A29BBA1FB87AD10010B0AE /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		22A506611F7569FE0051A199 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
-		22AE3B1C1F7884D500C27D0F /* ExerciseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTableViewCell.swift; sourceTree = "<group>"; };
+		22A912B81FF639830073DA87 /* patientData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = patientData.swift; sourceTree = "<group>"; };
+		22AE3B1C1F7884D500C27D0F /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		22AE3B1E1F7884FE00C27D0F /* exerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exerciseViewController.swift; sourceTree = "<group>"; };
 		22DB88111F9771C800897D2B /* ConsentDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentDocument.swift; sourceTree = "<group>"; };
 		22DB88191F97724E00897D2B /* ConsentTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentTask.swift; sourceTree = "<group>"; };
@@ -206,7 +208,6 @@
 			children = (
 				22191FB81FC6191700BB5B4B /* Core Data */,
 				22654B4C1F7398AF00FB32FA /* AppDelegate.swift */,
-				227A5CF71FF028E600AD804A /* progressGeneralViewController.swift */,
 				22654B4E1F7398AF00FB32FA /* loginViewController.swift */,
 				2208E5321F74B98B00C74074 /* practiceViewController.swift */,
 				22E38EFF1F73B8B30031B7A9 /* mainViewController.swift */,
@@ -214,6 +215,7 @@
 				2201CCAD1F74178100736AD5 /* bleViewController.swift */,
 				22AE3B1E1F7884FE00C27D0F /* exerciseViewController.swift */,
 				222F86F41FC23F5600137AF9 /* progressViewController.swift */,
+				227A5CF71FF028E600AD804A /* progressGeneralViewController.swift */,
 				22DC55EC1FD07E6D00F881C4 /* progressDetailViewController.swift */,
 				2220F6D81FEA138C0048EA27 /* doctorProgressViewController.swift */,
 				2220F6D61FEA13230048EA27 /* doctorProgressViewController.storyboard */,
@@ -227,11 +229,12 @@
 				224F4D701FBCED4D005AF2A3 /* bleViewController.storyboard */,
 				224F4D721FBCED8D005AF2A3 /* exerciseViewController.storyboard */,
 				2202A45D1F79B5410034330F /* variableList.swift */,
+				22A912B81FF639830073DA87 /* patientData.swift */,
 				226FA4D31FDE0C2D0048B42C /* API.swift */,
 				22654B561F7398AF00FB32FA /* Assets.xcassets */,
 				22654B5B1F7398AF00FB32FA /* Info.plist */,
 				2201CCAF1F741AC400736AD5 /* PeripheralTableViewCell.swift */,
-				22AE3B1C1F7884D500C27D0F /* ExerciseTableViewCell.swift */,
+				22AE3B1C1F7884D500C27D0F /* TableViewCell.swift */,
 				229909271F75DD4D0041B9FB /* KDCircularProgress.swift */,
 				2201CCB11F742BDE00736AD5 /* UUIDKey.swift */,
 				2201CCB31F742C0400736AD5 /* Extensions.swift */,
@@ -576,13 +579,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				222F86F51FC23F5600137AF9 /* progressViewController.swift in Sources */,
+				22A912B91FF639830073DA87 /* patientData.swift in Sources */,
 				2201CCB21F742BDE00736AD5 /* UUIDKey.swift in Sources */,
 				22DC55ED1FD07E6D00F881C4 /* progressDetailViewController.swift in Sources */,
 				2218BC781F7ABE7D009C7434 /* doctorViewController.swift in Sources */,
 				22654B4F1F7398AF00FB32FA /* loginViewController.swift in Sources */,
 				22E9D5331FE9BBD800901B24 /* Walk+CoreDataClass.swift in Sources */,
 				2220F6D91FEA138C0048EA27 /* doctorProgressViewController.swift in Sources */,
-				22AE3B1D1F7884D500C27D0F /* ExerciseTableViewCell.swift in Sources */,
+				22AE3B1D1F7884D500C27D0F /* TableViewCell.swift in Sources */,
 				2201CCAE1F74178100736AD5 /* bleViewController.swift in Sources */,
 				226FA4D41FDE0C2D0048B42C /* API.swift in Sources */,
 				2201CCB41F742C0400736AD5 /* Extensions.swift in Sources */,

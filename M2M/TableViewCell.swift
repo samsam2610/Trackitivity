@@ -27,3 +27,22 @@ class ExerciseTableViewCell: UITableViewCell {
     }
 
 }
+
+class progressCell: UITableViewCell {
+    
+    // MARK: - IBOutlets
+
+    @IBOutlet weak var targetPractice: UILabel!
+    @IBOutlet weak var duration: UILabel!
+    
+    
+    
+    // MARK: - View Life Cycle
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        targetPractice.text = nil
+        duration.text = nil
+
+    }
+}
