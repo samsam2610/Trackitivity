@@ -88,77 +88,7 @@ class mainViewController: UIViewController {
     }
 
     
-//    func PostData() {
-//
-//        let parameters = [
-//            "title": "Partial Squad",
-//            "description": "",
-//            "time_start": 1506356064,
-//            "time_end": 1506359664,
-//            "duration": 1000,
-//            "repetitions": 50,
-//            "average_angle": 60,
-//            "min_angle": 80,
-//            "max_angle": 180
-//            ] as [String : Any]
-//
-//        guard let url = URL(string: "https://apiserver269.herokuapp.com/activities") else { return }
-//        var request = URLRequest(url: url)
-//        request.httpMethod = "POST"
-//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
-//        request.httpBody = httpBody
-//
-//        let session = URLSession.shared
-//        session.dataTask(with: request) { (data, response, error) in
-//            if let response = response {
-//                print(response)
-//            }
-//
-//            if let data = data {
-//                do {
-//                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-//                    print(json)
-//                } catch {
-//                    print(error)
-//                }
-//            }
-//
-//            }.resume()
-//    }
-//
-//
-//    func Login() {
-//
-//        let parameters = [
-//            "email": "lqthinh93@gmail.com",
-//            "password": "12345678"
-//            ] as [String : Any]
-//
-//        guard let url = URL(string: "https://apiserver269.herokuapp.com/auth/local") else { return }
-//        var request = URLRequest(url: url)
-//        request.httpMethod = "POST"
-//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
-//        request.httpBody = httpBody
-//
-//        let session = URLSession.shared
-//        session.dataTask(with: request) { (data, response, error) in
-//            if let response = response {
-//                print(response)
-//            }
-//
-//            if let data = data {
-//                do {
-//                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-//                    print(json)
-//                } catch {
-//                    print(error)
-//                }
-//            }
-//
-//            }.resume()
-//    }
+
     
     
 }

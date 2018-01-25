@@ -31,8 +31,13 @@ class doctorProgressViewController: UIViewController {
         }
         managedContext = appDelegate.managedContext
         
-        let getData = RestApiManager()
-        getData.stringURL = "https://my.api.mockaroo.com/sam.json?key=4d9f5440"
+        let auth = authData.auth
+        let userID = auth.loginData?.userID
+        
+        var getData = RestApiManager()
+        let userAction = UserAction.activity
+        getData.stringURL = String(describing: getData.createURLWithString(userID: userID!, userAction: userAction.rawValue)!)
+        print(getData.stringURL)
         getData.getPatientData { tempData in
             
             print(tempData)
@@ -42,7 +47,6 @@ class doctorProgressViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
-        // Do any additional setup after loading the view.
     }
 
 }

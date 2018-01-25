@@ -22,6 +22,7 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, ORK
     @IBOutlet weak var smallRing: KDCircularProgress!
     @IBOutlet weak var bigRing: KDCircularProgress!
     
+    @IBOutlet weak var ROMLabel: UILabel!
     @IBOutlet weak var exerciseName: UILabel!
     @IBOutlet weak var exerciseWarning: UILabel!
     
@@ -58,6 +59,8 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, ORK
         bigRing.angle = 0
         smallRing.angle = 0
         currentCount = 0
+        self.ROMLabel.text = "\(String(0)) degrees"
+        self.dataLabel.text = "\(String(0)) counts"
         self.exerciseWarning.lineBreakMode = .byWordWrapping // notice the 'b' instead of 'B'
         self.exerciseWarning.numberOfLines = 3
         self.exerciseName.text = selectedExercise
@@ -190,6 +193,7 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, ORK
         print("cMax \(Max), cMin \(Min), cDiff \(ROM), cVal \(Second), cCount \(currentCount)")
         if ROM > targetROM && ROM < 180 {
             currentCount += 1
+            currentROM = ROM
             print("YOOO - cMax \(Max), cMin \(Min), cDiff \(ROM), cVal \(Second), cCount \(currentCount)")
             avgROM = (avgROM + ROM)/(currentCount)
             if Max > sessionMax { sessionMax = Max}
@@ -260,8 +264,8 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, ORK
     
     func updateData() {
         var str: String?
-        let rep = String(currentCount)
-        self.dataLabel.text = rep
+        self.dataLabel.text = "\(String(currentCount)) counts"
+        self.ROMLabel.text = "\(String(currentROM)) degrees"
         guard thighAngle != 361 else {
             return
         }
@@ -344,7 +348,7 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, ORK
             return
         }
         let managedContext = appDelegate.persistentContainer.viewContext
-        
+
         let newRecord = Walk(context: managedContext)
         newRecord.repetition = Int16(repetition)
         newRecord.avgAngle = Float(avgAngle)
@@ -359,6 +363,16 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, ORK
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
+        
+        var saveData = RestApiManager()
+        saveData.stringURL = "https://apiserver269.herokuapp.com/activity"
+        let parameters = PatientData(toJSon: "78a139a8-0d6f-4b5e-b780-302efa4ee7c8", exerciseName: exerciseID, timeStart: startDate, timeEnd: endDate, repetitions: Int(repetition), averageAngle: Float(avgAngle), minAngle: 80, maxAngle: 90)
+        saveData.postPatientActivity(parameters: parameters) { (error) in
+            if let error = error {
+                fatalError(error.localizedDescription)
+            }
+        }
+
         
     }
 
@@ -428,7 +442,7 @@ extension practiceViewController {
                                                     message: "Please finish the exercise!",
                                                     preferredStyle: UIAlertControllerStyle.alert)
             
-            alertController.addAction(UIAlertAction(title: "Fine! Ok then!", style: UIAlertActionStyle.default,handler: nil))
+            alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
             
             self.present(alertController, animated: true, completion: nil)
             
@@ -469,7 +483,7 @@ extension practiceViewController {
         })
         
         //Create No to survey questions
-        let noIdont = UIAlertAction(title: "Nope", style: .default, handler: { (action) -> Void in
+        let noIdont = UIAlertAction(title: "No", style: .default, handler: { (action) -> Void in
             self.dismiss(animated: true, completion: nil)
         })
         
@@ -488,11 +502,11 @@ extension practiceViewController {
             rawData.removeAll()
             self.saveScore(repetition: currentCount, avgAngle: avgROM, exerciseID: selectedExerciseID, startDate: self.startDate, endDate: self.endDate, currentDog: self.currentDog!)
             self.present(surveyMessage, animated: true, completion: nil)
-            print(self.fetch())
+            //print(self.fetch())
         })
         
         // Create Cancel button with action handlder
-        let nah = UIAlertAction(title: "Nah", style: .cancel, handler: { (action) -> Void in
+        let nah = UIAlertAction(title: "No", style: .cancel, handler: { (action) -> Void in
             workoutActive = true
             self.startWorkout()
         })

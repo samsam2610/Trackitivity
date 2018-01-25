@@ -32,6 +32,7 @@ var targetROM: Double = 50
 var avgROM: Double = 0 // Average Range of Motion
 var startTime: NSCalendar?
 var endTime: NSCalendar?
+var currentROM: Double = 100
 
 var thighMaxAngle: Double?
 var thighMinAngle: Double?

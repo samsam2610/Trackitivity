@@ -41,7 +41,10 @@ class doctorViewController: UIViewController {
         }
         managedContext = appDelegate.managedContext
         
-        let getData = RestApiManager()
+        let auth = authData.auth
+        print("Login data is \(String(describing: auth.loginData!.userID))")
+        
+        var getData = RestApiManager()
         getData.stringURL = "https://my.api.mockaroo.com/static_patient_list.json?key=4d9f5440"
         getData.getPatients { tempData in
             
@@ -57,11 +60,19 @@ class doctorViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
+        let dogName = "Fido"
+        
         
         let dogFetch: NSFetchRequest<Dog> = Dog.fetchRequest()
         do {
             patients = try managedContext.fetch(dogFetch)
+            if patients.count == 0 {
+                currentDog = Dog(context: managedContext)
+                currentDog?.name = dogName
+                try managedContext.save()
+            }
             print(patients.count)
+            patients = try managedContext.fetch(dogFetch)
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
