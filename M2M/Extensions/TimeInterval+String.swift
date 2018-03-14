@@ -8,8 +8,8 @@
 
 import Foundation
 
-extension TimeInterval {
 
+extension TimeInterval {
     func toString(input: TimeInterval) -> (String) {
         let integerTime = Int(input)
         let hours = integerTime / 3600
@@ -31,5 +31,4 @@ extension TimeInterval {
         }
         return finalString
     }
-
 }

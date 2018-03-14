@@ -1,5 +1,5 @@
 //
-//  Double+Rounding.swift
+//  Double.swift
 //  M2M
 //
 //  Created by Victor Zhong on 3/14/18.

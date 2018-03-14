@@ -6,11 +6,9 @@
 //  Copyright © 2017 Tran Sam. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import CoreBluetooth
 import CoreData
-
 
 var txCharacteristic : CBCharacteristic?
 var rxCharacteristic : CBCharacteristic?
