@@ -67,7 +67,7 @@ import Foundation
 import UIKit
 
 
-enum AppStoryboard : String {
+enum AppStoryboard: String {
 /**
      quickly instaniate viewcontroller from different storyboard.
      
@@ -75,7 +75,17 @@ enum AppStoryboard : String {
      let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
      let loginScene = storyboard.instatiateViewController(withIdentifier: "LoginVC") as LoginVC!
  */
-    case practiceViewController, mainViewController, doctorViewController, bleViewController, exerciseViewController, progressViewController, progressDetailViewController, doctorProgressViewController, doctorProgressDetailViewController, progressGeneralViewController, exerciseParameterViewController
+    case practiceViewController = "PracticeViewController",
+    mainViewController = "MainViewController",
+    doctorViewController = "DoctorViewController",
+    bleViewController,
+    exerciseViewController = "ExerciseViewController",
+    progressViewController = "ProgressViewController",
+    progressDetailViewController = "ProgressDetailViewController",
+    doctorProgressViewController = "DoctorProgressViewController",
+    doctorProgressDetailViewController = "DoctorProgressDetailViewController",
+    progressGeneralViewController = "ProgressGeneralViewController",
+    exerciseParameterViewController = "ExerciseParameterViewController"
     
     var instance : UIStoryboard {
         

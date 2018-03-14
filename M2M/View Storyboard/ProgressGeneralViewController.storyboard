@@ -18,9 +18,9 @@
         <!--Progress General View Controller-->
         <scene sceneID="ivH-FC-0g8">
             <objects>
-                <viewController storyboardIdentifier="progressGeneralViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="czC-rZ-yAg" customClass="ProgressGeneralViewController" customModule="M2M" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProgressGeneralViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="czC-rZ-yAg" customClass="ProgressGeneralViewController" customModule="M2M" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JDV-6s-mt6">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Pas-3y-0i0">
@@ -30,7 +30,7 @@
                                     <constraint firstAttribute="height" constant="542" id="C26-45-gd9"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="progressCellReuseIdentifier" rowHeight="48" id="xrY-PC-1X8" customClass="progressCell" customModule="M2M" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="progressCellReuseIdentifier" rowHeight="48" id="xrY-PC-1X8" customClass="progressCell" customModule="M2M" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xrY-PC-1X8" id="N09-wj-RVv">

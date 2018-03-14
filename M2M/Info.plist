@@ -25,19 +25,19 @@
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string>$(PRODUCT_NAME) collect motion data</string>
 	<key>NSCameraUsageDescription</key>
-	<string>$(PRODUCT_NAME) Record patient's response for researching purpose</string>
+	<string>$(PRODUCT_NAME) Record patient&apos;s response for researching purpose</string>
 	<key>NSHealthShareUsageDescription</key>
 	<string>$(PRODUCT_NAME) Share data with therapists to improve therapy</string>
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>$(PRODUCT_NAME) Updata data for better treatment</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>$(PRODUCT_NAME) Record patient's response</string>
+	<string>$(PRODUCT_NAME) Record patient&apos;s response</string>
 	<key>NSMotionUsageDescription</key>
-	<string>$(PRODUCT_NAME) Record patient's activities while doing exercise to monitor patient's therapy</string>
+	<string>$(PRODUCT_NAME) Record patient&apos;s activities while doing exercise to monitor patient&apos;s therapy</string>
 	<key>UILaunchStoryboardName</key>
-	<string>loginViewController</string>
+	<string>LoginViewController</string>
 	<key>UIMainStoryboardFile</key>
-	<string>loginViewController</string>
+	<string>LoginViewController</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

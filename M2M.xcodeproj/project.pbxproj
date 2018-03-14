@@ -15,24 +15,24 @@
 		2208E5331F74B98B00C74074 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2208E5321F74B98B00C74074 /* PracticeViewController.swift */; };
 		2218BC781F7ABE7D009C7434 /* DoctorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2218BC771F7ABE7D009C7434 /* DoctorViewController.swift */; };
 		221E31D1204E590D00C937E6 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E31D0204E590D00C937E6 /* URLs.swift */; };
-		2220F6D71FEA13230048EA27 /* doctorProgressViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2220F6D61FEA13230048EA27 /* doctorProgressViewController.storyboard */; };
+		2220F6D71FEA13230048EA27 /* DoctorProgressViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2220F6D61FEA13230048EA27 /* DoctorProgressViewController.storyboard */; };
 		2220F6D91FEA138C0048EA27 /* DoctorProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220F6D81FEA138C0048EA27 /* DoctorProgressViewController.swift */; };
 		222C587B203AC9A500265FFD /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C587A203AC9A500265FFD /* APIManager.swift */; };
 		222F86F51FC23F5600137AF9 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222F86F41FC23F5600137AF9 /* ProgressViewController.swift */; };
-		222F86F71FC23F8200137AF9 /* progressViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 222F86F61FC23F8200137AF9 /* progressViewController.storyboard */; };
+		222F86F71FC23F8200137AF9 /* ProgressViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 222F86F61FC23F8200137AF9 /* ProgressViewController.storyboard */; };
 		222FAF9B1F9B40DC00288FE7 /* SurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222FAF9A1F9B40DC00288FE7 /* SurveyTask.swift */; };
-		224F4D6D1FBCE610005AF2A3 /* practiceViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224F4D6C1FBCE610005AF2A3 /* practiceViewController.storyboard */; };
-		224F4D6F1FBCE99B005AF2A3 /* doctorViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224F4D6E1FBCE99B005AF2A3 /* doctorViewController.storyboard */; };
+		224F4D6D1FBCE610005AF2A3 /* PracticeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224F4D6C1FBCE610005AF2A3 /* PracticeViewController.storyboard */; };
+		224F4D6F1FBCE99B005AF2A3 /* DoctorViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224F4D6E1FBCE99B005AF2A3 /* DoctorViewController.storyboard */; };
 		224F4D711FBCED4D005AF2A3 /* bleViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224F4D701FBCED4D005AF2A3 /* bleViewController.storyboard */; };
-		224F4D731FBCED8D005AF2A3 /* exerciseViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224F4D721FBCED8D005AF2A3 /* exerciseViewController.storyboard */; };
-		224F4D761FBCF9DF005AF2A3 /* mainViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224F4D751FBCF9DF005AF2A3 /* mainViewController.storyboard */; };
+		224F4D731FBCED8D005AF2A3 /* ExerciseViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224F4D721FBCED8D005AF2A3 /* ExerciseViewController.storyboard */; };
+		224F4D761FBCF9DF005AF2A3 /* MainViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224F4D751FBCF9DF005AF2A3 /* MainViewController.storyboard */; };
 		22654B4D1F7398AF00FB32FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22654B4C1F7398AF00FB32FA /* AppDelegate.swift */; };
 		22654B4F1F7398AF00FB32FA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22654B4E1F7398AF00FB32FA /* LoginViewController.swift */; };
-		22654B521F7398AF00FB32FA /* loginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22654B501F7398AF00FB32FA /* loginViewController.storyboard */; };
+		22654B521F7398AF00FB32FA /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22654B501F7398AF00FB32FA /* LoginViewController.storyboard */; };
 		22654B571F7398AF00FB32FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22654B561F7398AF00FB32FA /* Assets.xcassets */; };
 		22691AD520407DF1009E9AF2 /* ExerciseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22691AD420407DF1009E9AF2 /* ExerciseList.swift */; };
 		226FA4D41FDE0C2D0048B42C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226FA4D31FDE0C2D0048B42C /* API.swift */; };
-		227A5CF41FF026B400AD804A /* progressGeneralViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 227A5CF31FF026B400AD804A /* progressGeneralViewController.storyboard */; };
+		227A5CF41FF026B400AD804A /* ProgressGeneralViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 227A5CF31FF026B400AD804A /* ProgressGeneralViewController.storyboard */; };
 		227D05581FC4E0FD00D5BFB0 /* Dog Walk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 227D05561FC4E0FD00D5BFB0 /* Dog Walk.xcdatamodeld */; };
 		2280B258203CAAFD00E0A348 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2280B257203CAAFD00E0A348 /* APIClient.swift */; };
 		229909281F75DD4D0041B9FB /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229909271F75DD4D0041B9FB /* KDCircularProgress.swift */; };
@@ -41,7 +41,7 @@
 		22A912B91FF639830073DA87 /* PatientData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A912B81FF639830073DA87 /* PatientData.swift */; };
 		22AE3B1D1F7884D500C27D0F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE3B1C1F7884D500C27D0F /* TableViewCell.swift */; };
 		22AE3B1F1F7884FE00C27D0F /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE3B1E1F7884FE00C27D0F /* ExerciseViewController.swift */; };
-		22C3B35A2041C8180011663C /* exerciseParameterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C3B3592041C8180011663C /* exerciseParameterViewController.storyboard */; };
+		22C3B35A2041C8180011663C /* ExerciseParameterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C3B3592041C8180011663C /* ExerciseParameterViewController.storyboard */; };
 		22D86141203D023000FE2FA6 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D86140203D023000FE2FA6 /* APIRequest.swift */; };
 		22D86143203D030D00FE2FA6 /* FetchDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D86142203D030D00FE2FA6 /* FetchDataManager.swift */; };
 		22D86145203D059500FE2FA6 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D86144203D059500FE2FA6 /* Exercise.swift */; };
@@ -49,7 +49,7 @@
 		22D86149203D32F200FE2FA6 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D86148203D32F200FE2FA6 /* Activity.swift */; };
 		22DB88121F9771C800897D2B /* ConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB88111F9771C800897D2B /* ConsentDocument.swift */; };
 		22DB881A1F97724E00897D2B /* ConsentTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB88191F97724E00897D2B /* ConsentTask.swift */; };
-		22DC55EB1FD07DFA00F881C4 /* progressDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22DC55EA1FD07DFA00F881C4 /* progressDetailViewController.storyboard */; };
+		22DC55EB1FD07DFA00F881C4 /* ProgressDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22DC55EA1FD07DFA00F881C4 /* ProgressDetailViewController.storyboard */; };
 		22DC55ED1FD07E6D00F881C4 /* ProgressDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DC55EC1FD07E6D00F881C4 /* ProgressDetailViewController.swift */; };
 		22DEEA6D1FC6EB0600117FE4 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DEEA6C1FC6EB0600117FE4 /* CoreDataStack.swift */; };
 		22E0FDB91FCA2B920070BB55 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E0FDB41FCA2B920070BB55 /* Default-568h@2x.png */; };
@@ -108,28 +108,28 @@
 		2208E5321F74B98B00C74074 /* PracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
 		2218BC771F7ABE7D009C7434 /* DoctorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorViewController.swift; sourceTree = "<group>"; };
 		221E31D0204E590D00C937E6 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
-		2220F6D61FEA13230048EA27 /* doctorProgressViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = doctorProgressViewController.storyboard; sourceTree = "<group>"; };
+		2220F6D61FEA13230048EA27 /* DoctorProgressViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DoctorProgressViewController.storyboard; sourceTree = "<group>"; };
 		2220F6D81FEA138C0048EA27 /* DoctorProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorProgressViewController.swift; sourceTree = "<group>"; };
 		222C587A203AC9A500265FFD /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		222F86F41FC23F5600137AF9 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
-		222F86F61FC23F8200137AF9 /* progressViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = progressViewController.storyboard; sourceTree = "<group>"; };
+		222F86F61FC23F8200137AF9 /* ProgressViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProgressViewController.storyboard; sourceTree = "<group>"; };
 		222FAF9A1F9B40DC00288FE7 /* SurveyTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyTask.swift; sourceTree = "<group>"; };
-		224F4D6C1FBCE610005AF2A3 /* practiceViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = practiceViewController.storyboard; sourceTree = "<group>"; };
-		224F4D6E1FBCE99B005AF2A3 /* doctorViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = doctorViewController.storyboard; sourceTree = "<group>"; };
+		224F4D6C1FBCE610005AF2A3 /* PracticeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PracticeViewController.storyboard; sourceTree = "<group>"; };
+		224F4D6E1FBCE99B005AF2A3 /* DoctorViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DoctorViewController.storyboard; sourceTree = "<group>"; };
 		224F4D701FBCED4D005AF2A3 /* bleViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = bleViewController.storyboard; sourceTree = "<group>"; };
-		224F4D721FBCED8D005AF2A3 /* exerciseViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = exerciseViewController.storyboard; sourceTree = "<group>"; };
-		224F4D751FBCF9DF005AF2A3 /* mainViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = mainViewController.storyboard; sourceTree = "<group>"; };
+		224F4D721FBCED8D005AF2A3 /* ExerciseViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExerciseViewController.storyboard; sourceTree = "<group>"; };
+		224F4D751FBCF9DF005AF2A3 /* MainViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainViewController.storyboard; sourceTree = "<group>"; };
 		22654B491F7398AF00FB32FA /* M2M.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = M2M.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22654B4C1F7398AF00FB32FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22654B4E1F7398AF00FB32FA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		22654B511F7398AF00FB32FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/loginViewController.storyboard; sourceTree = "<group>"; };
+		22654B511F7398AF00FB32FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LoginViewController.storyboard; sourceTree = "<group>"; };
 		22654B561F7398AF00FB32FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22654B5B1F7398AF00FB32FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22654B601F7398AF00FB32FA /* M2MTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = M2MTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22654B6B1F7398AF00FB32FA /* M2MUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = M2MUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22691AD420407DF1009E9AF2 /* ExerciseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseList.swift; sourceTree = "<group>"; };
 		226FA4D31FDE0C2D0048B42C /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		227A5CF31FF026B400AD804A /* progressGeneralViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = progressGeneralViewController.storyboard; sourceTree = "<group>"; };
+		227A5CF31FF026B400AD804A /* ProgressGeneralViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProgressGeneralViewController.storyboard; sourceTree = "<group>"; };
 		227D05571FC4E0FD00D5BFB0 /* Dog Walk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Dog Walk.xcdatamodel"; sourceTree = "<group>"; };
 		2280B257203CAAFD00E0A348 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		229909271F75DD4D0041B9FB /* KDCircularProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 		22A912B81FF639830073DA87 /* PatientData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientData.swift; sourceTree = "<group>"; };
 		22AE3B1C1F7884D500C27D0F /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		22AE3B1E1F7884FE00C27D0F /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
-		22C3B3592041C8180011663C /* exerciseParameterViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = exerciseParameterViewController.storyboard; sourceTree = "<group>"; };
+		22C3B3592041C8180011663C /* ExerciseParameterViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExerciseParameterViewController.storyboard; sourceTree = "<group>"; };
 		22D86140203D023000FE2FA6 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		22D86142203D030D00FE2FA6 /* FetchDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchDataManager.swift; sourceTree = "<group>"; };
 		22D86144203D059500FE2FA6 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 		22D86148203D32F200FE2FA6 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		22DB88111F9771C800897D2B /* ConsentDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentDocument.swift; sourceTree = "<group>"; };
 		22DB88191F97724E00897D2B /* ConsentTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentTask.swift; sourceTree = "<group>"; };
-		22DC55EA1FD07DFA00F881C4 /* progressDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = progressDetailViewController.storyboard; sourceTree = "<group>"; };
+		22DC55EA1FD07DFA00F881C4 /* ProgressDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProgressDetailViewController.storyboard; sourceTree = "<group>"; };
 		22DC55EC1FD07E6D00F881C4 /* ProgressDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressDetailViewController.swift; sourceTree = "<group>"; };
 		22DEEA6C1FC6EB0600117FE4 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		22E0FDB41FCA2B920070BB55 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -230,17 +230,17 @@
 		225A7CFF203CB3EC00D0978E /* View Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				222F86F61FC23F8200137AF9 /* progressViewController.storyboard */,
-				22DC55EA1FD07DFA00F881C4 /* progressDetailViewController.storyboard */,
-				22654B501F7398AF00FB32FA /* loginViewController.storyboard */,
-				224F4D6C1FBCE610005AF2A3 /* practiceViewController.storyboard */,
-				224F4D751FBCF9DF005AF2A3 /* mainViewController.storyboard */,
-				224F4D6E1FBCE99B005AF2A3 /* doctorViewController.storyboard */,
-				2220F6D61FEA13230048EA27 /* doctorProgressViewController.storyboard */,
-				227A5CF31FF026B400AD804A /* progressGeneralViewController.storyboard */,
+				222F86F61FC23F8200137AF9 /* ProgressViewController.storyboard */,
+				22DC55EA1FD07DFA00F881C4 /* ProgressDetailViewController.storyboard */,
+				22654B501F7398AF00FB32FA /* LoginViewController.storyboard */,
+				224F4D6C1FBCE610005AF2A3 /* PracticeViewController.storyboard */,
+				224F4D751FBCF9DF005AF2A3 /* MainViewController.storyboard */,
+				224F4D6E1FBCE99B005AF2A3 /* DoctorViewController.storyboard */,
+				2220F6D61FEA13230048EA27 /* DoctorProgressViewController.storyboard */,
+				227A5CF31FF026B400AD804A /* ProgressGeneralViewController.storyboard */,
 				224F4D701FBCED4D005AF2A3 /* bleViewController.storyboard */,
-				224F4D721FBCED8D005AF2A3 /* exerciseViewController.storyboard */,
-				22C3B3592041C8180011663C /* exerciseParameterViewController.storyboard */,
+				224F4D721FBCED8D005AF2A3 /* ExerciseViewController.storyboard */,
+				22C3B3592041C8180011663C /* ExerciseParameterViewController.storyboard */,
 			);
 			path = "View Storyboard";
 			sourceTree = "<group>";
@@ -457,19 +457,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				224F4D6F1FBCE99B005AF2A3 /* doctorViewController.storyboard in Resources */,
-				224F4D731FBCED8D005AF2A3 /* exerciseViewController.storyboard in Resources */,
+				224F4D6F1FBCE99B005AF2A3 /* DoctorViewController.storyboard in Resources */,
+				224F4D731FBCED8D005AF2A3 /* ExerciseViewController.storyboard in Resources */,
 				224F4D711FBCED4D005AF2A3 /* bleViewController.storyboard in Resources */,
 				22E0FDB91FCA2B920070BB55 /* Default-568h@2x.png in Resources */,
-				222F86F71FC23F8200137AF9 /* progressViewController.storyboard in Resources */,
-				227A5CF41FF026B400AD804A /* progressGeneralViewController.storyboard in Resources */,
-				224F4D6D1FBCE610005AF2A3 /* practiceViewController.storyboard in Resources */,
-				2220F6D71FEA13230048EA27 /* doctorProgressViewController.storyboard in Resources */,
+				222F86F71FC23F8200137AF9 /* ProgressViewController.storyboard in Resources */,
+				227A5CF41FF026B400AD804A /* ProgressGeneralViewController.storyboard in Resources */,
+				224F4D6D1FBCE610005AF2A3 /* PracticeViewController.storyboard in Resources */,
+				2220F6D71FEA13230048EA27 /* DoctorProgressViewController.storyboard in Resources */,
 				22654B571F7398AF00FB32FA /* Assets.xcassets in Resources */,
-				224F4D761FBCF9DF005AF2A3 /* mainViewController.storyboard in Resources */,
-				22654B521F7398AF00FB32FA /* loginViewController.storyboard in Resources */,
-				22DC55EB1FD07DFA00F881C4 /* progressDetailViewController.storyboard in Resources */,
-				22C3B35A2041C8180011663C /* exerciseParameterViewController.storyboard in Resources */,
+				224F4D761FBCF9DF005AF2A3 /* MainViewController.storyboard in Resources */,
+				22654B521F7398AF00FB32FA /* LoginViewController.storyboard in Resources */,
+				22DC55EB1FD07DFA00F881C4 /* ProgressDetailViewController.storyboard in Resources */,
+				22C3B35A2041C8180011663C /* ExerciseParameterViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -734,12 +734,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		22654B501F7398AF00FB32FA /* loginViewController.storyboard */ = {
+		22654B501F7398AF00FB32FA /* LoginViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				22654B511F7398AF00FB32FA /* Base */,
 			);
-			name = loginViewController.storyboard;
+			name = LoginViewController.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
