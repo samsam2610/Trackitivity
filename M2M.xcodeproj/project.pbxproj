@@ -12,13 +12,13 @@
 		2201CCB21F742BDE00736AD5 /* UUIDKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2201CCB11F742BDE00736AD5 /* UUIDKey.swift */; };
 		2201CCB41F742C0400736AD5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2201CCB31F742C0400736AD5 /* Extensions.swift */; };
 		2202A45E1F79B5410034330F /* variableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2202A45D1F79B5410034330F /* variableList.swift */; };
-		2208E5331F74B98B00C74074 /* practiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2208E5321F74B98B00C74074 /* practiceViewController.swift */; };
-		2218BC781F7ABE7D009C7434 /* doctorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2218BC771F7ABE7D009C7434 /* doctorViewController.swift */; };
+		2208E5331F74B98B00C74074 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2208E5321F74B98B00C74074 /* PracticeViewController.swift */; };
+		2218BC781F7ABE7D009C7434 /* DoctorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2218BC771F7ABE7D009C7434 /* DoctorViewController.swift */; };
 		221E31D1204E590D00C937E6 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E31D0204E590D00C937E6 /* URLs.swift */; };
 		2220F6D71FEA13230048EA27 /* doctorProgressViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2220F6D61FEA13230048EA27 /* doctorProgressViewController.storyboard */; };
-		2220F6D91FEA138C0048EA27 /* doctorProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220F6D81FEA138C0048EA27 /* doctorProgressViewController.swift */; };
+		2220F6D91FEA138C0048EA27 /* DoctorProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220F6D81FEA138C0048EA27 /* DoctorProgressViewController.swift */; };
 		222C587B203AC9A500265FFD /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C587A203AC9A500265FFD /* APIManager.swift */; };
-		222F86F51FC23F5600137AF9 /* progressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222F86F41FC23F5600137AF9 /* progressViewController.swift */; };
+		222F86F51FC23F5600137AF9 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222F86F41FC23F5600137AF9 /* ProgressViewController.swift */; };
 		222F86F71FC23F8200137AF9 /* progressViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 222F86F61FC23F8200137AF9 /* progressViewController.storyboard */; };
 		222FAF9B1F9B40DC00288FE7 /* SurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222FAF9A1F9B40DC00288FE7 /* SurveyTask.swift */; };
 		224F4D6D1FBCE610005AF2A3 /* practiceViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224F4D6C1FBCE610005AF2A3 /* practiceViewController.storyboard */; };
@@ -27,10 +27,10 @@
 		224F4D731FBCED8D005AF2A3 /* exerciseViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224F4D721FBCED8D005AF2A3 /* exerciseViewController.storyboard */; };
 		224F4D761FBCF9DF005AF2A3 /* mainViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224F4D751FBCF9DF005AF2A3 /* mainViewController.storyboard */; };
 		22654B4D1F7398AF00FB32FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22654B4C1F7398AF00FB32FA /* AppDelegate.swift */; };
-		22654B4F1F7398AF00FB32FA /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22654B4E1F7398AF00FB32FA /* loginViewController.swift */; };
+		22654B4F1F7398AF00FB32FA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22654B4E1F7398AF00FB32FA /* LoginViewController.swift */; };
 		22654B521F7398AF00FB32FA /* loginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22654B501F7398AF00FB32FA /* loginViewController.storyboard */; };
 		22654B571F7398AF00FB32FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22654B561F7398AF00FB32FA /* Assets.xcassets */; };
-		22691AD520407DF1009E9AF2 /* exerciseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22691AD420407DF1009E9AF2 /* exerciseList.swift */; };
+		22691AD520407DF1009E9AF2 /* ExerciseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22691AD420407DF1009E9AF2 /* ExerciseList.swift */; };
 		226FA4D41FDE0C2D0048B42C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226FA4D31FDE0C2D0048B42C /* API.swift */; };
 		227A5CF41FF026B400AD804A /* progressGeneralViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 227A5CF31FF026B400AD804A /* progressGeneralViewController.storyboard */; };
 		227D05581FC4E0FD00D5BFB0 /* Dog Walk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 227D05561FC4E0FD00D5BFB0 /* Dog Walk.xcdatamodeld */; };
@@ -38,31 +38,31 @@
 		229909281F75DD4D0041B9FB /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229909271F75DD4D0041B9FB /* KDCircularProgress.swift */; };
 		22A29BBB1FB87AD10010B0AE /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A29BBA1FB87AD10010B0AE /* File.swift */; };
 		22A506621F7569FE0051A199 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A506611F7569FE0051A199 /* CoreBluetooth.framework */; };
-		22A912B91FF639830073DA87 /* patientData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A912B81FF639830073DA87 /* patientData.swift */; };
+		22A912B91FF639830073DA87 /* PatientData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A912B81FF639830073DA87 /* PatientData.swift */; };
 		22AE3B1D1F7884D500C27D0F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE3B1C1F7884D500C27D0F /* TableViewCell.swift */; };
-		22AE3B1F1F7884FE00C27D0F /* exerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE3B1E1F7884FE00C27D0F /* exerciseViewController.swift */; };
+		22AE3B1F1F7884FE00C27D0F /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE3B1E1F7884FE00C27D0F /* ExerciseViewController.swift */; };
 		22C3B35A2041C8180011663C /* exerciseParameterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C3B3592041C8180011663C /* exerciseParameterViewController.storyboard */; };
 		22D86141203D023000FE2FA6 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D86140203D023000FE2FA6 /* APIRequest.swift */; };
 		22D86143203D030D00FE2FA6 /* FetchDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D86142203D030D00FE2FA6 /* FetchDataManager.swift */; };
-		22D86145203D059500FE2FA6 /* exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D86144203D059500FE2FA6 /* exercise.swift */; };
-		22D86147203D201200FE2FA6 /* exerciseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D86146203D201200FE2FA6 /* exerciseData.swift */; };
-		22D86149203D32F200FE2FA6 /* activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D86148203D32F200FE2FA6 /* activity.swift */; };
+		22D86145203D059500FE2FA6 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D86144203D059500FE2FA6 /* Exercise.swift */; };
+		22D86147203D201200FE2FA6 /* ExerciseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D86146203D201200FE2FA6 /* ExerciseData.swift */; };
+		22D86149203D32F200FE2FA6 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D86148203D32F200FE2FA6 /* Activity.swift */; };
 		22DB88121F9771C800897D2B /* ConsentDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB88111F9771C800897D2B /* ConsentDocument.swift */; };
 		22DB881A1F97724E00897D2B /* ConsentTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB88191F97724E00897D2B /* ConsentTask.swift */; };
 		22DC55EB1FD07DFA00F881C4 /* progressDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22DC55EA1FD07DFA00F881C4 /* progressDetailViewController.storyboard */; };
-		22DC55ED1FD07E6D00F881C4 /* progressDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DC55EC1FD07E6D00F881C4 /* progressDetailViewController.swift */; };
+		22DC55ED1FD07E6D00F881C4 /* ProgressDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DC55EC1FD07E6D00F881C4 /* ProgressDetailViewController.swift */; };
 		22DEEA6D1FC6EB0600117FE4 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DEEA6C1FC6EB0600117FE4 /* CoreDataStack.swift */; };
 		22E0FDB91FCA2B920070BB55 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E0FDB41FCA2B920070BB55 /* Default-568h@2x.png */; };
-		22E38F001F73B8B30031B7A9 /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E38EFF1F73B8B30031B7A9 /* mainViewController.swift */; };
+		22E38F001F73B8B30031B7A9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E38EFF1F73B8B30031B7A9 /* MainViewController.swift */; };
 		22E9D5311FE9BBD800901B24 /* Dog+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9D52D1FE9BBD800901B24 /* Dog+CoreDataClass.swift */; };
 		22E9D5321FE9BBD800901B24 /* Dog+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9D52E1FE9BBD800901B24 /* Dog+CoreDataProperties.swift */; };
 		22E9D5331FE9BBD800901B24 /* Walk+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9D52F1FE9BBD800901B24 /* Walk+CoreDataClass.swift */; };
 		22E9D5341FE9BBD800901B24 /* Walk+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9D5301FE9BBD800901B24 /* Walk+CoreDataProperties.swift */; };
 		717E1ED1E05059054D695A80 /* Pods_M2MTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30E3FE44D4932B21F14276C /* Pods_M2MTests.framework */; };
 		84129CAA7AAFFC5071A5B414 /* Pods_M2MUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B08F0B79188F2028B513FEB7 /* Pods_M2MUITests.framework */; };
-		9EE4FCDE2059B30600A35A24 /* exerciseParameterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE4FCDB2059B30600A35A24 /* exerciseParameterViewModel.swift */; };
-		9EE4FCDF2059B30600A35A24 /* progressGeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE4FCDC2059B30600A35A24 /* progressGeneralViewController.swift */; };
-		9EE4FCE02059B30600A35A24 /* exerciseParameterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE4FCDD2059B30600A35A24 /* exerciseParameterViewController.swift */; };
+		9EE4FCDE2059B30600A35A24 /* ExerciseParameterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE4FCDB2059B30600A35A24 /* ExerciseParameterViewModel.swift */; };
+		9EE4FCDF2059B30600A35A24 /* ProgressGeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE4FCDC2059B30600A35A24 /* ProgressGeneralViewController.swift */; };
+		9EE4FCE02059B30600A35A24 /* ExerciseParameterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE4FCDD2059B30600A35A24 /* ExerciseParameterViewController.swift */; };
 		A69F71C9F4A1478188E083AA /* Pods_M2M.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FFA14D3E9CDB19758EEC98F /* Pods_M2M.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,13 +105,13 @@
 		2201CCB11F742BDE00736AD5 /* UUIDKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UUIDKey.swift; sourceTree = "<group>"; };
 		2201CCB31F742C0400736AD5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		2202A45D1F79B5410034330F /* variableList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = variableList.swift; sourceTree = "<group>"; };
-		2208E5321F74B98B00C74074 /* practiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiceViewController.swift; sourceTree = "<group>"; };
-		2218BC771F7ABE7D009C7434 /* doctorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = doctorViewController.swift; sourceTree = "<group>"; };
+		2208E5321F74B98B00C74074 /* PracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
+		2218BC771F7ABE7D009C7434 /* DoctorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorViewController.swift; sourceTree = "<group>"; };
 		221E31D0204E590D00C937E6 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		2220F6D61FEA13230048EA27 /* doctorProgressViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = doctorProgressViewController.storyboard; sourceTree = "<group>"; };
-		2220F6D81FEA138C0048EA27 /* doctorProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = doctorProgressViewController.swift; sourceTree = "<group>"; };
+		2220F6D81FEA138C0048EA27 /* DoctorProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorProgressViewController.swift; sourceTree = "<group>"; };
 		222C587A203AC9A500265FFD /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		222F86F41FC23F5600137AF9 /* progressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = progressViewController.swift; sourceTree = "<group>"; };
+		222F86F41FC23F5600137AF9 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		222F86F61FC23F8200137AF9 /* progressViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = progressViewController.storyboard; sourceTree = "<group>"; };
 		222FAF9A1F9B40DC00288FE7 /* SurveyTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyTask.swift; sourceTree = "<group>"; };
 		224F4D6C1FBCE610005AF2A3 /* practiceViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = practiceViewController.storyboard; sourceTree = "<group>"; };
@@ -121,13 +121,13 @@
 		224F4D751FBCF9DF005AF2A3 /* mainViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = mainViewController.storyboard; sourceTree = "<group>"; };
 		22654B491F7398AF00FB32FA /* M2M.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = M2M.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22654B4C1F7398AF00FB32FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		22654B4E1F7398AF00FB32FA /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
+		22654B4E1F7398AF00FB32FA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		22654B511F7398AF00FB32FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/loginViewController.storyboard; sourceTree = "<group>"; };
 		22654B561F7398AF00FB32FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22654B5B1F7398AF00FB32FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22654B601F7398AF00FB32FA /* M2MTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = M2MTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22654B6B1F7398AF00FB32FA /* M2MUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = M2MUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		22691AD420407DF1009E9AF2 /* exerciseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exerciseList.swift; sourceTree = "<group>"; };
+		22691AD420407DF1009E9AF2 /* ExerciseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseList.swift; sourceTree = "<group>"; };
 		226FA4D31FDE0C2D0048B42C /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		227A5CF31FF026B400AD804A /* progressGeneralViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = progressGeneralViewController.storyboard; sourceTree = "<group>"; };
 		227D05571FC4E0FD00D5BFB0 /* Dog Walk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Dog Walk.xcdatamodel"; sourceTree = "<group>"; };
@@ -135,31 +135,31 @@
 		229909271F75DD4D0041B9FB /* KDCircularProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 		22A29BBA1FB87AD10010B0AE /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		22A506611F7569FE0051A199 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
-		22A912B81FF639830073DA87 /* patientData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = patientData.swift; sourceTree = "<group>"; };
+		22A912B81FF639830073DA87 /* PatientData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientData.swift; sourceTree = "<group>"; };
 		22AE3B1C1F7884D500C27D0F /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		22AE3B1E1F7884FE00C27D0F /* exerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exerciseViewController.swift; sourceTree = "<group>"; };
+		22AE3B1E1F7884FE00C27D0F /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		22C3B3592041C8180011663C /* exerciseParameterViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = exerciseParameterViewController.storyboard; sourceTree = "<group>"; };
 		22D86140203D023000FE2FA6 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		22D86142203D030D00FE2FA6 /* FetchDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchDataManager.swift; sourceTree = "<group>"; };
-		22D86144203D059500FE2FA6 /* exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exercise.swift; sourceTree = "<group>"; };
-		22D86146203D201200FE2FA6 /* exerciseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exerciseData.swift; sourceTree = "<group>"; };
-		22D86148203D32F200FE2FA6 /* activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = activity.swift; sourceTree = "<group>"; };
+		22D86144203D059500FE2FA6 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		22D86146203D201200FE2FA6 /* ExerciseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseData.swift; sourceTree = "<group>"; };
+		22D86148203D32F200FE2FA6 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		22DB88111F9771C800897D2B /* ConsentDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentDocument.swift; sourceTree = "<group>"; };
 		22DB88191F97724E00897D2B /* ConsentTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentTask.swift; sourceTree = "<group>"; };
 		22DC55EA1FD07DFA00F881C4 /* progressDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = progressDetailViewController.storyboard; sourceTree = "<group>"; };
-		22DC55EC1FD07E6D00F881C4 /* progressDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = progressDetailViewController.swift; sourceTree = "<group>"; };
+		22DC55EC1FD07E6D00F881C4 /* ProgressDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressDetailViewController.swift; sourceTree = "<group>"; };
 		22DEEA6C1FC6EB0600117FE4 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		22E0FDB41FCA2B920070BB55 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		22E38EFF1F73B8B30031B7A9 /* mainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainViewController.swift; sourceTree = "<group>"; };
+		22E38EFF1F73B8B30031B7A9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		22E9D52D1FE9BBD800901B24 /* Dog+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dog+CoreDataClass.swift"; sourceTree = "<group>"; };
 		22E9D52E1FE9BBD800901B24 /* Dog+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dog+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		22E9D52F1FE9BBD800901B24 /* Walk+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Walk+CoreDataClass.swift"; sourceTree = "<group>"; };
 		22E9D5301FE9BBD800901B24 /* Walk+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Walk+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		46F66DF9B6F6735E88CEB254 /* Pods-M2M.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-M2M.release.xcconfig"; path = "Pods/Target Support Files/Pods-M2M/Pods-M2M.release.xcconfig"; sourceTree = "<group>"; };
 		5D8CE85C6D47B125D4281F02 /* Pods-M2MUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-M2MUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-M2MUITests/Pods-M2MUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		9EE4FCDB2059B30600A35A24 /* exerciseParameterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = exerciseParameterViewModel.swift; sourceTree = "<group>"; };
-		9EE4FCDC2059B30600A35A24 /* progressGeneralViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = progressGeneralViewController.swift; sourceTree = "<group>"; };
-		9EE4FCDD2059B30600A35A24 /* exerciseParameterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = exerciseParameterViewController.swift; sourceTree = "<group>"; };
+		9EE4FCDB2059B30600A35A24 /* ExerciseParameterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseParameterViewModel.swift; sourceTree = "<group>"; };
+		9EE4FCDC2059B30600A35A24 /* ProgressGeneralViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressGeneralViewController.swift; sourceTree = "<group>"; };
+		9EE4FCDD2059B30600A35A24 /* ExerciseParameterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseParameterViewController.swift; sourceTree = "<group>"; };
 		B08F0B79188F2028B513FEB7 /* Pods_M2MUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_M2MUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C30E3FE44D4932B21F14276C /* Pods_M2MTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_M2MTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C48B4B07ABF06176AAC03DDB /* Pods-M2M.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-M2M.debug.xcconfig"; path = "Pods/Target Support Files/Pods-M2M/Pods-M2M.debug.xcconfig"; sourceTree = "<group>"; };
@@ -212,17 +212,17 @@
 			isa = PBXGroup;
 			children = (
 				2201CCAD1F74178100736AD5 /* bleViewController.swift */,
-				2220F6D81FEA138C0048EA27 /* doctorProgressViewController.swift */,
-				2218BC771F7ABE7D009C7434 /* doctorViewController.swift */,
-				9EE4FCDD2059B30600A35A24 /* exerciseParameterViewController.swift */,
-				9EE4FCDB2059B30600A35A24 /* exerciseParameterViewModel.swift */,
-				22AE3B1E1F7884FE00C27D0F /* exerciseViewController.swift */,
-				22654B4E1F7398AF00FB32FA /* loginViewController.swift */,
-				22E38EFF1F73B8B30031B7A9 /* mainViewController.swift */,
-				2208E5321F74B98B00C74074 /* practiceViewController.swift */,
-				22DC55EC1FD07E6D00F881C4 /* progressDetailViewController.swift */,
-				9EE4FCDC2059B30600A35A24 /* progressGeneralViewController.swift */,
-				222F86F41FC23F5600137AF9 /* progressViewController.swift */,
+				2220F6D81FEA138C0048EA27 /* DoctorProgressViewController.swift */,
+				2218BC771F7ABE7D009C7434 /* DoctorViewController.swift */,
+				9EE4FCDD2059B30600A35A24 /* ExerciseParameterViewController.swift */,
+				9EE4FCDB2059B30600A35A24 /* ExerciseParameterViewModel.swift */,
+				22AE3B1E1F7884FE00C27D0F /* ExerciseViewController.swift */,
+				22654B4E1F7398AF00FB32FA /* LoginViewController.swift */,
+				22E38EFF1F73B8B30031B7A9 /* MainViewController.swift */,
+				2208E5321F74B98B00C74074 /* PracticeViewController.swift */,
+				22DC55EC1FD07E6D00F881C4 /* ProgressDetailViewController.swift */,
+				9EE4FCDC2059B30600A35A24 /* ProgressGeneralViewController.swift */,
+				222F86F41FC23F5600137AF9 /* ProgressViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -248,11 +248,11 @@
 		225A7D00203CB4CE00D0978E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				22691AD420407DF1009E9AF2 /* exerciseList.swift */,
-				22A912B81FF639830073DA87 /* patientData.swift */,
-				22D86144203D059500FE2FA6 /* exercise.swift */,
-				22D86148203D32F200FE2FA6 /* activity.swift */,
-				22D86146203D201200FE2FA6 /* exerciseData.swift */,
+				22691AD420407DF1009E9AF2 /* ExerciseList.swift */,
+				22A912B81FF639830073DA87 /* PatientData.swift */,
+				22D86144203D059500FE2FA6 /* Exercise.swift */,
+				22D86148203D32F200FE2FA6 /* Activity.swift */,
+				22D86146203D201200FE2FA6 /* ExerciseData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -661,42 +661,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				222F86F51FC23F5600137AF9 /* progressViewController.swift in Sources */,
-				22A912B91FF639830073DA87 /* patientData.swift in Sources */,
-				22691AD520407DF1009E9AF2 /* exerciseList.swift in Sources */,
+				222F86F51FC23F5600137AF9 /* ProgressViewController.swift in Sources */,
+				22A912B91FF639830073DA87 /* PatientData.swift in Sources */,
+				22691AD520407DF1009E9AF2 /* ExerciseList.swift in Sources */,
 				2201CCB21F742BDE00736AD5 /* UUIDKey.swift in Sources */,
-				22DC55ED1FD07E6D00F881C4 /* progressDetailViewController.swift in Sources */,
-				2218BC781F7ABE7D009C7434 /* doctorViewController.swift in Sources */,
-				22654B4F1F7398AF00FB32FA /* loginViewController.swift in Sources */,
+				22DC55ED1FD07E6D00F881C4 /* ProgressDetailViewController.swift in Sources */,
+				2218BC781F7ABE7D009C7434 /* DoctorViewController.swift in Sources */,
+				22654B4F1F7398AF00FB32FA /* LoginViewController.swift in Sources */,
 				22E9D5331FE9BBD800901B24 /* Walk+CoreDataClass.swift in Sources */,
-				2220F6D91FEA138C0048EA27 /* doctorProgressViewController.swift in Sources */,
+				2220F6D91FEA138C0048EA27 /* DoctorProgressViewController.swift in Sources */,
 				22AE3B1D1F7884D500C27D0F /* TableViewCell.swift in Sources */,
 				2201CCAE1F74178100736AD5 /* bleViewController.swift in Sources */,
 				226FA4D41FDE0C2D0048B42C /* API.swift in Sources */,
 				2201CCB41F742C0400736AD5 /* Extensions.swift in Sources */,
 				222C587B203AC9A500265FFD /* APIManager.swift in Sources */,
-				22D86145203D059500FE2FA6 /* exercise.swift in Sources */,
-				22D86149203D32F200FE2FA6 /* activity.swift in Sources */,
+				22D86145203D059500FE2FA6 /* Exercise.swift in Sources */,
+				22D86149203D32F200FE2FA6 /* Activity.swift in Sources */,
 				22654B4D1F7398AF00FB32FA /* AppDelegate.swift in Sources */,
 				22D86141203D023000FE2FA6 /* APIRequest.swift in Sources */,
 				22E9D5311FE9BBD800901B24 /* Dog+CoreDataClass.swift in Sources */,
 				22A29BBB1FB87AD10010B0AE /* File.swift in Sources */,
 				22E9D5321FE9BBD800901B24 /* Dog+CoreDataProperties.swift in Sources */,
 				22E9D5341FE9BBD800901B24 /* Walk+CoreDataProperties.swift in Sources */,
-				22D86147203D201200FE2FA6 /* exerciseData.swift in Sources */,
+				22D86147203D201200FE2FA6 /* ExerciseData.swift in Sources */,
 				222FAF9B1F9B40DC00288FE7 /* SurveyTask.swift in Sources */,
-				9EE4FCE02059B30600A35A24 /* exerciseParameterViewController.swift in Sources */,
+				9EE4FCE02059B30600A35A24 /* ExerciseParameterViewController.swift in Sources */,
 				229909281F75DD4D0041B9FB /* KDCircularProgress.swift in Sources */,
 				22DB881A1F97724E00897D2B /* ConsentTask.swift in Sources */,
 				22D86143203D030D00FE2FA6 /* FetchDataManager.swift in Sources */,
 				22DEEA6D1FC6EB0600117FE4 /* CoreDataStack.swift in Sources */,
-				9EE4FCDF2059B30600A35A24 /* progressGeneralViewController.swift in Sources */,
-				2208E5331F74B98B00C74074 /* practiceViewController.swift in Sources */,
+				9EE4FCDF2059B30600A35A24 /* ProgressGeneralViewController.swift in Sources */,
+				2208E5331F74B98B00C74074 /* PracticeViewController.swift in Sources */,
 				22DB88121F9771C800897D2B /* ConsentDocument.swift in Sources */,
-				22E38F001F73B8B30031B7A9 /* mainViewController.swift in Sources */,
+				22E38F001F73B8B30031B7A9 /* MainViewController.swift in Sources */,
 				2202A45E1F79B5410034330F /* variableList.swift in Sources */,
-				9EE4FCDE2059B30600A35A24 /* exerciseParameterViewModel.swift in Sources */,
-				22AE3B1F1F7884FE00C27D0F /* exerciseViewController.swift in Sources */,
+				9EE4FCDE2059B30600A35A24 /* ExerciseParameterViewModel.swift in Sources */,
+				22AE3B1F1F7884FE00C27D0F /* ExerciseViewController.swift in Sources */,
 				2201CCB01F741AC400736AD5 /* PeripheralTableViewCell.swift in Sources */,
 				227D05581FC4E0FD00D5BFB0 /* Dog Walk.xcdatamodeld in Sources */,
 				221E31D1204E590D00C937E6 /* URLs.swift in Sources */,

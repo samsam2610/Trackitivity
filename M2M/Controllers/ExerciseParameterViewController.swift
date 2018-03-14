@@ -1,5 +1,5 @@
 //
-//  exerciseParameterViewController.swift
+//  ExerciseParameterViewController.swift
 //  
 //
 //  Created by Tran Sam on 2/24/18.
@@ -9,7 +9,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class exerciseParameterViewController: UIViewController {
+class ExerciseParameterViewController: UIViewController {
 
     @IBOutlet weak var done: UIButton!
     
@@ -27,7 +27,7 @@ class exerciseParameterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let viewModel = exerciseParameterViewModel(
+        let viewModel = ExerciseParameterViewModel(
             exerciseName_Label.rx.text.orEmpty.asDriver(),
             thighAngle_max.rx.text.orEmpty.asDriver(),
             thighAngle_min.rx.text.orEmpty.asDriver(),

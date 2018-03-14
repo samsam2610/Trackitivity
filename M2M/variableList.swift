@@ -49,16 +49,16 @@ var selectedExerciseID = exerciseID[0]
 
 
 
-let practiceVC = practiceViewController.instantiate(fromAppStoryboard: .practiceViewController)
-let mainVC = mainViewController.instantiate(fromAppStoryboard: .mainViewController)
+let practiceVC = PracticeViewController.instantiate(fromAppStoryboard: .practiceViewController)
+let mainVC = MainViewController.instantiate(fromAppStoryboard: .mainViewController)
 let bleVC = bleViewController.instantiate(fromAppStoryboard: .bleViewController)
-let progressVC = progressViewController.instantiate(fromAppStoryboard: .progressViewController)
-let progressDetailVC = progressDetailViewController.instantiate(fromAppStoryboard: .progressDetailViewController)
-let exerciseVC = exerciseViewController.instantiate(fromAppStoryboard: .exerciseViewController)
-let doctorVC = doctorViewController.instantiate(fromAppStoryboard: .doctorViewController)
-let doctorProgressVC = doctorProgressViewController.instantiate(fromAppStoryboard: .doctorProgressViewController)
-let progressGeneralVC = progressGeneralViewController.instantiate(fromAppStoryboard: .progressGeneralViewController)
-let exerciseParameterVC = exerciseParameterViewController.instantiate(fromAppStoryboard: .exerciseParameterViewController)
+let progressVC = ProgressViewController.instantiate(fromAppStoryboard: .progressViewController)
+let progressDetailVC = ProgressDetailViewController.instantiate(fromAppStoryboard: .progressDetailViewController)
+let exerciseVC = ExerciseViewController.instantiate(fromAppStoryboard: .exerciseViewController)
+let doctorVC = DoctorViewController.instantiate(fromAppStoryboard: .doctorViewController)
+let doctorProgressVC = DoctorProgressViewController.instantiate(fromAppStoryboard: .doctorProgressViewController)
+let progressGeneralVC = ProgressGeneralViewController.instantiate(fromAppStoryboard: .progressGeneralViewController)
+let exerciseParameterVC = ExerciseParameterViewController.instantiate(fromAppStoryboard: .exerciseParameterViewController)
 
 
 

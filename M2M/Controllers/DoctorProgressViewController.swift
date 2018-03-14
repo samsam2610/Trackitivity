@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class doctorProgressViewController: UIViewController {
+class DoctorProgressViewController: UIViewController {
 
     var patientName: String?
     var patientID: Int?
@@ -31,7 +31,7 @@ class doctorProgressViewController: UIViewController {
         }
         managedContext = appDelegate.managedContext
         
-        let auth = authData.auth
+        let auth = AuthData.auth
         let userID = auth.loginData?.userID
         
         var getData = RestApiManager()
@@ -51,7 +51,7 @@ class doctorProgressViewController: UIViewController {
 
 }
 
-extension doctorProgressViewController: UITableViewDataSource, UITableViewDelegate {
+extension DoctorProgressViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let count = patientData.count
@@ -88,7 +88,7 @@ extension doctorProgressViewController: UITableViewDataSource, UITableViewDelega
         let startDate = Date(timeIntervalSince1970: Double(patient.timeStart)!)
         let endDate = Date(timeIntervalSince1970: Double(patient.timeEnd)!)
         let interval = intervalCalculate(startDate: startDate as NSDate, endDate: endDate as NSDate)
-        let progressDetailVC = progressDetailViewController.instantiate(fromAppStoryboard: .progressDetailViewController)
+        let progressDetailVC = ProgressDetailViewController.instantiate(fromAppStoryboard: .progressDetailViewController)
         progressDetailVC.exerciseID = patient.exerciseName
         progressDetailVC.duration = interval
         progressDetailVC.avgAngle = Float(patient.averageAngle)
@@ -104,7 +104,7 @@ extension doctorProgressViewController: UITableViewDataSource, UITableViewDelega
     
 }
 
-extension doctorProgressViewController {
+extension DoctorProgressViewController {
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

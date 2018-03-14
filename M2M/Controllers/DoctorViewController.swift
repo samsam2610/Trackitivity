@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class doctorViewController: UIViewController {
+class DoctorViewController: UIViewController {
     
     lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -28,9 +28,6 @@ class doctorViewController: UIViewController {
     var decodedPerson: Patient?
     var tempName = [Patient]()
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,7 +38,7 @@ class doctorViewController: UIViewController {
         }
         managedContext = appDelegate.managedContext
         
-        let auth = authData.auth
+        let auth = AuthData.auth
         print("Login data is \(String(describing: auth.loginData!.userID))")
         
         var getData = RestApiManager()
@@ -86,7 +83,7 @@ class doctorViewController: UIViewController {
     }
 }
 
-extension doctorViewController: UITableViewDataSource, UITableViewDelegate {
+extension DoctorViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let count = patients.count
@@ -110,7 +107,7 @@ extension doctorViewController: UITableViewDataSource, UITableViewDelegate {
         let name = currentPatient?.value(forKey: "name") as? String
         let id = currentPatient?.value(forKey: "id") as? Int
         print("name is \(String(describing: name)), and id is \(String(describing: id))")
-        let doctorProgressVC = doctorProgressViewController.instantiate(fromAppStoryboard: .doctorProgressViewController)
+        let doctorProgressVC = DoctorProgressViewController.instantiate(fromAppStoryboard: .doctorProgressViewController)
         doctorProgressVC.patientName = name
         doctorProgressVC.patientID = id
         self.present(doctorProgressVC, animated: true, completion: nil)
@@ -119,7 +116,7 @@ extension doctorViewController: UITableViewDataSource, UITableViewDelegate {
     
 }
 
-extension doctorViewController {
+extension DoctorViewController {
     @IBAction func backToMain(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }

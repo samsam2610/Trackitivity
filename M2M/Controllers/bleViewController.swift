@@ -11,7 +11,6 @@ import UIKit
 import CoreBluetooth
 import CoreData
 
-
 class bleViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDelegate, UITableViewDelegate, UITableViewDataSource {
 
     //Data
@@ -23,11 +22,8 @@ class bleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphera
     var characteristicValue = [CBUUID: NSData]()
     var timer = Timer()
     var characteristics = [String : CBCharacteristic]()
-    let practice = practiceViewController()
+    let practice = PracticeViewController()
 
-    
-   
-    
     @IBOutlet weak var baseTableView: UITableView!
     @IBOutlet weak var refreshButton: UIBarButtonItem!
     
@@ -40,7 +36,6 @@ class bleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphera
         self.baseTableView.reloadData()
         startScan()
     }
-    
     
     // Setup view
     override func viewDidLoad() {

@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BdX-vO-D25">
-    <device id="retina5_9" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -20,26 +17,26 @@
         <!--Doctor Progress View Controller-->
         <scene sceneID="jPN-Yz-c5o">
             <objects>
-                <viewController storyboardIdentifier="doctorProgressViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BdX-vO-D25" customClass="doctorProgressViewController" customModule="M2M" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="doctorProgressViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BdX-vO-D25" customClass="DoctorProgressViewController" customModule="M2M" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="elH-kT-rao">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sampleDog" translatesAutoresizingMaskIntoConstraints="NO" id="kbG-PR-Kaa">
-                                <rect key="frame" x="0.0" y="92" width="375" height="154"/>
+                                <rect key="frame" x="0.0" y="68" width="600" height="154"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="154" id="MBq-hP-lsU"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Progress" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APy-MV-YTM">
-                                <rect key="frame" x="0.0" y="44" width="375" height="31"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="31"/>
                                 <color key="backgroundColor" red="0.100070335" green="0.73665314910000002" blue="0.61070448160000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SfN-4i-YXQ">
-                                <rect key="frame" x="0.0" y="287" width="375" height="491"/>
+                                <rect key="frame" x="0.0" y="263" width="600" height="337"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BdX-vO-D25" id="z12-9o-RdM"/>
@@ -47,7 +44,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NKR-Ch-kgY">
-                                <rect key="frame" x="0.0" y="45" width="53" height="30"/>
+                                <rect key="frame" x="0.0" y="21" width="278" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="TbF-Zc-QSX"/>
                                 </constraints>

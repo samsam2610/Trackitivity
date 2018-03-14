@@ -1,5 +1,5 @@
 //
-//  exerciseParameter.swift
+//  ExerciseParameter.swift
 //  M2M
 //
 //  Created by Tran Sam on 2/25/18.
@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class exerciseParameterViewModel {
+class ExerciseParameterViewModel {
     
     private let apiClient = APIClient()
     

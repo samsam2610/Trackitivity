@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pve-D7-E8q">
-    <device id="retina5_9" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -19,27 +16,27 @@
         <!--Main View Controller-->
         <scene sceneID="ERI-xF-4CC">
             <objects>
-                <viewController storyboardIdentifier="mainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pve-D7-E8q" customClass="mainViewController" customModule="M2M" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pve-D7-E8q" customClass="MainViewController" customModule="M2M" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OlD-vG-lKB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RoS-Y1-rgH">
-                                <rect key="frame" x="51" y="233" width="100" height="100"/>
+                                <rect key="frame" x="51" y="209" width="100" height="100"/>
                                 <state key="normal" image="trainer"/>
                                 <connections>
                                     <action selector="exercistList:" destination="pve-D7-E8q" eventType="touchUpInside" id="WMM-Ho-Dsb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXw-cI-9Uo">
-                                <rect key="frame" x="223" y="233" width="100" height="100"/>
+                                <rect key="frame" x="223" y="209" width="100" height="100"/>
                                 <state key="normal" image="progress"/>
                                 <connections>
                                     <action selector="progressView:" destination="pve-D7-E8q" eventType="touchUpInside" id="cze-cH-sJC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oEm-wz-2QK">
-                                <rect key="frame" x="51" y="413" width="100" height="100"/>
+                                <rect key="frame" x="51" y="389" width="100" height="100"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="doctor"/>
                                 <connections>
@@ -47,11 +44,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WzJ-TI-56p">
-                                <rect key="frame" x="223" y="413" width="100" height="100"/>
+                                <rect key="frame" x="223" y="389" width="100" height="100"/>
                                 <state key="normal" image="chat"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zX2-5t-k7u">
-                                <rect key="frame" x="148" y="640" width="66" height="33"/>
+                                <rect key="frame" x="148" y="616" width="66" height="33"/>
                                 <color key="backgroundColor" red="0.100070335" green="0.73665314910000002" blue="0.61070448160000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="Sign out">
@@ -59,7 +56,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gt4-Ch-evi">
-                                <rect key="frame" x="65" y="589" width="232" height="30"/>
+                                <rect key="frame" x="65" y="565" width="232" height="30"/>
                                 <color key="backgroundColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="No connected device">
@@ -70,7 +67,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercise" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMH-bh-CSm">
-                                <rect key="frame" x="54" y="341" width="92" height="27"/>
+                                <rect key="frame" x="54" y="317" width="92" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="92" id="nNJ-TC-2A4"/>
                                 </constraints>
@@ -79,39 +76,39 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Progress" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98a-Kx-nsk">
-                                <rect key="frame" x="231" y="338" width="92" height="33"/>
+                                <rect key="frame" x="231" y="314" width="92" height="33"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doctor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TSE-hE-rOS">
-                                <rect key="frame" x="54" y="531" width="92" height="27"/>
+                                <rect key="frame" x="54" y="507" width="92" height="27"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BzK-cm-aaw">
-                                <rect key="frame" x="231" y="531" width="92" height="27"/>
+                                <rect key="frame" x="231" y="507" width="92" height="27"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiN-QF-qfW">
-                                <rect key="frame" x="223" y="413" width="100" height="100"/>
+                                <rect key="frame" x="223" y="389" width="100" height="100"/>
                                 <state key="normal" image="chat"/>
                                 <connections>
                                     <action selector="chatView:" destination="pve-D7-E8q" eventType="touchUpInside" id="i5d-hB-jRj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A9v-BS-gu4">
-                                <rect key="frame" x="112" y="61" width="150" height="150"/>
+                                <rect key="frame" x="112" y="37" width="150" height="150"/>
                                 <state key="normal" image="logo"/>
                                 <connections>
                                     <action selector="startButton:" destination="pve-D7-E8q" eventType="touchUpInside" id="Dlx-K2-zcb"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="START" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPz-4o-gPv">
-                                <rect key="frame" x="121" y="219" width="132" height="27"/>
+                                <rect key="frame" x="121" y="195" width="358" height="27"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

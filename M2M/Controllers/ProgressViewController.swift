@@ -1,5 +1,5 @@
 //
-//  progressViewController.swift
+//  ProgressViewController.swift
 //  thePrototype
 //
 //  Created by Tran Sam on 11/19/17.
@@ -9,10 +9,7 @@
 import UIKit
 import CoreData
 
-class progressViewController: UIViewController {
-
-    
-
+class ProgressViewController: UIViewController {
     
     // MARK: - Properties
     lazy var dateFormatter: DateFormatter = {
@@ -61,7 +58,7 @@ class progressViewController: UIViewController {
     
 }
 
-extension progressViewController: UITableViewDataSource, UITableViewDelegate {
+extension ProgressViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let walks = currentDog?.walks else {
@@ -109,18 +106,14 @@ extension progressViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let practiceResult = currentDog?.walks?[indexPath.row] as? Walk
-        let progressDetailVC = progressDetailViewController.instantiate(fromAppStoryboard: .progressDetailViewController)
+        let progressDetailVC = ProgressDetailViewController.instantiate(fromAppStoryboard: .progressDetailViewController)
         progressDetailVC.practiceResult = practiceResult!
         self.present(progressDetailVC, animated: true, completion: nil)
-        
     }
 }
-extension progressViewController {
-    
+
+extension ProgressViewController {
     @IBAction func back(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-
-
 }

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  thePrototype
 //
 //  Created by Tran Sam on 9/21/17.
@@ -8,21 +8,15 @@
 
 import UIKit
 
-class loginViewController: UIViewController {
+class LoginViewController: UIViewController {
     
-    
+    @IBOutlet weak var loginButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBOutlet weak var loginButton: UIButton!
-    
+
     @IBAction func loginButton(_ sender: Any) {
         let  loginInfo = PatientCredential(email: "sam@motion2movement.com", password: "samsam2610")
         var login = RestApiManager()
@@ -31,7 +25,7 @@ class loginViewController: UIViewController {
             print(tempData)
             let loginData = tempData
             DispatchQueue.main.async {
-                let auth = authData.auth
+                let auth = AuthData.auth
                 auth.loginData = loginData
                 print("Login data is \(String(describing: auth.loginData!.userID))")
                 self.present(mainVC, animated: true, completion: nil)

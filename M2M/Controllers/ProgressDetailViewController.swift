@@ -1,5 +1,5 @@
 //
-//  progressDetailViewController.swift
+//  ProgressDetailViewController.swift
 //  M2M
 //
 //  Created by Tran Sam on 11/30/17.
@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class progressDetailViewController: UIViewController {
+class ProgressDetailViewController: UIViewController {
 
     @IBOutlet weak var exerciseName: UILabel!
     @IBOutlet weak var durationVar: UILabel!
@@ -41,19 +41,10 @@ class progressDetailViewController: UIViewController {
         self.startDate.text = "Date: \(start!)"
         self.repNumber.text = "Repetitions: \(repetitions!)"
         self.angleDegree.text = "Average ROM: \(avgAngle!)"
-
-        // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
 }
 
-extension progressDetailViewController {
+extension ProgressDetailViewController {
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
