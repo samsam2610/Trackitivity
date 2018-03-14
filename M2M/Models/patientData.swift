@@ -7,21 +7,6 @@
 //
 
 import Foundation
-import CoreData
-
-protocol exerciseParam  {
-    var timeStart: String {get set}
-    var timeEnd: String {get set}
-    var duration: String {get set}
-    var repetitions: Int {get set}
-    var averageAngle: Float {get set}
-    var minAngle: Float {get set}
-    var maxAngle: Float {get set}
-}
-
-protocol exerciseData: exerciseParam {
-    var exerciseName: String {get}
-}
 
 struct PatientCredential: Codable {
     var email: String
@@ -33,7 +18,7 @@ struct PatientCredential: Codable {
     }
 }
 
-struct PatientData: exerciseData, Codable {
+struct PatientData: activityParam, Codable {
     
     var name: String
     var exerciseName: String
@@ -70,13 +55,21 @@ struct PatientData: exerciseData, Codable {
         self.duration = ""
         duration = intervalCalculate(startDate: timeStart, endDate: timeEnd)
     }
-    
+}
+
+extension PatientData {
     func intervalCalculate(startDate: Date, endDate: Date) -> String {
-        
         let interval = String(Int(endDate.timeIntervalSince(startDate)))
         return interval
     }
 }
+
+struct Patient: Codable {
+    let name: String
+    let stage: Bool
+    let id: Int
+}
+
 
 struct LoginData: Codable {
     var userID: String
@@ -93,41 +86,4 @@ class authData {
     var loginData: LoginData?
 }
 
-class FetchedDataManager {
-    var fetchedResultsController: NSFetchedResultsController<Walk>!
-    var managedContext: NSManagedObjectContext!
-    var numberOfObjects: Int?
-    init(_ a: NSManagedObjectContext) {
-        self.managedContext = a
-        self.initializeFetchedResultsController()
-        let sections = fetchedResultsController.sections
-        numberOfObjects = sections?.count
-        print(numberOfObjects!)
-    }
-    
-    func initializeFetchedResultsController() {
 
-        let fetchRequest: NSFetchRequest<Walk> = Walk.fetchRequest()
-        
-        let exerciseSort = NSSortDescriptor(key: #keyPath(Walk.exerciseID), ascending: true)
-        let repetitionSort = NSSortDescriptor(key: #keyPath(Walk.repetition), ascending: false)
-        let endDateSort = NSSortDescriptor(key: #keyPath(Walk.endDate), ascending: true)
-        
-        fetchRequest.sortDescriptors = [exerciseSort, repetitionSort, endDateSort]
-        
-        fetchedResultsController = NSFetchedResultsController(fetchRequest:fetchRequest,
-                                                managedObjectContext: managedContext, sectionNameKeyPath:#keyPath(Walk.exerciseID),
-                                                              cacheName: "worldCup")
-        
-        fetchedResultsController.delegate = self as? NSFetchedResultsControllerDelegate
-        
-        do {
-            try fetchedResultsController.performFetch()
-        } catch let error as NSError {
-            print("Fetching error: \(error), \(error.userInfo)")
-        }
-    }
-    
-    func summaryOfData() {
-    }
-}

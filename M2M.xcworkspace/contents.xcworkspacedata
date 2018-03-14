@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/Sam/Documents/Project/M2M/Core Data/progressGeneralViewController.swift">
-   </FileRef>
-   <FileRef
       location = "group:M2M.xcodeproj">
    </FileRef>
    <FileRef

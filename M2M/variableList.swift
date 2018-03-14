@@ -49,15 +49,6 @@ var selectedExerciseID = exerciseID[0]
 
 
 
-struct Patient: Codable {
-    
-    let name: String
-    let stage: Bool
-    let id: Int
-    
-}
-
-
 let practiceVC = practiceViewController.instantiate(fromAppStoryboard: .practiceViewController)
 let mainVC = mainViewController.instantiate(fromAppStoryboard: .mainViewController)
 let bleVC = bleViewController.instantiate(fromAppStoryboard: .bleViewController)
@@ -67,8 +58,7 @@ let exerciseVC = exerciseViewController.instantiate(fromAppStoryboard: .exercise
 let doctorVC = doctorViewController.instantiate(fromAppStoryboard: .doctorViewController)
 let doctorProgressVC = doctorProgressViewController.instantiate(fromAppStoryboard: .doctorProgressViewController)
 let progressGeneralVC = progressGeneralViewController.instantiate(fromAppStoryboard: .progressGeneralViewController)
-
-
+let exerciseParameterVC = exerciseParameterViewController.instantiate(fromAppStoryboard: .exerciseParameterViewController)
 
 
 

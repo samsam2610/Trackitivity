@@ -1,12 +1,43 @@
 PODS:
+  - Action (3.5.0):
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - Charts (3.0.5):
+    - Charts/Core (= 3.0.5)
+  - Charts/Core (3.0.5)
   - ResearchKit (1.5.2)
+  - RxBlocking (4.1.1):
+    - RxSwift (~> 4.0)
+  - RxCocoa (4.1.1):
+    - RxSwift (~> 4.0)
+  - RxCodable (0.3.0):
+    - RxCodable/Core (= 0.3.0)
+  - RxCodable/Core (0.3.0):
+    - RxSwift (>= 4.0.0-beta.0)
+  - RxSwift (4.1.1)
+  - RxTest (4.1.1):
+    - RxSwift (~> 4.0)
 
 DEPENDENCIES:
+  - Action
+  - Charts (~> 3.0.4)
   - ResearchKit (~> 1.0)
+  - RxBlocking (~> 4.0)
+  - RxCocoa (~> 4.0)
+  - RxCodable
+  - RxSwift (~> 4.0)
+  - RxTest (~> 4.0)
 
 SPEC CHECKSUMS:
+  Action: d60087ebce41b969d1afdad01e2fa1372a82f26e
+  Charts: 45cdc985b764c838b35ee47eb1365d15735f6d1a
   ResearchKit: a5770681dd61afddd3d1f24d232b9abf00cba454
+  RxBlocking: 22e7d7b86a1c0c42164a30d64f56f97128b4ffab
+  RxCocoa: fd0862fd2df95fa55562ad28ffd2522c25eb4a85
+  RxCodable: 12d41ab0ba58f455cfc83965fcc927ac4bad3e7f
+  RxSwift: c6e3b1c7b325c7d121cd4327e9d98b7ed746b570
+  RxTest: f934010a5b07ecd627cb70b38eb4baf0414591d2
 
-PODFILE CHECKSUM: 19bdf327efef0a746490c1c03d7057e722df65cb
+PODFILE CHECKSUM: a3a8145cd868246f97b35067e06ef9545b0ba708
 
 COCOAPODS: 1.3.1

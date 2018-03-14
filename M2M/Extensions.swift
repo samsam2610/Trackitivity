@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
+
 extension TimeInterval {
     
     func toString(input: TimeInterval) -> (String) {
@@ -74,7 +75,7 @@ enum AppStoryboard : String {
      let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
      let loginScene = storyboard.instatiateViewController(withIdentifier: "LoginVC") as LoginVC!
  */
-    case practiceViewController, mainViewController, doctorViewController, bleViewController, exerciseViewController, progressViewController, progressDetailViewController, doctorProgressViewController, doctorProgressDetailViewController, progressGeneralViewController
+    case practiceViewController, mainViewController, doctorViewController, bleViewController, exerciseViewController, progressViewController, progressDetailViewController, doctorProgressViewController, doctorProgressDetailViewController, progressGeneralViewController, exerciseParameterViewController
     
     var instance : UIStoryboard {
         
