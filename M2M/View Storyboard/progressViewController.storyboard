@@ -22,7 +22,7 @@
         <!--Progress View Controller-->
         <scene sceneID="2f0-Yq-vXd">
             <objects>
-                <viewController restorationIdentifier="progressViewController" storyboardIdentifier="progressViewController" id="Wn2-TS-i2m" customClass="progressViewController" customModule="M2M" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="progressViewController" storyboardIdentifier="progressViewController" id="Wn2-TS-i2m" customClass="ProgressViewController" customModule="M2M" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zk2-QV-XKj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

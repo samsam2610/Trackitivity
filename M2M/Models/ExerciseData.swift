@@ -8,9 +8,7 @@
 
 import Foundation
 
-
-
-struct exerciseData: exerciseInfo, exerciseParam, Codable {
+struct ExerciseData: ExerciseInfo, ExerciseParam, Codable {
     var exerciseName: String
     var thighAngle_min: Int16
     var thighAngle_max: Int16
@@ -33,7 +31,7 @@ struct exerciseData: exerciseInfo, exerciseParam, Codable {
         self.legAngle_max = legAngle_max
     }
     
-    struct instruction: exerciseInstruction, Codable {
+    struct Instruction: ExerciseInstruction, Codable {
         var description: String
         var link: URL
         

@@ -8,11 +8,10 @@
 
 import UIKit
 
-class exerciseViewController: UIViewController {
-
+class ExerciseViewController: UIViewController {
     
     @IBAction func exerciseAdd(_ sender: UIButton) {
-        let exerciseParameterVC = exerciseParameterViewController.instantiate(fromAppStoryboard: .exerciseParameterViewController)
+        let exerciseParameterVC = ExerciseParameterViewController.instantiate(fromAppStoryboard: .exerciseParameterViewController)
         self.present(exerciseParameterVC, animated: true, completion: nil)
     }
     
@@ -26,11 +25,6 @@ class exerciseViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 }
 
 //extension exerciseViewController: UITableViewDataSource, UITableViewDelegate {
@@ -58,7 +52,7 @@ class exerciseViewController: UIViewController {
 //
 //}
 
-extension exerciseViewController {
+extension ExerciseViewController {
 
     @IBAction func back(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)

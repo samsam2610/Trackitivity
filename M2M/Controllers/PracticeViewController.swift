@@ -1,5 +1,5 @@
 //
-//  practiceViewController.swift
+//  PracticeViewController.swift
 //  thePrototype
 //
 //  Created by Tran Sam on 9/21/17.
@@ -12,7 +12,7 @@ import CoreData
 import ResearchKit
 
 
-class practiceViewController: UIViewController, CBPeripheralManagerDelegate, ORKTaskViewControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
+class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORKTaskViewControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
     
     //UI
     
@@ -232,7 +232,7 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, ORK
     
     
     func startWorkout() {
-        self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(practiceViewController.updateTime), userInfo: nil, repeats: true)
+        self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(PracticeViewController.updateTime), userInfo: nil, repeats: true)
         
         startDate = Date()
         
@@ -431,7 +431,7 @@ class practiceViewController: UIViewController, CBPeripheralManagerDelegate, ORK
 }
 
 // Buttons' function
-extension practiceViewController {
+extension PracticeViewController {
     
     @IBAction func backToMain(_ sender: Any) {
         if (finishedWorkout) {

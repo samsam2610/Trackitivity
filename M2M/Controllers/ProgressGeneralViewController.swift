@@ -1,5 +1,5 @@
 //
-//  progressGeneralViewController.swift
+//  ProgressGeneralViewController.swift
 //  
 //
 //  Created by Tran Sam on 12/24/17.
@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class progressGeneralViewController: UIViewController {
+class ProgressGeneralViewController: UIViewController {
     
     fileprivate let progressCellIdentifier = "progressCellReuseIdentifier"
     var managedContext: NSManagedObjectContext!
@@ -71,7 +71,7 @@ class progressGeneralViewController: UIViewController {
     
 }
 
-extension progressGeneralViewController {
+extension ProgressGeneralViewController {
     
     func configure(cell: UITableViewCell, for indexPath: IndexPath) {
         
@@ -94,7 +94,7 @@ extension progressGeneralViewController {
     }
 }
 
-extension progressGeneralViewController: UITableViewDataSource, UITableViewDelegate {
+extension ProgressGeneralViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         guard let sections = fetchedResultsController.sections else {
@@ -131,7 +131,7 @@ extension progressGeneralViewController: UITableViewDataSource, UITableViewDeleg
         let startDate = practiceResult.startDate
         let endDate = practiceResult.endDate
         let interval = intervalCalculate(startDate: startDate!, endDate: endDate!)
-        let progressDetailVC = progressDetailViewController.instantiate(fromAppStoryboard: .progressDetailViewController)
+        let progressDetailVC = ProgressDetailViewController.instantiate(fromAppStoryboard: .progressDetailViewController)
         progressDetailVC.exerciseID = exerciseInfo[(practiceResult.exerciseID)!]
         progressDetailVC.duration = interval
         progressDetailVC.avgAngle = practiceResult.avgAngle
@@ -145,7 +145,7 @@ extension progressGeneralViewController: UITableViewDataSource, UITableViewDeleg
     }
 }
 
-extension progressGeneralViewController {
+extension ProgressGeneralViewController {
     @IBAction func backToMain(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
 

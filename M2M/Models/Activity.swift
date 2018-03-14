@@ -1,5 +1,5 @@
 //
-//  activity.swift
+//  Activity.swift
 //  M2M
 //
 //  Created by Tran Sam on 2/20/18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol activityParam: exerciseInfo {
+protocol ActivityParam: ExerciseInfo {
     var timeStart: String {get set}
     var timeEnd: String {get set}
     var duration: String {get set}
@@ -17,3 +17,4 @@ protocol activityParam: exerciseInfo {
     var minAngle: Float {get set}
     var maxAngle: Float {get set}
 }
+

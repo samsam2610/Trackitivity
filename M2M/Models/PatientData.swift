@@ -1,5 +1,5 @@
 //
-//  patientData.swift
+//  PatientData.swift
 //  M2M
 //
 //  Created by Tran Sam on 12/29/17.
@@ -18,7 +18,7 @@ struct PatientCredential: Codable {
     }
 }
 
-struct PatientData: activityParam, Codable {
+struct PatientData: ActivityParam, Codable {
     
     var name: String
     var exerciseName: String
@@ -81,8 +81,8 @@ struct LoginData: Codable {
     }
 }
 
-class authData {
-    static let auth = authData()
+class AuthData {
+    static let auth = AuthData()
     var loginData: LoginData?
 }
 

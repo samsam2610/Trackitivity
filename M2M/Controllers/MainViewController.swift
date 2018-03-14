@@ -1,5 +1,5 @@
 //
-//  mainViewController.swift
+//  MainViewController.swift
 //  thePrototype
 //
 //  Created by Tran Sam on 9/21/17.
@@ -9,13 +9,9 @@
 import UIKit
 import ResearchKit
 
+class MainViewController: UIViewController {
 
-
-class mainViewController: UIViewController {
-
-    
     @IBOutlet weak var connectButton: UIButton!
-    
     @IBOutlet weak var startButton: UIButton!
     
     override func viewDidLoad() {
@@ -28,15 +24,7 @@ class mainViewController: UIViewController {
             connectButton.backgroundColor = UIColor.init(red: 231/255, green: 76/255, blue: 60/255, alpha: 1)
             connectButton.setTitle("No connected device", for: UIControlState.normal)
         }
-
-        // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
     @IBAction func connectBLE(_ sender: UIButton) {
         if (connected) {
@@ -61,17 +49,17 @@ class mainViewController: UIViewController {
             workoutActive = true
         }
         startTime = NSCalendar.current as NSCalendar
-        let practiceVC = practiceViewController.instantiate(fromAppStoryboard: .practiceViewController)
+        let practiceVC = PracticeViewController.instantiate(fromAppStoryboard: .practiceViewController)
         self.present(practiceVC, animated: true, completion: nil)
     }
     
     @IBAction func exercistList(_ sender: UIButton) {
-        let exerciseVC = exerciseViewController.instantiate(fromAppStoryboard: .exerciseViewController)
+        let exerciseVC = ExerciseViewController.instantiate(fromAppStoryboard: .exerciseViewController)
         self.present(exerciseVC, animated: true, completion: nil)
     }
     
     @IBAction func doctorSetting(_ sender: UIButton) {
-        let doctorVC = doctorViewController.instantiate(fromAppStoryboard: .doctorViewController)
+        let doctorVC = DoctorViewController.instantiate(fromAppStoryboard: .doctorViewController)
         self.present(doctorVC, animated: true, completion: nil)
     }
     
@@ -79,7 +67,7 @@ class mainViewController: UIViewController {
         //let progressVC = progressViewController.instantiate(fromAppStoryboard: .progressViewController)
         // self.present(progressVC, animated: true, completion: nil)
         let progressGeneralVC =
-        progressGeneralViewController.instantiate(fromAppStoryboard: .progressGeneralViewController)
+        ProgressGeneralViewController.instantiate(fromAppStoryboard: .progressGeneralViewController)
         self.present(progressGeneralVC, animated: true, completion: nil)
     }
     
