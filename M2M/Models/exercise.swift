@@ -25,3 +25,23 @@ protocol exerciseInstruction {
     var description: String { get }
 //    var link: URL { get }
 }
+
+ 
+
+// TODO: - Make exercise model for assignment
+//struct
+
+//{
+//    "title": "",
+//    "description": "",
+//    "thigh_angle_min": 123,
+//    "thigh_angle_max": 123,
+//    "leg_angle_min": 123,
+//    "leg_angle_max": 123,
+//    "instructions": { // DONE
+//        "text": "",
+//        "link": ""
+//    },
+//    "creator_id": "" // GRAB
+//}
+

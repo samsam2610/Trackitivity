@@ -8,6 +8,7 @@
 
 import Foundation
 
+// TODO: - Intended for use with API
 let dummyData = exerciseData(toJson: "", 0, 0, 0, 0)
 
 // Request list of exercises to be selected
