@@ -1,18 +1,32 @@
 //
-//  API.swift
+//  APIManager.swift
 //  M2M
 //
-//  Created by Tran Sam on 12/10/17.
-//  Copyright © 2017 Tran Sam. All rights reserved.
+//  Created by Tran Sam on 2/19/18.
+//  Copyright © 2018 Tran Sam. All rights reserved.
 //
 
 import Foundation
 
 
-struct RestApiManager {
+class ApiManager {
     
     var stringURL: String?
     
+    func createURLWithString(userID: String, userAction: String) -> NSURL? {
+        let components = NSURLComponents()
+        components.scheme = "https"
+        components.host = "apiserver269.herokuapp.com"
+        components.path = userAction
+        
+        var query = "{\"user_id\":\"\(userID)\"}"
+        query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        query = "conditions=" + query
+        components.percentEncodedQuery = query
+        
+        let url = components.url
+        return (url! as NSURL)
+    }
     
     func getPatients(completion:  @escaping ([Patient]) -> ()){
         
@@ -28,7 +42,7 @@ struct RestApiManager {
                     do {
                         let patientData = try JSONDecoder().decode([Patient].self, from: urlContent)
                         completion(patientData)
-    
+                        
                     } catch {
                         print("Json Processing Failed")
                         print(error)
@@ -66,12 +80,12 @@ struct RestApiManager {
     }
     
     func postPatientActivity(parameters: PatientData, completion:((Error?) -> Void)?) {
-                
+        
         let url = URL(string: stringURL!)
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-
+        
         do {
             let jsonData = try JSONEncoder().encode(parameters)
             // ... and set our request's HTTP body
@@ -98,22 +112,22 @@ struct RestApiManager {
     }
     
     func Login(loginCredential: PatientCredential, completion:   @escaping (LoginData) -> ()) {
-    
-            guard let url = URL(string: stringURL!) else { return }
-            var request = URLRequest(url: url)
-            request.httpMethod = "POST"
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            
-            do {
-                let jsonData = try JSONEncoder().encode(loginCredential)
-                // ... and set our request's HTTP body
-                request.httpBody = jsonData
-                print("jsonData: ", String(data: request.httpBody!, encoding: .utf8) ?? "no body data")
-            } catch {
-                print("encoding data failed")
-                print(error)
-            }
-    
+        
+        guard let url = URL(string: stringURL!) else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        do {
+            let jsonData = try JSONEncoder().encode(loginCredential)
+            // ... and set our request's HTTP body
+            request.httpBody = jsonData
+            print("jsonData: ", String(data: request.httpBody!, encoding: .utf8) ?? "no body data")
+        } catch {
+            print("encoding data failed")
+            print(error)
+        }
+        
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard error == nil else {
                 print("There is a response error")
@@ -139,24 +153,7 @@ struct RestApiManager {
         task.resume()
     }
     
-    func createURLWithString(userID: String, userAction: String) -> NSURL? {
-        let components = NSURLComponents()
-        components.scheme = "https"
-        components.host = "apiserver269.herokuapp.com"
-        components.path = userAction
-        
-        var query = "{\"user_id\":\"\(userID)\"}"
-        query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-        query = "conditions=" + query
-        components.percentEncodedQuery = query
-        
-        let url = components.url
-        return (url! as NSURL)
-    }
+
 }
 
-enum UserAction: String {
-    case activity = "/activities"
-    case exercise = "/exercise"
-    case assignment = "/assignment"
-}
+

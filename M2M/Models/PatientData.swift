@@ -71,19 +71,3 @@ struct Patient: Codable {
 }
 
 
-struct LoginData: Codable {
-    var userID: String
-    var email: String
-    
-    private enum CodingKeys: String, CodingKey {
-        case userID = "id"
-        case email
-    }
-}
-
-class AuthData {
-    static let auth = AuthData()
-    var loginData: LoginData?
-}
-
-
