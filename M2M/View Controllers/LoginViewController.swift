@@ -28,6 +28,7 @@ class LoginViewController: UIViewController {
                 let auth = AuthData.auth
                 auth.loginData = loginData
                 print("Login data is \(String(describing: auth.loginData!.userID))")
+            
                 self.present(mainVC, animated: true, completion: nil)
             }
         }
