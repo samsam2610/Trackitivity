@@ -12,6 +12,23 @@ class AuthData {
     private init() {}
     static let auth = AuthData()
 
-    var loginData: LoginData?
+    private var loginData: LoginData?
+
+    func setLogin(_ loginInfo: LoginData) {
+        loginData = loginInfo
+    }
+
+    func getUser() -> LoginData? {
+        return loginData
+    }
+
+    func getUserID() -> String? {
+        guard let userID = loginData?.userID else { return nil }
+        return userID
+    }
+
+    func clearCredentials() {
+        loginData = nil
+    }
 
 }

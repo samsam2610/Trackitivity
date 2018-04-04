@@ -8,7 +8,7 @@
 
 import Foundation
 
-// DEPRECATED?
+// DEPRECATED
 
 struct RestApiManager {
     
@@ -98,7 +98,7 @@ struct RestApiManager {
         task.resume()
     }
     
-    func Login(loginCredential: PatientCredential, completion:   @escaping (LoginData) -> ()) {
+    func login(withCredentials credentials: PatientCredential, completion:   @escaping (LoginData) -> ()) {
 
         guard let url = URL(string: stringURL!) else { return }
         var request = URLRequest(url: url)
@@ -106,7 +106,7 @@ struct RestApiManager {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
         do {
-            let jsonData = try JSONEncoder().encode(loginCredential)
+            let jsonData = try JSONEncoder().encode(credentials)
             // ... and set our request's HTTP body
             request.httpBody = jsonData
             print("jsonData: ", String(data: request.httpBody!, encoding: .utf8) ?? "no body data")

@@ -31,12 +31,11 @@ class DoctorProgressViewController: UIViewController {
         }
         managedContext = appDelegate.managedContext
         
-        let auth = AuthData.auth
-        let userID = auth.loginData?.userID
+        guard let userID = AuthData.auth.getUserID() else { return }
         
         var getData = RestApiManager()
         let userAction = UserAction.activity
-        getData.stringURL = String(describing: getData.createURLWithString(userID: userID!, userAction: userAction.rawValue)!)
+        getData.stringURL = String(describing: getData.createURLWithString(userID: userID, userAction: userAction.rawValue)!)
         print(getData.stringURL)
         getData.getPatientData { tempData in
             

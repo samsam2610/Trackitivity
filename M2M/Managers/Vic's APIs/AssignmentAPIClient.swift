@@ -18,12 +18,12 @@ class AssignmentAPIClient {
 
         // REF: https://apiserver269.herokuapp.com/assignments?conditions=%7B%22user_id%22%3A%20%22060445354b%22%7D&offset=1&limit=1&sort=-time_modified%20
 
-        guard let baseSnippet = "{\"user_id\":\"\(user)\"}".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
+        guard let baseSnippet = "{\"patient_id\":\"\(user)\"}".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
             errorHandler(.badURL(string: "Encoding this:" + user))
             return
         }
 
-        let baseURL = "https://apiserver269.herokuapp.com/exercises?conditions=\(baseSnippet)&sort=-time_modified"
+        let baseURL = "https://apiserver269.herokuapp.com/assignments?conditions=\(baseSnippet)&sort=-time_modified"
 
         guard let url = URL(string: baseURL) else {
             errorHandler(.badURL(string: baseURL))
@@ -89,7 +89,12 @@ class AssignmentAPIClient {
         }
 
         var request = URLRequest(url: url)
-        request.httpMethod = "POST"
+        if let _ = id {
+            request.httpMethod = "PUT"
+        } else {
+            request.httpMethod = "POST"
+        }
+
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
@@ -107,7 +112,8 @@ class AssignmentAPIClient {
         ]
 
         do {
-            let encodedAssignment = try JSONEncoder().encode(jsonBody)
+//            let encodedAssignment = try JSONEncoder().encode(jsonBody)
+            let encodedAssignment = try JSONSerialization.data(withJSONObject: jsonBody, options: [])
 
             request.httpBody = encodedAssignment
 
