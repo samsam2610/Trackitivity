@@ -11,6 +11,7 @@ import RxSwift
 
 class ExerciseParameterViewController: UIViewController {
 
+
     @IBOutlet weak var done: UIButton!
     
     @IBOutlet weak var back: UIButton!
@@ -44,5 +45,11 @@ class ExerciseParameterViewController: UIViewController {
             })
             .disposed(by: disposeBag)
 
+    }
+}
+
+extension ExerciseParameterViewController {
+    @IBAction func back(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

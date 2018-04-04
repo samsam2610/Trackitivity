@@ -10,7 +10,7 @@ import Foundation
 
 struct Assignment: Codable {
     var id: String
-    var scores: String
+    var scores: Int
     var scoredDate: String
     var therapistComment: String
     var thresholdROM: Int
@@ -19,8 +19,8 @@ struct Assignment: Codable {
     var duration: Int
     var creatorID: String
     var patientID: String
-    var creator: Therapist
-    var patient: Patient
+    var creator: TherapistCredential
+    var patient: PatientCredential
     var activities: [String]
 
     private enum CodingKeys: String, CodingKey {
@@ -37,6 +37,37 @@ struct Assignment: Codable {
         case creator
         case patient
         case activities
+    }
+
+    init(from decoder: Decoder) throws {
+        let container =  try decoder.container(keyedBy: CodingKeys.self)
+
+        self.id = try container.decode(String.self, forKey: .id)
+        self.scores = try container.decode(Int.self, forKey: .scores)
+        self.scoredDate = try container.decode(String.self, forKey: .scoredDate)
+        self.therapistComment = try container.decode(String.self, forKey: .therapistComment)
+        self.thresholdROM = try container.decode(Int.self, forKey: .thresholdROM)
+        self.expectedRepetitions = try container.decode(Int.self, forKey: .expectedRepetitions)
+        self.creatorID = try container.decode(String.self, forKey: .creatorID)
+        self.patientID = try container.decode(String.self, forKey: .patientID)
+        self.creator = try container.decode(TherapistCredential.self, forKey: .creator)
+        self.patient = try container.decode(PatientCredential.self, forKey: .patient)
+        self.activities = try container.decode([String].self, forKey: .activities)
+
+
+        do {
+            self.expectedDuration = try container.decode(Int.self, forKey: .expectedDuration)
+        } catch DecodingError.typeMismatch {
+            let value = try container.decode(String.self, forKey: .expectedDuration)
+            self.expectedDuration = Int(value) ?? 0
+        }
+
+        do {
+            self.duration = try container.decode(Int.self, forKey: .duration)
+        } catch DecodingError.typeMismatch {
+            let value = try container.decode(String.self, forKey: .duration)
+            self.duration = Int(value) ?? 0
+        }
     }
 
 }

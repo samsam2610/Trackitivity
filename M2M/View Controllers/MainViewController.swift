@@ -75,7 +75,13 @@ class MainViewController: UIViewController {
     @IBAction func chatView(_ sender: Any) {
     }
 
-    
+    @IBAction func signOutButtonTapped(_ sender: UIButton) {
+        self.dismiss(animated: true) { [weak self] in
+            
+        }
+
+    }
+
 
     
     

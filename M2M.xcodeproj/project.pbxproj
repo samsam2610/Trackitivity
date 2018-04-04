@@ -67,6 +67,7 @@
 		9E36F2842059C9A600D2D172 /* String+Replacement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E36F2802059C9A600D2D172 /* String+Replacement.swift */; };
 		9E36F2852059C9A600D2D172 /* UIViewController+StoryboardInstantiation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E36F2812059C9A600D2D172 /* UIViewController+StoryboardInstantiation.swift */; };
 		9E36F2862059C9A600D2D172 /* Double+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E36F2822059C9A600D2D172 /* Double+Operations.swift */; };
+		9E52B6B6206C1E16004127B6 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E52B6B5206C1E16004127B6 /* Defaults.swift */; };
 		9E5EBD7D206B54C100897836 /* Therapist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5EBD7C206B54C100897836 /* Therapist.swift */; };
 		9E5EBD7F206B552500897836 /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5EBD7E206B552500897836 /* LoginData.swift */; };
 		9E5EBD81206B557600897836 /* AuthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5EBD80206B557600897836 /* AuthData.swift */; };
@@ -175,6 +176,7 @@
 		9E36F2802059C9A600D2D172 /* String+Replacement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Replacement.swift"; path = "M2M/Extensions/String+Replacement.swift"; sourceTree = "<group>"; };
 		9E36F2812059C9A600D2D172 /* UIViewController+StoryboardInstantiation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+StoryboardInstantiation.swift"; path = "M2M/Extensions/UIViewController+StoryboardInstantiation.swift"; sourceTree = "<group>"; };
 		9E36F2822059C9A600D2D172 /* Double+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Double+Operations.swift"; path = "M2M/Extensions/Double+Operations.swift"; sourceTree = "<group>"; };
+		9E52B6B5206C1E16004127B6 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		9E5EBD7C206B54C100897836 /* Therapist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Therapist.swift; sourceTree = "<group>"; };
 		9E5EBD7E206B552500897836 /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
 		9E5EBD80206B557600897836 /* AuthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthData.swift; sourceTree = "<group>"; };
@@ -237,7 +239,6 @@
 				2220F6D81FEA138C0048EA27 /* DoctorProgressViewController.swift */,
 				2218BC771F7ABE7D009C7434 /* DoctorViewController.swift */,
 				9EE4FCDD2059B30600A35A24 /* ExerciseParameterViewController.swift */,
-				9EE4FCDB2059B30600A35A24 /* ExerciseParameterViewModel.swift */,
 				22AE3B1E1F7884FE00C27D0F /* ExerciseViewController.swift */,
 				22654B4E1F7398AF00FB32FA /* LoginViewController.swift */,
 				22E38EFF1F73B8B30031B7A9 /* MainViewController.swift */,
@@ -307,29 +308,27 @@
 		22654B4B1F7398AF00FB32FA /* M2M */ = {
 			isa = PBXGroup;
 			children = (
-				2280B256203CAA0700E0A348 /* Networking Models */,
 				22191FB81FC6191700BB5B4B /* Core Data */,
 				9EE4FCEA2059C5EB00A35A24 /* Extensions */,
 				225A7D00203CB4CE00D0978E /* Models */,
+				2280B256203CAA0700E0A348 /* Managers */,
 				225A7CFF203CB3EC00D0978E /* Storyboards */,
-				222C587C203C010100265FFD /* View Controllers */,
-				9E36F2882059CA9A00D2D172 /* Views */,
 				9E36F2872059CA2000D2D172 /* Supporting Files */,
+				222C587C203C010100265FFD /* View Controllers */,
+				9E52B6B1206C136C004127B6 /* View Models */,
+				9E36F2882059CA9A00D2D172 /* Views */,
 			);
 			path = M2M;
 			sourceTree = "<group>";
 		};
-		2280B256203CAA0700E0A348 /* Networking Models */ = {
+		2280B256203CAA0700E0A348 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				9E05E6E42063158300260C50 /* Vic's APIs */,
-				226FA4D31FDE0C2D0048B42C /* API.swift */,
-				2280B257203CAAFD00E0A348 /* APIClient.swift */,
-				222C587A203AC9A500265FFD /* APIManager.swift */,
-				22D86140203D023000FE2FA6 /* APIRequest.swift */,
-				221E31D0204E590D00C937E6 /* URLs.swift */,
+				9E52B6B2206C1DE9004127B6 /* Networking Managers */,
+				9E52B6B5206C1E16004127B6 /* Defaults.swift */,
 			);
-			path = "Networking Models";
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		22A506601F7569FE0051A199 /* Frameworks */ = {
@@ -392,6 +391,26 @@
 				2201CCAF1F741AC400736AD5 /* PeripheralTableViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		9E52B6B1206C136C004127B6 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				9EE4FCDB2059B30600A35A24 /* ExerciseParameterViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		9E52B6B2206C1DE9004127B6 /* Networking Managers */ = {
+			isa = PBXGroup;
+			children = (
+				226FA4D31FDE0C2D0048B42C /* API.swift */,
+				2280B257203CAAFD00E0A348 /* APIClient.swift */,
+				222C587A203AC9A500265FFD /* APIManager.swift */,
+				22D86140203D023000FE2FA6 /* APIRequest.swift */,
+				221E31D0204E590D00C937E6 /* URLs.swift */,
+			);
+			path = "Networking Managers";
 			sourceTree = "<group>";
 		};
 		9EE4FCEA2059C5EB00A35A24 /* Extensions */ = {
@@ -728,6 +747,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E36F2852059C9A600D2D172 /* UIViewController+StoryboardInstantiation.swift in Sources */,
+				9E52B6B6206C1E16004127B6 /* Defaults.swift in Sources */,
 				222F86F51FC23F5600137AF9 /* ProgressViewController.swift in Sources */,
 				9E05E6E320630FD700260C50 /* AssignmentAPIClient.swift in Sources */,
 				22A912B91FF639830073DA87 /* PatientData.swift in Sources */,
@@ -935,7 +955,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NCYPEHY28G;
+				DEVELOPMENT_TEAM = 26RHXP32FH;
 				INFOPLIST_FILE = "$(SRCROOT)/M2M/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "trackitivity-v1";
@@ -951,7 +971,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NCYPEHY28G;
+				DEVELOPMENT_TEAM = 26RHXP32FH;
 				INFOPLIST_FILE = "$(SRCROOT)/M2M/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "trackitivity-v1";
