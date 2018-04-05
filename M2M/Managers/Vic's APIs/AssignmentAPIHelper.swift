@@ -1,5 +1,5 @@
 //
-//  AssignmentAPIClient.swift
+//  AssignmentAPIHelper.swift
 //  M2M
 //
 //  Created by Victor Zhong on 3/21/18.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-class AssignmentAPIClient {
+class AssignmentAPIHelper {
     private init() {}
-    static let manager = AssignmentAPIClient()
+    static let manager = AssignmentAPIHelper()
 
     // Get and parse assignments
     // ID: d19c786f-633a-44ba-98ab-0d207592c4cc
@@ -75,7 +75,7 @@ class AssignmentAPIClient {
             errorHandler: errorHandler)
     }
 
-    func postAssignment(forAssignment assignment: Assignment, _ id: String?, completionHandler: @escaping (Data) -> Void, errorHandler: @escaping (AppError) -> Void) {
+    func postAssignment(_ assignment: Assignment, id: String?, completionHandler: @escaping (Data) -> Void, errorHandler: @escaping (AppError) -> Void) {
 
         var urlString = "https://apiserver269.herokuapp.com/assignment/"
 

@@ -61,7 +61,7 @@
 		84129CAA7AAFFC5071A5B414 /* Pods_M2MUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B08F0B79188F2028B513FEB7 /* Pods_M2MUITests.framework */; };
 		9E05E6DF20630CCA00260C50 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E05E6DE20630CC900260C50 /* NetworkHelper.swift */; };
 		9E05E6E120630D6100260C50 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E05E6E020630D6100260C50 /* AppError.swift */; };
-		9E05E6E320630FD700260C50 /* AssignmentAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E05E6E220630FD700260C50 /* AssignmentAPIClient.swift */; };
+		9E05E6E320630FD700260C50 /* AssignmentAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E05E6E220630FD700260C50 /* AssignmentAPIHelper.swift */; };
 		9E36F27E2059C81800D2D172 /* AppStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E36F27D2059C81800D2D172 /* AppStoryboard.swift */; };
 		9E36F2832059C9A600D2D172 /* TimeInterval+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E36F27F2059C9A600D2D172 /* TimeInterval+String.swift */; };
 		9E36F2842059C9A600D2D172 /* String+Replacement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E36F2802059C9A600D2D172 /* String+Replacement.swift */; };
@@ -72,6 +72,7 @@
 		9E5EBD7F206B552500897836 /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5EBD7E206B552500897836 /* LoginData.swift */; };
 		9E5EBD81206B557600897836 /* AuthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5EBD80206B557600897836 /* AuthData.swift */; };
 		9E7CD7CC205F67880045C666 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7CD7CB205F67880045C666 /* Assignment.swift */; };
+		9E901F88207630120007649F /* ExerciseAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E901F87207630120007649F /* ExerciseAPIHelper.swift */; };
 		9EE4FCDE2059B30600A35A24 /* ExerciseParameterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE4FCDB2059B30600A35A24 /* ExerciseParameterViewModel.swift */; };
 		9EE4FCDF2059B30600A35A24 /* ProgressGeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE4FCDC2059B30600A35A24 /* ProgressGeneralViewController.swift */; };
 		9EE4FCE02059B30600A35A24 /* ExerciseParameterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE4FCDD2059B30600A35A24 /* ExerciseParameterViewController.swift */; };
@@ -170,7 +171,7 @@
 		5D8CE85C6D47B125D4281F02 /* Pods-M2MUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-M2MUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-M2MUITests/Pods-M2MUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9E05E6DE20630CC900260C50 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		9E05E6E020630D6100260C50 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
-		9E05E6E220630FD700260C50 /* AssignmentAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentAPIClient.swift; sourceTree = "<group>"; };
+		9E05E6E220630FD700260C50 /* AssignmentAPIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentAPIHelper.swift; sourceTree = "<group>"; };
 		9E36F27D2059C81800D2D172 /* AppStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoryboard.swift; sourceTree = "<group>"; };
 		9E36F27F2059C9A600D2D172 /* TimeInterval+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TimeInterval+String.swift"; path = "M2M/Extensions/TimeInterval+String.swift"; sourceTree = "<group>"; };
 		9E36F2802059C9A600D2D172 /* String+Replacement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Replacement.swift"; path = "M2M/Extensions/String+Replacement.swift"; sourceTree = "<group>"; };
@@ -181,6 +182,7 @@
 		9E5EBD7E206B552500897836 /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
 		9E5EBD80206B557600897836 /* AuthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthData.swift; sourceTree = "<group>"; };
 		9E7CD7CB205F67880045C666 /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
+		9E901F87207630120007649F /* ExerciseAPIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseAPIHelper.swift; sourceTree = "<group>"; };
 		9EE4FCDB2059B30600A35A24 /* ExerciseParameterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseParameterViewModel.swift; sourceTree = "<group>"; };
 		9EE4FCDC2059B30600A35A24 /* ProgressGeneralViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressGeneralViewController.swift; sourceTree = "<group>"; };
 		9EE4FCDD2059B30600A35A24 /* ExerciseParameterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseParameterViewController.swift; sourceTree = "<group>"; };
@@ -359,8 +361,9 @@
 			isa = PBXGroup;
 			children = (
 				9E05E6DE20630CC900260C50 /* NetworkHelper.swift */,
-				9E05E6E220630FD700260C50 /* AssignmentAPIClient.swift */,
+				9E05E6E220630FD700260C50 /* AssignmentAPIHelper.swift */,
 				9E05E6E020630D6100260C50 /* AppError.swift */,
+				9E901F87207630120007649F /* ExerciseAPIHelper.swift */,
 			);
 			path = "Vic's AP\U0010Is";
 			sourceTree = "<group>";
@@ -749,7 +752,7 @@
 				9E36F2852059C9A600D2D172 /* UIViewController+StoryboardInstantiation.swift in Sources */,
 				9E52B6B6206C1E16004127B6 /* Defaults.swift in Sources */,
 				222F86F51FC23F5600137AF9 /* ProgressViewController.swift in Sources */,
-				9E05E6E320630FD700260C50 /* AssignmentAPIClient.swift in Sources */,
+				9E05E6E320630FD700260C50 /* AssignmentAPIHelper.swift in Sources */,
 				22A912B91FF639830073DA87 /* PatientData.swift in Sources */,
 				22691AD520407DF1009E9AF2 /* ExerciseList.swift in Sources */,
 				2201CCB21F742BDE00736AD5 /* UUIDKey.swift in Sources */,
@@ -764,6 +767,7 @@
 				22AE3B1D1F7884D500C27D0F /* TableViewCell.swift in Sources */,
 				2201CCAE1F74178100736AD5 /* bleViewController.swift in Sources */,
 				226FA4D41FDE0C2D0048B42C /* API.swift in Sources */,
+				9E901F88207630120007649F /* ExerciseAPIHelper.swift in Sources */,
 				222C587B203AC9A500265FFD /* APIManager.swift in Sources */,
 				22D86145203D059500FE2FA6 /* Exercise.swift in Sources */,
 				22D86149203D32F200FE2FA6 /* Activity.swift in Sources */,

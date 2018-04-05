@@ -10,10 +10,7 @@ import RxCocoa
 import RxSwift
 
 class ExerciseParameterViewController: UIViewController {
-
-
     @IBOutlet weak var done: UIButton!
-    
     @IBOutlet weak var back: UIButton!
     
     @IBOutlet weak var exerciseName_Label: UITextField!
@@ -46,10 +43,15 @@ class ExerciseParameterViewController: UIViewController {
             .disposed(by: disposeBag)
 
     }
+
 }
 
 extension ExerciseParameterViewController {
     @IBAction func back(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+    }
+
+    @IBAction func done(_ sender: UIButton) {
+        ExerciseAPIHelper.manager.postExercise()
     }
 }

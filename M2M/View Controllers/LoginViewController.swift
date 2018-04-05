@@ -56,7 +56,7 @@ class LoginViewController: UIViewController {
                 self.present(mainVC, animated: true) { [weak self] in
                     // NOTE: Vic's test
                     DispatchQueue.main.async {
-                        AssignmentAPIClient.manager.getAssignments(userID, completionHandler: {
+                        AssignmentAPIHelper.manager.getAssignments(userID, completionHandler: {
                             print($0)
                         }, errorHandler: {
                             print($0)
@@ -87,9 +87,3 @@ extension LoginViewController: UITextFieldDelegate {
         textField.clearsOnBeginEditing = true
     }
 }
-
-
-
-
-
-
