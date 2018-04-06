@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButton(_ sender: Any) {
+        loginButton.isEnabled = false
         samLogin()
     }
     
@@ -32,8 +33,10 @@ class LoginViewController: UIViewController {
     }
     
     func samLogin() {
-        guard let loginName = usernameField.text else { return }
-        guard let loginPassword = passwordField.text else { return }
+        guard let loginName = usernameField.text, let loginPassword = passwordField.text else {
+            loginButton.isEnabled = true
+            return
+        }
         
         let  loginInfo = PatientCredential(email: loginName, password: loginPassword)
         var login = RestApiManager()
@@ -53,7 +56,9 @@ class LoginViewController: UIViewController {
                 
                 print("Login data is \(String(describing: userID))")
                 Defaults.manager.saveToDefaults(loginInfo)
-                self.present(mainVC, animated: true) { [weak self] in
+                self.present(mainVC, animated: true) { [unowned self] in
+                    self.loginButton.isEnabled = true
+
                     // NOTE: Vic's test
                     DispatchQueue.main.async {
                         AssignmentAPIHelper.manager.getAssignments(userID, completionHandler: {

@@ -41,9 +41,7 @@ class ExerciseParameterViewController: UIViewController {
                 self?.done.alpha = valid ? 1 : 0.5
             })
             .disposed(by: disposeBag)
-
     }
-
 }
 
 extension ExerciseParameterViewController {
