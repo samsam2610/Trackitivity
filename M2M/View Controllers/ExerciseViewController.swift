@@ -85,8 +85,10 @@ extension ExerciseViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let exerciseAtRow = exercises[indexPath.row]
+        
         print("Exercise Selected: \(exerciseAtRow.exerciseName), \(exerciseAtRow.id)")
         dump(exerciseAtRow)
+
         let exerciseParameterVC = ExerciseParameterViewController.instantiate(fromAppStoryboard: .exerciseParameterViewController)
         exerciseParameterVC.passedExercise = exerciseAtRow
         
