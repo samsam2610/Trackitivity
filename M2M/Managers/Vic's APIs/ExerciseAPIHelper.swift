@@ -102,10 +102,11 @@ class ExerciseAPIHelper {
             "thigh_angle_max": exercise.thighAngle_max,
             "leg_angle_min": exercise.legAngle_min,
             "leg_angle_max": exercise.legAngle_max,
-            "instructions": [
-                "text": exercise.instructions?.description ?? "",
-                "link": exercise.instructions?.link ?? ""
-                ] as [String : Any],
+            "description": exercise.description ?? "Perform the exercise as instructed by your therapist.",
+//            "instructions": [
+//                "text": exercise.instructions?.description ?? "",
+//                "link": exercise.instructions?.link ?? ""
+//                ] as [String : Any],
             "creator_id": AuthData.auth.getUserID()!
         ]
 
