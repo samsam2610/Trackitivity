@@ -9,7 +9,7 @@
 import Foundation
 
 // TODO: - Intended for use with API
-let dummyData = ExerciseData(toJson: "", 0, 0, 0, 0)
+let dummyData = ExerciseData(toJson: "", "", 0, 0, 0, 0, nil)
 
 // Request list of exercises to be selected
 class ExerciseListGet: APIRequest<ExerciseData> {

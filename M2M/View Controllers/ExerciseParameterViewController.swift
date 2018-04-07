@@ -50,6 +50,12 @@ extension ExerciseParameterViewController {
     }
 
     @IBAction func done(_ sender: UIButton) {
-        ExerciseAPIHelper.manager.postExercise()
+        let exercise = ExerciseData(toJson: exerciseName_Label.text!, descriptionLabel.text!, Int16(thighAngle_min.text!) ?? 0, Int16(thighAngle_max.text!) ?? 0, Int16(legAngle_min.text!) ?? 0, Int16(legAngle_max.text!) ?? 0, Instruction(toJson: descriptionLabel.text!, link: nil))
+        ExerciseAPIHelper.manager.postExercise(exercise, id: nil, completionHandler: { (data) in
+            dump(data)
+            self.dismiss(animated: true, completion: nil)
+        }, errorHandler: { (error) in
+            print(error.localizedDescription)
+        })
     }
 }

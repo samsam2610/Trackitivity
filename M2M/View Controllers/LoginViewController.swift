@@ -61,7 +61,7 @@ class LoginViewController: UIViewController {
 
                     // NOTE: Vic's test
                     DispatchQueue.main.async {
-                        AssignmentAPIHelper.manager.getAssignments(userID, completionHandler: {
+                        ExerciseAPIHelper.manager.getExercises(userID, completionHandler: {
                             print($0)
                         }, errorHandler: {
                             print($0)

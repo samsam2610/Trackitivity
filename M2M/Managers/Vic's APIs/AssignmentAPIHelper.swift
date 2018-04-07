@@ -84,7 +84,7 @@ class AssignmentAPIHelper {
         }
 
         guard let url = URL(string: urlString) else {
-            errorHandler(.badURL(string: "https://apiserver269.herokuapp.com/assignment"))
+            errorHandler(.badURL(string: urlString))
             return
         }
 

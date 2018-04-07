@@ -13,4 +13,8 @@ extension String {
     {
         return self.replacingOccurrences(of: target, with: withString, options: NSString.CompareOptions.literal, range: nil)
     }
+
+//    func toPercentEncodedString(_ str: String) -> String? {
+//
+//    }
 }
