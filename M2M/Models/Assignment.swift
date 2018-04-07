@@ -69,7 +69,6 @@ struct Assignment: Codable {
             self.duration = Int(value) ?? 0
         }
     }
-
 }
 
 

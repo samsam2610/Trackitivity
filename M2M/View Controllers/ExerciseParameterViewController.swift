@@ -10,10 +10,7 @@ import RxCocoa
 import RxSwift
 
 class ExerciseParameterViewController: UIViewController {
-
-
     @IBOutlet weak var done: UIButton!
-    
     @IBOutlet weak var back: UIButton!
     
     @IBOutlet weak var exerciseName_Label: UITextField!
@@ -23,7 +20,9 @@ class ExerciseParameterViewController: UIViewController {
     @IBOutlet weak var legAngle_max: UITextField!
     @IBOutlet weak var descriptionLabel: UITextView!
     @IBOutlet weak var isValid: UILabel!
-    
+
+    var passedExercise: ExerciseData?
+
     let disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,11 +44,41 @@ class ExerciseParameterViewController: UIViewController {
             })
             .disposed(by: disposeBag)
 
+        if let exercise = passedExercise {
+            loadExercise(exercise)
+        }
+    }
+
+    func loadExercise(_ exercise: ExerciseData) {
+        exerciseName_Label.text = exercise.exerciseName
+        thighAngle_min.text = "\(exercise.thighAngle_min)"
+        thighAngle_max.text = "\(exercise.thighAngle_max)"
+        legAngle_min.text = "\(exercise.legAngle_min)"
+        legAngle_max.text = "\(exercise.legAngle_max)"
+        descriptionLabel.text = exercise.description ?? ""
     }
 }
 
 extension ExerciseParameterViewController {
     @IBAction func back(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+    }
+
+    @IBAction func done(_ sender: UIButton) {
+        // Put this in viewModel
+        let exercise = ExerciseData(toJson: exerciseName_Label.text!, descriptionLabel.text!, Int16(thighAngle_min.text!) ?? 0, Int16(thighAngle_max.text!) ?? 0, Int16(legAngle_min.text!) ?? 0, Int16(legAngle_max.text!) ?? 0)
+
+        var id: String?
+
+        if let passedExercise = passedExercise {
+            id = passedExercise.id!
+        }
+
+        ExerciseAPIHelper.manager.postExercise(exercise, id: id, completionHandler: { (data) in
+            dump(data)
+            self.dismiss(animated: true, completion: nil)
+        }, errorHandler: { (error) in
+            print(error.localizedDescription)
+        })
     }
 }
