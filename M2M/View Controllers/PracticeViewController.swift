@@ -45,7 +45,9 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
     var bodyJoints = [String:BodyJoint]()
     var managedContext: NSManagedObjectContext!
     var currentDog: Dog?
-    
+
+    //Exercise:
+    let exercise = SelectedExercise.manager.getSelectedExercise()!
     
     
     private var consoleAsciiText:NSAttributedString? = NSAttributedString(string: "")
@@ -94,7 +96,8 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
         } catch let error as NSError {
             print("Fetch error: \(error) description: \(error.userInfo)")
         }
-        
+
+        loadExercise()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -111,7 +114,10 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
         NotificationCenter.default.removeObserver(self)
 
     }
-    
+
+    func loadExercise() {
+        exerciseName.text = exercise.exerciseName
+    }
     
     func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
         //Handle results with taskViewController.result
@@ -161,9 +167,11 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
         guard dataCache.Time > 0 else {
             return
         }
-        guard  thighAngle > thighMinAngle! && thighAngle < thighMaxAngle! && thighAngle != 361 else {
+
+        guard  thighAngle > Double(exercise.thighAngle_min) && thighAngle < Double(exercise.thighAngle_max) && thighAngle != 361 else {
             return
         }
+
         let diff = Second - First
         if abs(diff) > 3 {
             dAfter = diff
@@ -435,8 +443,8 @@ extension PracticeViewController {
     
     @IBAction func backToMain(_ sender: Any) {
         if (finishedWorkout) {
+
             self.dismiss(animated: true, completion: nil)
-            
         } else {
             let alertController = UIAlertController(title: "Warning",
                                                     message: "Please finish the exercise!",
@@ -500,7 +508,7 @@ extension PracticeViewController {
             self.endDate = Date()
             self.wrappingUpData()
             rawData.removeAll()
-            self.saveScore(repetition: currentCount, avgAngle: avgROM, exerciseID: selectedExerciseID, startDate: self.startDate, endDate: self.endDate, currentDog: self.currentDog!)
+            self.saveScore(repetition: currentCount, avgAngle: avgROM, exerciseID: self.exercise.id!, startDate: self.startDate, endDate: self.endDate, currentDog: self.currentDog!)
             self.present(surveyMessage, animated: true, completion: nil)
             //print(self.fetch())
         })

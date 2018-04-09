@@ -44,6 +44,13 @@ class ExerciseViewController: UIViewController {
         })
     }
 
+    func selectedAnnouncement(_ exercise: ExerciseData) {
+        let alert = UIAlertController(title: nil, message: "\(exercise.exerciseName) selected!", preferredStyle: .alert)
+        let alertActions = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(alertActions)
+        self.present(alert, animated: true, completion: nil)
+    }
+
 }
 
 //extension exerciseViewController: UITableViewDataSource, UITableViewDelegate {
@@ -92,10 +99,8 @@ extension ExerciseViewController: UITableViewDelegate, UITableViewDataSource {
         print("Exercise Selected: \(exerciseAtRow.exerciseName), \(exerciseAtRow.id)")
         dump(exerciseAtRow)
 
-        let exerciseParameterVC = ExerciseParameterViewController.instantiate(fromAppStoryboard: .exerciseParameterViewController)
-        exerciseParameterVC.passedExercise = exerciseAtRow
-        
-        self.present(exerciseParameterVC, animated: true, completion: nil)
+        SelectedExercise.manager.chooseExercise(exerciseAtRow)
+        selectedAnnouncement(exerciseAtRow)
     }
 
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
