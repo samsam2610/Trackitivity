@@ -21,7 +21,6 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButton(_ sender: Any) {
-        loginButton.isEnabled = false
         samLogin()
     }
     
@@ -33,6 +32,7 @@ class LoginViewController: UIViewController {
     }
     
     func samLogin() {
+        loginButton.isEnabled = false
         guard let loginName = usernameField.text, let loginPassword = passwordField.text else {
             loginButton.isEnabled = true
             return
@@ -59,14 +59,9 @@ class LoginViewController: UIViewController {
                 self.present(mainVC, animated: true) { [unowned self] in
                     self.loginButton.isEnabled = true
 
-                    // NOTE: Vic's test
-                    DispatchQueue.main.async {
-                        ExerciseAPIHelper.manager.getExercises(userID, completionHandler: {
-                            print($0)
-                        }, errorHandler: {
-                            print($0)
-                        })
-                    }
+                    // NOTE: Vic's non-unit test
+
+                    // NOTE: End testing here
                 }
             }
         }
