@@ -11,6 +11,7 @@ import ResearchKit
 
 class MainViewController: UIViewController {
 
+    @IBOutlet weak var selectedExerciseLabel: UILabel!
     @IBOutlet weak var connectButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     
@@ -23,6 +24,16 @@ class MainViewController: UIViewController {
         } else {
             connectButton.backgroundColor = UIColor.init(red: 231/255, green: 76/255, blue: 60/255, alpha: 1)
             connectButton.setTitle("No connected device", for: UIControlState.normal)
+        }
+
+        startButton.isEnabled = false
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        if let exercise = SelectedExercise.manager.getSelectedExercise() {
+            startButton.isEnabled = true
+            selectedExerciseLabel.text = "Start \(exercise.exerciseName)"
         }
     }
     
@@ -45,12 +56,17 @@ class MainViewController: UIViewController {
             thighMaxAngle = 26*2
             thighMinAngle = 0
         }
-        if (workoutActive == false) {
-            workoutActive = true
+
+        if let _ = SelectedExercise.manager.getSelectedExercise() {
+            if (workoutActive == false) {
+                workoutActive = true
+            }
+
+            startTime = NSCalendar.current as NSCalendar
+
+            let practiceVC = PracticeViewController.instantiate(fromAppStoryboard: .practiceViewController)
+            self.present(practiceVC, animated: true, completion: nil)
         }
-        startTime = NSCalendar.current as NSCalendar
-        let practiceVC = PracticeViewController.instantiate(fromAppStoryboard: .practiceViewController)
-        self.present(practiceVC, animated: true, completion: nil)
     }
     
     @IBAction func exercistList(_ sender: UIButton) {
@@ -76,13 +92,7 @@ class MainViewController: UIViewController {
     }
 
     @IBAction func signOutButtonTapped(_ sender: UIButton) {
-        self.dismiss(animated: true) { [weak self] in
-            
-        }
-
+        self.dismiss(animated: true, completion: nil)
     }
-
-
-    
     
 }
