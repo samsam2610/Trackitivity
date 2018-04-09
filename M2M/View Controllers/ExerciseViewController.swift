@@ -10,6 +10,8 @@ import UIKit
 
 class ExerciseViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
+
     @IBAction func exerciseAdd(_ sender: UIButton) {
         let exerciseParameterVC = ExerciseParameterViewController.instantiate(fromAppStoryboard: .exerciseParameterViewController)
         self.present(exerciseParameterVC, animated: true, completion: nil)
@@ -18,11 +20,25 @@ class ExerciseViewController: UIViewController {
 //    @IBOutlet weak var exerciseList: UITableView!
 
         //var descrip = ["Yo","Yo"]
-    
+    var exercises: [ExerciseData] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
 
-        // Do any additional setup after loading the view.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+
+        ExerciseAPIHelper.manager.getExercises(AuthData.auth.getUserID()!, completionHandler: { (exercises) in
+            DispatchQueue.main.async {
+                self.exercises = exercises
+                self.tableView.reloadData()
+            }
+        }, errorHandler: { (error) in
+            print(error.localizedDescription)
+        })
     }
 
 }
@@ -51,6 +67,34 @@ class ExerciseViewController: UIViewController {
 //    
 //
 //}
+
+extension ExerciseViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return exercises.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "exerciseCell")! as UITableViewCell
+
+        let exerciseAtRow = exercises[indexPath.row]
+
+        cell.textLabel?.text = exerciseAtRow.exerciseName
+
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let exerciseAtRow = exercises[indexPath.row]
+        
+        print("Exercise Selected: \(exerciseAtRow.exerciseName), \(exerciseAtRow.id)")
+        dump(exerciseAtRow)
+
+        let exerciseParameterVC = ExerciseParameterViewController.instantiate(fromAppStoryboard: .exerciseParameterViewController)
+        exerciseParameterVC.passedExercise = exerciseAtRow
+        
+        self.present(exerciseParameterVC, animated: true, completion: nil)
+    }
+}
 
 extension ExerciseViewController {
 

@@ -38,8 +38,8 @@ class DoctorViewController: UIViewController {
         }
         managedContext = appDelegate.managedContext
         
-        let auth = AuthData.auth
-        print("Login data is \(String(describing: auth.loginData!.userID))")
+        guard let userID = AuthData.auth.getUserID() else { return }
+        print("Login data is \(String(describing: userID))")
         
         var getData = RestApiManager()
         getData.stringURL = "https://my.api.mockaroo.com/static_patient_list.json?key=4d9f5440"
@@ -112,8 +112,6 @@ extension DoctorViewController: UITableViewDataSource, UITableViewDelegate {
         doctorProgressVC.patientID = id
         self.present(doctorProgressVC, animated: true, completion: nil)
     }
-
-    
 }
 
 extension DoctorViewController {

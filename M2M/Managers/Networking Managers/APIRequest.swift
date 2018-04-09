@@ -12,11 +12,7 @@ public enum RequestType: String {
     case GET, POST
 }
 
-enum URLpath: String {
-    case activity = "/activities"
-    case exercise = "/exercise"
-    case assignment = "/assignment"
-}
+
 
 class APIRequest<T: Codable> {
     // associatedtype Data where Data: Codable

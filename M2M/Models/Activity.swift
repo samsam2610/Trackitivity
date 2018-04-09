@@ -18,3 +18,13 @@ protocol ActivityParam: ExerciseInfo {
     var maxAngle: Float {get set}
 }
 
+struct Activity: ActivityParam {
+    var exerciseName: String
+    var timeStart: String
+    var timeEnd: String
+    var duration: String
+    var repetitions: Int
+    var averageAngle: Float
+    var minAngle: Float
+    var maxAngle: Float
+}
