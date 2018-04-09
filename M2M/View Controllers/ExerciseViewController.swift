@@ -11,6 +11,7 @@ import UIKit
 class ExerciseViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addButton: UIButton!
 
     @IBAction func exerciseAdd(_ sender: UIButton) {
         let exerciseParameterVC = ExerciseParameterViewController.instantiate(fromAppStoryboard: .exerciseParameterViewController)
@@ -26,6 +27,8 @@ class ExerciseViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        addButton.layer.cornerRadius = 40
+        addButton.layer.masksToBounds = true
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -93,6 +96,24 @@ extension ExerciseViewController: UITableViewDelegate, UITableViewDataSource {
         exerciseParameterVC.passedExercise = exerciseAtRow
         
         self.present(exerciseParameterVC, animated: true, completion: nil)
+    }
+
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let editAction = UITableViewRowAction(style: .default, title: "Edit") { [weak self] (_, indexPath) in
+            let exerciseAtRow = self?.exercises[indexPath.row]
+
+            print("Exercise Selected: \(exerciseAtRow?.exerciseName), \(exerciseAtRow?.id)")
+            dump(exerciseAtRow)
+
+            let exerciseParameterVC = ExerciseParameterViewController.instantiate(fromAppStoryboard: .exerciseParameterViewController)
+            exerciseParameterVC.passedExercise = exerciseAtRow
+
+            self?.present(exerciseParameterVC, animated: true, completion: nil)
+        }
+
+        editAction.backgroundColor = .red
+
+        return [editAction]
     }
 }
 
