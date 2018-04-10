@@ -21,7 +21,9 @@ class DoctorProgressViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.delegate = self
+        tableView.dataSource = self
+
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell_Data")
         
         print("Patient name is \(String(describing: patientName))")
@@ -39,7 +41,7 @@ class DoctorProgressViewController: UIViewController {
         print(getData.stringURL)
         getData.getPatientData { tempData in
             
-            print(tempData)
+            print("\n\nTemp Data: \(tempData)")
             self.patientData = tempData
 
             DispatchQueue.main.async {
@@ -54,10 +56,11 @@ extension DoctorProgressViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let count = patientData.count
-        guard count > 1 else {
+
+        guard count > 0 else {
             return 1
         }
-        print("cell count is \(count)")
+
         return count
     }
     
@@ -65,11 +68,11 @@ extension DoctorProgressViewController: UITableViewDataSource, UITableViewDelega
         let count = patientData.count
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell_Data",
                                                  for: indexPath)
-        guard count > 1 else {
+        guard count > 0 else {
             cell.textLabel?.text = "Loading data"
             return cell
         }
-        
+
         let patient = patientData[indexPath.row]
         print(patient)
 
@@ -77,7 +80,10 @@ extension DoctorProgressViewController: UITableViewDataSource, UITableViewDelega
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         let start = dateFormatter.string(from: time)
-        cell.textLabel?.text = start
+
+        cell.textLabel?.text = patient.exerciseName
+        cell.detailTextLabel?.text = start
+
         return cell
     }
 
