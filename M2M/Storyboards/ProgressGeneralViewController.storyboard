@@ -21,11 +21,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Pas-3y-0i0">
-                                <rect key="frame" x="0.0" y="285" width="414" height="542"/>
+                                <rect key="frame" x="0.0" y="285" width="414" height="451"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="542" id="C26-45-gd9"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="progressCellReuseIdentifier" rowHeight="48" id="xrY-PC-1X8" customClass="progressCell" customModule="M2M" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="48"/>
@@ -102,7 +99,7 @@
                             <constraint firstItem="7IM-4y-71T" firstAttribute="centerX" secondItem="YTk-mc-ARw" secondAttribute="centerX" id="7sG-6P-AaD"/>
                             <constraint firstItem="7IM-4y-71T" firstAttribute="top" secondItem="F9r-IH-qsw" secondAttribute="top" constant="46" id="9Rh-Du-OeX"/>
                             <constraint firstItem="6gV-ee-PXL" firstAttribute="top" secondItem="YTk-mc-ARw" secondAttribute="top" id="DoX-v8-cPB"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="Pas-3y-0i0" secondAttribute="bottom" constant="-91" id="Fl5-gr-o79"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Pas-3y-0i0" secondAttribute="bottom" id="Fl5-gr-o79"/>
                             <constraint firstItem="Pas-3y-0i0" firstAttribute="top" secondItem="7IM-4y-71T" secondAttribute="bottom" constant="8" symbolic="YES" id="UHt-mN-ZhY"/>
                             <constraint firstItem="F9r-IH-qsw" firstAttribute="trailing" secondItem="6gV-ee-PXL" secondAttribute="trailing" constant="314" id="aMb-fU-l9v"/>
                             <constraint firstItem="6gV-ee-PXL" firstAttribute="bottom" secondItem="YTk-mc-ARw" secondAttribute="bottom" id="b3m-Dv-unH"/>
@@ -117,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l97-qe-hSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3360.8000000000002" y="-21.428571428571431"/>
+            <point key="canvasLocation" x="3359.4202898550725" y="-22.010869565217394"/>
         </scene>
     </scenes>
     <resources>
