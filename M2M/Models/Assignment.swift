@@ -21,7 +21,9 @@ struct Assignment: Codable {
     var patientID: String
     var creator: TherapistCredential
     var patient: PatientCredential
-    var activities: [String]
+    var activities: [Activity]
+    var timeCreated: String
+    var timeModified: String
 
     private enum CodingKeys: String, CodingKey {
         case id
@@ -37,6 +39,8 @@ struct Assignment: Codable {
         case creator
         case patient
         case activities
+        case timeCreated = "time_created"
+        case timeModified = "time_modified"
     }
 
     init(from decoder: Decoder) throws {
@@ -52,8 +56,9 @@ struct Assignment: Codable {
         self.patientID = try container.decode(String.self, forKey: .patientID)
         self.creator = try container.decode(TherapistCredential.self, forKey: .creator)
         self.patient = try container.decode(PatientCredential.self, forKey: .patient)
-        self.activities = try container.decode([String].self, forKey: .activities)
-
+        self.activities = try container.decode([Activity].self, forKey: .activities)
+        self.timeCreated = try container.decode(String.self, forKey: .timeCreated)
+        self.timeModified = try container.decode(String.self, forKey: .timeModified)
 
         do {
             self.expectedDuration = try container.decode(Int.self, forKey: .expectedDuration)

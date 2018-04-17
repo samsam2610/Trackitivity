@@ -71,9 +71,11 @@
 		9E5EBD7D206B54C100897836 /* Therapist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5EBD7C206B54C100897836 /* Therapist.swift */; };
 		9E5EBD7F206B552500897836 /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5EBD7E206B552500897836 /* LoginData.swift */; };
 		9E5EBD81206B557600897836 /* AuthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5EBD80206B557600897836 /* AuthData.swift */; };
+		9E5FE07E207E90EC003E0985 /* AssignmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5FE07D207E90EC003E0985 /* AssignmentsViewController.swift */; };
 		9E7CD7CC205F67880045C666 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7CD7CB205F67880045C666 /* Assignment.swift */; };
 		9E901F88207630120007649F /* ExerciseAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E901F87207630120007649F /* ExerciseAPIHelper.swift */; };
 		9EC7EDBF207C28DF00B91C10 /* ExerciseSelected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC7EDBE207C28DF00B91C10 /* ExerciseSelected.swift */; };
+		9EC7EDC3207CF2B400B91C10 /* AssignmentsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EC7EDC2207CF2B400B91C10 /* AssignmentsViewController.storyboard */; };
 		9EE4FCDE2059B30600A35A24 /* ExerciseParameterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE4FCDB2059B30600A35A24 /* ExerciseParameterViewModel.swift */; };
 		9EE4FCDF2059B30600A35A24 /* ProgressGeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE4FCDC2059B30600A35A24 /* ProgressGeneralViewController.swift */; };
 		9EE4FCE02059B30600A35A24 /* ExerciseParameterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE4FCDD2059B30600A35A24 /* ExerciseParameterViewController.swift */; };
@@ -182,9 +184,11 @@
 		9E5EBD7C206B54C100897836 /* Therapist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Therapist.swift; sourceTree = "<group>"; };
 		9E5EBD7E206B552500897836 /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
 		9E5EBD80206B557600897836 /* AuthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthData.swift; sourceTree = "<group>"; };
+		9E5FE07D207E90EC003E0985 /* AssignmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsViewController.swift; sourceTree = "<group>"; };
 		9E7CD7CB205F67880045C666 /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 		9E901F87207630120007649F /* ExerciseAPIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseAPIHelper.swift; sourceTree = "<group>"; };
 		9EC7EDBE207C28DF00B91C10 /* ExerciseSelected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSelected.swift; sourceTree = "<group>"; };
+		9EC7EDC2207CF2B400B91C10 /* AssignmentsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AssignmentsViewController.storyboard; sourceTree = "<group>"; };
 		9EE4FCDB2059B30600A35A24 /* ExerciseParameterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseParameterViewModel.swift; sourceTree = "<group>"; };
 		9EE4FCDC2059B30600A35A24 /* ProgressGeneralViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressGeneralViewController.swift; sourceTree = "<group>"; };
 		9EE4FCDD2059B30600A35A24 /* ExerciseParameterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseParameterViewController.swift; sourceTree = "<group>"; };
@@ -239,6 +243,7 @@
 		222C587C203C010100265FFD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9E5FE07D207E90EC003E0985 /* AssignmentsViewController.swift */,
 				2201CCAD1F74178100736AD5 /* bleViewController.swift */,
 				2220F6D81FEA138C0048EA27 /* DoctorProgressViewController.swift */,
 				2218BC771F7ABE7D009C7434 /* DoctorViewController.swift */,
@@ -268,6 +273,7 @@
 				224F4D701FBCED4D005AF2A3 /* bleViewController.storyboard */,
 				224F4D721FBCED8D005AF2A3 /* ExerciseViewController.storyboard */,
 				22C3B3592041C8180011663C /* ExerciseParameterViewController.storyboard */,
+				9EC7EDC2207CF2B400B91C10 /* AssignmentsViewController.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -561,6 +567,7 @@
 				22654B521F7398AF00FB32FA /* LoginViewController.storyboard in Resources */,
 				22DC55EB1FD07DFA00F881C4 /* ProgressDetailViewController.storyboard in Resources */,
 				22C3B35A2041C8180011663C /* ExerciseParameterViewController.storyboard in Resources */,
+				9EC7EDC3207CF2B400B91C10 /* AssignmentsViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -796,6 +803,7 @@
 				22DB88121F9771C800897D2B /* ConsentDocument.swift in Sources */,
 				9E05E6E120630D6100260C50 /* AppError.swift in Sources */,
 				9E5EBD81206B557600897836 /* AuthData.swift in Sources */,
+				9E5FE07E207E90EC003E0985 /* AssignmentsViewController.swift in Sources */,
 				9EC7EDBF207C28DF00B91C10 /* ExerciseSelected.swift in Sources */,
 				22E38F001F73B8B30031B7A9 /* MainViewController.swift in Sources */,
 				9E36F2862059C9A600D2D172 /* Double+Operations.swift in Sources */,

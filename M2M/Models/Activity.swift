@@ -18,7 +18,7 @@ protocol ActivityParam: ExerciseInfo {
     var maxAngle: Float {get set}
 }
 
-struct Activity: ActivityParam {
+struct Activity: ActivityParam, Codable {
     var exerciseName: String
     var timeStart: String
     var timeEnd: String
@@ -27,4 +27,23 @@ struct Activity: ActivityParam {
     var averageAngle: Float
     var minAngle: Float
     var maxAngle: Float
+    var id: String
+    var description: String
+    var assignmentID: String
+    var userID: String
+
+    private enum CodingKeys: String, CodingKey {
+        case exerciseName = "title"
+        case timeStart = "time_start"
+        case timeEnd = "time_end"
+        case duration
+        case repetitions
+        case averageAngle = "average_angle"
+        case minAngle = "min_angle"
+        case maxAngle = "max_angle"
+        case id
+        case description
+        case assignmentID = "assignment_id"
+        case userID = "user_id"
+    }
 }
