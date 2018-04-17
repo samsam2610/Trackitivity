@@ -13,6 +13,24 @@ class SelectedExercise {
     static let manager = SelectedExercise()
 
     private var currentSelection: ExerciseData?
+    private var exerciseDict: [String : ExerciseData]?
+    private var exercises: [ExerciseData]?
+
+    func retriveExercise(_ exerciseID: String) -> ExerciseData? {
+        let completion = { (returnedExercises: [ExerciseData]) in
+            self.exercises = returnedExercises
+
+            for exercise in returnedExercises {
+                self.exerciseDict![exercise.id!] = exercise
+            }
+        }
+
+        if exercises?.count == 0 {
+            ExerciseAPIHelper.manager.getExercises(AuthData.auth.getUserID()!, completionHandler: completion, errorHandler: { print($0) })
+        }
+
+        return exerciseDict?[exerciseID]
+    }
 
     func chooseExercise(_ exercise: ExerciseData) {
         currentSelection = exercise

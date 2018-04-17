@@ -43,6 +43,7 @@ struct Assignment: Codable {
         case timeModified = "time_modified"
     }
 
+
     init(from decoder: Decoder) throws {
         let container =  try decoder.container(keyedBy: CodingKeys.self)
 

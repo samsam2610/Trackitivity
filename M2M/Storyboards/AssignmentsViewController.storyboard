@@ -12,7 +12,7 @@
         <!--Assignments View Controller-->
         <scene sceneID="rBy-RD-nCN">
             <objects>
-                <viewController id="EWW-kW-5Mw" customClass="AssignmentsViewController" customModule="M2M" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AssignmentsViewController" id="EWW-kW-5Mw" customClass="AssignmentsViewController" customModule="M2M" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="biZ-de-SUU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,10 +28,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mey-Ch-wUA">
-                                <rect key="frame" x="0.0" y="58" width="375" height="609"/>
+                                <rect key="frame" x="0.0" y="94.5" width="375" height="572.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Ru6-Wz-toc" detailTextLabel="leF-vg-qc2" rowHeight="56" style="IBUITableViewCellStyleSubtitle" id="TVX-PE-DJU">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="assignmentCell" textLabel="Ru6-Wz-toc" detailTextLabel="leF-vg-qc2" rowHeight="56" style="IBUITableViewCellStyleSubtitle" id="TVX-PE-DJU">
                                         <rect key="frame" x="0.0" y="28" width="375" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TVX-PE-DJU" id="C3K-2d-amR">
@@ -57,26 +57,52 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0R-ON-oqo">
-                                <rect key="frame" x="313" y="621" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVi-Fz-gWE">
+                                <rect key="frame" x="8" y="24" width="34" height="30"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="EWW-kW-5Mw" eventType="touchUpInside" id="S1U-nn-Ln6"/>
+                                </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pkz-gi-CAj">
+                                <rect key="frame" x="337" y="24" width="30" height="30"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addButtonTapped:" destination="EWW-kW-5Mw" eventType="touchUpInside" id="Ecl-WI-rTs"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patient Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcD-m9-Nu2">
+                                <rect key="frame" x="8" y="66" width="359" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ASu-z3-psu" firstAttribute="bottom" secondItem="mey-Ch-wUA" secondAttribute="bottom" id="A0L-N0-20j"/>
-                            <constraint firstItem="l0R-ON-oqo" firstAttribute="trailing" secondItem="ASu-z3-psu" secondAttribute="trailing" constant="-16" id="D5e-dg-I6G"/>
+                            <constraint firstItem="mey-Ch-wUA" firstAttribute="top" secondItem="EcD-m9-Nu2" secondAttribute="bottom" constant="8" id="5Ga-6T-zbj"/>
+                            <constraint firstItem="EcD-m9-Nu2" firstAttribute="top" secondItem="l0F-0L-YqW" secondAttribute="bottom" constant="8" id="6Kv-8Z-6R7"/>
+                            <constraint firstItem="ASu-z3-psu" firstAttribute="trailing" secondItem="Pkz-gi-CAj" secondAttribute="trailing" constant="8" id="AoB-bE-VTk"/>
                             <constraint firstItem="l0F-0L-YqW" firstAttribute="top" secondItem="ASu-z3-psu" secondAttribute="top" id="JQc-P4-5s5"/>
                             <constraint firstItem="l0F-0L-YqW" firstAttribute="leading" secondItem="ASu-z3-psu" secondAttribute="leading" id="JgJ-ic-vMk"/>
-                            <constraint firstItem="mey-Ch-wUA" firstAttribute="top" secondItem="l0F-0L-YqW" secondAttribute="bottom" id="Lrz-kq-zRA"/>
+                            <constraint firstItem="mey-Ch-wUA" firstAttribute="bottom" secondItem="ASu-z3-psu" secondAttribute="bottom" id="Lkw-M3-bBk"/>
+                            <constraint firstItem="TVi-Fz-gWE" firstAttribute="centerY" secondItem="l0F-0L-YqW" secondAttribute="centerY" id="OYG-c5-ghg"/>
+                            <constraint firstItem="Pkz-gi-CAj" firstAttribute="centerY" secondItem="l0F-0L-YqW" secondAttribute="centerY" id="Pgb-ko-zts"/>
+                            <constraint firstItem="EcD-m9-Nu2" firstAttribute="leading" secondItem="ASu-z3-psu" secondAttribute="leading" constant="8" id="S8y-kP-MCk"/>
+                            <constraint firstItem="mey-Ch-wUA" firstAttribute="trailing" secondItem="ASu-z3-psu" secondAttribute="trailing" id="SnI-QD-MIl"/>
+                            <constraint firstItem="TVi-Fz-gWE" firstAttribute="leading" secondItem="ASu-z3-psu" secondAttribute="leading" constant="8" id="Ufs-EG-Tl4"/>
+                            <constraint firstItem="mey-Ch-wUA" firstAttribute="leading" secondItem="ASu-z3-psu" secondAttribute="leading" id="VhD-ny-ZEe"/>
                             <constraint firstItem="ASu-z3-psu" firstAttribute="trailing" secondItem="l0F-0L-YqW" secondAttribute="trailing" id="mMK-ip-jja"/>
-                            <constraint firstItem="mey-Ch-wUA" firstAttribute="leading" secondItem="ASu-z3-psu" secondAttribute="leading" id="nQL-Yx-cLD"/>
-                            <constraint firstItem="ASu-z3-psu" firstAttribute="trailing" secondItem="mey-Ch-wUA" secondAttribute="trailing" id="tMV-OD-Hl6"/>
-                            <constraint firstItem="ASu-z3-psu" firstAttribute="bottom" secondItem="l0R-ON-oqo" secondAttribute="bottom" constant="16" id="yzS-tL-1Yj"/>
+                            <constraint firstItem="ASu-z3-psu" firstAttribute="trailing" secondItem="EcD-m9-Nu2" secondAttribute="trailing" constant="8" id="slb-Ev-U7J"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ASu-z3-psu"/>
                     </view>
                     <connections>
+                        <outlet property="patientNameLabel" destination="EcD-m9-Nu2" id="2Jy-70-069"/>
                         <outlet property="tableView" destination="mey-Ch-wUA" id="YlO-dz-znf"/>
                     </connections>
                 </viewController>

@@ -25,8 +25,10 @@ class AssignmentAPIHelper {
 
         let baseURL = "https://apiserver269.herokuapp.com/assignments?conditions=\(baseSnippet)&sort=-time_modified"
 
-        guard let url = URL(string: baseURL) else {
-            errorHandler(.badURL(string: baseURL))
+        let hackURL = "https://apiserver269.herokuapp.com/assignments"
+
+        guard let url = URL(string: hackURL) else {
+            errorHandler(.badURL(string: hackURL))
             return
         }
 
