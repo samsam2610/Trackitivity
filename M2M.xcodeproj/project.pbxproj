@@ -64,6 +64,7 @@
 		9E05E6DF20630CCA00260C50 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E05E6DE20630CC900260C50 /* NetworkHelper.swift */; };
 		9E05E6E120630D6100260C50 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E05E6E020630D6100260C50 /* AppError.swift */; };
 		9E05E6E320630FD700260C50 /* AssignmentAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E05E6E220630FD700260C50 /* AssignmentAPIHelper.swift */; };
+		9E1694A62087382800317530 /* SelectedAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1694A52087382800317530 /* SelectedAssignment.swift */; };
 		9E3592422085AC7600116E09 /* AddAssignmentViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E3592412085AC7600116E09 /* AddAssignmentViewController.storyboard */; };
 		9E36F27E2059C81800D2D172 /* AppStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E36F27D2059C81800D2D172 /* AppStoryboard.swift */; };
 		9E36F2832059C9A600D2D172 /* TimeInterval+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E36F27F2059C9A600D2D172 /* TimeInterval+String.swift */; };
@@ -180,6 +181,7 @@
 		9E05E6DE20630CC900260C50 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		9E05E6E020630D6100260C50 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		9E05E6E220630FD700260C50 /* AssignmentAPIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentAPIHelper.swift; sourceTree = "<group>"; };
+		9E1694A52087382800317530 /* SelectedAssignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedAssignment.swift; sourceTree = "<group>"; };
 		9E3592412085AC7600116E09 /* AddAssignmentViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddAssignmentViewController.storyboard; sourceTree = "<group>"; };
 		9E36F27D2059C81800D2D172 /* AppStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoryboard.swift; sourceTree = "<group>"; };
 		9E36F27F2059C9A600D2D172 /* TimeInterval+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TimeInterval+String.swift"; path = "M2M/Extensions/TimeInterval+String.swift"; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 				9E52B6B2206C1DE9004127B6 /* Networking Managers */,
 				9E52B6B5206C1E16004127B6 /* Defaults.swift */,
 				9EC7EDBE207C28DF00B91C10 /* SelectedExercise.swift */,
+				9E1694A52087382800317530 /* SelectedAssignment.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -822,6 +825,7 @@
 				2202A45E1F79B5410034330F /* variableList.swift in Sources */,
 				9EE4FCDE2059B30600A35A24 /* ExerciseParameterViewModel.swift in Sources */,
 				22AE3B1F1F7884FE00C27D0F /* ExerciseViewController.swift in Sources */,
+				9E1694A62087382800317530 /* SelectedAssignment.swift in Sources */,
 				2201CCB01F741AC400736AD5 /* PeripheralTableViewCell.swift in Sources */,
 				227D05581FC4E0FD00D5BFB0 /* Dog Walk.xcdatamodeld in Sources */,
 				221E31D1204E590D00C937E6 /* URLs.swift in Sources */,
