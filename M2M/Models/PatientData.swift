@@ -29,6 +29,7 @@ struct PatientData: ActivityParam, Codable {
     var averageAngle: Float
     var minAngle: Float
     var maxAngle: Float
+    var assignmentID: String?
     
     private enum CodingKeys: String, CodingKey {
         case name = "user_id"
@@ -40,6 +41,7 @@ struct PatientData: ActivityParam, Codable {
         case averageAngle = "average_angle"
         case minAngle = "min_angle"
         case maxAngle = "max_angle"
+        case assignmentID = "assignment_id"
         
     }
     
@@ -54,6 +56,7 @@ struct PatientData: ActivityParam, Codable {
         self.maxAngle = maxAngle
         self.duration = ""
         duration = intervalCalculate(startDate: timeStart, endDate: timeEnd)
+        self.assignmentID = SelectedAssignment.manager.getID()
     }
 }
 
