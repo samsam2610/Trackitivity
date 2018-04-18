@@ -16,5 +16,7 @@ class SelectedAssignment {
     private var exerciseDict = [String : ExerciseData]()
     private var exercises = [ExerciseData]()
 
-
+    func setAssignment(_ assignmentID: String) {
+        currentSelection = assignmentID
+    }
 }

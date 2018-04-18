@@ -46,6 +46,15 @@ class SelectedExercise {
         currentSelection = exercise
     }
 
+    func chooseExerciseByAssignment(_ exerciseID: String) -> Bool {
+        if let exercise = exerciseDict[exerciseID] {
+            currentSelection = exercise
+            return true
+        }
+
+        return false
+    }
+
     func getSelectedExercise() -> ExerciseData? {
         if let currentSelection = currentSelection {
             return currentSelection

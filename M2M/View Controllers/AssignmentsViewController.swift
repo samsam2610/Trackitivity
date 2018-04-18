@@ -54,6 +54,14 @@ class AssignmentsViewController: UIViewController {
         let addAssignmentsVC = AddAssignmentViewController.instantiate(fromAppStoryboard: .addAssignmentViewController)
         self.present(addAssignmentsVC, animated: true, completion: nil)
     }
+
+    func selectedAnnouncement(_ exercise: ExerciseData) {
+        let alert = UIAlertController(title: nil, message: "\(exercise.exerciseName) selected!", preferredStyle: .alert)
+        let alertActions = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(alertActions)
+        self.present(alert, animated: true, completion: nil)
+    }
+
 }
 
 extension AssignmentsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -64,10 +72,10 @@ extension AssignmentsViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
         let assignmentAtRow = assignments[indexPath.row]
-
         var exerciseString = assignmentAtRow.therapistComment
+
         if assignmentAtRow.activities.count > 0 {
-            exerciseString += " - Completed \(assignmentAtRow.timeModified!.toDateString(false)!)"
+            exerciseString += " - Completed \(assignmentAtRow.timeModified.toDateString(false)!)"
         } else {
             exerciseString += " - Incomplete"
         }
@@ -76,5 +84,16 @@ extension AssignmentsViewController: UITableViewDelegate, UITableViewDataSource 
         cell.detailTextLabel?.text = assignmentAtRow.timeCreated.toDateString()!
 
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let assignmentAtRow = assignments[indexPath.row]
+
+        if accessLevel == .patient, assignmentAtRow.activities.count == 0 {
+            SelectedAssignment.manager.setAssignment(assignmentAtRow.id)
+            if SelectedExercise.manager.chooseExerciseByAssignment(assignmentAtRow.exerciseID) {
+                selectedAnnouncement(SelectedExercise.manager.getSelectedExercise()!)
+            }
+        }
     }
 }
