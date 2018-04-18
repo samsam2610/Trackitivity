@@ -58,7 +58,10 @@ class bleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphera
         centralManager?.stopScan()
     }
     
-    
+    @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+
     //Table View Functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.peripherals.count
@@ -370,8 +373,5 @@ class bleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphera
             self.present(alertVC, animated: true, completion: nil)
         }
     }
-
-    
-
 
  }
