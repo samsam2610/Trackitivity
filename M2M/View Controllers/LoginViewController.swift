@@ -59,8 +59,13 @@ class LoginViewController: UIViewController {
                 self.present(mainVC, animated: true) { [unowned self] in
                     self.loginButton.isEnabled = true
 
+                    SelectedExercise.manager.populateExercises()
                     // NOTE: Vic's non-unit test
-
+                    AssignmentAPIHelper.manager.getAssignments("d19c786f-633a-44ba-98ab-0d207592c4cc", completionHandler: {
+                        print($0)
+                    }, errorHandler: {
+                        print($0)
+                    })
                     // NOTE: End testing here
                 }
             }
