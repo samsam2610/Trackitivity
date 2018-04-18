@@ -67,7 +67,7 @@ extension ProgressGeneralViewController {
 //        formatter.unitsStyle = .full
 //        formatter.allowedUnits = [.hour, .minute, .second]
 //        formatter.maximumUnitCount = 1
-//        let interval = formatter.string(from: startDate! as Date!, to: endDate as Date!)
+//        let interval = form5atter.string(from: startDate! as Date!, to: endDate as Date!)
         let interval = intervalCalculate(startDate: startDate!, endDate: endDate!)
         cell.duration.text = "Duration: \(interval)"
         

@@ -120,10 +120,16 @@ extension DoctorViewController: UITableViewDataSource, UITableViewDelegate {
         let name = currentPatient?.value(forKey: "name") as? String
         let id = currentPatient?.value(forKey: "id") as? Int
         print("name is \(String(describing: name)), and id is \(String(describing: id))")
-        let doctorProgressVC = DoctorProgressViewController.instantiate(fromAppStoryboard: .doctorProgressViewController)
-        doctorProgressVC.patientName = name
-        doctorProgressVC.patientID = id
-        self.present(doctorProgressVC, animated: true, completion: nil)
+
+        // MARK: Save for later
+//        let doctorProgressVC = DoctorProgressViewController.instantiate(fromAppStoryboard: .doctorProgressViewController)
+//        doctorProgressVC.patientName = name
+//        doctorProgressVC.patientID = id
+//        self.present(doctorProgressVC, animated: true, completion: nil)
+        let assignmentsViewController = AssignmentsViewController.instantiate(fromAppStoryboard: .assignmentsViewController)
+        assignmentsViewController.patientID = id
+        assignmentsViewController.patientName = name
+        self.present(assignmentsViewController, animated: true, completion: nil)
     }
 
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
