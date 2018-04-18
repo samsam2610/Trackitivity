@@ -47,13 +47,11 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
     var currentDog: Dog?
 
     //Exercise:
-    let exercise = SelectedExercise.manager.getSelectedExercise()!
+    let exercise = SelectedExercise.manager.getSelectedExercise()
     
     
     private var consoleAsciiText:NSAttributedString? = NSAttributedString(string: "")
-    
-    
-    
+
     
     override func viewDidLoad() {
         
@@ -116,7 +114,9 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
     }
 
     func loadExercise() {
-        exerciseName.text = exercise.exerciseName
+        if let exercise = exercise {
+            exerciseName.text = exercise.exerciseName
+        }
     }
     
     func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
@@ -168,7 +168,7 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
             return
         }
 
-        guard  thighAngle > Double(exercise.thighAngle_min) && thighAngle < Double(exercise.thighAngle_max) && thighAngle != 361 else {
+        guard let unwrappedExercise = exercise, thighAngle > Double(unwrappedExercise.thighAngle_min) && thighAngle < Double(unwrappedExercise.thighAngle_max) && thighAngle != 361 else {
             return
         }
 
@@ -526,7 +526,8 @@ extension PracticeViewController {
             self.endDate = Date()
             self.wrappingUpData()
             rawData.removeAll()
-            self.saveScore(repetition: currentCount, avgAngle: avgROM, exerciseID: self.exercise.id!, startDate: self.startDate, endDate: self.endDate, currentDog: self.currentDog!)
+            guard let unwrappedExercise = self.exercise else { return }
+            self.saveScore(repetition: currentCount, avgAngle: avgROM, exerciseID: unwrappedExercise.id!, startDate: self.startDate, endDate: self.endDate, currentDog: self.currentDog!)
             self.present(surveyMessage, animated: true, completion: nil)
             //print(self.fetch())
         })
