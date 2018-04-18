@@ -8,27 +8,40 @@
 
 import Foundation
 
+enum AssignmentAccessor {
+    case patient, therapist
+}
+
 class AssignmentAPIHelper {
     private init() {}
     static let manager = AssignmentAPIHelper()
 
     // Get and parse assignments
     // ID: d19c786f-633a-44ba-98ab-0d207592c4cc
-    func getAssignments(_ user: String, completionHandler: @escaping ([Assignment]) -> Void, errorHandler: @escaping (AppError) -> Void) {
+    func getAssignments(_ user: String, _ type: AssignmentAccessor, completionHandler: @escaping ([Assignment]) -> Void, errorHandler: @escaping (AppError) -> Void) {
 
         // REF: https://apiserver269.herokuapp.com/assignments?conditions=%7B%22user_id%22%3A%20%22060445354b%22%7D&offset=1&limit=1&sort=-time_modified%20
 
-        guard let baseSnippet = "{\"patient_id\":\"\(user)\"}".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
+        var initialSnippet = ""
+
+        switch type {
+        case .patient:
+            initialSnippet = "{\"patient_id\":\"\(user)\"}"
+        case .therapist:
+            initialSnippet = "{\"creator_id\":\"\(user)\"}"
+        }
+
+        guard let baseSnippet = initialSnippet.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
             errorHandler(.badURL(string: "Encoding this:" + user))
             return
         }
 
         let baseURL = "https://apiserver269.herokuapp.com/assignments?conditions=\(baseSnippet)&sort=-time_modified"
 
-        let hackURL = "https://apiserver269.herokuapp.com/assignments"
+//        let hackURL = "https://apiserver269.herokuapp.com/assignments"
 
-        guard let url = URL(string: hackURL) else {
-            errorHandler(.badURL(string: hackURL))
+        guard let url = URL(string: baseURL) else {
+            errorHandler(.badURL(string: baseURL))
             return
         }
 
@@ -137,6 +150,7 @@ class AssignmentAPIHelper {
             "threshold_ROM": Int(exercise.legAngle_max),
             "expected_duration": 123,
             "expected_repetitions": 123,
+            "exercise_id": exercise.id,
             "creator_id": creatorID,
             "patient_id": patientID
         ]
