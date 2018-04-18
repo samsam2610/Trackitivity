@@ -61,7 +61,7 @@ class LoginViewController: UIViewController {
 
                     SelectedExercise.manager.populateExercises()
                     // NOTE: Vic's non-unit test
-                    AssignmentAPIHelper.manager.getAssignments("d19c786f-633a-44ba-98ab-0d207592c4cc", completionHandler: {
+                    AssignmentAPIHelper.manager.getAssignments("d19c786f-633a-44ba-98ab-0d207592c4cc", .therapist, completionHandler: {
                         print($0)
                     }, errorHandler: {
                         print($0)

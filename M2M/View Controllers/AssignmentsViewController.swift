@@ -12,17 +12,23 @@ class AssignmentsViewController: UIViewController {
     // MARK: - Properties and Outlets
     @IBOutlet weak var patientNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addButton: UIButton!
 
     let cellID = "assignmentCell"
     var assignments = [Assignment]()
     var patientName: String!
-    var patientID: Int!
+    var accessorID: String!
+    var accessLevel = AssignmentAccessor.therapist
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         self.patientNameLabel.text = "Assigned to patient: \(patientName!)"
+
+        if accessLevel == .patient {
+            addButton.isHidden = true
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -34,8 +40,16 @@ class AssignmentsViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
-        
-        AssignmentAPIHelper.manager.getAssignments(String(patientID), completionHandler: completion, errorHandler: { print($0) })
+
+        var idString = ""
+        if accessLevel == .therapist {
+            idString = "d19c786f-633a-44ba-98ab-0d207592c4cc"
+        } else {
+            idString = "ebb1f78c-704d-40c5-a1bc-8b024e3956bc"
+        }
+
+        AssignmentAPIHelper.manager.getAssignments(accessorID, accessLevel, completionHandler: completion, errorHandler: { print($0) })
+//        AssignmentAPIHelper.manager.getAssignments(String(patientID), .therapist, completionHandler: completion, errorHandler: { print($0) })
     }
 
     // MARK: - Functions and Methods
