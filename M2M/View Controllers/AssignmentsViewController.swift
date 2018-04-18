@@ -41,15 +41,7 @@ class AssignmentsViewController: UIViewController {
             }
         }
 
-        var idString = ""
-        if accessLevel == .therapist {
-            idString = "d19c786f-633a-44ba-98ab-0d207592c4cc"
-        } else {
-            idString = "ebb1f78c-704d-40c5-a1bc-8b024e3956bc"
-        }
-
         AssignmentAPIHelper.manager.getAssignments(accessorID, accessLevel, completionHandler: completion, errorHandler: { print($0) })
-//        AssignmentAPIHelper.manager.getAssignments(String(patientID), .therapist, completionHandler: completion, errorHandler: { print($0) })
     }
 
     // MARK: - Functions and Methods

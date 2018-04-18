@@ -94,23 +94,40 @@ struct Assignment: Codable {
     }
 }
 
-//struct AssignmentPost {
-//    var therapistComment: String
-//    var thresholdROM: Int
-//    var expectedRepetitions: Int
-//    var creatorID: String
-//    var patientID: String
-//
-//    init(exercise: ExerciseData,
-//         creatorID: String,
-//         patientID: String) {
-//        self.therapistComment = exercise.exerciseName
-//        self.thresholdROM = Int(exercise.thighAngle_max)
-//        self.expectedRepetitions = 10
-//        self.creatorID = creatorID
-//        self.patientID = patientID
-//    }
-//}
+struct AssignmentPost: Codable {
+    var therapistComment: String
+    var thresholdROM: Int
+    var expectedRepetitions: Int
+    var expectedDuration: Int
+    var exeriseID: String
+    var exercise: ExerciseData
+    var creatorID: String
+    var patientID: String
+
+    private enum CodingKeys: String, CodingKey {
+        case therapistComment = "therapist_comment"
+        case thresholdROM = "threshold_ROM"
+        case expectedRepetitions = "expected_repetitions"
+        case expectedDuration = "expected_duration"
+        case exeriseID = "exercise_id"
+        case exercise = "exercise"
+        case creatorID = "creator_id"
+        case patientID = "patient_id"
+    }
+
+    init(exercise: ExerciseData,
+         creatorID: String,
+         patientID: String) {
+        self.therapistComment = exercise.exerciseName
+        self.thresholdROM = Int(exercise.thighAngle_max)
+        self.expectedRepetitions = 10
+        self.expectedDuration = 123
+        self.exeriseID = exercise.id!
+        self.creatorID = creatorID
+        self.patientID = patientID
+        self.exercise = exercise
+    }
+}
 
 //{
 //    "scores": "",
