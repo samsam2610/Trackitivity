@@ -44,6 +44,7 @@ class SelectedExercise {
 
     func chooseExercise(_ exercise: ExerciseData) {
         currentSelection = exercise
+        SelectedAssignment.manager.cancelAssignment()
     }
 
     func chooseExerciseByAssignment(_ exerciseID: String) -> Bool {
