@@ -77,13 +77,9 @@ class AssignmentAPIHelper {
             errorHandler: errorHandler)
     }
 
-    func postAssignment(_ assignment: Assignment, id: String?, completionHandler: @escaping (Data) -> Void, errorHandler: @escaping (AppError) -> Void) {
+    func putAssignment(_ assignment: Assignment, id: String, completionHandler: @escaping (Data) -> Void, errorHandler: @escaping (AppError) -> Void) {
 
-        var urlString = "https://apiserver269.herokuapp.com/assignment/"
-
-        if let id = id {
-            urlString += id
-        }
+        let urlString = "https://apiserver269.herokuapp.com/assignment/\(assignment.id)"
 
         guard let url = URL(string: urlString) else {
             errorHandler(.badURL(string: urlString))
@@ -91,12 +87,8 @@ class AssignmentAPIHelper {
         }
 
         var request = URLRequest(url: url)
-        if let _ = id {
-            request.httpMethod = "PUT"
-        } else {
-            request.httpMethod = "POST"
-        }
 
+        request.httpMethod = "PUT"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
@@ -115,6 +107,42 @@ class AssignmentAPIHelper {
 
         do {
 //            let encodedAssignment = try JSONEncoder().encode(jsonBody)
+            let encodedAssignment = try JSONSerialization.data(withJSONObject: jsonBody, options: [])
+
+            request.httpBody = encodedAssignment
+
+            NetworkHelper.manager.performDataTask(with: request, completionHandler: completionHandler, errorHandler: errorHandler)
+        } catch let error {
+            errorHandler(.couldNotParseJSON(rawError: error))
+        }
+    }
+
+    func createAssignment(_ exercise: ExerciseData, patientID: String, creatorID: String, completionHandler: @escaping (Data) -> Void, errorHandler: @escaping (AppError) -> Void) {
+        let urlString = "https://apiserver269.herokuapp.com/assignment/"
+
+        guard let url = URL(string: urlString) else {
+            errorHandler(.badURL(string: urlString))
+            return
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        // Need to grab score from Practice View Controller
+        let jsonBody: [String : Any] = [
+            "therapist_comment": exercise.exerciseName,
+            "threshold_ROM": Int(exercise.legAngle_max),
+            "expected_duration": 123,
+            "expected_repetitions": 123,
+            "creator_id": creatorID,
+            "patient_id": patientID
+        ]
+
+        do {
+            //            let encodedAssignment = try JSONEncoder().encode(jsonBody)
             let encodedAssignment = try JSONSerialization.data(withJSONObject: jsonBody, options: [])
 
             request.httpBody = encodedAssignment

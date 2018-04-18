@@ -16,6 +16,7 @@ class AddAssignmentViewController: UIViewController {
 
     var cellID = "exerciseCell"
     var exercises = [ExerciseData]()
+    var selectedExercise: ExerciseData?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,7 @@ class AddAssignmentViewController: UIViewController {
         doneButton.isEnabled = false
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.allowsSelection = true
 
         DispatchQueue.main.async {
             self.exercises = SelectedExercise.manager.retrieveExerciseList()
@@ -39,20 +41,14 @@ class AddAssignmentViewController: UIViewController {
     @IBAction func doneButtonTapped(_ sender: UIButton) {
         // TODO: Create assignment and send to user
 
-//        AssignmentAPIHelper.manager.postAssignment(<#T##assignment: Assignment##Assignment#>, id: <#T##String?#>, completionHandler: <#T##(Data) -> Void#>, errorHandler: <#T##(AppError) -> Void#>)
+        guard let exerciseToPost = selectedExercise else { return }
+
+        AssignmentAPIHelper.manager.createAssignment(exerciseToPost, patientID: "ebb1f78c-704d-40c5-a1bc-8b024e3956bc", creatorID: "d19c786f-633a-44ba-98ab-0d207592c4cc", completionHandler: { _ in
+            self.dismiss(animated: true, completion: nil)
+        }, errorHandler: { print($0) })
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
 extension AddAssignmentViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return exercises.count
@@ -68,7 +64,9 @@ extension AddAssignmentViewController: UITableViewDelegate, UITableViewDataSourc
         return cell
     }
 
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedExercise = exercises[indexPath.row]
+        print("Selected Exercise: \(exercises[indexPath.row].exerciseName), chosen: \(selectedExercise!.exerciseName)")
         doneButton.isEnabled = true
     }
 }

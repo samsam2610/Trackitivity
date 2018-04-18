@@ -9,12 +9,16 @@
 import Foundation
 
 extension String {
-    func toDateString() -> String? {
-        let date = Date(timeIntervalSince1970: TimeInterval(self)!)
+    func toDateString(_ withTime: Bool = true) -> String? {
+        let seconds = Int(self)! / 1000
+        let date = Date(timeIntervalSince1970: TimeInterval(Double(seconds)))
 
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat =  "MMM dd, hh:mm a"
-
+        if withTime {
+            dateFormatter.dateFormat =  "MMM dd, yyyy, hh:mm a"
+        } else {
+            dateFormatter.dateFormat =  "MMM dd, yyyy"
+        }
         return dateFormatter.string(from: date)
     }
 }
