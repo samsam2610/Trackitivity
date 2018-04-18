@@ -59,9 +59,13 @@
 		22E9D5341FE9BBD800901B24 /* Walk+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9D5301FE9BBD800901B24 /* Walk+CoreDataProperties.swift */; };
 		717E1ED1E05059054D695A80 /* Pods_M2MTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C30E3FE44D4932B21F14276C /* Pods_M2MTests.framework */; };
 		84129CAA7AAFFC5071A5B414 /* Pods_M2MUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B08F0B79188F2028B513FEB7 /* Pods_M2MUITests.framework */; };
+		9E01CB992086ACF6004641FC /* AddAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E01CB982086ACF6004641FC /* AddAssignmentViewController.swift */; };
+		9E01CB9B2086BD7E004641FC /* String+toDateString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E01CB9A2086BD7E004641FC /* String+toDateString.swift */; };
 		9E05E6DF20630CCA00260C50 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E05E6DE20630CC900260C50 /* NetworkHelper.swift */; };
 		9E05E6E120630D6100260C50 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E05E6E020630D6100260C50 /* AppError.swift */; };
 		9E05E6E320630FD700260C50 /* AssignmentAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E05E6E220630FD700260C50 /* AssignmentAPIHelper.swift */; };
+		9E1694A62087382800317530 /* SelectedAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1694A52087382800317530 /* SelectedAssignment.swift */; };
+		9E3592422085AC7600116E09 /* AddAssignmentViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E3592412085AC7600116E09 /* AddAssignmentViewController.storyboard */; };
 		9E36F27E2059C81800D2D172 /* AppStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E36F27D2059C81800D2D172 /* AppStoryboard.swift */; };
 		9E36F2832059C9A600D2D172 /* TimeInterval+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E36F27F2059C9A600D2D172 /* TimeInterval+String.swift */; };
 		9E36F2842059C9A600D2D172 /* String+Replacement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E36F2802059C9A600D2D172 /* String+Replacement.swift */; };
@@ -71,9 +75,11 @@
 		9E5EBD7D206B54C100897836 /* Therapist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5EBD7C206B54C100897836 /* Therapist.swift */; };
 		9E5EBD7F206B552500897836 /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5EBD7E206B552500897836 /* LoginData.swift */; };
 		9E5EBD81206B557600897836 /* AuthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5EBD80206B557600897836 /* AuthData.swift */; };
+		9E5FE07E207E90EC003E0985 /* AssignmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5FE07D207E90EC003E0985 /* AssignmentsViewController.swift */; };
 		9E7CD7CC205F67880045C666 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7CD7CB205F67880045C666 /* Assignment.swift */; };
 		9E901F88207630120007649F /* ExerciseAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E901F87207630120007649F /* ExerciseAPIHelper.swift */; };
-		9EC7EDBF207C28DF00B91C10 /* ExerciseSelected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC7EDBE207C28DF00B91C10 /* ExerciseSelected.swift */; };
+		9EC7EDBF207C28DF00B91C10 /* SelectedExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC7EDBE207C28DF00B91C10 /* SelectedExercise.swift */; };
+		9EC7EDC3207CF2B400B91C10 /* AssignmentsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EC7EDC2207CF2B400B91C10 /* AssignmentsViewController.storyboard */; };
 		9EE4FCDE2059B30600A35A24 /* ExerciseParameterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE4FCDB2059B30600A35A24 /* ExerciseParameterViewModel.swift */; };
 		9EE4FCDF2059B30600A35A24 /* ProgressGeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE4FCDC2059B30600A35A24 /* ProgressGeneralViewController.swift */; };
 		9EE4FCE02059B30600A35A24 /* ExerciseParameterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE4FCDD2059B30600A35A24 /* ExerciseParameterViewController.swift */; };
@@ -170,9 +176,13 @@
 		22E9D5301FE9BBD800901B24 /* Walk+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Walk+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		46F66DF9B6F6735E88CEB254 /* Pods-M2M.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-M2M.release.xcconfig"; path = "Pods/Target Support Files/Pods-M2M/Pods-M2M.release.xcconfig"; sourceTree = "<group>"; };
 		5D8CE85C6D47B125D4281F02 /* Pods-M2MUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-M2MUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-M2MUITests/Pods-M2MUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9E01CB982086ACF6004641FC /* AddAssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAssignmentViewController.swift; sourceTree = "<group>"; };
+		9E01CB9A2086BD7E004641FC /* String+toDateString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+toDateString.swift"; sourceTree = "<group>"; };
 		9E05E6DE20630CC900260C50 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		9E05E6E020630D6100260C50 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		9E05E6E220630FD700260C50 /* AssignmentAPIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentAPIHelper.swift; sourceTree = "<group>"; };
+		9E1694A52087382800317530 /* SelectedAssignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedAssignment.swift; sourceTree = "<group>"; };
+		9E3592412085AC7600116E09 /* AddAssignmentViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddAssignmentViewController.storyboard; sourceTree = "<group>"; };
 		9E36F27D2059C81800D2D172 /* AppStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoryboard.swift; sourceTree = "<group>"; };
 		9E36F27F2059C9A600D2D172 /* TimeInterval+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TimeInterval+String.swift"; path = "M2M/Extensions/TimeInterval+String.swift"; sourceTree = "<group>"; };
 		9E36F2802059C9A600D2D172 /* String+Replacement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Replacement.swift"; path = "M2M/Extensions/String+Replacement.swift"; sourceTree = "<group>"; };
@@ -182,9 +192,11 @@
 		9E5EBD7C206B54C100897836 /* Therapist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Therapist.swift; sourceTree = "<group>"; };
 		9E5EBD7E206B552500897836 /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
 		9E5EBD80206B557600897836 /* AuthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthData.swift; sourceTree = "<group>"; };
+		9E5FE07D207E90EC003E0985 /* AssignmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsViewController.swift; sourceTree = "<group>"; };
 		9E7CD7CB205F67880045C666 /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 		9E901F87207630120007649F /* ExerciseAPIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseAPIHelper.swift; sourceTree = "<group>"; };
-		9EC7EDBE207C28DF00B91C10 /* ExerciseSelected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSelected.swift; sourceTree = "<group>"; };
+		9EC7EDBE207C28DF00B91C10 /* SelectedExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedExercise.swift; sourceTree = "<group>"; };
+		9EC7EDC2207CF2B400B91C10 /* AssignmentsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AssignmentsViewController.storyboard; sourceTree = "<group>"; };
 		9EE4FCDB2059B30600A35A24 /* ExerciseParameterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseParameterViewModel.swift; sourceTree = "<group>"; };
 		9EE4FCDC2059B30600A35A24 /* ProgressGeneralViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressGeneralViewController.swift; sourceTree = "<group>"; };
 		9EE4FCDD2059B30600A35A24 /* ExerciseParameterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseParameterViewController.swift; sourceTree = "<group>"; };
@@ -239,6 +251,8 @@
 		222C587C203C010100265FFD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9E01CB982086ACF6004641FC /* AddAssignmentViewController.swift */,
+				9E5FE07D207E90EC003E0985 /* AssignmentsViewController.swift */,
 				2201CCAD1F74178100736AD5 /* bleViewController.swift */,
 				2220F6D81FEA138C0048EA27 /* DoctorProgressViewController.swift */,
 				2218BC771F7ABE7D009C7434 /* DoctorViewController.swift */,
@@ -257,17 +271,19 @@
 		225A7CFF203CB3EC00D0978E /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				222F86F61FC23F8200137AF9 /* ProgressViewController.storyboard */,
-				22DC55EA1FD07DFA00F881C4 /* ProgressDetailViewController.storyboard */,
-				22654B501F7398AF00FB32FA /* LoginViewController.storyboard */,
-				224F4D6C1FBCE610005AF2A3 /* PracticeViewController.storyboard */,
-				224F4D751FBCF9DF005AF2A3 /* MainViewController.storyboard */,
-				224F4D6E1FBCE99B005AF2A3 /* DoctorViewController.storyboard */,
-				2220F6D61FEA13230048EA27 /* DoctorProgressViewController.storyboard */,
-				227A5CF31FF026B400AD804A /* ProgressGeneralViewController.storyboard */,
+				9E3592412085AC7600116E09 /* AddAssignmentViewController.storyboard */,
+				9EC7EDC2207CF2B400B91C10 /* AssignmentsViewController.storyboard */,
 				224F4D701FBCED4D005AF2A3 /* bleViewController.storyboard */,
-				224F4D721FBCED8D005AF2A3 /* ExerciseViewController.storyboard */,
+				2220F6D61FEA13230048EA27 /* DoctorProgressViewController.storyboard */,
+				224F4D6E1FBCE99B005AF2A3 /* DoctorViewController.storyboard */,
 				22C3B3592041C8180011663C /* ExerciseParameterViewController.storyboard */,
+				224F4D721FBCED8D005AF2A3 /* ExerciseViewController.storyboard */,
+				22654B501F7398AF00FB32FA /* LoginViewController.storyboard */,
+				224F4D751FBCF9DF005AF2A3 /* MainViewController.storyboard */,
+				224F4D6C1FBCE610005AF2A3 /* PracticeViewController.storyboard */,
+				22DC55EA1FD07DFA00F881C4 /* ProgressDetailViewController.storyboard */,
+				227A5CF31FF026B400AD804A /* ProgressGeneralViewController.storyboard */,
+				222F86F61FC23F8200137AF9 /* ProgressViewController.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -331,7 +347,8 @@
 				9E05E6E42063158300260C50 /* Vic's APIs */,
 				9E52B6B2206C1DE9004127B6 /* Networking Managers */,
 				9E52B6B5206C1E16004127B6 /* Defaults.swift */,
-				9EC7EDBE207C28DF00B91C10 /* ExerciseSelected.swift */,
+				9EC7EDBE207C28DF00B91C10 /* SelectedExercise.swift */,
+				9E1694A52087382800317530 /* SelectedAssignment.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -363,10 +380,10 @@
 		9E05E6E42063158300260C50 /* Vic's APIs */ = {
 			isa = PBXGroup;
 			children = (
-				9E05E6DE20630CC900260C50 /* NetworkHelper.swift */,
-				9E05E6E220630FD700260C50 /* AssignmentAPIHelper.swift */,
 				9E05E6E020630D6100260C50 /* AppError.swift */,
+				9E05E6E220630FD700260C50 /* AssignmentAPIHelper.swift */,
 				9E901F87207630120007649F /* ExerciseAPIHelper.swift */,
+				9E05E6DE20630CC900260C50 /* NetworkHelper.swift */,
 			);
 			path = "Vic's AP\U0010Is";
 			sourceTree = "<group>";
@@ -424,6 +441,7 @@
 			children = (
 				9E36F2822059C9A600D2D172 /* Double+Operations.swift */,
 				9E36F2802059C9A600D2D172 /* String+Replacement.swift */,
+				9E01CB9A2086BD7E004641FC /* String+toDateString.swift */,
 				9E36F27F2059C9A600D2D172 /* TimeInterval+String.swift */,
 				9E36F2812059C9A600D2D172 /* UIViewController+StoryboardInstantiation.swift */,
 			);
@@ -557,10 +575,12 @@
 				224F4D6D1FBCE610005AF2A3 /* PracticeViewController.storyboard in Resources */,
 				2220F6D71FEA13230048EA27 /* DoctorProgressViewController.storyboard in Resources */,
 				22654B571F7398AF00FB32FA /* Assets.xcassets in Resources */,
+				9E3592422085AC7600116E09 /* AddAssignmentViewController.storyboard in Resources */,
 				224F4D761FBCF9DF005AF2A3 /* MainViewController.storyboard in Resources */,
 				22654B521F7398AF00FB32FA /* LoginViewController.storyboard in Resources */,
 				22DC55EB1FD07DFA00F881C4 /* ProgressDetailViewController.storyboard in Resources */,
 				22C3B35A2041C8180011663C /* ExerciseParameterViewController.storyboard in Resources */,
+				9EC7EDC3207CF2B400B91C10 /* AssignmentsViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -757,6 +777,7 @@
 				222F86F51FC23F5600137AF9 /* ProgressViewController.swift in Sources */,
 				9E05E6E320630FD700260C50 /* AssignmentAPIHelper.swift in Sources */,
 				22A912B91FF639830073DA87 /* PatientData.swift in Sources */,
+				9E01CB992086ACF6004641FC /* AddAssignmentViewController.swift in Sources */,
 				22691AD520407DF1009E9AF2 /* ExerciseList.swift in Sources */,
 				2201CCB21F742BDE00736AD5 /* UUIDKey.swift in Sources */,
 				9E5EBD7D206B54C100897836 /* Therapist.swift in Sources */,
@@ -788,6 +809,7 @@
 				9EE4FCE02059B30600A35A24 /* ExerciseParameterViewController.swift in Sources */,
 				229909281F75DD4D0041B9FB /* KDCircularProgress.swift in Sources */,
 				22DB881A1F97724E00897D2B /* ConsentTask.swift in Sources */,
+				9E01CB9B2086BD7E004641FC /* String+toDateString.swift in Sources */,
 				22D86143203D030D00FE2FA6 /* FetchDataManager.swift in Sources */,
 				22DEEA6D1FC6EB0600117FE4 /* CoreDataStack.swift in Sources */,
 				9E36F2832059C9A600D2D172 /* TimeInterval+String.swift in Sources */,
@@ -796,12 +818,14 @@
 				22DB88121F9771C800897D2B /* ConsentDocument.swift in Sources */,
 				9E05E6E120630D6100260C50 /* AppError.swift in Sources */,
 				9E5EBD81206B557600897836 /* AuthData.swift in Sources */,
-				9EC7EDBF207C28DF00B91C10 /* ExerciseSelected.swift in Sources */,
+				9E5FE07E207E90EC003E0985 /* AssignmentsViewController.swift in Sources */,
+				9EC7EDBF207C28DF00B91C10 /* SelectedExercise.swift in Sources */,
 				22E38F001F73B8B30031B7A9 /* MainViewController.swift in Sources */,
 				9E36F2862059C9A600D2D172 /* Double+Operations.swift in Sources */,
 				2202A45E1F79B5410034330F /* variableList.swift in Sources */,
 				9EE4FCDE2059B30600A35A24 /* ExerciseParameterViewModel.swift in Sources */,
 				22AE3B1F1F7884FE00C27D0F /* ExerciseViewController.swift in Sources */,
+				9E1694A62087382800317530 /* SelectedAssignment.swift in Sources */,
 				2201CCB01F741AC400736AD5 /* PeripheralTableViewCell.swift in Sources */,
 				227D05581FC4E0FD00D5BFB0 /* Dog Walk.xcdatamodeld in Sources */,
 				221E31D1204E590D00C937E6 /* URLs.swift in Sources */,

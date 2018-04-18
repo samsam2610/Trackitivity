@@ -9,18 +9,14 @@ import UIKit
 import CoreData
 
 class ProgressGeneralViewController: UIViewController {
-    
     fileprivate let progressCellIdentifier = "progressCellReuseIdentifier"
     var managedContext: NSManagedObjectContext!
     var patientData = [PatientData]()
     var fetchedResultsController : NSFetchedResultsController<Walk>!
     var exerciseInfo: [String: String] = [:]
 
-
     @IBOutlet weak var tableView: UITableView!
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         for (index, element) in exerciseID.enumerated()
@@ -28,14 +24,12 @@ class ProgressGeneralViewController: UIViewController {
             exerciseInfo[element] = exercise[index]
         }
         print(exerciseInfo)
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        managedContext = appDelegate.managedContext
 
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+
+        managedContext = appDelegate.managedContext
         
         let fetchRequest: NSFetchRequest<Walk> = Walk.fetchRequest()
-        
         let exerciseSort = NSSortDescriptor(key: #keyPath(Walk.exerciseID), ascending: true)
         let repetitionSort = NSSortDescriptor(key: #keyPath(Walk.repetition), ascending: false)
         let endDateSort = NSSortDescriptor(key: #keyPath(Walk.endDate), ascending: true)
@@ -45,10 +39,7 @@ class ProgressGeneralViewController: UIViewController {
         
         fetchRequest.sortDescriptors = [exerciseSort, repetitionSort, endDateSort]
         
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
-                                                              managedObjectContext: managedContext,
-                                                              sectionNameKeyPath: #keyPath(Walk.exerciseID),
-                                                              cacheName: "worldCup")
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedContext, sectionNameKeyPath: #keyPath(Walk.exerciseID), cacheName: "worldCup")
         
         fetchedResultsController.delegate = self as? NSFetchedResultsControllerDelegate
 
@@ -57,18 +48,15 @@ class ProgressGeneralViewController: UIViewController {
         } catch let error as NSError {
             print("Fetching error: \(error), \(error.userInfo)")
         }
-        
-        
-        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func assignmentsButtonTapped(_ sender: UIButton) {
+        let assignmentsViewController = AssignmentsViewController.instantiate(fromAppStoryboard: .assignmentsViewController)
+        assignmentsViewController.accessorID = "ebb1f78c-704d-40c5-a1bc-8b024e3956bc"
+        assignmentsViewController.patientName = "Fido"
+        assignmentsViewController.accessLevel = .patient
+        self.present(assignmentsViewController, animated: true, completion: nil)
     }
-    
-    
-    
 }
 
 extension ProgressGeneralViewController {
@@ -87,7 +75,7 @@ extension ProgressGeneralViewController {
 //        formatter.unitsStyle = .full
 //        formatter.allowedUnits = [.hour, .minute, .second]
 //        formatter.maximumUnitCount = 1
-//        let interval = formatter.string(from: startDate! as Date!, to: endDate as Date!)
+//        let interval = form5atter.string(from: startDate! as Date!, to: endDate as Date!)
         let interval = intervalCalculate(startDate: startDate!, endDate: endDate!)
         cell.duration.text = "Duration: \(interval)"
         
@@ -103,7 +91,7 @@ extension ProgressGeneralViewController: UITableViewDataSource, UITableViewDeleg
 
         return sections.count
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         guard let sectionInfo = fetchedResultsController.sections?[section] else {
@@ -148,7 +136,6 @@ extension ProgressGeneralViewController: UITableViewDataSource, UITableViewDeleg
 extension ProgressGeneralViewController {
     @IBAction func backToMain(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-
     }
     
     func intervalCalculate(startDate: NSDate, endDate: NSDate) -> String {

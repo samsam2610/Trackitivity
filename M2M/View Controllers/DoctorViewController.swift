@@ -22,12 +22,12 @@ class DoctorViewController: UIViewController {
     
     var window: UIWindow?
     var managedContext: NSManagedObjectContext!
+    var controller: NSFetchedResultsController<Dog>!
     var currentDog: Dog?
     var patients: [Dog?] = []
     var jsonData: Data?
     var decodedPerson: Patient?
     var tempName = [Patient]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -70,35 +70,48 @@ class DoctorViewController: UIViewController {
             }
             print(patients.count)
             patients = try managedContext.fetch(dogFetch)
+
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
 
+        dogFetch.sortDescriptors = [NSSortDescriptor(key: #keyPath(Dog.name), ascending: false)]
+        controller = NSFetchedResultsController(fetchRequest: dogFetch, managedObjectContext: managedContext, sectionNameKeyPath: nil, cacheName: nil)
+
+        controller.delegate = self
+
+        try! controller.performFetch()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        
+}
+extension DoctorViewController: NSFetchedResultsControllerDelegate {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.reloadData()
     }
 }
 
 extension DoctorViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = patients.count
-        guard count > 1 else {
-            return 1
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if let sections = controller.sections {
+            return sections.count
         }
-        print("cell count is \(count)")
-        return count
+        return 0
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let sections = controller.sections {
+            let info: NSFetchedResultsSectionInfo = sections[section]
+            return info.numberOfObjects
+        }
+
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let patient = patients[indexPath.row]
+        //        let patient = patients[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell_Patient",
                                                  for: indexPath)
-        cell.textLabel?.text = patient?.value(forKeyPath: "name") as? String
+        //        cell.textLabel?.text = patient?.value(forKeyPath: "name") as? String
+        cell.textLabel?.text = controller.object(at: indexPath).name!
         return cell
     }
     
@@ -107,10 +120,31 @@ extension DoctorViewController: UITableViewDataSource, UITableViewDelegate {
         let name = currentPatient?.value(forKey: "name") as? String
         let id = currentPatient?.value(forKey: "id") as? Int
         print("name is \(String(describing: name)), and id is \(String(describing: id))")
-        let doctorProgressVC = DoctorProgressViewController.instantiate(fromAppStoryboard: .doctorProgressViewController)
-        doctorProgressVC.patientName = name
-        doctorProgressVC.patientID = id
-        self.present(doctorProgressVC, animated: true, completion: nil)
+
+        // MARK: Save for later
+//        let doctorProgressVC = DoctorProgressViewController.instantiate(fromAppStoryboard: .doctorProgressViewController)
+//        doctorProgressVC.patientName = name
+//        doctorProgressVC.patientID = id
+//        self.present(doctorProgressVC, animated: true, completion: nil)
+        let assignmentsViewController = AssignmentsViewController.instantiate(fromAppStoryboard: .assignmentsViewController)
+        assignmentsViewController.accessorID = "d19c786f-633a-44ba-98ab-0d207592c4cc"
+        assignmentsViewController.patientName = name
+        self.present(assignmentsViewController, animated: true, completion: nil)
+    }
+
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let editAction = UITableViewRowAction(style: .destructive, title: "Delete") { [weak self] (_, indexPath) in
+            print("indexpath is \(indexPath)")
+            if let object = self?.controller.object(at: indexPath) {
+                print("object is \(object.name)")
+                self?.managedContext.delete(object)
+                try! self?.managedContext.save()
+            }
+        }
+
+        editAction.backgroundColor = .red
+
+        return [editAction]
     }
 }
 
@@ -124,8 +158,7 @@ extension DoctorViewController {
                                                 message: "",
                                                 preferredStyle: .alert)
         
-        let saveAction = UIAlertAction(title: "Save", style: .default, handler: {
-            alert -> Void in
+        let saveAction = UIAlertAction(title: "Save", style: .default, handler: { alert -> Void in
             
             let TextField = alertController.textFields?.first as! UITextField
             
