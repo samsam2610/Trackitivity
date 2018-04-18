@@ -66,7 +66,7 @@ struct RestApiManager {
         task.resume()
     }
     
-    func postPatientActivity(parameters: PatientData, completion:((Error?) -> Void)?) {
+    func postPatientActivity(parameters: PatientData, completion: @escaping ((Data?) -> Void), errorCompletion:((Error?) -> Void)?) {
 
         let url = URL(string: stringURL!)
         var request = URLRequest(url: url!)
@@ -79,18 +79,19 @@ struct RestApiManager {
             request.httpBody = jsonData
             print("jsonData: ", String(data: request.httpBody!, encoding: .utf8) ?? "no body data")
         } catch {
-            completion?(error)
+            errorCompletion?(error)
         }
         
         // Create and run a URLSession data task with our JSON encoded POST request
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard error == nil else {
-                completion?(error!)
+                errorCompletion?(error!)
                 return
             }
             // APIs usually respond with the data you just sent in your POST request
             if let data = data, let utf8Representation = String(data: data, encoding: .utf8) {
                 print("response: ", utf8Representation)
+                completion(data)
             } else {
                 print("no readable data received in response")
             }

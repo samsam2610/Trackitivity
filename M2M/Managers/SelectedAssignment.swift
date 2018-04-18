@@ -12,9 +12,18 @@ class SelectedAssignment {
     private init() {}
     static let manager = SelectedAssignment()
 
-    private var currentSelection: String?
-    private var exerciseDict = [String : ExerciseData]()
-    private var exercises = [ExerciseData]()
+    private var currentSelectionID: String?
+    private var currentAssignment: Assignment?
+    
+    func setAssignment(_ assignmentID: String) {
+        currentSelectionID = assignmentID
+    }
 
+    func cancelAssignment() {
+        currentSelectionID = nil
+    }
 
+    func getID() -> String? {
+        return currentSelectionID
+    }
 }
