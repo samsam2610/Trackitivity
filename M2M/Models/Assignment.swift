@@ -25,6 +25,7 @@ struct Assignment: Codable {
     var timeCreated: String
     var timeModified: String
     var exerciseID: String
+    var exercise: ExerciseData
 
     private enum CodingKeys: String, CodingKey {
         case id
@@ -43,19 +44,49 @@ struct Assignment: Codable {
         case timeCreated = "time_created"
         case timeModified = "time_modified"
         case exerciseID = "exercise_id"
+        case exercise
     }
 
-//    init(exercise: ExerciseData,
-//         creatorID: String,
-//         patientID: String) {
-//        self.therapistComment = exercise.exerciseName
-//        self.thresholdROM = Int(exercise.thighAngle_max)
-//        self.expectedRepetitions = 10
-//        self.creatorID = creatorID
-//        self.patientID = patientID
-//        self.activities = []
-//    }
+    // MARK: - Init
+    init(
+        id: String,
+        scores: Int?,
+        scoredDate: String?,
+        therapistComment: String,
+        thresholdROM: Int,
+        expectedDuration: Int,
+        expectedRepetitions: Int,
+        duration: Int?,
+        creatorID: String,
+        patientID: String,
+        creator: TherapistCredential?,
+        patient: PatientCredential?,
+        activities: [Activity],
+        timeCreated: String,
+        timeModified: String,
+        exerciseID: String,
+        exercise: ExerciseData
+        ) {
+        self.id = id
+        self.scores = scores
+        self.scoredDate = scoredDate
+        self.therapistComment = therapistComment
+        self.thresholdROM = thresholdROM
+        self.expectedDuration = expectedDuration
+        self.expectedRepetitions = expectedRepetitions
+        self.duration = duration
+        self.creatorID = creatorID
+        self.patientID = patientID
+        self.creator = creator
+        self.patient = patient
+        self.activities = activities
+        self.timeCreated = timeCreated
+        self.timeModified = timeModified
+        self.exerciseID = exerciseID
+        self.exercise = exercise
+    }
 
+    // MARK: - Init from Decoder
     init(from decoder: Decoder) throws {
         let container =  try decoder.container(keyedBy: CodingKeys.self)
 
@@ -73,6 +104,7 @@ struct Assignment: Codable {
         self.timeCreated = try container.decode(String.self, forKey: .timeCreated)
         self.timeModified = try container.decode(String.self, forKey: .timeModified)
         self.exerciseID = try container.decode(String.self, forKey: .exerciseID)
+        self.exercise = try container.decode(ExerciseData.self, forKey: .exercise)
 
         do {
             self.expectedDuration = try container.decode(Int.self, forKey: .expectedDuration)
@@ -93,6 +125,7 @@ struct Assignment: Codable {
         }
     }
 }
+
 
 struct AssignmentPost: Codable {
     var therapistComment: String

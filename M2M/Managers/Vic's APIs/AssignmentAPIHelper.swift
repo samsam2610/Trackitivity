@@ -90,7 +90,7 @@ class AssignmentAPIHelper {
             errorHandler: errorHandler)
     }
 
-    func putAssignment(_ assignment: Assignment, id: String, completionHandler: @escaping (Data) -> Void, errorHandler: @escaping (AppError) -> Void) {
+    func putAssignment(_ assignment: Assignment, completionHandler: @escaping (Data) -> Void, errorHandler: @escaping (AppError) -> Void) {
 
         let urlString = "https://apiserver269.herokuapp.com/assignment/\(assignment.id)"
 
@@ -106,21 +106,21 @@ class AssignmentAPIHelper {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
         // Need to grab score from Practice View Controller
-        let jsonBody: [String : Any] = [
-            "scores" : assignment.scores,
-            "scored_date" : assignment.scoredDate,
-            "therapist_comment": assignment.therapistComment,
-            "threshold_ROM": assignment.thresholdROM,
-            "expected_duration": assignment.expectedDuration,
-            "expected_repetitions": assignment.expectedRepetitions,
-            "duration": assignment.duration,
-            "creator_id": assignment.creatorID,
-            "patient_id": assignment.patientID
-        ]
+//        let jsonBody: [String : Any] = [
+//            "scores" : assignment.scores,
+//            "scored_date" : assignment.scoredDate,
+//            "therapist_comment": assignment.therapistComment,
+//            "threshold_ROM": assignment.thresholdROM,
+//            "expected_duration": assignment.expectedDuration,
+//            "expected_repetitions": assignment.expectedRepetitions,
+//            "duration": assignment.duration,
+//            "creator_id": assignment.creatorID,
+//            "patient_id": assignment.patientID
+//        ]
 
         do {
-//            let encodedAssignment = try JSONEncoder().encode(jsonBody)
-            let encodedAssignment = try JSONSerialization.data(withJSONObject: jsonBody, options: [])
+            let encodedAssignment = try JSONEncoder().encode(assignment)
+//            let encodedAssignment = try JSONSerialization.data(withJSONObject: jsonBody, options: [])
 
             request.httpBody = encodedAssignment
 
@@ -145,23 +145,11 @@ class AssignmentAPIHelper {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
         // Need to grab score from Practice View Controller
-
-//        let jsonBody: [String : Any] = [
-//            "therapist_comment": exercise.exerciseName,
-//            "threshold_ROM": Int(exercise.legAngle_max),
-//            "expected_duration": 123,
-//            "expected_repetitions": 123,
-//            "exercise_id": exercise.id,
-//            "creator_id": creatorID,
-//            "patient_id": patientID,
-//        ]
         
         let jsonBody = AssignmentPost(exercise: exercise, creatorID: creatorID, patientID: patientID)
         
         do {
             let encodedAssignment = try JSONEncoder().encode(jsonBody)
-            //            let encodedAssignment = try JSONSerialization.data(withJSONObject: jsonBody, options: [])
-
             request.httpBody = encodedAssignment
 
             NetworkHelper.manager.performDataTask(with: request, completionHandler: completionHandler, errorHandler: errorHandler)
