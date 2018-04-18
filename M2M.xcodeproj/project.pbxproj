@@ -77,7 +77,7 @@
 		9E5FE07E207E90EC003E0985 /* AssignmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5FE07D207E90EC003E0985 /* AssignmentsViewController.swift */; };
 		9E7CD7CC205F67880045C666 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7CD7CB205F67880045C666 /* Assignment.swift */; };
 		9E901F88207630120007649F /* ExerciseAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E901F87207630120007649F /* ExerciseAPIHelper.swift */; };
-		9EC7EDBF207C28DF00B91C10 /* ExerciseSelected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC7EDBE207C28DF00B91C10 /* ExerciseSelected.swift */; };
+		9EC7EDBF207C28DF00B91C10 /* SelectedExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC7EDBE207C28DF00B91C10 /* SelectedExercise.swift */; };
 		9EC7EDC3207CF2B400B91C10 /* AssignmentsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EC7EDC2207CF2B400B91C10 /* AssignmentsViewController.storyboard */; };
 		9EE4FCDE2059B30600A35A24 /* ExerciseParameterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE4FCDB2059B30600A35A24 /* ExerciseParameterViewModel.swift */; };
 		9EE4FCDF2059B30600A35A24 /* ProgressGeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE4FCDC2059B30600A35A24 /* ProgressGeneralViewController.swift */; };
@@ -193,7 +193,7 @@
 		9E5FE07D207E90EC003E0985 /* AssignmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsViewController.swift; sourceTree = "<group>"; };
 		9E7CD7CB205F67880045C666 /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 		9E901F87207630120007649F /* ExerciseAPIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseAPIHelper.swift; sourceTree = "<group>"; };
-		9EC7EDBE207C28DF00B91C10 /* ExerciseSelected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSelected.swift; sourceTree = "<group>"; };
+		9EC7EDBE207C28DF00B91C10 /* SelectedExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedExercise.swift; sourceTree = "<group>"; };
 		9EC7EDC2207CF2B400B91C10 /* AssignmentsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AssignmentsViewController.storyboard; sourceTree = "<group>"; };
 		9EE4FCDB2059B30600A35A24 /* ExerciseParameterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseParameterViewModel.swift; sourceTree = "<group>"; };
 		9EE4FCDC2059B30600A35A24 /* ProgressGeneralViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressGeneralViewController.swift; sourceTree = "<group>"; };
@@ -345,7 +345,7 @@
 				9E05E6E42063158300260C50 /* Vic's APIs */,
 				9E52B6B2206C1DE9004127B6 /* Networking Managers */,
 				9E52B6B5206C1E16004127B6 /* Defaults.swift */,
-				9EC7EDBE207C28DF00B91C10 /* ExerciseSelected.swift */,
+				9EC7EDBE207C28DF00B91C10 /* SelectedExercise.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -816,7 +816,7 @@
 				9E05E6E120630D6100260C50 /* AppError.swift in Sources */,
 				9E5EBD81206B557600897836 /* AuthData.swift in Sources */,
 				9E5FE07E207E90EC003E0985 /* AssignmentsViewController.swift in Sources */,
-				9EC7EDBF207C28DF00B91C10 /* ExerciseSelected.swift in Sources */,
+				9EC7EDBF207C28DF00B91C10 /* SelectedExercise.swift in Sources */,
 				22E38F001F73B8B30031B7A9 /* MainViewController.swift in Sources */,
 				9E36F2862059C9A600D2D172 /* Double+Operations.swift in Sources */,
 				2202A45E1F79B5410034330F /* variableList.swift in Sources */,

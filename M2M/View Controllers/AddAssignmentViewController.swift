@@ -23,6 +23,11 @@ class AddAssignmentViewController: UIViewController {
         doneButton.isEnabled = false
         tableView.delegate = self
         tableView.dataSource = self
+
+        DispatchQueue.main.async {
+            self.exercises = SelectedExercise.manager.retrieveExerciseList()
+            self.tableView.reloadData()
+        }
     }
 
     @IBAction func backButtonTapped(_ sender: UIButton) {
@@ -58,6 +63,7 @@ extension AddAssignmentViewController: UITableViewDelegate, UITableViewDataSourc
 
         let exerciseAtRow = exercises[indexPath.row]
         cell.textLabel?.text = exerciseAtRow.exerciseName
+        cell.detailTextLabel?.text = exerciseAtRow.description
 
         return cell
     }
