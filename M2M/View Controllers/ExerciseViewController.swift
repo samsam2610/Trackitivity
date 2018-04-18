@@ -97,7 +97,6 @@ extension ExerciseViewController: UITableViewDelegate, UITableViewDataSource {
         let exerciseAtRow = exercises[indexPath.row]
         
         print("Exercise Selected: \(exerciseAtRow.exerciseName), \(exerciseAtRow.id)")
-        dump(exerciseAtRow)
 
         SelectedExercise.manager.chooseExercise(exerciseAtRow)
         selectedAnnouncement(exerciseAtRow)

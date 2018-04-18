@@ -26,7 +26,9 @@ enum AppStoryboard: String {
     doctorProgressViewController = "DoctorProgressViewController",
     doctorProgressDetailViewController = "DoctorProgressDetailViewController",
     progressGeneralViewController = "ProgressGeneralViewController",
-    exerciseParameterViewController = "ExerciseParameterViewController"
+    exerciseParameterViewController = "ExerciseParameterViewController",
+    addAssignmentViewController = "AddAssignmentViewController",
+    assignmentsViewController = "AssignmentsViewController"
 
     var instance : UIStoryboard {
 
