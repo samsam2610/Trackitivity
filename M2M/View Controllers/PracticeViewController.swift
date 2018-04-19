@@ -372,37 +372,35 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
         var saveData = RestApiManager()
         saveData.stringURL = "https://apiserver269.herokuapp.com/activity"
         let parameters = PatientData(toJSon: "78a139a8-0d6f-4b5e-b780-302efa4ee7c8", exerciseName: exerciseID, timeStart: startDate, timeEnd: endDate, repetitions: Int(repetition), averageAngle: Float(avgAngle), minAngle: 80, maxAngle: 90)
+
         saveData.postPatientActivity(parameters: parameters, completion: { data in
             let returnedActivity = try! JSONDecoder().decode(Activity.self, from: data!)
 
-            if let _ = SelectedAssignment.manager.getID() {
-                DispatchQueue.main.async {
-                    // GET Assignment
-                    AssignmentAPIHelper.manager.getOneAssignment(SelectedAssignment.manager.getID()!, completionHandler: { assignment in
-                        let assignmentToUpdate = assignment
-
-                        DispatchQueue.main.async {
-                            // PUT Assignment
-                            let updatedAssignment = Assignment(id: assignmentToUpdate.id, scores: assignmentToUpdate.scores, scoredDate: assignmentToUpdate.scoredDate, therapistComment: assignmentToUpdate.therapistComment, thresholdROM: assignmentToUpdate.thresholdROM, expectedDuration: assignmentToUpdate.expectedDuration, expectedRepetitions: assignmentToUpdate.expectedRepetitions, duration: Int(returnedActivity.duration), creatorID: assignmentToUpdate.creatorID, patientID: assignmentToUpdate.patientID, creator: nil, patient: nil, activities: [returnedActivity], timeCreated: assignmentToUpdate.timeCreated, timeModified: assignmentToUpdate.timeModified, exerciseID: assignmentToUpdate.exerciseID, exercise: assignmentToUpdate.exercise)
-
-                            AssignmentAPIHelper.manager.putAssignment(updatedAssignment, completionHandler: {
-                                print("Assignment updated: \($0)")
-                                SelectedAssignment.manager.cancelAssignment()
-                            }, errorHandler: { print($0) })
-                        }
-                    }, errorHandler: { print($0) })
-                }
-
-            }
+//            if let _ = SelectedAssignment.manager.getID() {
+//                DispatchQueue.main.async {
+//                    // GET Assignment
+//                    AssignmentAPIHelper.manager.getOneAssignment(SelectedAssignment.manager.getID()!, completionHandler: { assignment in
+//                        let assignmentToUpdate = assignment
+//
+//                        DispatchQueue.main.async {
+//                            // PUT Assignment
+//                            let updatedAssignment = Assignment(id: assignmentToUpdate.id, scores: assignmentToUpdate.scores, scoredDate: assignmentToUpdate.scoredDate, therapistComment: assignmentToUpdate.therapistComment, thresholdROM: assignmentToUpdate.thresholdROM, expectedDuration: assignmentToUpdate.expectedDuration, expectedRepetitions: assignmentToUpdate.expectedRepetitions, duration: Int(returnedActivity.duration), creatorID: assignmentToUpdate.creatorID, patientID: assignmentToUpdate.patientID, creator: nil, patient: nil, activities: [returnedActivity], timeCreated: assignmentToUpdate.timeCreated, timeModified: assignmentToUpdate.timeModified, exerciseID: assignmentToUpdate.exerciseID, exercise: assignmentToUpdate.exercise)
+//
+//                            AssignmentAPIHelper.manager.putAssignment(updatedAssignment, completionHandler: {
+//                                print("Assignment updated: \($0)")
+//                                SelectedAssignment.manager.cancelAssignment()
+//                            }, errorHandler: { print($0) })
+//                        }
+//                    }, errorHandler: { print($0) })
+//                }
+//
+//            }
         }, errorCompletion: { (error) in
             if let error = error {
                 fatalError(error.localizedDescription)
             }
         })
-        
     }
-
-    
     
     func fetch() -> [NSManagedObject] {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
