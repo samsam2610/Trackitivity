@@ -75,7 +75,7 @@ extension AssignmentsViewController: UITableViewDelegate, UITableViewDataSource 
         var exerciseString = assignmentAtRow.therapistComment
 
         if assignmentAtRow.activities.count > 0 {
-            exerciseString += " - Completed \(assignmentAtRow.timeModified.toDateString(false)!)"
+            exerciseString += " - Completed" // \(assignmentAtRow.timeModified.toDateString(false)!)"
         } else {
             exerciseString += " - Incomplete"
         }
