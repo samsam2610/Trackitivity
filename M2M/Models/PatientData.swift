@@ -45,7 +45,7 @@ struct PatientData: ActivityParam, Codable {
         
     }
     
-    init(toJSon name: String, exerciseName: String, timeStart: Date, timeEnd: Date, repetitions: Int, averageAngle: Float, minAngle: Float, maxAngle: Float) {
+    init(toJSon name: String, exerciseID: String, exerciseName: String, timeStart: Date, timeEnd: Date, repetitions: Int, averageAngle: Float, minAngle: Float, maxAngle: Float) {
         self.name = name
         self.exerciseName = exerciseName
         self.timeStart = String(Int(timeStart.timeIntervalSince1970))
@@ -54,14 +54,14 @@ struct PatientData: ActivityParam, Codable {
         self.averageAngle = averageAngle
         self.minAngle = minAngle
         self.maxAngle = maxAngle
-        self.duration = ""
-        duration = intervalCalculate(startDate: timeStart, endDate: timeEnd)
+        self.duration = PatientData.intervalCalculate(startDate: timeStart, endDate: timeEnd)
+
         self.assignmentID = SelectedAssignment.manager.getID()
     }
 }
 
 extension PatientData {
-    func intervalCalculate(startDate: Date, endDate: Date) -> String {
+    static func intervalCalculate(startDate: Date, endDate: Date) -> String {
         let interval = String(Int(endDate.timeIntervalSince(startDate)))
         return interval
     }

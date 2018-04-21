@@ -30,7 +30,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0L-ee-Frt">
                                 <rect key="frame" x="140.5" y="450" width="94" height="42"/>
-                                <color key="backgroundColor" red="0.100070335" green="0.73665314910000002" blue="0.61070448160000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.18431372549019609" green="0.46666666666666667" blue="0.70980392156862748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="T6p-dG-OPJ"/>
                                 </constraints>
@@ -47,10 +47,12 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="8Ax-Ci-Lsk"/>
                                 </constraints>
+                                <color key="tintColor" red="0.1843137255" green="0.46666666670000001" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="user"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zfw-Ue-1A7">
                                 <rect key="frame" x="22" y="321" width="44" height="50"/>
+                                <color key="tintColor" red="0.1843137255" green="0.46274509800000002" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="pass"/>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6B1-mr-3aW">

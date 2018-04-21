@@ -21,7 +21,7 @@ protocol ActivityParam: ExerciseInfo {
 struct Activity: ActivityParam, Codable {
     var exerciseName: String
     var id: String
-    var description: String
+    var description: String?
     var assignmentID: String
     var userID: String
     var timeStart: String
