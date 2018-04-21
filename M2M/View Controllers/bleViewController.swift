@@ -286,7 +286,7 @@ class bleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphera
                         stringData = (characteristicASCIIValue as String) + stringData
                     }
                     //print(rawData)
-                    print("Data Received: \(characteristicASCIIValue)")
+                    print("Data Received: \(stringData)")
                     NotificationCenter.default.post(name:NSNotification.Name(rawValue: "Notify"), object: nil)
                 }
             }
