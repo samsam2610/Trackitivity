@@ -13,13 +13,13 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         _ = [usernameField, passwordField].map { $0.delegate = self }
         autoFillFields()
     }
-    
+
     @IBAction func loginButton(_ sender: Any) {
         samLogin()
     }
