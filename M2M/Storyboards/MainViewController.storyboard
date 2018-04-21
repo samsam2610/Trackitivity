@@ -24,6 +24,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="RoS-Y1-rgH" secondAttribute="height" multiplier="1:1" id="Wrv-N7-h3q"/>
                                 </constraints>
+                                <color key="tintColor" red="0.1843137255" green="0.46666666670000001" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="trainer"/>
                                 <connections>
                                     <action selector="exercistList:" destination="pve-D7-E8q" eventType="touchUpInside" id="WMM-Ho-Dsb"/>
@@ -34,6 +35,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="UXw-cI-9Uo" secondAttribute="height" multiplier="1:1" id="9nD-SF-oRl"/>
                                 </constraints>
+                                <color key="tintColor" red="0.1843137255" green="0.46666666670000001" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="progress"/>
                                 <connections>
                                     <action selector="progressView:" destination="pve-D7-E8q" eventType="touchUpInside" id="cze-cH-sJC"/>
@@ -45,21 +47,23 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="oEm-wz-2QK" secondAttribute="height" multiplier="1:1" id="u7D-Y3-qrC"/>
                                 </constraints>
+                                <color key="tintColor" red="0.1843137255" green="0.46274509800000002" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="doctor"/>
                                 <connections>
                                     <action selector="doctorSetting:" destination="pve-D7-E8q" eventType="touchUpInside" id="WFL-V5-96B"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WzJ-TI-56p">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WzJ-TI-56p">
                                 <rect key="frame" x="234.5" y="397" width="93.5" height="93.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="WzJ-TI-56p" secondAttribute="height" multiplier="1:1" id="J4R-6e-hpy"/>
                                 </constraints>
+                                <color key="tintColor" red="0.1843137255" green="0.46274509800000002" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="chat"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zX2-5t-k7u">
                                 <rect key="frame" x="125.5" y="602" width="124" height="33"/>
-                                <color key="backgroundColor" red="0.100070335" green="0.73665314910000002" blue="0.61070448160000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.1843137255" green="0.46666666670000001" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="pxj-PA-8KX"/>
                                 </constraints>
@@ -108,6 +112,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="A9v-BS-gu4" secondAttribute="height" multiplier="1:1" id="GN0-PE-vPW"/>
                                 </constraints>
+                                <color key="tintColor" red="0.1843137255" green="0.46274509800000002" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="logo"/>
                                 <connections>
                                     <action selector="startButton:" destination="pve-D7-E8q" eventType="touchUpInside" id="Dlx-K2-zcb"/>

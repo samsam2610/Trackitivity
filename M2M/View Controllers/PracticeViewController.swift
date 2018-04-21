@@ -348,7 +348,7 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
     }
 
     
-    func saveScore(repetition: Double, avgAngle: Double, exerciseID: String, startDate: Date, endDate: Date, currentDog: Dog) {
+    func saveScore(repetition: Double, avgAngle: Double, exerciseID: String, exerciseName: String, startDate: Date, endDate: Date, currentDog: Dog) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
@@ -371,10 +371,14 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
         
         var saveData = RestApiManager()
         saveData.stringURL = "https://apiserver269.herokuapp.com/activity"
-        let parameters = PatientData(toJSon: "78a139a8-0d6f-4b5e-b780-302efa4ee7c8", exerciseName: exerciseID, timeStart: startDate, timeEnd: endDate, repetitions: Int(repetition), averageAngle: Float(avgAngle), minAngle: 80, maxAngle: 90)
+        let parameters = PatientData(toJSon: "d19c786f-633a-44ba-98ab-0d207592c4cc", exerciseID: exerciseID, exerciseName: exerciseName, timeStart: startDate, timeEnd: endDate, repetitions: Int(repetition), averageAngle: Float(avgAngle), minAngle: 80, maxAngle: 90)
 
         saveData.postPatientActivity(parameters: parameters, completion: { data in
-            let returnedActivity = try! JSONDecoder().decode(Activity.self, from: data!)
+            do {
+                _ = try JSONDecoder().decode(Activity.self, from: data!)
+            } catch let error {
+                print(error.localizedDescription)
+            }
 
 //            if let _ = SelectedAssignment.manager.getID() {
 //                DispatchQueue.main.async {
@@ -525,7 +529,7 @@ extension PracticeViewController {
             self.wrappingUpData()
             rawData.removeAll()
             guard let unwrappedExercise = self.exercise else { return }
-            self.saveScore(repetition: currentCount, avgAngle: avgROM, exerciseID: unwrappedExercise.id!, startDate: self.startDate, endDate: self.endDate, currentDog: self.currentDog!)
+            self.saveScore(repetition: currentCount, avgAngle: avgROM, exerciseID: unwrappedExercise.id!, exerciseName: unwrappedExercise.exerciseName, startDate: self.startDate, endDate: self.endDate, currentDog: self.currentDog!)
             self.present(surveyMessage, animated: true, completion: nil)
             //print(self.fetch())
         })
