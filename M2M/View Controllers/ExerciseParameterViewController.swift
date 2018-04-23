@@ -10,6 +10,8 @@ import RxCocoa
 import RxSwift
 
 class ExerciseParameterViewController: UIViewController {
+
+    // MARK: - Outlets and Properties
     @IBOutlet weak var done: UIButton!
     @IBOutlet weak var back: UIButton!
     
@@ -22,8 +24,10 @@ class ExerciseParameterViewController: UIViewController {
     @IBOutlet weak var isValid: UILabel!
 
     var passedExercise: ExerciseData?
+    var keyboardSize: CGRect? = nil
 
     let disposeBag = DisposeBag()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,8 +51,19 @@ class ExerciseParameterViewController: UIViewController {
         if let exercise = passedExercise {
             loadExercise(exercise)
         }
+
+        setupTextFields()
+        tapToDismissSetup()
+        addObservers()
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        removeObservers()
+    }
+
+    // MARK: - Methods and Functions
     func loadExercise(_ exercise: ExerciseData) {
         exerciseName_Label.text = exercise.exerciseName
         thighAngle_min.text = "\(exercise.thighAngle_min)"
@@ -57,6 +72,40 @@ class ExerciseParameterViewController: UIViewController {
         legAngle_max.text = "\(exercise.legAngle_max)"
         descriptionLabel.text = exercise.description ?? ""
     }
+
+    func tapToDismissSetup() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+
+        view.addGestureRecognizer(tap)
+    }
+
+    func addObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+    }
+
+    func removeObservers() {
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+    }
+
+    func setupTextFields() {
+        _ = [exerciseName_Label,
+             thighAngle_min,
+             thighAngle_max,
+             legAngle_min,
+             legAngle_max].map { $0!.delegate = self }
+
+        descriptionLabel.delegate = self
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
+    @objc func keyboardWillShow(notification: NSNotification) {
+        keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
+        print("iPhone height: \(self.view.frame.height)")
+    }
+
 }
 
 extension ExerciseParameterViewController {
@@ -82,4 +131,39 @@ extension ExerciseParameterViewController {
             print(error.localizedDescription)
         })
     }
+}
+
+extension ExerciseParameterViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let textFieldTag = textField.tag
+        
+        switch textFieldTag {
+        case 0...3:
+            let nextField: UITextField = self.view.viewWithTag(textFieldTag + 1) as! UITextField
+
+            nextField.becomeFirstResponder()
+            return false
+        case 4:
+            descriptionLabel.becomeFirstResponder()
+            return false
+        default:
+            break
+        }
+
+        return true
+    }
+
+}
+
+extension ExerciseParameterViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        guard let keyboardSize = keyboardSize else { return }
+        self.view.frame.origin.y -= keyboardSize.height
+    }
+
+    func textViewDidEndEditing(_ textView: UITextView) {
+        guard let keyboardSize = keyboardSize else { return }
+        self.view.frame.origin.y += keyboardSize.height
+    }
+
 }
