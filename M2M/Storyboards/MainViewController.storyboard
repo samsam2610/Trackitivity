@@ -113,7 +113,7 @@
                                     <constraint firstAttribute="width" secondItem="A9v-BS-gu4" secondAttribute="height" multiplier="1:1" id="GN0-PE-vPW"/>
                                 </constraints>
                                 <color key="tintColor" red="0.1843137255" green="0.46274509800000002" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" image="logo"/>
+                                <state key="normal" image="exercise"/>
                                 <connections>
                                     <action selector="startButton:" destination="pve-D7-E8q" eventType="touchUpInside" id="Dlx-K2-zcb"/>
                                 </connections>
@@ -183,7 +183,7 @@
     <resources>
         <image name="chat" width="100" height="100"/>
         <image name="doctor" width="100" height="100"/>
-        <image name="logo" width="150" height="150"/>
+        <image name="exercise" width="1600" height="1600"/>
         <image name="progress" width="100" height="100"/>
         <image name="trainer" width="100" height="100"/>
     </resources>
