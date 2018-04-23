@@ -105,7 +105,7 @@
                                                 <real key="value" value="-90"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="IBColor3">
-                                                <color key="value" red="0.100070335" green="0.73665314910000002" blue="0.61070448160000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="value" red="0.1843137255" green="0.46666666670000001" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="trackThickness">
                                                 <real key="value" value="0.0"/>
@@ -117,13 +117,13 @@
                                                 <real key="value" value="0.75"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="IBColor1">
-                                                <color key="value" red="0.100070335" green="0.73665314910000002" blue="0.61070448160000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="value" red="0.1843137255" green="0.46666666670000001" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="gradientRotateSpeed">
                                                 <real key="value" value="-2"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="IBColor2">
-                                                <color key="value" red="0.100070335" green="0.73665314910000002" blue="0.61070448160000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="value" red="0.1843137255" green="0.46666666670000001" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>

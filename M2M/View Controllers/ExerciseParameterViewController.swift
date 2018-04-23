@@ -67,7 +67,8 @@ extension ExerciseParameterViewController {
     @IBAction func done(_ sender: UIButton) {
         // Put this in viewModel
         let exercise = ExerciseData(toJson: exerciseName_Label.text!, descriptionLabel.text!, Int16(thighAngle_min.text!) ?? 0, Int16(thighAngle_max.text!) ?? 0, Int16(legAngle_min.text!) ?? 0, Int16(legAngle_max.text!) ?? 0)
-
+        thighMaxAngle = Double(thighAngle_max.text!)
+        thighMinAngle = Double(thighAngle_min.text!)
         var id: String?
 
         if let passedExercise = passedExercise {
