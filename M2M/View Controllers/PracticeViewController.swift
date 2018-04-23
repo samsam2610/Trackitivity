@@ -17,14 +17,14 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
     //UI
     
     @IBOutlet weak var toggleButton: UIButton!
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var dataLabel: UILabel!
-    @IBOutlet weak var smallRing: KDCircularProgress!
-    @IBOutlet weak var bigRing: KDCircularProgress!
+    @IBOutlet weak var timeLabel: UILabel?
+    @IBOutlet weak var dataLabel: UILabel?
+    @IBOutlet weak var smallRing: KDCircularProgress?
+    @IBOutlet weak var bigRing: KDCircularProgress?
     
-    @IBOutlet weak var ROMLabel: UILabel!
+    @IBOutlet weak var ROMLabel: UILabel?
     @IBOutlet weak var exerciseName: UILabel!
-    @IBOutlet weak var exerciseWarning: UILabel!
+    @IBOutlet weak var exerciseWarning: UILabel?
     
     
     
@@ -47,24 +47,22 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
     var currentDog: Dog?
 
     //Exercise:
-    let exercise = SelectedExercise.manager.getSelectedExercise()!
+    let exercise = SelectedExercise.manager.getSelectedExercise()
     
     
     private var consoleAsciiText:NSAttributedString? = NSAttributedString(string: "")
-    
-    
-    
+
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        bigRing.angle = 0
-        smallRing.angle = 0
+        bigRing?.angle = 0
+        smallRing?.angle = 0
         currentCount = 0
-        self.ROMLabel.text = "\(String(0)) degrees"
-        self.dataLabel.text = "\(String(0)) counts"
-        self.exerciseWarning.lineBreakMode = .byWordWrapping // notice the 'b' instead of 'B'
-        self.exerciseWarning.numberOfLines = 3
+        self.ROMLabel?.text = "\(String(0)) degrees"
+        self.dataLabel?.text = "\(String(0)) counts"
+        self.exerciseWarning?.lineBreakMode = .byWordWrapping // notice the 'b' instead of 'B'
+        self.exerciseWarning?.numberOfLines = 3
         self.exerciseName.text = selectedExercise
         self.startWorkout()
         //Create and start the peripheral manager
@@ -116,7 +114,9 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
     }
 
     func loadExercise() {
-        exerciseName.text = exercise.exerciseName
+        if let exercise = exercise {
+            exerciseName.text = exercise.exerciseName
+        }
     }
     
     func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
@@ -159,85 +159,93 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
         }
     }
     
-    func analyzeData (clearedStringData: String) {
-        let dataCache = self.checkString(String: clearedStringData)
-        Second = dataCache.angleKnee
-        thighAngle = round(acos(abs(dataCache.angleThigh)/10)*57.2958)
-        print("Thigh angle is \(thighAngle)")
-        guard dataCache.Time > 0 else {
-            return
-        }
+//    func analyzeData (clearedStringData: String) {
+//        let dataCache = self.checkString(String: clearedStringData)
+//        Second = dataCache.angleKnee
+//        thighAngle = round(acos(abs(dataCache.angleThigh)/10)*57.2958)
+//        print("Thigh angle is \(thighAngle)")
+//        guard dataCache.Time > 0 else {
+//            return
+//        }
+//
+//        guard let unwrappedExercise = exercise, thighAngle > Double(unwrappedExercise.thighAngle_min) && thighAngle < Double(unwrappedExercise.thighAngle_max) && thighAngle != 361 else {
+//            return
+//        }
+//
+//        let diff = Second - First
+//        if abs(diff) > 3 {
+//            dAfter = diff
+//        }
+//
+//        if Second > First {
+//            currentMax = Second
+//        } else if Second < First {
+//            currentMin = Second
+//        }
+//
+//        if dAfter*dBefore < 0 {
+//            if dAfter < 0 {
+//                Max = currentMax
+//            } else if dAfter > 0 {
+//                Min = currentMin
+//            }
+//        }
+//
+//        if First != Second {
+//            First  = Second
+//            dBefore = dAfter
+//        }
+//
+//        guard abs(Max) > 0 && abs(Min) > 0 else { return }
+//        let ROM: Double = abs(Max - Min)
+//        print("cMax \(Max), cMin \(Min), cDiff \(ROM), cVal \(Second), cCount \(currentCount)")
+//        if ROM > targetROM && ROM < 180 {
+//            currentCount += 1
+//            currentROM = ROM
+//            print("YOOO - cMax \(Max), cMin \(Min), cDiff \(ROM), cVal \(Second), cCount \(currentCount)")
+//            avgROM = (avgROM + ROM)/(currentCount)
+//            if Max > sessionMax { sessionMax = Max}
+//            if Min < sessionMin { sessionMin = Min}
+//            Max = 0
+//            Min = 0
+//        }
+//
+//    }
+    
+    func analyzeData (clearStringData: String) {
+        let numberOfElement = 8
+        let data = self.checkString(String: clearStringData, numberOfElement: numberOfElement)
+        print(clearStringData)
 
-        guard  thighAngle > Double(exercise.thighAngle_min) && thighAngle < Double(exercise.thighAngle_max) && thighAngle != 361 else {
-            return
-        }
+        thighAngle = abs(data[6])
+        legPosition = abs(data[5])
+        guard thighAngle > thighMinAngle!
+            && thighAngle < thighMaxAngle!
+            && thighAngle != 361 else { return }
 
-        let diff = Second - First
-        if abs(diff) > 3 {
-            dAfter = diff
+        let IMUData = Array(data[0...3])
+        let time_interval = Int(data.last!)
+                var cycle_count: [Double]
+        var ROM: [Double]
+        (cycle_count, ROM) = RepCount.manager.run_2(IMUData, time_interval)
+        currentCount = cycle_count.max()!
+        if ROM.max()! != 0 {
+            currentROM = ROM.max()!
         }
-        
-        if Second > First {
-            currentMax = Second
-        } else if Second < First {
-            currentMin = Second
-        }
-        
-        if dAfter*dBefore < 0 {
-            if dAfter < 0 {
-                Max = currentMax
-            } else if dAfter > 0 {
-                Min = currentMin
-            }
-        }
-        
-        if First != Second {
-            First  = Second
-            dBefore = dAfter
-        }
-        
-        guard abs(Max) > 0 && abs(Min) > 0 else { return }
-        let ROM: Double = abs(Max - Min)
-        print("cMax \(Max), cMin \(Min), cDiff \(ROM), cVal \(Second), cCount \(currentCount)")
-        if ROM > targetROM && ROM < 180 {
-            currentCount += 1
-            currentROM = ROM
-            print("YOOO - cMax \(Max), cMin \(Min), cDiff \(ROM), cVal \(Second), cCount \(currentCount)")
-            avgROM = (avgROM + ROM)/(currentCount)
-            if Max > sessionMax { sessionMax = Max}
-            if Min < sessionMin { sessionMin = Min}
-            Max = 0
-            Min = 0
-        }
-        
+        //tempData[2] = thighAngle
+        self.updateData()
+
     }
     
-    func checkString (String: String) -> (Time: Double, angleKnee: Double, angleThigh: Double){
-        var Time: Double
-        var angleKnee: Double
-        var angleThigh: Double
-//        var systemCheckFirst: Int
-//        var systemCheckSecond: Int
-        let StringRecorded = String.components(separatedBy: ",").flatMap { Double($0.trimmingCharacters(in: .whitespaces)) }
-        guard StringRecorded.count == 3
+    func checkString (String: String, numberOfElement: Int) -> [Double]{
+        let dumbOutput: Array<Double> = Array(repeating: 0, count: numberOfElement)
+        let StringRecorded = String.components(separatedBy: ",").compactMap { Double($0.trimmingCharacters(in: .whitespaces)) }        
+        guard StringRecorded.count == numberOfElement
         else {
-            Time = 0
-            angleKnee = 361
-            angleThigh = 11
-//            systemCheckFirst = 0
-//            systemCheckSecond = 0
-            return (Time, angleKnee, angleThigh)
+            return dumbOutput
         }
-        Time = StringRecorded[0]
-        angleKnee = StringRecorded[1]
-        angleThigh = StringRecorded[2]
-//        systemCheckFirst = Int(StringRecorded[3])
-//        systemCheckSecond = Int(StringRecorded[4])
-        return (Time, angleKnee, angleThigh)
+        return StringRecorded
     }
-    
-    
-    
     
     func startWorkout() {
         self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(PracticeViewController.updateTime), userInfo: nil, repeats: true)
@@ -272,31 +280,36 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
     
     func updateData() {
         var str: String?
-        self.dataLabel.text = "\(String(currentCount)) counts"
-        self.ROMLabel.text = "\(String(currentROM)) degrees"
-        guard thighAngle != 361 else {
-            return
-        }
-        if thighAngle > thighMaxAngle! {
-            str = "Your thigh angle is \(thighAngle). \nPlease sit down"
-            self.exerciseWarning.textColor = UIColor.init(red: 231/255, green: 76/255, blue: 60/255, alpha: 1)
-        } else if thighAngle < thighMinAngle! {
-            str = "Your thigh angle is \(thighAngle). \nPlease stand up"
-            self.exerciseWarning.textColor = UIColor.init(red: 231/255, green: 76/255, blue: 60/255, alpha: 1)
-        } else {
-            str = "Keep going! You can do it!"
-            self.exerciseWarning.textColor = UIColor.init(red: 26/255, green: 188/255, blue: 156/255, alpha: 1)
-        }
-        self.exerciseWarning.text = str
-        
-        let elapsedTime = Double(totalTime)
-        if currentCount <= targetCount {
-            let newAngleValue = 360 * (currentCount / targetCount)
-            bigRing.animate(toAngle: newAngleValue, duration: 0.5, completion: nil)
-        }
-        if  elapsedTime <= targetTime {
-            let newAngleValue = 360 * (elapsedTime/targetTime)
-            smallRing.animate(toAngle: newAngleValue, duration: 0.5, completion: nil)
+//        currentROM = tempData[1]
+//        currentCount = tempData[0]
+        print(currentCount)
+        DispatchQueue.main.async {
+            self.dataLabel?.text = "\(currentCount) counts"
+            self.ROMLabel?.text = "\(currentROM)  \(legPosition)"
+            guard thighAngle != 361 else {
+                return
+            }
+            if thighAngle > thighMaxAngle! {
+                str = "Your thigh angle is \(thighAngle). \nPlease sit down"
+                self.exerciseWarning?.textColor = UIColor.init(red: 231/255, green: 76/255, blue: 60/255, alpha: 1)
+            } else if thighAngle < thighMinAngle! {
+                str = "Your thigh angle is \(thighAngle). \nPlease stand up"
+                self.exerciseWarning?.textColor = UIColor.init(red: 231/255, green: 76/255, blue: 60/255, alpha: 1)
+            } else {
+                str = "Keep going! You can do it!"
+                self.exerciseWarning?.textColor = UIColor.init(red: 26/255, green: 188/255, blue: 156/255, alpha: 1)
+            }
+            self.exerciseWarning?.text = str
+            
+            let elapsedTime = Double(totalTime)
+            if currentCount <= targetCount {
+                let newAngleValue = 360 * (currentCount / targetCount)
+                self.bigRing?.animate(toAngle: newAngleValue, duration: 0.5, completion: nil)
+            }
+            if  elapsedTime <= targetTime {
+                let newAngleValue = 360 * (elapsedTime/targetTime)
+                self.smallRing?.animate(toAngle: newAngleValue, duration: 0.5, completion: nil)
+            }
         }
         
     }
@@ -351,7 +364,7 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
     }
 
     
-    func saveScore(repetition: Double, avgAngle: Double, exerciseID: String, startDate: Date, endDate: Date, currentDog: Dog) {
+    func saveScore(repetition: Double, avgAngle: Double, exerciseID: String, exerciseName: String, startDate: Date, endDate: Date, currentDog: Dog) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
@@ -374,17 +387,40 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
         
         var saveData = RestApiManager()
         saveData.stringURL = "https://apiserver269.herokuapp.com/activity"
-        let parameters = PatientData(toJSon: "78a139a8-0d6f-4b5e-b780-302efa4ee7c8", exerciseName: exerciseID, timeStart: startDate, timeEnd: endDate, repetitions: Int(repetition), averageAngle: Float(avgAngle), minAngle: 80, maxAngle: 90)
-        saveData.postPatientActivity(parameters: parameters) { (error) in
+        let parameters = PatientData(toJSon: "d19c786f-633a-44ba-98ab-0d207592c4cc", exerciseID: exerciseID, exerciseName: exerciseName, timeStart: startDate, timeEnd: endDate, repetitions: Int(repetition), averageAngle: Float(avgAngle), minAngle: 80, maxAngle: 90)
+
+        saveData.postPatientActivity(parameters: parameters, completion: { data in
+            do {
+                _ = try JSONDecoder().decode(Activity.self, from: data!)
+            } catch let error {
+                print(error.localizedDescription)
+            }
+
+//            if let _ = SelectedAssignment.manager.getID() {
+//                DispatchQueue.main.async {
+//                    // GET Assignment
+//                    AssignmentAPIHelper.manager.getOneAssignment(SelectedAssignment.manager.getID()!, completionHandler: { assignment in
+//                        let assignmentToUpdate = assignment
+//
+//                        DispatchQueue.main.async {
+//                            // PUT Assignment
+//                            let updatedAssignment = Assignment(id: assignmentToUpdate.id, scores: assignmentToUpdate.scores, scoredDate: assignmentToUpdate.scoredDate, therapistComment: assignmentToUpdate.therapistComment, thresholdROM: assignmentToUpdate.thresholdROM, expectedDuration: assignmentToUpdate.expectedDuration, expectedRepetitions: assignmentToUpdate.expectedRepetitions, duration: Int(returnedActivity.duration), creatorID: assignmentToUpdate.creatorID, patientID: assignmentToUpdate.patientID, creator: nil, patient: nil, activities: [returnedActivity], timeCreated: assignmentToUpdate.timeCreated, timeModified: assignmentToUpdate.timeModified, exerciseID: assignmentToUpdate.exerciseID, exercise: assignmentToUpdate.exercise)
+//
+//                            AssignmentAPIHelper.manager.putAssignment(updatedAssignment, completionHandler: {
+//                                print("Assignment updated: \($0)")
+//                                SelectedAssignment.manager.cancelAssignment()
+//                            }, errorHandler: { print($0) })
+//                        }
+//                    }, errorHandler: { print($0) })
+//                }
+//
+//            }
+        }, errorCompletion: { (error) in
             if let error = error {
                 fatalError(error.localizedDescription)
             }
-        }
-
-        
+        })
     }
-
-    
     
     func fetch() -> [NSManagedObject] {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -508,7 +544,8 @@ extension PracticeViewController {
             self.endDate = Date()
             self.wrappingUpData()
             rawData.removeAll()
-            self.saveScore(repetition: currentCount, avgAngle: avgROM, exerciseID: self.exercise.id!, startDate: self.startDate, endDate: self.endDate, currentDog: self.currentDog!)
+            guard let unwrappedExercise = self.exercise else { return }
+            self.saveScore(repetition: currentCount, avgAngle: avgROM, exerciseID: unwrappedExercise.id!, exerciseName: unwrappedExercise.exerciseName, startDate: self.startDate, endDate: self.endDate, currentDog: self.currentDog!)
             self.present(surveyMessage, animated: true, completion: nil)
             //print(self.fetch())
         })

@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icons8-Medical Doctor Filled_100.png",
+      "filename" : "exercise.png",
       "scale" : "1x"
     },
     {
@@ -19,6 +19,7 @@
     "author" : "xcode"
   },
   "properties" : {
-    "template-rendering-intent" : "template"
+    "template-rendering-intent" : "template",
+    "preserves-vector-representation" : true
   }
 }

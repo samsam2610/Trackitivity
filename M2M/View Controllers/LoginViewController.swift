@@ -13,13 +13,24 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    
+    @IBOutlet weak var scrollView: UIScrollView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         _ = [usernameField, passwordField].map { $0.delegate = self }
         autoFillFields()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
+
     }
-    
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+    }
+
     @IBAction func loginButton(_ sender: Any) {
         samLogin()
     }
@@ -61,11 +72,7 @@ class LoginViewController: UIViewController {
 
                     SelectedExercise.manager.populateExercises()
                     // NOTE: Vic's non-unit test
-                    AssignmentAPIHelper.manager.getAssignments("d19c786f-633a-44ba-98ab-0d207592c4cc", completionHandler: {
-                        print($0)
-                    }, errorHandler: {
-                        print($0)
-                    })
+                    
                     // NOTE: End testing here
                 }
             }
@@ -90,5 +97,25 @@ extension LoginViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.clearsOnBeginEditing = true
+    }
+
+    @objc func keyboardWillShow(notification:NSNotification) {
+        //    guard let keyboardFrame = notification.userInfo![UIKeyboardFrameBeginUserInfoKey] as? NSValue else { return }
+        //    scrollView.contentInset.bottom = view.convert(keyboardFrame.cgRectValue, from: nil).size.height + 20
+        var userInfo = notification.userInfo!
+        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+
+        var contentInset:UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height
+        scrollView.contentInset = contentInset
+
+    }
+
+    @objc func keyboardWillHide(notification:NSNotification){
+        //      scrollView.contentInset.bottom = 0
+
+        scrollView.contentInset = .zero
+        scrollView.scrollIndicatorInsets = scrollView.contentInset
     }
 }

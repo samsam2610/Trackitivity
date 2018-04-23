@@ -35,6 +35,7 @@ var currentROM: Double = 100
 var thighMaxAngle: Double?
 var thighMinAngle: Double?
 var thighAngle: Double = 361
+var legPosition: Double = 0
 
 let exercise = ["Sitting Supported Knee Bends","Standing Knee Bends"]
 let exerciseID = ["SSKB","SKB"]

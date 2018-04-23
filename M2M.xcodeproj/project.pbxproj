@@ -53,6 +53,7 @@
 		22DEEA6D1FC6EB0600117FE4 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DEEA6C1FC6EB0600117FE4 /* CoreDataStack.swift */; };
 		22E0FDB91FCA2B920070BB55 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E0FDB41FCA2B920070BB55 /* Default-568h@2x.png */; };
 		22E38F001F73B8B30031B7A9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E38EFF1F73B8B30031B7A9 /* MainViewController.swift */; };
+		22E5325B208BB5C400471A85 /* RepCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E5325A208BB5C400471A85 /* RepCount.swift */; };
 		22E9D5311FE9BBD800901B24 /* Dog+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9D52D1FE9BBD800901B24 /* Dog+CoreDataClass.swift */; };
 		22E9D5321FE9BBD800901B24 /* Dog+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9D52E1FE9BBD800901B24 /* Dog+CoreDataProperties.swift */; };
 		22E9D5331FE9BBD800901B24 /* Walk+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E9D52F1FE9BBD800901B24 /* Walk+CoreDataClass.swift */; };
@@ -64,6 +65,7 @@
 		9E05E6DF20630CCA00260C50 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E05E6DE20630CC900260C50 /* NetworkHelper.swift */; };
 		9E05E6E120630D6100260C50 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E05E6E020630D6100260C50 /* AppError.swift */; };
 		9E05E6E320630FD700260C50 /* AssignmentAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E05E6E220630FD700260C50 /* AssignmentAPIHelper.swift */; };
+		9E1694A62087382800317530 /* SelectedAssignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1694A52087382800317530 /* SelectedAssignment.swift */; };
 		9E3592422085AC7600116E09 /* AddAssignmentViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E3592412085AC7600116E09 /* AddAssignmentViewController.storyboard */; };
 		9E36F27E2059C81800D2D172 /* AppStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E36F27D2059C81800D2D172 /* AppStoryboard.swift */; };
 		9E36F2832059C9A600D2D172 /* TimeInterval+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E36F27F2059C9A600D2D172 /* TimeInterval+String.swift */; };
@@ -169,6 +171,7 @@
 		22DEEA6C1FC6EB0600117FE4 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		22E0FDB41FCA2B920070BB55 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		22E38EFF1F73B8B30031B7A9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		22E5325A208BB5C400471A85 /* RepCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepCount.swift; sourceTree = "<group>"; };
 		22E9D52D1FE9BBD800901B24 /* Dog+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dog+CoreDataClass.swift"; sourceTree = "<group>"; };
 		22E9D52E1FE9BBD800901B24 /* Dog+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dog+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		22E9D52F1FE9BBD800901B24 /* Walk+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Walk+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -180,6 +183,7 @@
 		9E05E6DE20630CC900260C50 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		9E05E6E020630D6100260C50 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		9E05E6E220630FD700260C50 /* AssignmentAPIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentAPIHelper.swift; sourceTree = "<group>"; };
+		9E1694A52087382800317530 /* SelectedAssignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedAssignment.swift; sourceTree = "<group>"; };
 		9E3592412085AC7600116E09 /* AddAssignmentViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddAssignmentViewController.storyboard; sourceTree = "<group>"; };
 		9E36F27D2059C81800D2D172 /* AppStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoryboard.swift; sourceTree = "<group>"; };
 		9E36F27F2059C9A600D2D172 /* TimeInterval+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TimeInterval+String.swift"; path = "M2M/Extensions/TimeInterval+String.swift"; sourceTree = "<group>"; };
@@ -346,6 +350,8 @@
 				9E52B6B2206C1DE9004127B6 /* Networking Managers */,
 				9E52B6B5206C1E16004127B6 /* Defaults.swift */,
 				9EC7EDBE207C28DF00B91C10 /* SelectedExercise.swift */,
+				9E1694A52087382800317530 /* SelectedAssignment.swift */,
+				22E5325A208BB5C400471A85 /* RepCount.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -800,6 +806,7 @@
 				22A29BBB1FB87AD10010B0AE /* File.swift in Sources */,
 				22E9D5321FE9BBD800901B24 /* Dog+CoreDataProperties.swift in Sources */,
 				9E36F2842059C9A600D2D172 /* String+Replacement.swift in Sources */,
+				22E5325B208BB5C400471A85 /* RepCount.swift in Sources */,
 				22E9D5341FE9BBD800901B24 /* Walk+CoreDataProperties.swift in Sources */,
 				22D86147203D201200FE2FA6 /* ExerciseData.swift in Sources */,
 				222FAF9B1F9B40DC00288FE7 /* SurveyTask.swift in Sources */,
@@ -822,6 +829,7 @@
 				2202A45E1F79B5410034330F /* variableList.swift in Sources */,
 				9EE4FCDE2059B30600A35A24 /* ExerciseParameterViewModel.swift in Sources */,
 				22AE3B1F1F7884FE00C27D0F /* ExerciseViewController.swift in Sources */,
+				9E1694A62087382800317530 /* SelectedAssignment.swift in Sources */,
 				2201CCB01F741AC400736AD5 /* PeripheralTableViewCell.swift in Sources */,
 				227D05581FC4E0FD00D5BFB0 /* Dog Walk.xcdatamodeld in Sources */,
 				221E31D1204E590D00C937E6 /* URLs.swift in Sources */,
@@ -983,7 +991,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 26RHXP32FH;
+				DEVELOPMENT_TEAM = NCYPEHY28G;
 				INFOPLIST_FILE = "$(SRCROOT)/M2M/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "trackitivity-v1";
@@ -999,7 +1007,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 26RHXP32FH;
+				DEVELOPMENT_TEAM = NCYPEHY28G;
 				INFOPLIST_FILE = "$(SRCROOT)/M2M/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "trackitivity-v1";

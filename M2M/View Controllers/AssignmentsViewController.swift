@@ -12,17 +12,23 @@ class AssignmentsViewController: UIViewController {
     // MARK: - Properties and Outlets
     @IBOutlet weak var patientNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addButton: UIButton!
 
     let cellID = "assignmentCell"
     var assignments = [Assignment]()
     var patientName: String!
-    var patientID: Int!
+    var accessorID: String!
+    var accessLevel = AssignmentAccessor.therapist
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         self.patientNameLabel.text = "Assigned to patient: \(patientName!)"
+
+        if accessLevel == .patient {
+            addButton.isHidden = true
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -34,8 +40,8 @@ class AssignmentsViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
-        
-        AssignmentAPIHelper.manager.getAssignments(String(patientID), completionHandler: completion, errorHandler: { print($0) })
+
+        AssignmentAPIHelper.manager.getAssignments(accessorID, accessLevel, completionHandler: completion, errorHandler: { print($0) })
     }
 
     // MARK: - Functions and Methods
@@ -48,6 +54,14 @@ class AssignmentsViewController: UIViewController {
         let addAssignmentsVC = AddAssignmentViewController.instantiate(fromAppStoryboard: .addAssignmentViewController)
         self.present(addAssignmentsVC, animated: true, completion: nil)
     }
+
+    func selectedAnnouncement(_ exercise: ExerciseData) {
+        let alert = UIAlertController(title: nil, message: "\(exercise.exerciseName) selected!", preferredStyle: .alert)
+        let alertActions = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(alertActions)
+        self.present(alert, animated: true, completion: nil)
+    }
+
 }
 
 extension AssignmentsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -58,10 +72,10 @@ extension AssignmentsViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
         let assignmentAtRow = assignments[indexPath.row]
-
         var exerciseString = assignmentAtRow.therapistComment
+
         if assignmentAtRow.activities.count > 0 {
-            exerciseString += " - Completed \(assignmentAtRow.timeModified!.toDateString(false)!)"
+            exerciseString += " - Completed" // \(assignmentAtRow.timeModified.toDateString(false)!)"
         } else {
             exerciseString += " - Incomplete"
         }
@@ -70,5 +84,16 @@ extension AssignmentsViewController: UITableViewDelegate, UITableViewDataSource 
         cell.detailTextLabel?.text = assignmentAtRow.timeCreated.toDateString()!
 
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let assignmentAtRow = assignments[indexPath.row]
+
+        if accessLevel == .patient, assignmentAtRow.activities.count == 0 {
+            SelectedAssignment.manager.setAssignment(assignmentAtRow.id)
+            if SelectedExercise.manager.chooseExerciseByAssignment(assignmentAtRow.exerciseID) {
+                selectedAnnouncement(SelectedExercise.manager.getSelectedExercise()!)
+            }
+        }
     }
 }

@@ -127,7 +127,7 @@ extension DoctorViewController: UITableViewDataSource, UITableViewDelegate {
 //        doctorProgressVC.patientID = id
 //        self.present(doctorProgressVC, animated: true, completion: nil)
         let assignmentsViewController = AssignmentsViewController.instantiate(fromAppStoryboard: .assignmentsViewController)
-        assignmentsViewController.patientID = id
+        assignmentsViewController.accessorID = "d19c786f-633a-44ba-98ab-0d207592c4cc"
         assignmentsViewController.patientName = name
         self.present(assignmentsViewController, animated: true, completion: nil)
     }

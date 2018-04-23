@@ -49,6 +49,14 @@ class ProgressGeneralViewController: UIViewController {
             print("Fetching error: \(error), \(error.userInfo)")
         }
     }
+
+    @IBAction func assignmentsButtonTapped(_ sender: UIButton) {
+        let assignmentsViewController = AssignmentsViewController.instantiate(fromAppStoryboard: .assignmentsViewController)
+        assignmentsViewController.accessorID = "ebb1f78c-704d-40c5-a1bc-8b024e3956bc"
+        assignmentsViewController.patientName = "Fido"
+        assignmentsViewController.accessLevel = .patient
+        self.present(assignmentsViewController, animated: true, completion: nil)
+    }
 }
 
 extension ProgressGeneralViewController {

@@ -58,7 +58,10 @@ class bleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphera
         centralManager?.stopScan()
     }
     
-    
+    @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+
     //Table View Functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.peripherals.count
@@ -272,18 +275,22 @@ class bleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphera
             if characteristic == rxCharacteristic {
                 if let ASCIIstring = NSString(data: characteristic.value!, encoding: String.Encoding.utf8.rawValue) {
                     characteristicASCIIValue = ASCIIstring
-                    if characteristicASCIIValue.contains("\n".lowercased()){
-                        stringData = (characteristicASCIIValue as String) + stringData
-                        stringData = String(stringData.characters.filter { String($0).rangeOfCharacter(from: CharacterSet(charactersIn: "0123456789.,")) != nil })
-                        // rawData.append(stringData)
-                        clearedStringData = stringData
-                        practice.analyzeData(clearedStringData: clearedStringData)
+                    if characteristicASCIIValue.contains("s".lowercased()) && stringData.isEmpty {
                         stringData = ""
+                        stringData = (characteristicASCIIValue as String)
+                    } else if characteristicASCIIValue.contains("e".lowercased()){
+                        stringData = stringData + (characteristicASCIIValue as String) 
                     } else {
                         stringData = (characteristicASCIIValue as String) + stringData
                     }
-                    //print(rawData)
-                    print("Data Received: \(characteristicASCIIValue)")
+                    
+                    if stringData.contains("s".lowercased()) && stringData.contains("e".lowercased()) {
+                        stringData = String(stringData.characters.filter { String($0).rangeOfCharacter(from: CharacterSet(charactersIn: "0123456789-.,")) != nil })
+                        clearedStringData = stringData
+                        practice.analyzeData(clearStringData: clearedStringData)
+                        // print("Data Received: \(stringData)")
+                        stringData = ""
+                    }
                     NotificationCenter.default.post(name:NSNotification.Name(rawValue: "Notify"), object: nil)
                 }
             }
@@ -370,8 +377,5 @@ class bleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphera
             self.present(alertVC, animated: true, completion: nil)
         }
     }
-
-    
-
 
  }

@@ -23,7 +23,9 @@ struct Assignment: Codable {
     var patient: PatientCredential?
     var activities: [Activity]
     var timeCreated: String
-    var timeModified: String?
+    var timeModified: String
+    var exerciseID: String
+    var exercise: ExerciseData
 
     private enum CodingKeys: String, CodingKey {
         case id
@@ -41,19 +43,50 @@ struct Assignment: Codable {
         case activities
         case timeCreated = "time_created"
         case timeModified = "time_modified"
+        case exerciseID = "exercise_id"
+        case exercise
     }
 
-//    init(exercise: ExerciseData,
-//         creatorID: String,
-//         patientID: String) {
-//        self.therapistComment = exercise.exerciseName
-//        self.thresholdROM = Int(exercise.thighAngle_max)
-//        self.expectedRepetitions = 10
-//        self.creatorID = creatorID
-//        self.patientID = patientID
-//        self.activities = []
-//    }
+    // MARK: - Init
+    init(
+        id: String,
+        scores: Int?,
+        scoredDate: String?,
+        therapistComment: String,
+        thresholdROM: Int,
+        expectedDuration: Int,
+        expectedRepetitions: Int,
+        duration: Int?,
+        creatorID: String,
+        patientID: String,
+        creator: TherapistCredential?,
+        patient: PatientCredential?,
+        activities: [Activity],
+        timeCreated: String,
+        timeModified: String,
+        exerciseID: String,
+        exercise: ExerciseData
+        ) {
+        self.id = id
+        self.scores = scores
+        self.scoredDate = scoredDate
+        self.therapistComment = therapistComment
+        self.thresholdROM = thresholdROM
+        self.expectedDuration = expectedDuration
+        self.expectedRepetitions = expectedRepetitions
+        self.duration = duration
+        self.creatorID = creatorID
+        self.patientID = patientID
+        self.creator = creator
+        self.patient = patient
+        self.activities = activities
+        self.timeCreated = timeCreated
+        self.timeModified = timeModified
+        self.exerciseID = exerciseID
+        self.exercise = exercise
+    }
 
+    // MARK: - Init from Decoder
     init(from decoder: Decoder) throws {
         let container =  try decoder.container(keyedBy: CodingKeys.self)
 
@@ -69,7 +102,9 @@ struct Assignment: Codable {
         self.patient = try container.decode(PatientCredential?.self, forKey: .patient)
         self.activities = try container.decode([Activity].self, forKey: .activities)
         self.timeCreated = try container.decode(String.self, forKey: .timeCreated)
-        self.timeModified = try container.decode(String?.self, forKey: .timeModified)
+        self.timeModified = try container.decode(String.self, forKey: .timeModified)
+        self.exerciseID = try container.decode(String.self, forKey: .exerciseID)
+        self.exercise = try container.decode(ExerciseData.self, forKey: .exercise)
 
         do {
             self.expectedDuration = try container.decode(Int.self, forKey: .expectedDuration)
@@ -91,23 +126,41 @@ struct Assignment: Codable {
     }
 }
 
-//struct AssignmentPost {
-//    var therapistComment: String
-//    var thresholdROM: Int
-//    var expectedRepetitions: Int
-//    var creatorID: String
-//    var patientID: String
-//
-//    init(exercise: ExerciseData,
-//         creatorID: String,
-//         patientID: String) {
-//        self.therapistComment = exercise.exerciseName
-//        self.thresholdROM = Int(exercise.thighAngle_max)
-//        self.expectedRepetitions = 10
-//        self.creatorID = creatorID
-//        self.patientID = patientID
-//    }
-//}
+
+struct AssignmentPost: Codable {
+    var therapistComment: String
+    var thresholdROM: Int
+    var expectedRepetitions: Int
+    var expectedDuration: Int
+    var exeriseID: String
+    var exercise: ExerciseData
+    var creatorID: String
+    var patientID: String
+
+    private enum CodingKeys: String, CodingKey {
+        case therapistComment = "therapist_comment"
+        case thresholdROM = "threshold_ROM"
+        case expectedRepetitions = "expected_repetitions"
+        case expectedDuration = "expected_duration"
+        case exeriseID = "exercise_id"
+        case exercise = "exercise"
+        case creatorID = "creator_id"
+        case patientID = "patient_id"
+    }
+
+    init(exercise: ExerciseData,
+         creatorID: String,
+         patientID: String) {
+        self.therapistComment = exercise.exerciseName
+        self.thresholdROM = Int(exercise.thighAngle_max)
+        self.expectedRepetitions = 10
+        self.expectedDuration = 123
+        self.exeriseID = exercise.id!
+        self.creatorID = creatorID
+        self.patientID = patientID
+        self.exercise = exercise
+    }
+}
 
 //{
 //    "scores": "",
