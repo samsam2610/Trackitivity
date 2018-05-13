@@ -16,6 +16,8 @@
 		221E31D1204E590D00C937E6 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E31D0204E590D00C937E6 /* URLs.swift */; };
 		2220F6D71FEA13230048EA27 /* DoctorProgressViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2220F6D61FEA13230048EA27 /* DoctorProgressViewController.storyboard */; };
 		2220F6D91FEA138C0048EA27 /* DoctorProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2220F6D81FEA138C0048EA27 /* DoctorProgressViewController.swift */; };
+		2227D5B6209B93BD00D9E99E /* PlotterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2227D5B5209B93BD00D9E99E /* PlotterViewController.swift */; };
+		2227D5B8209B93DA00D9E99E /* PlotterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2227D5B7209B93DA00D9E99E /* PlotterViewController.storyboard */; };
 		222C587B203AC9A500265FFD /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C587A203AC9A500265FFD /* APIManager.swift */; };
 		222F86F51FC23F5600137AF9 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222F86F41FC23F5600137AF9 /* ProgressViewController.swift */; };
 		222F86F71FC23F8200137AF9 /* ProgressViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 222F86F61FC23F8200137AF9 /* ProgressViewController.storyboard */; };
@@ -130,6 +132,8 @@
 		221E31D0204E590D00C937E6 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		2220F6D61FEA13230048EA27 /* DoctorProgressViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DoctorProgressViewController.storyboard; sourceTree = "<group>"; };
 		2220F6D81FEA138C0048EA27 /* DoctorProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorProgressViewController.swift; sourceTree = "<group>"; };
+		2227D5B5209B93BD00D9E99E /* PlotterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlotterViewController.swift; sourceTree = "<group>"; };
+		2227D5B7209B93DA00D9E99E /* PlotterViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlotterViewController.storyboard; sourceTree = "<group>"; };
 		222C587A203AC9A500265FFD /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		222F86F41FC23F5600137AF9 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		222F86F61FC23F8200137AF9 /* ProgressViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProgressViewController.storyboard; sourceTree = "<group>"; };
@@ -266,6 +270,7 @@
 				22DC55EC1FD07E6D00F881C4 /* ProgressDetailViewController.swift */,
 				9EE4FCDC2059B30600A35A24 /* ProgressGeneralViewController.swift */,
 				222F86F41FC23F5600137AF9 /* ProgressViewController.swift */,
+				2227D5B5209B93BD00D9E99E /* PlotterViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -286,6 +291,7 @@
 				22DC55EA1FD07DFA00F881C4 /* ProgressDetailViewController.storyboard */,
 				227A5CF31FF026B400AD804A /* ProgressGeneralViewController.storyboard */,
 				222F86F61FC23F8200137AF9 /* ProgressViewController.storyboard */,
+				2227D5B7209B93DA00D9E99E /* PlotterViewController.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -465,7 +471,6 @@
 				22654B471F7398AF00FB32FA /* Resources */,
 				22661AD41F96192B006BDCA2 /* Embed Frameworks */,
 				1797973FFE2F9CB753771E53 /* [CP] Embed Pods Frameworks */,
-				0DCB5D18E817B0A4A3F961C2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -485,7 +490,6 @@
 				22654B5D1F7398AF00FB32FA /* Frameworks */,
 				22654B5E1F7398AF00FB32FA /* Resources */,
 				7181BD1C60EE1BE4F20B72AB /* [CP] Embed Pods Frameworks */,
-				7C80BF5048974CE33C12CBCE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -505,8 +509,6 @@
 				22654B671F7398AF00FB32FA /* Sources */,
 				22654B681F7398AF00FB32FA /* Frameworks */,
 				22654B691F7398AF00FB32FA /* Resources */,
-				05D3839F720C0B4ACECF6D0D /* [CP] Embed Pods Frameworks */,
-				B3E16D6C181E92EA4393A640 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -569,6 +571,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2227D5B8209B93DA00D9E99E /* PlotterViewController.storyboard in Resources */,
 				224F4D6F1FBCE99B005AF2A3 /* DoctorViewController.storyboard in Resources */,
 				224F4D731FBCED8D005AF2A3 /* ExerciseViewController.storyboard in Resources */,
 				224F4D711FBCED4D005AF2A3 /* bleViewController.storyboard in Resources */,
@@ -604,36 +607,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		05D3839F720C0B4ACECF6D0D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-M2MUITests/Pods-M2MUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		0DCB5D18E817B0A4A3F961C2 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-M2M/Pods-M2M-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		1797973FFE2F9CB753771E53 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -702,21 +675,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-M2MTests/Pods-M2MTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7C80BF5048974CE33C12CBCE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-M2MTests/Pods-M2MTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		8034FBB656C28058BBD6E50F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -733,21 +691,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B3E16D6C181E92EA4393A640 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-M2MUITests/Pods-M2MUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BE86FC81734DA778158FF1A0 /* [CP] Check Pods Manifest.lock */ = {
@@ -806,6 +749,7 @@
 				22A29BBB1FB87AD10010B0AE /* File.swift in Sources */,
 				22E9D5321FE9BBD800901B24 /* Dog+CoreDataProperties.swift in Sources */,
 				9E36F2842059C9A600D2D172 /* String+Replacement.swift in Sources */,
+				2227D5B6209B93BD00D9E99E /* PlotterViewController.swift in Sources */,
 				22E5325B208BB5C400471A85 /* RepCount.swift in Sources */,
 				22E9D5341FE9BBD800901B24 /* Walk+CoreDataProperties.swift in Sources */,
 				22D86147203D201200FE2FA6 /* ExerciseData.swift in Sources */,
