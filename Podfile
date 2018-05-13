@@ -7,6 +7,7 @@ target 'M2M' do
   	pod 'Charts', '~> 3.0.4'
 	pod 'Action'
 	pod 'RxCodable'
+	pod 'Charts'
 end
 
   # Pods for M2M

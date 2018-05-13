@@ -28,7 +28,8 @@ enum AppStoryboard: String {
     progressGeneralViewController = "ProgressGeneralViewController",
     exerciseParameterViewController = "ExerciseParameterViewController",
     addAssignmentViewController = "AddAssignmentViewController",
-    assignmentsViewController = "AssignmentsViewController"
+    assignmentsViewController = "AssignmentsViewController",
+    plotterViewController = "PlotterViewController"
 
     var instance : UIStoryboard {
 

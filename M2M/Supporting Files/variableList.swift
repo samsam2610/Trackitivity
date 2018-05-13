@@ -58,6 +58,7 @@ let doctorVC = DoctorViewController.instantiate(fromAppStoryboard: .doctorViewCo
 let doctorProgressVC = DoctorProgressViewController.instantiate(fromAppStoryboard: .doctorProgressViewController)
 let progressGeneralVC = ProgressGeneralViewController.instantiate(fromAppStoryboard: .progressGeneralViewController)
 let exerciseParameterVC = ExerciseParameterViewController.instantiate(fromAppStoryboard: .exerciseParameterViewController)
+let plotterVC = PlottterViewController.instantiate(fromAppStoryboard: .plotterViewController)
 
 
 
