@@ -1,7 +1,7 @@
 //
 //  bleViewController.swift
 //  thePrototype
-//
+//  Copyright © 2017 Trevor Beaton for Adafruit Industries
 //  Created by Tran Sam on 9/21/17.
 //  Copyright © 2017 Tran Sam. All rights reserved.
 //
