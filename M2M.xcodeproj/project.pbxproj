@@ -22,6 +22,17 @@
 		222F86F51FC23F5600137AF9 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222F86F41FC23F5600137AF9 /* ProgressViewController.swift */; };
 		222F86F71FC23F8200137AF9 /* ProgressViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 222F86F61FC23F8200137AF9 /* ProgressViewController.storyboard */; };
 		222FAF9B1F9B40DC00288FE7 /* SurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222FAF9A1F9B40DC00288FE7 /* SurveyTask.swift */; };
+		2237AA7720CF02A6006AF8AB /* UartDataExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2237AA7620CF02A6006AF8AB /* UartDataExport.swift */; };
+		2237AA7920CF0402006AF8AB /* UartPackageManagerBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2237AA7820CF0401006AF8AB /* UartPackageManagerBase.swift */; };
+		2237AA7B20CF0640006AF8AB /* LogHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2237AA7A20CF0640006AF8AB /* LogHelper.swift */; };
+		223AD4F3210266B4000CCC5D /* PeakFinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223AD4F2210266B4000CCC5D /* PeakFinding.swift */; };
+		223AD4F62102784E000CCC5D /* Threshold.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223AD4F52102784E000CCC5D /* Threshold.swift */; };
+		223AD4F821028485000CCC5D /* ultilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223AD4F721028485000CCC5D /* ultilities.swift */; };
+		223AD4FB21028803000CCC5D /* IMU.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223AD4FA21028803000CCC5D /* IMU.swift */; };
+		223AD4FD2102BFB9000CCC5D /* EMG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223AD4FC2102BFB9000CCC5D /* EMG.swift */; };
+		223AD4FF2102C421000CCC5D /* GaitEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223AD4FE2102C421000CCC5D /* GaitEvent.swift */; };
+		223AD5012102D819000CCC5D /* filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223AD5002102D819000CCC5D /* filters.swift */; };
+		223AD5042102F105000CCC5D /* DataProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223AD5032102F105000CCC5D /* DataProcess.swift */; };
 		224F4D6D1FBCE610005AF2A3 /* PracticeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224F4D6C1FBCE610005AF2A3 /* PracticeViewController.storyboard */; };
 		224F4D6F1FBCE99B005AF2A3 /* DoctorViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224F4D6E1FBCE99B005AF2A3 /* DoctorViewController.storyboard */; };
 		224F4D711FBCED4D005AF2A3 /* bleViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224F4D701FBCED4D005AF2A3 /* bleViewController.storyboard */; };
@@ -138,6 +149,17 @@
 		222F86F41FC23F5600137AF9 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		222F86F61FC23F8200137AF9 /* ProgressViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProgressViewController.storyboard; sourceTree = "<group>"; };
 		222FAF9A1F9B40DC00288FE7 /* SurveyTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyTask.swift; sourceTree = "<group>"; };
+		2237AA7620CF02A6006AF8AB /* UartDataExport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UartDataExport.swift; sourceTree = "<group>"; };
+		2237AA7820CF0401006AF8AB /* UartPackageManagerBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UartPackageManagerBase.swift; sourceTree = "<group>"; };
+		2237AA7A20CF0640006AF8AB /* LogHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogHelper.swift; sourceTree = "<group>"; };
+		223AD4F2210266B4000CCC5D /* PeakFinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeakFinding.swift; sourceTree = "<group>"; };
+		223AD4F52102784E000CCC5D /* Threshold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Threshold.swift; sourceTree = "<group>"; };
+		223AD4F721028485000CCC5D /* ultilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ultilities.swift; sourceTree = "<group>"; };
+		223AD4FA21028803000CCC5D /* IMU.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMU.swift; sourceTree = "<group>"; };
+		223AD4FC2102BFB9000CCC5D /* EMG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EMG.swift; sourceTree = "<group>"; };
+		223AD4FE2102C421000CCC5D /* GaitEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaitEvent.swift; sourceTree = "<group>"; };
+		223AD5002102D819000CCC5D /* filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filters.swift; sourceTree = "<group>"; };
+		223AD5032102F105000CCC5D /* DataProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProcess.swift; sourceTree = "<group>"; };
 		224F4D6C1FBCE610005AF2A3 /* PracticeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PracticeViewController.storyboard; sourceTree = "<group>"; };
 		224F4D6E1FBCE99B005AF2A3 /* DoctorViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DoctorViewController.storyboard; sourceTree = "<group>"; };
 		224F4D701FBCED4D005AF2A3 /* bleViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = bleViewController.storyboard; sourceTree = "<group>"; };
@@ -275,6 +297,45 @@
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
+		223AD4F121026667000CCC5D /* Algorithm  */ = {
+			isa = PBXGroup;
+			children = (
+				223AD5022102F0E8000CCC5D /* Data Process */,
+				223AD4F9210287DF000CCC5D /* Data Formats */,
+				223AD4F421027836000CCC5D /* helpers */,
+			);
+			path = "Algorithm ";
+			sourceTree = "<group>";
+		};
+		223AD4F421027836000CCC5D /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				223AD4F2210266B4000CCC5D /* PeakFinding.swift */,
+				223AD4F52102784E000CCC5D /* Threshold.swift */,
+				223AD4F721028485000CCC5D /* ultilities.swift */,
+				223AD5002102D819000CCC5D /* filters.swift */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
+		223AD4F9210287DF000CCC5D /* Data Formats */ = {
+			isa = PBXGroup;
+			children = (
+				223AD4FA21028803000CCC5D /* IMU.swift */,
+				223AD4FC2102BFB9000CCC5D /* EMG.swift */,
+				223AD4FE2102C421000CCC5D /* GaitEvent.swift */,
+			);
+			path = "Data Formats";
+			sourceTree = "<group>";
+		};
+		223AD5022102F0E8000CCC5D /* Data Process */ = {
+			isa = PBXGroup;
+			children = (
+				223AD5032102F105000CCC5D /* DataProcess.swift */,
+			);
+			path = "Data Process";
+			sourceTree = "<group>";
+		};
 		225A7CFF203CB3EC00D0978E /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,6 +397,7 @@
 		22654B4B1F7398AF00FB32FA /* M2M */ = {
 			isa = PBXGroup;
 			children = (
+				223AD4F121026667000CCC5D /* Algorithm  */,
 				22191FB81FC6191700BB5B4B /* Core Data */,
 				9EE4FCEA2059C5EB00A35A24 /* Extensions */,
 				225A7D00203CB4CE00D0978E /* Models */,
@@ -413,6 +475,9 @@
 				222FAF9A1F9B40DC00288FE7 /* SurveyTask.swift */,
 				22AE3B1C1F7884D500C27D0F /* TableViewCell.swift */,
 				2201CCB11F742BDE00736AD5 /* UUIDKey.swift */,
+				2237AA7620CF02A6006AF8AB /* UartDataExport.swift */,
+				2237AA7820CF0401006AF8AB /* UartPackageManagerBase.swift */,
+				2237AA7A20CF0640006AF8AB /* LogHelper.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -718,8 +783,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				223AD4FB21028803000CCC5D /* IMU.swift in Sources */,
 				9E36F2852059C9A600D2D172 /* UIViewController+StoryboardInstantiation.swift in Sources */,
+				223AD4F821028485000CCC5D /* ultilities.swift in Sources */,
 				9E52B6B6206C1E16004127B6 /* Defaults.swift in Sources */,
+				2237AA7920CF0402006AF8AB /* UartPackageManagerBase.swift in Sources */,
 				222F86F51FC23F5600137AF9 /* ProgressViewController.swift in Sources */,
 				9E05E6E320630FD700260C50 /* AssignmentAPIHelper.swift in Sources */,
 				22A912B91FF639830073DA87 /* PatientData.swift in Sources */,
@@ -727,7 +795,9 @@
 				22691AD520407DF1009E9AF2 /* ExerciseList.swift in Sources */,
 				2201CCB21F742BDE00736AD5 /* UUIDKey.swift in Sources */,
 				9E5EBD7D206B54C100897836 /* Therapist.swift in Sources */,
+				2237AA7B20CF0640006AF8AB /* LogHelper.swift in Sources */,
 				22DC55ED1FD07E6D00F881C4 /* ProgressDetailViewController.swift in Sources */,
+				223AD4F3210266B4000CCC5D /* PeakFinding.swift in Sources */,
 				2218BC781F7ABE7D009C7434 /* DoctorViewController.swift in Sources */,
 				22654B4F1F7398AF00FB32FA /* LoginViewController.swift in Sources */,
 				22E9D5331FE9BBD800901B24 /* Walk+CoreDataClass.swift in Sources */,
@@ -740,6 +810,8 @@
 				9E901F88207630120007649F /* ExerciseAPIHelper.swift in Sources */,
 				222C587B203AC9A500265FFD /* APIManager.swift in Sources */,
 				22D86145203D059500FE2FA6 /* Exercise.swift in Sources */,
+				223AD5012102D819000CCC5D /* filters.swift in Sources */,
+				223AD4FF2102C421000CCC5D /* GaitEvent.swift in Sources */,
 				22D86149203D32F200FE2FA6 /* Activity.swift in Sources */,
 				22654B4D1F7398AF00FB32FA /* AppDelegate.swift in Sources */,
 				9E7CD7CC205F67880045C666 /* Assignment.swift in Sources */,
@@ -755,8 +827,10 @@
 				22D86147203D201200FE2FA6 /* ExerciseData.swift in Sources */,
 				222FAF9B1F9B40DC00288FE7 /* SurveyTask.swift in Sources */,
 				9EE4FCE02059B30600A35A24 /* ExerciseParameterViewController.swift in Sources */,
+				223AD4F62102784E000CCC5D /* Threshold.swift in Sources */,
 				229909281F75DD4D0041B9FB /* KDCircularProgress.swift in Sources */,
 				22DB881A1F97724E00897D2B /* ConsentTask.swift in Sources */,
+				223AD4FD2102BFB9000CCC5D /* EMG.swift in Sources */,
 				9E01CB9B2086BD7E004641FC /* String+toDateString.swift in Sources */,
 				22D86143203D030D00FE2FA6 /* FetchDataManager.swift in Sources */,
 				22DEEA6D1FC6EB0600117FE4 /* CoreDataStack.swift in Sources */,
@@ -764,6 +838,7 @@
 				9EE4FCDF2059B30600A35A24 /* ProgressGeneralViewController.swift in Sources */,
 				2208E5331F74B98B00C74074 /* PracticeViewController.swift in Sources */,
 				22DB88121F9771C800897D2B /* ConsentDocument.swift in Sources */,
+				2237AA7720CF02A6006AF8AB /* UartDataExport.swift in Sources */,
 				9E05E6E120630D6100260C50 /* AppError.swift in Sources */,
 				9E5EBD81206B557600897836 /* AuthData.swift in Sources */,
 				9E5FE07E207E90EC003E0985 /* AssignmentsViewController.swift in Sources */,
@@ -775,6 +850,7 @@
 				22AE3B1F1F7884FE00C27D0F /* ExerciseViewController.swift in Sources */,
 				9E1694A62087382800317530 /* SelectedAssignment.swift in Sources */,
 				2201CCB01F741AC400736AD5 /* PeripheralTableViewCell.swift in Sources */,
+				223AD5042102F105000CCC5D /* DataProcess.swift in Sources */,
 				227D05581FC4E0FD00D5BFB0 /* Dog Walk.xcdatamodeld in Sources */,
 				221E31D1204E590D00C937E6 /* URLs.swift in Sources */,
 				2280B258203CAAFD00E0A348 /* APIClient.swift in Sources */,

@@ -21,13 +21,12 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
     @IBOutlet weak var dataLabel: UILabel?
     @IBOutlet weak var smallRing: KDCircularProgress?
     @IBOutlet weak var bigRing: KDCircularProgress?
-    
     @IBOutlet weak var ROMLabel: UILabel?
     @IBOutlet weak var exerciseName: UILabel!
     @IBOutlet weak var exerciseWarning: UILabel?
     
-    
-    
+    // Export
+    fileprivate static let kExportFormats: [ExportFormat] = [.txt, .csv]
     
     //Data
     var peripheralManager: CBPeripheralManager?
@@ -45,6 +44,15 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
     var bodyJoints = [String:BodyJoint]()
     var managedContext: NSManagedObjectContext!
     var currentDog: Dog?
+    internal var packetsSemaphore = DispatchSemaphore(value: 1)
+    fileprivate var originTimestamp: CFAbsoluteTime!
+    var packetData = UartData.sharedInstance
+    
+    enum ExportFormat: String {
+        case txt = "txt"
+        case csv = "csv"
+    }
+    
 
     //Exercise:
     let exercise = SelectedExercise.manager.getSelectedExercise()
@@ -65,6 +73,8 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
         self.exerciseWarning?.numberOfLines = 3
         self.exerciseName.text = selectedExercise
         self.startWorkout()
+        
+        originTimestamp = CFAbsoluteTimeGetCurrent()
         //Create and start the peripheral manager
         peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
         //-Notification for updating the text view with incoming text
@@ -156,66 +166,20 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "Notify"), object: nil , queue: nil){
             notification in
             self.updateData()
+            
         }
     }
     
-//    func analyzeData (clearedStringData: String) {
-//        let dataCache = self.checkString(String: clearedStringData)
-//        Second = dataCache.angleKnee
-//        thighAngle = round(acos(abs(dataCache.angleThigh)/10)*57.2958)
-//        print("Thigh angle is \(thighAngle)")
-//        guard dataCache.Time > 0 else {
-//            return
-//        }
-//
-//        guard let unwrappedExercise = exercise, thighAngle > Double(unwrappedExercise.thighAngle_min) && thighAngle < Double(unwrappedExercise.thighAngle_max) && thighAngle != 361 else {
-//            return
-//        }
-//
-//        let diff = Second - First
-//        if abs(diff) > 3 {
-//            dAfter = diff
-//        }
-//
-//        if Second > First {
-//            currentMax = Second
-//        } else if Second < First {
-//            currentMin = Second
-//        }
-//
-//        if dAfter*dBefore < 0 {
-//            if dAfter < 0 {
-//                Max = currentMax
-//            } else if dAfter > 0 {
-//                Min = currentMin
-//            }
-//        }
-//
-//        if First != Second {
-//            First  = Second
-//            dBefore = dAfter
-//        }
-//
-//        guard abs(Max) > 0 && abs(Min) > 0 else { return }
-//        let ROM: Double = abs(Max - Min)
-//        print("cMax \(Max), cMin \(Min), cDiff \(ROM), cVal \(Second), cCount \(currentCount)")
-//        if ROM > targetROM && ROM < 180 {
-//            currentCount += 1
-//            currentROM = ROM
-//            print("YOOO - cMax \(Max), cMin \(Min), cDiff \(ROM), cVal \(Second), cCount \(currentCount)")
-//            avgROM = (avgROM + ROM)/(currentCount)
-//            if Max > sessionMax { sessionMax = Max}
-//            if Min < sessionMin { sessionMin = Min}
-//            Max = 0
-//            Min = 0
-//        }
-//
-//    }
-    
     func analyzeData (clearStringData: String) {
+        let uartPacket = UartPacket(string: clearStringData)
+        let queue = DispatchQueue(label: "MyArrayQueue", attributes: .concurrent)
+        queue.async(flags: .barrier) {
+            self.packetData.append(uartPacket)
+        }
+        print(packetData)
         let numberOfElement = 8
         let data = self.checkString(String: clearStringData, numberOfElement: numberOfElement)
-        print(clearStringData)
+        
 
         thighAngle = abs(data[6])
         legPosition = abs(data[5])
@@ -266,6 +230,7 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
         toggleButton.backgroundColor = UIColor.init(red: 26/255, green: 188/255, blue: 156/255, alpha: 1)
         toggleButton.setTitle("CONTINUE", for: UIControlState.normal)
         duration += now.timeIntervalSince(startDate)//
+        print(packetData)
     }
     
     @objc func updateTime() {
@@ -280,9 +245,6 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
     
     func updateData() {
         var str: String?
-//        currentROM = tempData[1]
-//        currentCount = tempData[0]
-        print(currentCount)
         DispatchQueue.main.async {
             self.dataLabel?.text = "\(currentCount) counts"
             self.ROMLabel?.text = "\(currentROM)  \(legPosition)"
@@ -513,8 +475,8 @@ extension PracticeViewController {
         // Declare Alert
         self.stopWorkout()
         workoutActive = false
-        
-        //Add 2nd dialog message to go to survey
+
+        //Add 3rd dialog message to go to survey
         let surveyMessage = UIAlertController(title: "Survey", message: "Do you wanna answer a short survey for the exercise?", preferredStyle: .alert)
         
         //Create Yes to survey questions
@@ -535,6 +497,25 @@ extension PracticeViewController {
         surveyMessage.addAction(yesIdo)
         surveyMessage.addAction(noIdont)
         
+        //Add 2nd dialog message
+        let alertController = UIAlertController(title: "Export data", message: "Do you want to export the data as CSV", preferredStyle: .alert)
+        
+        let exportAction = UIAlertAction(title: "Export as CSV", style: .default) { [unowned self] (_) in
+            var exportObject: AnyObject?
+            exportObject = UartDataExport.packetsAsCsv(self.packetData.show()) as AnyObject
+            self.export(object: exportObject)
+
+            self.present(surveyMessage, animated: true, completion: nil)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler:{ (action) -> Void in
+            self.present(surveyMessage, animated: true, completion: nil)
+        })
+        
+        alertController.addAction(exportAction)
+        alertController.addAction(cancelAction)
+
+        
         //Add 1st dialog message
         let dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to finish the session?", preferredStyle: .alert)
         
@@ -546,7 +527,7 @@ extension PracticeViewController {
             rawData.removeAll()
             guard let unwrappedExercise = self.exercise else { return }
             self.saveScore(repetition: currentCount, avgAngle: avgROM, exerciseID: unwrappedExercise.id!, exerciseName: unwrappedExercise.exerciseName, startDate: self.startDate, endDate: self.endDate, currentDog: self.currentDog!)
-            self.present(surveyMessage, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: nil)
             //print(self.fetch())
         })
         
@@ -560,9 +541,19 @@ extension PracticeViewController {
         dialogMessage.addAction(yes)
         dialogMessage.addAction(nah)
         
-        
         // Present dialog message to user
         self.present(dialogMessage, animated: true, completion: nil)
+    }
+    
+    private func export(object: AnyObject?) {
+        if let object = object {
+            // TODO: replace randomly generated iOS filenames: https://thomasguenzel.com/blog/2015/04/16/uiactivityviewcontroller-nsdata-with-filename/
+            
+            let activityViewController = UIActivityViewController(activityItems: [object], applicationActivities: nil)
+            self.present(activityViewController, animated: true, completion: nil)
+        } else {
+            DLog("exportString with empty text")
+        }
     }
 }
 
