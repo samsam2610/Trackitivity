@@ -32,6 +32,9 @@ func thresholdFilter (eventStart: Float, eventEnd: Float,
     if eventStart > 0 &&
         eventEnd == 0 {
         outputString = "Start " + eventLabel
+    } else if eventStart == -1 &&
+        eventEnd == -1 {
+        outputString = "Contracting "
     } else if eventEnd > 0 {
         outputString = "End " + eventLabel
     }

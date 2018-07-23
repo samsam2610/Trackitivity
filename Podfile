@@ -4,10 +4,8 @@ target 'M2M' do
 	pod 'ResearchKit', '~> 1.0'
 	pod 'RxSwift',    '~> 4.0'
     	pod 'RxCocoa',    '~> 4.0'
-  	pod 'Charts', '~> 3.0.4'
 	pod 'Action'
 	pod 'RxCodable'
-	pod 'Charts'
 end
 
   # Pods for M2M

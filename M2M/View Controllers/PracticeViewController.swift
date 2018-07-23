@@ -31,10 +31,16 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
     //Data
     var peripheralManager: CBPeripheralManager?
     var peripheral: CBPeripheral!
+    
+    
     var timer: Timer?
     var startDate : Date = Date()
     var endDate : Date = Date()
     var duration : TimeInterval = 0
+    
+    var dataEMG: [Float] = []
+    var dataIMU: [Float] = []
+    
     var mean: Double?
     var pointData: [Int]?
     var trueData: [Int]?
@@ -47,6 +53,8 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
     internal var packetsSemaphore = DispatchSemaphore(value: 1)
     fileprivate var originTimestamp: CFAbsoluteTime!
     var packetData = UartData.sharedInstance
+    
+    var dataProcess = DataProcess.manager
     
     enum ExportFormat: String {
         case txt = "txt"
@@ -71,8 +79,14 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
         self.dataLabel?.text = "\(String(0)) counts"
         self.exerciseWarning?.lineBreakMode = .byWordWrapping // notice the 'b' instead of 'B'
         self.exerciseWarning?.numberOfLines = 3
-        self.exerciseName.text = selectedExercise
+        let defaultExerciseName: String
+        
+        guard exercise?.exerciseName != nil else { return defaultExerciseName = "Default" }
+        defaultExerciseName = (exercise?.exerciseName)!
+        
+        self.exerciseName.text = defaultExerciseName
         self.startWorkout()
+        
         
         originTimestamp = CFAbsoluteTimeGetCurrent()
         //Create and start the peripheral manager
@@ -176,37 +190,53 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
         queue.async(flags: .barrier) {
             self.packetData.append(uartPacket)
         }
-        print(packetData)
-        let numberOfElement = 8
+        let numberOfElement = 19
         let data = self.checkString(String: clearStringData, numberOfElement: numberOfElement)
         
+        guard data != nil else { return print("hello")}
+        
+        self.dataEMG = Array(data![16...18])
+        self.dataIMU = Array(data![0...6])
+        timeDuration = data![18]
+        
+        self.dataProcess.add(self.dataIMU, self.dataEMG, timeDuration)
+        (_, contractHamstring) = self.dataProcess.getHamstring()
+        
+        (_, contractQuadriceps) = self.dataProcess.getQuadriceps()
+        
+//        if contractHamstring == "Contracting Hamstring" && contractQuadriceps == "Contracting Quadriceps" {
+//            self.view.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+//        } else {
+//            self.view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+//        }
+        
+//        thighAngle = abs(data[6])
+//        legPosition = abs(data[5])
+//        guard thighAngle > thighMinAngle!
+//            && thighAngle < thighMaxAngle!
+//            && thighAngle != 361 else { return }
 
-        thighAngle = abs(data[6])
-        legPosition = abs(data[5])
-        guard thighAngle > thighMinAngle!
-            && thighAngle < thighMaxAngle!
-            && thighAngle != 361 else { return }
-
-        let IMUData = Array(data[0...3])
-        let time_interval = Int(data.last!)
-                var cycle_count: [Double]
-        var ROM: [Double]
-        (cycle_count, ROM) = RepCount.manager.run_2(IMUData, time_interval)
-        currentCount = cycle_count.max()!
-        if ROM.max()! != 0 {
-            currentROM = ROM.max()!
-        }
+//        let IMUData = Array(data[0...3])
+//        let time_interval = Int(data.last!)
+//                var cycle_count: [Double]
+//        var ROM: [Double]
+//        (cycle_count, ROM) = RepCount.manager.run_2(IMUData, time_interval)
+//        currentCount = cycle_count.max()!
+//        if ROM.max()! != 0 {
+//            currentROM = ROM.max()!
+//        }
         //tempData[2] = thighAngle
-        self.updateData()
+       self.updateData()
 
     }
     
-    func checkString (String: String, numberOfElement: Int) -> [Double]{
-        let dumbOutput: Array<Double> = Array(repeating: 0, count: numberOfElement)
-        let StringRecorded = String.components(separatedBy: ",").compactMap { Double($0.trimmingCharacters(in: .whitespaces)) }        
+    
+    func checkString (String: String, numberOfElement: Int) -> [Float]?{
+//        let dumbOutput: Array<Float> = Array(repeating: 0, count: numberOfElement)
+        let StringRecorded = String.components(separatedBy: ",").compactMap { Float($0.trimmingCharacters(in: .whitespaces)) }
         guard StringRecorded.count == numberOfElement
         else {
-            return dumbOutput
+            return nil
         }
         return StringRecorded
     }
@@ -227,7 +257,7 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
         
         
         //pause timer
-        toggleButton.backgroundColor = UIColor.init(red: 26/255, green: 188/255, blue: 156/255, alpha: 1)
+        toggleButton.backgroundColor = #colorLiteral(red: 0.1843137255, green: 0.4666666667, blue: 0.7098039216, alpha: 1)
         toggleButton.setTitle("CONTINUE", for: UIControlState.normal)
         duration += now.timeIntervalSince(startDate)//
         print(packetData)
@@ -248,19 +278,24 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
         DispatchQueue.main.async {
             self.dataLabel?.text = "\(currentCount) counts"
             self.ROMLabel?.text = "\(currentROM)  \(legPosition)"
-            guard thighAngle != 361 else {
-                return
-            }
-            if thighAngle > thighMaxAngle! {
-                str = "Your thigh angle is \(thighAngle). \nPlease sit down"
+            
+//            if thighAngle > thighMaxAngle! {
+//                str = "Your thigh angle is \(thighAngle). \nPlease sit down"
+//                self.exerciseWarning?.textColor = UIColor.init(red: 231/255, green: 76/255, blue: 60/255, alpha: 1)
+//            } else if thighAngle < thighMinAngle! {
+//                str = "Your thigh angle is \(thighAngle). \nPlease stand up"
+//                self.exerciseWarning?.textColor = UIColor.init(red: 231/255, green: 76/255, blue: 60/255, alpha: 1)
+//            } else {
+//                str = "Keep going! You can do it!"
+//                self.exerciseWarning?.textColor = UIColor.init(red: 26/255, green: 188/255, blue: 156/255, alpha: 1)
+//            }
+            
+            if contractHamstring == "Contracting Hamstring" &&
+                contractQuadriceps == "Contracting Quadriceps" {
+                str = "You are co-contracting"
                 self.exerciseWarning?.textColor = UIColor.init(red: 231/255, green: 76/255, blue: 60/255, alpha: 1)
-            } else if thighAngle < thighMinAngle! {
-                str = "Your thigh angle is \(thighAngle). \nPlease stand up"
-                self.exerciseWarning?.textColor = UIColor.init(red: 231/255, green: 76/255, blue: 60/255, alpha: 1)
-            } else {
-                str = "Keep going! You can do it!"
-                self.exerciseWarning?.textColor = UIColor.init(red: 26/255, green: 188/255, blue: 156/255, alpha: 1)
             }
+
             self.exerciseWarning?.text = str
             
             let elapsedTime = Double(totalTime)

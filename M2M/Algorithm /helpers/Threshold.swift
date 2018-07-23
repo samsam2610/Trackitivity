@@ -47,6 +47,9 @@ class Threshold {
             && (started)
             && (!ended) {
             currentDuration = currentTime - startingTime
+            returnStarting = -1
+            returnEnding = -1
+            returnDuration = -1
         } else if currentValue < thresholdValue
             && (started)
             && (!ended) {

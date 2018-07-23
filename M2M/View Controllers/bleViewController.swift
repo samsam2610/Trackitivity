@@ -275,7 +275,7 @@ class bleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphera
             if characteristic == rxCharacteristic {
                 if let ASCIIstring = NSString(data: characteristic.value!, encoding: String.Encoding.utf8.rawValue) {
                     characteristicASCIIValue = ASCIIstring
-                    print(characteristicASCIIValue)
+//                    print(characteristicASCIIValue)
                     if characteristicASCIIValue.contains("s".lowercased()) && stringData.isEmpty {
                         stringData = ""
                         stringData = (characteristicASCIIValue as String)
@@ -286,7 +286,6 @@ class bleViewController: UIViewController, CBCentralManagerDelegate, CBPeriphera
                     }
 
                     if stringData.contains("s".lowercased()) && stringData.contains("e".lowercased()) {
-                        print("Data Received: \(stringData)")
                         stringData = String(stringData.characters.filter { String($0).rangeOfCharacter(from: CharacterSet(charactersIn: "0123456789-.,")) != nil })
                         clearedStringData = stringData
                         practice.analyzeData(clearStringData: clearedStringData)

@@ -37,6 +37,10 @@ var thighMinAngle: Double?
 var thighAngle: Double = 361
 var legPosition: Double = 0
 
+var timeDuration: Float = 0
+var contractHamstring: String = "None"
+var contractQuadriceps: String = "None"
+
 let exercise = ["Sitting Supported Knee Bends","Standing Knee Bends"]
 let exerciseID = ["SSKB","SKB"]
 let descrip = ["While sitting at your bedside or in a chair with your thigh supported, place your foot behind the heel of your operated knee for support. Slowly bend your knee as far as you can. Hold your knee in this position for 5 to 10 seconds.","Standing erect with the aid of a walker or crutches, lift your thigh and bend your knee as much as you can. Hold for 5 to 10 seconds. Then straighten your knee, touching the floor with your heel first."]

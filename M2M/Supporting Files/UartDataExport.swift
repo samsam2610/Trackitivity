@@ -9,21 +9,7 @@
 import Foundation
 
 class UartDataExport {
-    
-    // MARK: - Export formatters
-//    static func packetsAsText(_ packets: [UartPacket]) -> String? {
-//        // Compile all data
-//        var data = Data()
-//        for packet in packets {
-//            data.append(packet.string)
-//        }
-//        
-//        var text: String?
-//        text = String(data:data, encoding: .utf8)
-//        
-//        return text
-//    }
-    
+        
     static func packetsAsCsv(_ packets: [UartPacket]) -> String? {
         var text = "Timestamp,Data\r\n"        // csv Header
         

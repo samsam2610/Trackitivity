@@ -17,7 +17,7 @@ class DataProcess {
     var queueEMG = EMG(maxSize: 50, specialValue: 0)
     var gaitEvent = GaitEvent(maxSize: 50, specialValue: 0, thresholdGyro: -0.5, thresholdAccel: -6.5, thresholdHamstring: 0.4, thresholdQuadriceps: 0.4, contractThresholdHamstring: 0.45, contractThresholdQuadriceps: 0.45)
     
-    func add(dataIMU: [Float], dataEMG: [Float], time: Float) {
+    func add( _ dataIMU: [Float], _ dataEMG: [Float], _ time: Float) {
         queueIMU.add(data: dataIMU, time)
         queueEMG.add(data: dataEMG, time)
         
@@ -53,6 +53,10 @@ class DataProcess {
     
     func getQuadriceps() -> (String, String) {
         return (gaitEvent.outputPeakQuadriceps, gaitEvent.outputContractQuadriceps)
+    }
+    
+    func resetMax() {
+        queueEMG.resetMax()
     }
     
 }
