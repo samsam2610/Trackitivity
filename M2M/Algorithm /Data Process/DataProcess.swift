@@ -13,7 +13,7 @@ class DataProcess {
     private init () {}
     static let manager = DataProcess()
     
-    var queueIMU = IMU(order: 1, maxSize: 50, specialValue: 0)
+    var queueIMU = IMU(order: 0, maxSize: 50, specialValue: 0)
     var queueEMG = EMG(maxSize: 50, specialValue: 0)
     var gaitEvent = GaitEvent(maxSize: 50, specialValue: 0, thresholdGyro: -0.5, thresholdAccel: -6.5, thresholdHamstring: 0.4, thresholdQuadriceps: 0.4, contractThresholdHamstring: 0.45, contractThresholdQuadriceps: 0.45)
     

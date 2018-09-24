@@ -161,7 +161,7 @@ class GaitEvent {
         contractQuadriceps.add(value: quadriceps.last!, time: time.last!)
         let contractStart: Float
         let contractEnd: Float
-        (_ , contractStart, contractEnd) = contractHamstring.check()
+        (_ , contractStart, contractEnd) = contractQuadriceps.check()
         outputContractQuadriceps = thresholdFilter(eventStart: contractStart, eventEnd: contractEnd, eventLabel: "Quadriceps")
         
     }

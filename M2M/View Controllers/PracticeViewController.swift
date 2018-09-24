@@ -190,42 +190,21 @@ class PracticeViewController: UIViewController, CBPeripheralManagerDelegate, ORK
         queue.async(flags: .barrier) {
             self.packetData.append(uartPacket)
         }
-        let numberOfElement = 19
+        let numberOfElement = 20
         let data = self.checkString(String: clearStringData, numberOfElement: numberOfElement)
         
         guard data != nil else { return print("hello")}
-        
-        self.dataEMG = Array(data![16...18])
-        self.dataIMU = Array(data![0...6])
+        print(data!)
+        self.dataEMG = Array(data![16...17])
+        self.dataIMU = Array(data![4...9])
         timeDuration = data![18]
+        
         
         self.dataProcess.add(self.dataIMU, self.dataEMG, timeDuration)
         (_, contractHamstring) = self.dataProcess.getHamstring()
         
         (_, contractQuadriceps) = self.dataProcess.getQuadriceps()
         
-//        if contractHamstring == "Contracting Hamstring" && contractQuadriceps == "Contracting Quadriceps" {
-//            self.view.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
-//        } else {
-//            self.view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-//        }
-        
-//        thighAngle = abs(data[6])
-//        legPosition = abs(data[5])
-//        guard thighAngle > thighMinAngle!
-//            && thighAngle < thighMaxAngle!
-//            && thighAngle != 361 else { return }
-
-//        let IMUData = Array(data[0...3])
-//        let time_interval = Int(data.last!)
-//                var cycle_count: [Double]
-//        var ROM: [Double]
-//        (cycle_count, ROM) = RepCount.manager.run_2(IMUData, time_interval)
-//        currentCount = cycle_count.max()!
-//        if ROM.max()! != 0 {
-//            currentROM = ROM.max()!
-//        }
-        //tempData[2] = thighAngle
        self.updateData()
 
     }
